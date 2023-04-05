@@ -1,0 +1,18 @@
+body.dark-mode {
+    --background-color: #000000; /* dark mode background color */
+    --text-color: white; /* dark mode text color */
+}
+  
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+ }
+ .profile-photo {
+    border-radius: 10px;
+    transform: translateX(100%);
+    transition: transform 1s ease-out;
+}
+
+.profile-photo.loaded {
+    transform: translateX(0);
+}
