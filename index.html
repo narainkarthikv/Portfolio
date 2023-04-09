@@ -3,11 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Narain Karthik Portfolio</title>
+    <title>NarainKarthik's Portfolio</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- Favicon -->
     <link href="favicon.ico" rel="icon">
-
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
@@ -23,14 +22,20 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- Dark Mode -->
     <link rel="stylesheet" href="./scss/darkmode.css">
-
+    <title>Portfolio Intro</title>
+	<link rel="stylesheet" href="/scss/darkmode.css">
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <!-- Intro Animation -->
+    <div class="intro-animation">
+        <img src="/img/NARAIN KARTHIK V.gif" alt="Intro Animation" height="200px" width="200px" class="intro-animation">
+    </div>
+    
     <!-- Navbar Start -->
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light navbar-dark py-3 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand ml-lg-3">
-            <h1 class="m-0 display-5"><span class="text-primary"><img src="img/favicon.png" alt="logo.png" height="120px" width="120px"></h1>
+            <h1 class="m-0 display-5"><span class="text-primary"><img src="img/favicon.png" alt="logo.png" height="100px" width="100px"></h1>
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -41,18 +46,19 @@
                 <a href="#about" class="nav-item nav-link">About</a>
                 <a href="#qualification" class="nav-item nav-link">Quality</a>
                 <a href="#skill" class="nav-item nav-link">Skill</a>
-                <!-- <a href="#service" class="nav-item nav-link">Service</a> -->
                 <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
-                <!-- <a href="#testimonial" class="nav-item nav-link">Review</a> -->
-                <!-- <a href="#blog" class="nav-item nav-link">Blog</a> -->
                 <a href="#contact" class="nav-item nav-link">Contact</a>
             </div>
-            <button class="btn btn-outline-primary d-none d-lg-block" id="toggle-mode">Dark Mode</button>
+            <!-- <input type="checkbox" id="toggle" class="toggle--checkbox"> -->
+            <input type="checkbox" name="checkbox" class="switch" class="wrapper" id="toggle">
+            <label for="toggle" class="toggle--label">
+                <span class="toggle--label-background"></span>
+            </label>
+            <div class="background"></div>
         </div>
     </nav>
     <!-- Navbar End -->
-
-
+    
     <!-- Video Modal Start -->
     <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -70,7 +76,6 @@
         </div>
     </div>
     <!-- Video Modal End -->
-
 
     <!-- Header Start -->
     <div class="container-fluid bg-primary d-flex align-items-center mb-5 py-5" id="home" style="min-height: 100vh;">
@@ -92,7 +97,6 @@
         </div>
     </div>
     <!-- Header End -->
-
 
     <!-- About Start -->
     <div class="container-fluid py-5" id="about">
@@ -125,7 +129,6 @@
         </div>
     </div>
     <!-- About End -->
-
 
     <!-- Qualification Start -->
     <div class="container-fluid py-5" id="qualification">
@@ -185,7 +188,6 @@
         </div>
     </div>
     <!-- Qualification End -->
-
 
     <!-- Skill Start -->
     <div class="container-fluid py-5" id="skill">
@@ -294,69 +296,6 @@
     </div>
     <!-- Skill End -->
 
-
-    <!-- Services Start -->
-    <!-- <div class="container-fluid pt-5" id="service">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Service</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Services</h1>
-            </div>
-            <div class="row pb-3">
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-laptop service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Web Design</h4>
-                    </div>
-                    <p>Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore eirmod erat clita</p>
-                    <a class="border-bottom border-primary text-decoration-none" href="">Read More</a>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-laptop-code service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Web Development</h4>
-                    </div>
-                    <p>Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore eirmod erat clita</p>
-                    <a class="border-bottom border-primary text-decoration-none" href="">Read More</a>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fab fa-2x fa-android service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Apps Design</h4>
-                    </div>
-                    <p>Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore eirmod erat clita</p>
-                    <a class="border-bottom border-primary text-decoration-none" href="">Read More</a>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fab fa-2x fa-apple service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Apps Development</h4>
-                    </div>
-                    <p>Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore eirmod erat clita</p>
-                    <a class="border-bottom border-primary text-decoration-none" href="">Read More</a>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-search service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">SEO</h4>
-                    </div>
-                    <p>Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore eirmod erat clita</p>
-                    <a class="border-bottom border-primary text-decoration-none" href="">Read More</a>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-edit service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Content Creating</h4>
-                    </div>
-                    <p>Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore eirmod erat clita</p>
-                    <a class="border-bottom border-primary text-decoration-none" href="">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Services End -->
-
-
     <!-- Portfolio Start -->
     <div class="container-fluid pt-5 pb-3" id="portfolio">
         <div class="container">
@@ -439,93 +378,6 @@
     </div>
     <!-- Portfolio End -->
 
-
-    <!-- Testimonial Start -->
-    <!-- <div class="container-fluid py-5" id="testimonial">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Review</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Clients Say</h1>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="owl-carousel testimonial-carousel">
-                        <div class="text-center">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-light mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</h4>
-                            <img class="img-fluid rounded-circle mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
-                            <h5 class="font-weight-bold m-0">Client Name</h5>
-                            <span>Profession</span>
-                        </div>
-                        <div class="text-center">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-light mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</h4>
-                            <img class="img-fluid rounded-circle mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
-                            <h5 class="font-weight-bold m-0">Client Name</h5>
-                            <span>Profession</span>
-                        </div>
-                        <div class="text-center">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-light mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</h4>
-                            <img class="img-fluid rounded-circle mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
-                            <h5 class="font-weight-bold m-0">Client Name</h5>
-                            <span>Profession</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Testimonial End -->
-
-
-    <!-- Blog Start -->
-    <!-- <div class="container-fluid pt-5" id="blog">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Blog</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Latest Blog</h1>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 mb-5">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="img/blog-1.jpg" alt="">
-                        <div class="blog-date">
-                            <h4 class="font-weight-bold mb-n1">01</h4>
-                            <small class="text-white text-uppercase">Jan</small>
-                        </div>
-                    </div>
-                    <h5 class="font-weight-medium mb-4">Rebum lorem no eos ut ipsum diam tempor sed rebum elitr ipsum</h5>
-                    <a class="btn btn-sm btn-outline-primary py-2" href="">Read More</a>
-                </div>
-                <div class="col-lg-4 mb-5">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="img/blog-2.jpg" alt="">
-                        <div class="blog-date">
-                            <h4 class="font-weight-bold mb-n1">01</h4>
-                            <small class="text-white text-uppercase">Jan</small>
-                        </div>
-                    </div>
-                    <h5 class="font-weight-medium mb-4">Rebum lorem no eos ut ipsum diam tempor sed rebum elitr ipsum</h5>
-                    <a class="btn btn-sm btn-outline-primary py-2" href="">Read More</a>
-                </div>
-                <div class="col-lg-4 mb-5">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="img/blog-3.jpg" alt="">
-                        <div class="blog-date">
-                            <h4 class="font-weight-bold mb-n1">01</h4>
-                            <small class="text-white text-uppercase">Jan</small>
-                        </div>
-                    </div>
-                    <h5 class="font-weight-medium mb-4">Rebum lorem no eos ut ipsum diam tempor sed rebum elitr ipsum</h5>
-                    <a class="btn btn-sm btn-outline-primary py-2" href="">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Blog End -->
-
-
     <!-- Contact Start -->
     <div class="container-fluid py-5" id="contact">
         <div class="container">
@@ -576,8 +428,8 @@
 
     <!-- Footer Start -->
     <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5" id="toggle-mode">
-        <div class="container text-center py-5">
-            <div class="d-flex justify-content-center mb-4">
+        <div class="container text-center py-5" id="toggle-mode">
+            <div class="d-flex justify-content-center mb-4" id="toggle-mode">
                 <!-- <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-edit"></i></a> -->
                 <a class="btn btn-light btn-social mr-2" href="https://www.github.com/narainkarthikv" target="_blank"><i class="fab fa-github"></i></a>
                 <a class="btn btn-light btn-social mr-2" href="https://www.linkedin.com/in/narainkarthik-vellingiri-58b382200/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
@@ -615,9 +467,7 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Contact Javascript File -->
-    <!-- <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script> -->
+   
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
@@ -625,14 +475,23 @@
         function toggleMode() {
         document.body.classList.toggle("dark-mode");
         }
-        document.getElementById("toggle-mode").addEventListener("click", toggleMode);
-        document.getElementById("toggle-mode").addEventListener("click", toggleMode);
-      </script>
-      <script>
-        window.addEventListener('load', function() {
-            var profilePhoto = document.querySelector('.profile-photo');
-            profilePhoto.classList.add('loaded');
-        });
+        document.getElementById("toggle").addEventListener("click", toggleMode);
+        document.getElementById("toggle").addEventListener("click", toggleMode);
     </script>
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.querySelector('.intro-animation').style.display = 'none';
+            }, 3000);
+        }
+    </script> 
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var profilePhoto = document.querySelector('.profile-photo');
+                profilePhoto.classList.add('loaded');
+            }, 8000);
+        });
+    </script>        
 </body>
 </html>
