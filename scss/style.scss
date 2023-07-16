@@ -305,7 +305,19 @@ h6,
     padding: 0;
     list-style-type: none;
 }
+
+.light-mode {
+    --background-color: #FFFFFF;
+    --text-color: #000000;
+}
+
+.dark-mode {
+    --background-color: #343a40;
+    --text-color: #FFFFFF;
+}
+
+
 :root {
     --background-color: #FFFFFF; /* light mode background color */
     --text-color: #000000; /* light mode text color */
-  }
+}

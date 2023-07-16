@@ -2,7 +2,7 @@ body.dark-mode {
     --background-color: #121212; /* dark mode background color */
     --text-color: white; /* dark mode text color */
 }
-  
+
 body {
     background-color: var(--background-color);
     color: var(--text-color);
