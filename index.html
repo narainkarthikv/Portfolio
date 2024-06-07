@@ -9,7 +9,7 @@
     <link href="favicon.ico" rel="icon">
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -22,23 +22,23 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- Dark Mode -->
     <link rel="stylesheet" href="./scss/darkmode.css">
-    <title>Portfolio Intro</title>
-	<link rel="stylesheet" href="/scss/darkmode.css">
+
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
     <!-- Intro Animation -->
-    <div class="intro-animation">
+    <div class="intro-animation container-fluid">
         <img src="NARAIN KARTHIK V.gif" alt="Intro Animation" height="200px" width="200px" class="intro-animation">
     </div>
-    
+
     <!-- Navbar Start -->
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light navbar-dark py-3 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand ml-lg-3">
-            <h1 class="m-0 display-5"><span class="text-primary dark-mode"><img src="img/favicon.png" alt="logo.png" height="100px" width="100px"></h1>
+            <h1 class="m-0 display-5"><span class="text-primary dark-mode"><img src="img/favicon.png" alt="logo.png"
+                        height="100px" width="100px"></h1>
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon bg-dark rounded py-3 px-3"></span>
         </button>
         <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
             <div class="navbar-nav m-auto py-0">
@@ -58,18 +58,20 @@
         </div>
     </nav>
     <!-- Navbar End -->
-    
+
     <!-- Video Modal Start -->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>        
+                    </button>
                     <!-- 16:9 aspect ratio -->
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
+                            allow="autoplay"></iframe>
                     </div>
                 </div>
             </div>
@@ -82,15 +84,16 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
-                    <!-- <img class="profile-photo" src="img/photo.JPG" alt=""> -->
+                    <!-- <img class="profile-photo align-items-center" src="img/profile-photo.jpg" alt="profile-photo"> -->
                 </div>
                 <div class="col-lg-7 text-center text-lg-left">
                     <h3 class="text-white font-weight-normal mb-3">I'm</h3>
-                    <h1 class="display-3 text-uppercase text-primary mb-2 dark-mode" style="-webkit-text-stroke: 2px #ffffff;">Narain Karthik</h1>
+                    <h1 class="display-3 text-uppercase text-primary mb-2 dark-mode"
+                        style="-webkit-text-stroke: 2px #ffffff;">Narain Karthik</h1>
                     <h1 class="typed-text-output d-inline font-weight-lighter text-white dark-mode"></h1>
-                    <div class="typed-text d-none">Web Designer, Web Developer, MERN Stack Developer</div>
-                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
-                        <a href="NARAIN KARTHIK V - ECE.pdf" class="btn btn-outline-light mr-5">Download CV</a>
+                    <div class="typed-text d-none font-weight-bold"> MERN Stack Developer, Web Designer, Web Developer, UI/UX Designer</div>
+                    <div class="row align-items-center justify-content-center pt-5 pl-5">
+                        <a href="NARAIN KARTHIK V - ECE.pdf" class="btn mr-5 font-weight-bold bg-dark text-white border-5 border-primary">Download CV</a>
                     </div>
                 </div>
             </div>
@@ -102,24 +105,44 @@
     <div class="container-fluid py-5" id="about">
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white dark-mode" style="-webkit-text-stroke: 1px #dee2e6;">About</h1>
+                <h1 class="display-1 text-uppercase text-white dark-mode" style="-webkit-text-stroke: 1px #dee2e6;">
+                    About</h1>
                 <h1 class="position-absolute text-uppercase text-primary dark-mode">About Me</h1>
             </div>
             <div class="row align-items-center">
-                <div class="col-lg-5 pb-4 pb-lg-0">
-                    <img class="profile-photo" src="./img/photo.JPG" alt="profile-photo">
+                <div class="col-lg-5 pb-4 pb-lg-0 row justify-content-center align-items-center">
+                    <img class="profile-photo" src="./img/profile-photo.jpg" alt="profile-photo">
                 </div>
                 <div class="col-lg-7">
-                    <h3 class="mb-4">Electronics and Communication Engineer</h3>
-                    <p>An aspirant of Bannari Amman Institute of Technology pursuing Electronics and Communication Engineering! Love to work in web development </p>
-                    <div class="row mb-3">
-                        <div class="col-sm-6 py-2"><h6><strong>Name: <span class="text-secondary">Narain Karthik V</span></strong></h6></div>
-                        <div class="col-sm-6 py-2"><h6><strong>Birthday: <span class="text-secondary">31 Dec 2002</span></h6></strong></div>
-                        <div class="col-sm-6 py-2"><h6><strong>Degree: <span class="text-secondary">Bachelors</span></h6></strong></div>
-                        <div class="col-sm-6 py-2"><h6><strong>Experience: <span class="text-secondary">Nil</span></h6></strong></div>
-                        <div class="col-sm-6 py-2"><h6><strong>Phone: <span class="text-secondary">+91 6380679044</span></h6></strong></div>
-                        <div class="col-sm-6 py-2"><h6><strong>Email: <span class="text-secondary">narainkarthik812@gmail.com</span></h6></strong></div>
-                        <div class="col-sm-6 py-2"><h6><strong>Address: <span class="text-secondary">7/7-Muniappan Koil Street,Nadur,Mettupalayam,Coimbatore</span></h6></strong></div>
+                    <h3 class="mb-4 text-center text-primary">Electronics and Communication Engineer</h3>
+                    <p class="font-weight-bold text-center">Hi! I am Narain Karthik Inspired to work in Management and aspired to work in Web Development,
+                        UI/UX Designing</p>
+                    <div class="row mb-3 text-center">
+                        <div class="col-sm-6 py-2">
+                            <p class="font-weight-bold">Name: <span>Narain Karthik V</span></p>
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <p class="font-weight-bold">Birthday: <span>31/12/2002</span></p>
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <p class="font-weight-bold">Degree: <span>Bachelors</span></p>
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <p class="font-weight-bold">Experience: <span>Fresher</span></p>
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <p class="font-weight-bold">Phone: <span>+91 6380679044</span></p>
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <p class="font-weight-bold">Email: <span>narainkarthik812@gmail.com</span></p>
+
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <p class="font-weight-bold">Location: <span>Mettupalayam, Coimbatore</span></p>
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <p class="font-weight-bold">Personal Skills: <span>Team Player, Quick Learner</span></p>
+                        </div>
                         <!-- <div class="col-sm-6 py-2"><h6>Freelance: <span class="text-secondary">Available</span></h6></div> -->
                     </div>
                     <!-- <a href="" class="btn btn-outline-primary mr-4">Hire Me</a>
@@ -134,41 +157,59 @@
     <div class="container-fluid py-5" id="qualification">
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white dark-mode" style="-webkit-text-stroke: 1px #dee2e6;">Quality</h1>
-                <h1 class="position-absolute text-uppercase text-primary dark-mode">Education & Experience</h1>
+                <h1 class="display-1 text-uppercase text-white dark-mode" style="-webkit-text-stroke: 1px #dee2e6;">
+                    Quality</h1>
+                <h1 class="position-absolute text-center text-uppercase text-primary dark-mode">Education & Experience</h1>
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h3 class="mb-4 dark-mode">My Education</h3>
+                    <h3 class="mb-4 dark-mode text-primary">Education</h3>
                     <div class="border-left border-primary pt-2 pl-4 ml-2">
                         <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Bachelors</h5>
-                            <p class="mb-2"><strong>Bannari Amman Institute of Technology</strong> | <small>2020-2024</small></p>
+                            <i class="far fa-dot-circle text-primary position-absolute"
+                                style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1 text-primary">Bachelors</h5>
+                            <p class="mb-2"><strong>Bannari Amman Institute of Technology</strong> |
+                                <small>2020-2024</small>
+                            </p>
                             <p>CGPA : 8.25</p>
                         </div>
                         <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">HSC</h5>
-                            <p class="mb-2"><strong>SVGV Matriculation Higher Secondary School</strong> | <small>2018-2020</small></p>
+                            <i class="far fa-dot-circle text-primary position-absolute"
+                                style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1 text-primary">HSC</h5>
+                            <p class="mb-2"><strong>SVGV Matriculation Higher Secondary School</strong> |
+                                <small>2018-2020</small>
+                            </p>
                             <p>Percentage : 84.17%</p>
                         </div>
                         <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">SSLC</h5>
-                            <p class="mb-2"><strong>SVGV Matriculation Higher Secondary School</strong> | <small>2017 - 2018</small></p>
+                            <i class="far fa-dot-circle text-primary position-absolute"
+                                style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1 text-primary">SSLC</h5>
+                            <p class="mb-2"><strong>SVGV Matriculation Higher Secondary School</strong> | <small>2017 -
+                                    2018</small></p>
                             <p>Percentage : 88.80% </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h3 class="mb-4 dark-mode">My Experience</h3>
+                    <h3 class="mb-4 dark-mode text-primary">Experience</h3>
                     <div class="border-left border-primary pt-2 pl-4 ml-2">
                         <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Tessolve Intern</h5>
-                            <p class="mb-2"><strong>Tessolve Semiconductors Pvt. Ltd.</strong> | <small>Aug 2022- Sept 2022</small></p>
-                            <p>Worked as an intern in Tessolve Semiconductors based on Embedded IoT and VLSI Design </p>
+                            <i class="far fa-dot-circle text-primary position-absolute"
+                                style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1 text-primary">Tessolve Intern</h5>
+                            <p class="mb-2"><strong>Tessolve Semiconductors Pvt. Ltd.</strong> | <small>Aug 2022- Sept
+                                    2022</small></p>
+                            <p>Worked as an intern in Tessolve Semiconductors on Embedded IoT and VLSI Design</p>
+                        </div>
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute"
+                                style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1 text-primary">Freelancer</h5>
+                            <p class="mb-2"><strong>Freelancer.com</strong> | <small>Apr 2024 - present</small></p>
+                            <p>Working as a Freelancer in Web Developer & UI/UX Designer</p>
                         </div>
                         <!-- <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
@@ -200,112 +241,124 @@
                 <div class="col-md-6">
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">HTML</h6>
+                            <h6 class="font-weight-bold text-primary">HTML</h6>
                             <h6 class="font-weight-bold">80%</h6>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                                aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold ">CSS</h6>
+                            <h6 class="font-weight-bold text-dark">CSS</h6>
                             <h6 class="font-weight-bold">75%</h6>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">PHP</h6>
-                            <h6 class="font-weight-bold">70%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Linux CLI</h6>
+                            <h6 class="font-weight-bold text-dark">Javascript</h6>
                             <h6 class="font-weight-bold">75%</h6>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">NodeJS</h6>
-                            <h6 class="font-weight-bold">70%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">ExpressJS</h6>
+                            <h6 class="font-weight-bold text-dark">Linux CLI</h6>
                             <h6 class="font-weight-bold">75%</h6>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold text-danger">NodeJS</h6>
+                            <h6 class="font-weight-bold">60%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold text-dark">ExpressJS</h6>
+                            <h6 class="font-weight-bold">75%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Javascript</h6>
-                            <h6 class="font-weight-bold">75%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">C</h6>
+                            <h6 class="font-weight-bold text-primary">C</h6>
                             <h6 class="font-weight-bold">90%</h6>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                                aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">C++</h6>
+                            <h6 class="font-weight-bold text-primary">C++</h6>
                             <h6 class="font-weight-bold">85%</h6>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0"
+                                aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Python</h6>
+                            <h6 class="font-weight-bold text-danger">Figma</h6>
                             <h6 class="font-weight-bold">70%</h6>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-danger role=" progressbar" aria-valuenow="70" aria-valuemin="0"
+                                aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">ReactJS</h6>
-                            <h6 class="font-weight-bold">75%</h6>
+                            <h6 class="font-weight-bold text-primary">Bootstrap</h6>
+                            <h6 class="font-weight-bold">80%</h6>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                                aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="skill mb-4">
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">MongoDB</h6>
-                            <h6 class="font-weight-bold">70%</h6>
+                            <h6 class="font-weight-bold text-primary">ReactJS</h6>
+                            <h6 class="font-weight-bold">80%</h6>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4 ">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold text-danger">MongoDB</h6>
+                            <h6 class="font-weight-bold ">70%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                                aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -324,9 +377,9 @@
             <div class="row">
                 <div class="col-12 text-center mb-2">
                     <ul class="list-inline mb-4" id="portfolio-flters">
-                        <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*">All</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Web Development</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Applications</li>
+                        <li class="btn btn-sm btn-outline-primary m-1 active font-weight-bold" data-filter="*">All</li>
+                        <li class="btn btn-sm btn-outline-primary m-1 font-weight-bold" data-filter=".first">Web Development</li>
+                        <li class="btn btn-sm btn-outline-primary m-1 font-weight-bold" data-filter=".second">Applications</li>
                     </ul>
                 </div>
             </div>
@@ -407,22 +460,26 @@
                 <div class="col-lg-8">
                     <div class="contact-form text-center">
                         <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" action="https://formsubmit.co/narainkarthik812@gmail.com" method="post">
+                        <form name="sentMessage" id="contactForm"
+                            action="https://formsubmit.co/narainkarthik812@gmail.com" method="post">
                             <div class="form-row">
                                 <div class="control-group col-sm-6">
-                                    <input name="name" type="text" class="form-control p-4" id="name" placeholder="Your Name"
-                                        required="required" data-validation-required-message="Please enter your name" />
+                                    <input name="name" type="text" class="form-control p-4" id="name"
+                                        placeholder="Your Name" required="required"
+                                        data-validation-required-message="Please enter your name" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group col-sm-6">
-                                    <input name="email" type="email" class="form-control p-4" id="email" placeholder="Your Email"
-                                        required="required" data-validation-required-message="Please enter your email" />
+                                    <input name="email" type="email" class="form-control p-4" id="email"
+                                        placeholder="Your Email" required="required"
+                                        data-validation-required-message="Please enter your email" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input name="subject" type="text" class="form-control p-4" id="subject" placeholder="Subject"
-                                    required="required" data-validation-required-message="Please enter a subject" />
+                                <input name="subject" type="text" class="form-control p-4" id="subject"
+                                    placeholder="Subject" required="required"
+                                    data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
@@ -432,7 +489,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
-                                <button class="btn btn-outline-primary" type="submit" id="sendMessageButton" >Send
+                                <button class="btn mr-5 font-weight-bold bg-dark text-white border-5" type="submit" id="sendMessageButton">Send
                                     Message</button>
                             </div>
                         </form>
@@ -449,8 +506,11 @@
         <div class="container text-center py-5" id="toggle-mode">
             <div class="d-flex justify-content-center mb-4" id="toggle-mode">
                 <!-- <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-edit"></i></a> -->
-                <a class="btn btn-light btn-social mr-2" href="https://www.github.com/narainkarthikv" target="_blank"><i class="fab fa-github"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="https://www.linkedin.com/in/narainkarthik-vellingiri-58b382200/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="https://www.github.com/narainkarthikv" target="_blank"><i
+                        class="fab fa-github"></i></a>
+                <a class="btn btn-light btn-social mr-2"
+                    href="https://www.linkedin.com/in/narainkarthik-vellingiri" target="_blank"><i
+                        class="fab fa-linkedin-in"></i></a>
                 <!-- <a class="btn btn-light btn-social" href="#"><i class="fab fa-instagram"></i></a> -->
             </div>
             <!-- <div class="d-flex justify-content-center mb-3">
@@ -462,7 +522,9 @@
                 <span class="px-3">|</span>
                 <a class="text-white" href="#">Help</a>
             </div> -->
-            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="https://www.github.com/narainkarthikv">narainkarthikv.github.io/Portfolio</a>. All Rights Reserved. Designed by <a class="text-white font-weight-bold" href="#">Narain Karthik V     </a>
+            <p class="m-0">&copy; <a class="text-white font-weight-bold"
+                    href="https://www.github.com/narainkarthikv">narainkarthikv.github.io/Portfolio</a>. All Rights
+                Reserved. Designed by <a class="text-white font-weight-bold" href="#">Narain Karthik V </a>
             </p>
         </div>
     </div>
@@ -485,36 +547,30 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
-   
+
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
         function toggleMode() {
-    const body = document.querySelector('body');
-    body.classList.toggle('dark-mode'); 
+            const body = document.querySelector('body');
+            body.classList.toggle('dark-mode');
 
-    const headElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-    headElements.forEach(element => {
-        element.classList.toggle('dark-mode'); 
-    });
-}
-    document.getElementById("toggle").addEventListener("click", toggleMode);
+            const headElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            headElements.forEach(element => {
+                element.classList.toggle('dark-mode');
+            });
+        }
+        document.getElementById("toggle").addEventListener("click", toggleMode);
     </script>
+
     <script>
-        window.onload = function() {
-            setTimeout(function() {
+        window.onload = function () {
+            setTimeout(function () {
                 document.querySelector('.intro-animation').style.display = 'none';
             }, 3000);
         }
-    </script> 
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                var profilePhoto = document.querySelector('.profile-photo');
-                profilePhoto.classList.add('loaded');
-            }, 8000);
-        });
-    </script>        
+    </script>
 </body>
+
 </html>
