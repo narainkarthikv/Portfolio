@@ -1,5 +1,3 @@
-Sure, here's a complete `README.md` file incorporating all the sections with detailed explanations and placeholders you can replace with your actual data:
-
 ```markdown
 # Narain Karthik's Portfolio
 
@@ -19,7 +17,7 @@ Welcome to my portfolio! This is a personal website showcasing my skills, experi
 
 ## Demo
 
-You can view the live demo of the portfolio [here](https://your-portfolio-link.com).
+You can view the live demo of the portfolio [here](https://narainkarthikv.github.io/Portfolio).
 
 ## Features
 
@@ -33,12 +31,8 @@ You can view the live demo of the portfolio [here](https://your-portfolio-link.c
 
 - **HTML5**
 - **CSS3**
-- **Bootstrap 4.5.2**
+- **Bootstrap**
 - **JavaScript**
-- **jQuery**
-- **Owl Carousel**
-- **Lightbox**
-- **Font Awesome**
 - **Google Fonts**
 
 ## Installation
@@ -51,7 +45,7 @@ To set up the project locally, follow these steps:
    ```
 2. Navigate to the project directory:
    ```bash
-   cd your-portfolio
+   cd Portfolio
    ```
 3. Open the `index.html` file in your preferred web browser.
 
@@ -115,12 +109,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-If you have any questions or want to reach out to me, feel free to contact me at:
-
-- **Email:** [narainkarthik812@gmail.com](mailto:narainkarthik812@gmail.com)
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/your-profile)
-
-Thank you for visiting my portfolio!
-```
-
-Make sure to replace placeholders like `https://your-portfolio-link.com`, `https://github.com/your-username/your-portfolio.git`, and `https://www.linkedin.com/in/your-profile` with the actual links relevant to your project.
+narainkarthik812@gmail.com
