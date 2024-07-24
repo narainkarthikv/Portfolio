@@ -1,112 +1,67 @@
-```markdown
-# Narain Karthik's Portfolio
+<h3 align="center">
+  🙋 Join the Community
+</h3>
 
-Welcome to my portfolio! This is a personal website showcasing my skills, experience, and projects. It's designed to provide potential employers, collaborators, and clients with a comprehensive overview of my capabilities and accomplishments.
+<p align="center">
+  <a href="https://ko-fi.com/wisdom-fox" target="_blank"><img src="https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white"></a>
+  <a href="https://www.patreon.com/user?u=72747187" target="_blank"><img src="https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white"></a>
+  <a href="https://discord.gg/cb6tqTfk" target="_blank"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"></a>
+</p>
 
-## Table of Contents
+<h3 align="left">
+  🧑‍🏫 About me
+</h3>
 
-- [Demo](#demo)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Customization](#customization)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+📖 Web Developer, UI/UX Designer, Content Creator  
+💡 Interested in Video Editing, Graphics Designing  
+🪫 Electronics Hobbyist  
+📘 Love to Read books, 🎵 Listen to Podcasts & Songs, 🎥 Watch Movies, 🎮 Play games in chilling time!
 
-## Demo
+<h3 align="left">
+  😍 My Interests 
+</h3>
 
-You can view the live demo of the portfolio [here](https://narainkarthikv.github.io/Portfolio).
+🔭 I’m currently working on Content Creation, Web Development & Design  
+🌱 Equivalently, I learn more about Linux and Electronics  
+👯 I’m looking to collaborate on Open Source Projects  
+⚡ Fun fact: Working with Linux is a lot more fun than Windows
 
-## Features
+<details>
+<summary>Need to Know More about me? 🔎</summary>
 
-- **Responsive Design:** Optimized for various devices and screen sizes.
-- **Dark Mode Toggle:** Switch between light and dark themes.
-- **Filterable Skill Set:** Easily view and filter skills by categories.
-- **Filterable Portfolio Section:** View projects by category with a lightbox gallery.
-- **Contact Form:** Simple form to reach out with inquiries or feedback.
+<h3 align="center">
+  📫 Social Profiles
+</h3>
 
-## Technologies Used
+<p align="center">
+  <a href="https://www.linkedin.com/in/narainkarthik-vellingiri/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" style="border-radius: 20px"></a>
+  <a href="https://leetcode.com/Narainkarthik31/" target="_blank"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black" style="border-radius: 20px"></a>
+  <a href="https://www.codechef.com/users/narainv" target="_blank"> <a href="https://www.geeksforgeeks.org/user/narainkarthik812/" target="_blank"><img src="https://img.shields.io/badge/GeeksforGeeks-298D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white" style="border-radius: 20px"></a>
+  <a href="https://www.codingninjas.com/studio/profile/Narainkarthikv" target="_blank"><img src="https://img.shields.io/badge/Coding%20Ninjas-DD6620?style=for-the-badge&logo=codingninjas&logoColor=white" style="border-radius: 20px"></a>
+  <a href="https://steamcommunity.com/profiles/76561199130656975/" target="_blank"><img src="https://img.shields.io/badge/Steam-000000?style=for-the-badge&logo=steam&logoColor=white" style="border-radius: 20px"></a>
+  <a href="https://open.spotify.com/user/31kjez2sc5umwskdatczxceb3xdi?si=gM0fW9oQRkuFm7W3UuCE8A&nd=1" target="_blank"><img src="https://img.shields.io/badge/Spotify-1ED760?&style=for-the-badge&logo=spotify&logoColor=white" style="border-radius: 20px"></a>
+</p>
 
-- **HTML5**
-- **CSS3**
-- **Bootstrap**
-- **JavaScript**
-- **Google Fonts**
+<h3 align="center">
+  💻 My Tech Stack
+</h3>
 
-## Installation
+<p align="center">
+  <a href="#">
+    <img src="https://skillicons.dev/icons?i=c,cpp,html,css,javascript,mongodb,express,react,nodejs,figma,bootstrap,docker,kubernetes,linux" />
+    <img src="https://skillicons.dev/icons?i=git,github,ansible,postman,notion" />
+  </a>
+</p>
 
-To set up the project locally, follow these steps:
+<h3 align="center">
+  🌟 Featured Projects
+</h3>
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/your-portfolio.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd Portfolio
-   ```
-3. Open the `index.html` file in your preferred web browser.
+<p align="center">
+  <a href="https://narainkarthikv-fit-track.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/fit-track.jpg" height="75px" width="75px" target="_blank"/></a>
+  <a href="https://narainkarthikv-sticky-memo.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/sticky-memo.png" height="75px" width="75px" target="_blank"/></a>
+  <a href="https://narainkarthikv.github.io/Nmoji"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/Nmoji.jpg" height="75px" width="75px" target="_blank"/></a>
+</p>
 
-## Usage
+</details>
 
-### Home
-- **Introduction:** A brief bio with a CV download link and a Ko-fi link for support.
-
-### About
-- **Detailed Information:** Personal information and a summary of skills.
-
-### Quality
-- **Education and Work Experience:** Background on my education and professional experience.
-
-### Skills
-- **Filterable Skills:** Technical skills categorized for easy filtering.
-
-### Portfolio
-- **Project Gallery:** A filterable gallery of projects with a lightbox view.
-
-### Contact
-- **Contact Form:** Simple form for visitors to reach out.
-
-## Customization
-
-You can customize the portfolio according to your needs by editing the HTML, CSS, and JavaScript files.
-
-- **HTML:** Structure and content are defined in `index.html`.
-- **CSS:** Styles are managed in the `css/style.css` and `scss/darkmode.css` files.
-- **JavaScript:** Interactivity and functionality are handled in the `js` folder.
-
-### Example Customizations
-1. **Changing Theme Colors:**
-   - Update the color variables in the `css/style.css` file.
-2. **Adding New Projects:**
-   - Add new project details in the `portfolio` section of `index.html`.
-
-## Contributing
-
-Contributions are welcome! If you have any suggestions or improvements, feel free to create a pull request or open an issue.
-
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature-branch
-   ```
-3. Make your changes.
-4. Commit your changes:
-   ```bash
-   git commit -m 'Add some feature'
-   ```
-5. Push to the branch:
-   ```bash
-   git push origin feature-branch
-   ```
-6. Create a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-narainkarthik812@gmail.com
