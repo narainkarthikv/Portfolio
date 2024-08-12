@@ -13,7 +13,7 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="./scss/darkmode.css">
+    <link rel="stylesheet" href="./css/darkmode.css">
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
@@ -97,15 +97,15 @@
 
     <!-- About Start -->
     <div class="container-fluid py-5" id="about">
-        <div class="container">
+        <div class="container scroll-animation"> <!--Need updation-->
             <div class="position-relative d-flex align-items-center justify-content-center mb-5">
                 <h1 class="display-1 text-uppercase text-white dark-mode" style="-webkit-text-stroke: 1px #dee2e6;">
                     About</h1>
                 <h1 class="position-absolute text-uppercase text-primary dark-mode">About Me</h1>
             </div>
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center animate__animated animate__fadeInUp"> <!--Need updation-->
                 <div class="col-lg-5 pb-4 pb-lg-0 row justify-content-center align-items-center">
-                    <img class="profile-photo" src="./img/profile-photo.jpg" alt="profile-photo">
+                    <img class="profile-photo rounded-circle shadow" src="./img/profile-photo.jpg" alt="profile-photo">
                 </div>
                 <div class="col-lg-7">
                     <h3 class="mb-4 text-center text-primary">Wisdom Fox 🦊</h3>
@@ -130,7 +130,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
     <!-- About End -->
 
     <!-- Qualification Start -->
@@ -151,7 +151,7 @@
                             <p class="mb-2"><strong>Bannari Amman Institute of Technology</strong> |
                                 <small>2020-2024</small>
                             </p>
-                            <p>CGPA : 8.18</p>
+                            <p>CGPA : 8.11</p>
                         </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute"
@@ -192,6 +192,13 @@
                             <p class="mb-2"><strong>Freelancer.com</strong> | <small>Apr 2024 - present</small></p>
                             <p>Working as a Freelancer in Web Development & UI/UX Design</p>
                         </div>
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute"
+                                style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1 text-primary">Fedora</h5>
+                            <p class="mb-2"><strong>Fedora.org</strong> | <small>Jul 2024 - present</small></p>
+                            <p>Active member of Fedora Web Development Team</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -217,7 +224,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="row skill-container px-3 justify-content-center align-items-center">
+            <div class="skill-container px-3 d-flex justify-content-center align-items-center">
 
                 <div class="skill-item programming">
                     <div class="skill-card position-relative overflow-hidden mb-2" data-toggle="tooltip" data-placement="bottom" title="C">
@@ -436,7 +443,7 @@
 
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5" id="toggle-mode">
+    <div class="container-fluid bg-primary text-white mt-5 py-1 px-sm-1 px-md-1" id="toggle-mode">
         <div class="container text-center py-5" id="toggle-mode">
             <div class="d-flex justify-content-center mb-4" id="toggle-mode">
                 <!-- <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-edit"></i></a> -->
@@ -492,50 +499,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
-        function toggleMode() {
-            const body = document.querySelector('body');
-            body.classList.toggle('dark-mode');
-
-            const headElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-            headElements.forEach(element => {
-                element.classList.toggle('dark-mode');
-            });
-        }
-        document.getElementById("toggle").addEventListener("click", toggleMode);
-    </script>
-
-    <script>
-        window.onload = function () {
-            setTimeout(function () {
-                document.querySelector('.intro-animation').style.display = 'none';
-            }, 3000);
-        }
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            // Initialize Isotope for skill filtering
-            var $grid = $('.skill-container').isotope({
-                itemSelector: '.skill-item',
-                layoutMode: 'fitRows'
-            });
-
-            // Filter items on button click
-            $('#skill-flters li').on('click', function () {
-                var filterValue = $(this).attr('data-filter');
-                $grid.isotope({ filter: filterValue });
-                $('#skill-flters li').removeClass('active');
-                $(this).addClass('active');
-            });
-        });
-    </script>
-
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
 </body>
 
 </html>
