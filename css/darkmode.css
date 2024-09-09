@@ -43,7 +43,6 @@ body::-webkit-scrollbar-corner {
     background-color: #333;
 }
 
-
 .intro-animation {
     width: 100%;
     height: 100%;
@@ -76,64 +75,69 @@ body::-webkit-scrollbar-corner {
     text-decoration: none;
 }
 
-/* .scroll-animation .animate__animated {
-    visibility: hidden;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
+.section-height{
+    min-height: 100vh;
 }
 
-.scroll-animation .animate__fadeInUp {
-    visibility: visible;
-    transform: translateY(0);
+.slide-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.4s ease-in-out;
+}
+
+.slide-up.active {
     opacity: 1;
-} */
+    transform: translateY(0);
+}
+
+.slide-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.8s ease-in-out;
+}
+
+.slide-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.8s ease-in-out;
+}
+
+.slide-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
 
 .skill-card {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f8f9fa;
+    background: #eee;
     border-radius: 5px;
     padding: 5px;
     width: 50px;
     height: 50px;
     margin: 10px;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease-in, box-shadow 0.3s ease-in;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in-out forwards;
+    box-shadow: 0 4px 8px rgba(0, 0, 0.3, 0.7);
 }
 
 .skill-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.2) rotate(10deg) translateY(-5px);
     background-color: var(--primary);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
 }
 
 .skill-logo {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transition: transform 0.3s ease;
 }
-
-.skill-card:hover .skill-logo {
-    transform: rotate(10deg);
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 
 .switch {
     position: relative;

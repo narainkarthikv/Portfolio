@@ -79,8 +79,8 @@
     });
 
     // Filter portfolio items on button click
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('active');
+    $('#portfolio-filters li').on('click', function () {
+        $("#portfolio-filters li").removeClass('active');
         $(this).addClass('active');
 
         portfolioIsotope.isotope({ filter: $(this).data('filter') });
@@ -138,31 +138,30 @@ $(document).ready(function () {
     });
 
     // Filter skill items on button click
-    $('#skill-flters li').on('click', function () {
+    $('#skill-filters li').on('click', function () {
         var filterValue = $(this).attr('data-filter');
         $grid.isotope({ filter: filterValue });
-        $('#skill-flters li').removeClass('active');
+        $('#skill-filters li').removeClass('active');
         $(this).addClass('active');
     });
 
-    // Initialize tooltips
+
     $('[data-toggle="tooltip"]').tooltip();
 });
 
-// Scroll-based animation for the 'About' section
-document.addEventListener("DOMContentLoaded", function () {
-    const aboutSection = document.querySelector('.scroll-animation');
+document.addEventListener("scroll", function() {
+    var elements = document.querySelectorAll(".slide-up, .slide-left, .slide-right");
+    var windowHeight = window.innerHeight;
 
-    function revealSection() {
-        const sectionPos = aboutSection.getBoundingClientRect().top;
-        const screenPos = window.innerHeight / 1.3;
+    elements.forEach(function(element) {
+        var elementTop = element.getBoundingClientRect().top;
+        var elementBottom = element.getBoundingClientRect().bottom;
 
-        // Add animation class when the section is in view
-        if (sectionPos < screenPos) {
-            aboutSection.classList.add('animate__fadeInUp');
+        if (elementTop < windowHeight && elementBottom > 0) {
+            element.classList.add("active");
+        } else {
+            element.classList.remove("active");  
         }
-    }
-
-    // Listen for scroll events to trigger the animation
-    window.addEventListener('scroll', revealSection);
+    });
 });
+
