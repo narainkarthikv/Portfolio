@@ -163,5 +163,6 @@ document.addEventListener("scroll", function() {
             element.classList.remove("active");  
         }
     });
+    
+    AOS.init();
 });
-
