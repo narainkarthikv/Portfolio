@@ -119,38 +119,85 @@ body::-webkit-scrollbar-corner {
     opacity: 1;
 }
 
-.skill-container{
+.skill-container {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.skill-progress {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    transition: background 0.3s ease-in-out;
+    box-sizing: border-box;
+}
+
+.skill-progress::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+.skill-item{
+    margin: 10px;
 }
 
 .skill-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #eee;
-    border-radius: 5px;
-    padding: 5px;
     width: 50px;
     height: 50px;
-    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: conic-gradient(
+        var(--teal) calc(var(--progress) * 1%),
+        transparent 0%
+    );
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease-in, box-shadow 0.3s ease-in;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0.3, 0.7);
 }
 
-.skill-card:hover {
-    transform: scale(1.2) rotate(10deg) translateY(-5px);
-    background-color: var(--primary);
+.skill-card.dark-mode {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: conic-gradient(
+        var(--teal) calc(var(--progress) * 1%),
+        transparent 0%
+    );
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease-in, box-shadow 0.3s ease-in;
+    cursor: pointer;
+}
+
+.skill-progress:hover .skill-card {
+    transform: scale(1.2) rotate(5deg) translateY(-5px);
+    background-color: var(--teal);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
 }
 
+/* Dynamically set progress */
+.skill-progress[data-progress] {
+    --progress: attr(data-progress percentage, 0);
+}
+
 .skill-logo {
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 60%;
     object-fit: contain;
 }
+
 
 .switch {
     position: relative;

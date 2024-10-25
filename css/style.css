@@ -11,10 +11,10 @@
   --purple: #6f42c1;
   --pink: #e83e8c;
   --red: #dc3545;
-  --orange: #fd7e14;
+  --orange: #FFD3A3;
   --yellow: #ffc107;
   --green: #28a745;
-  --teal: #20c997;
+  --teal: #4CA3A2;
   --cyan: #17a2b8;
   --white: #fff;
   --gray: #6c757d;
@@ -27,6 +27,7 @@
   --danger: #dc3545;
   --light: #ffffff;
   --dark: #343a40;
+  --progress-color: #3498db;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
