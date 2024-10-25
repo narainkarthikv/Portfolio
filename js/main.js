@@ -166,3 +166,8 @@ document.addEventListener("scroll", function() {
     
     AOS.init();
 });
+
+document.querySelectorAll('.skill-progress').forEach(skill => {
+    const progress = skill.getAttribute('data-progress');
+    skill.style.setProperty('--progress', progress);
+});
