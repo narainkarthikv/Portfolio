@@ -58,7 +58,7 @@
     <img src="https://skillicons.dev/icons?i=c,cpp,html,css,javascript,mongodb,express,react,nodejs,figma,bootstrap,materialui," />
   </a>
   <a href="#">
-    <img src="https://skillicons.dev/icons?i=git,github,gitlab,ansible,postman,notion,linux,docker,kubernetes,githubactions" />
+    <img src="https://skillicons.dev/icons?i=git,github,gitlab,ansible,postman,notion,linux,docker,kubernetes,githubactions,wordpress" />
   </a>
 </p>
 
