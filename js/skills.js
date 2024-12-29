@@ -1,4 +1,3 @@
-// Skill data
 const skills = [
     { name: "Ansible", category: "tools", progress: 10, icon: "img/icons/ansible-icon.png" },
     { name: "Bootstrap", category: "frontend", progress: 70, icon: "img/icons/bootstrap-icon.png" },
@@ -30,6 +29,8 @@ const skills = [
     { name: "Notion", category: "tools", progress: 80, icon: "img/icons/notion-icon.png" },
     { name: "Postman API", category: "tools", progress: 40, icon: "img/icons/postman-icon.png" },
     { name: "ReactJS", category: "frontend", progress: 70, icon: "img/icons/react-icon.png" },
+    { name: "RecoilJS", category: "frontend", progress: 30, icon: "img/icons/recoil-icon.png" },
+    { name: "Redux", category: "frontend", progress: 30, icon: "img/icons/redux-icon.png" },
     { name: "WordPress", category: "tools", progress: 40, icon: "img/icons/wordpress-icon.png" },
   ];
   
