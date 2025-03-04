@@ -1,0 +1,438 @@
+{
+  "analyticsCode": "",
+  "basics": {
+    "name": "Narain Karthik",
+    "label": "Software developer",
+    "animated_main_label": "developer",
+    "animated_secondary_initial_label": "software",
+    "animated_secondary_final_label": "front_end",
+    "image": "/pfp.webp",
+    "email": "narainkarthik812@gmail.com",
+    "url": "https://www.linkedin.com/in/narainkarthik-vellingiri/",
+    "summary": "Front-end developer, at the moment. I work on MERN Stack with Javascript / HTML5. Currently learning about Back-end Development, Cloud Computing and DevOps.",
+    "theme": "blue",
+    "location": {
+      "city": "Coimbatore",
+      "countryCode": "IN",
+      "region": "India"
+    },
+    "profiles": [
+      {
+        "network": "X / Twitter",
+        "icon": "ri:twitter-fill",
+        "color": "#1DA1F2",
+        "username": "narainkarthik31",
+        "url": "https://x.com/narainkarthikv"
+      },
+      {
+        "network": "LinkedIn",
+        "icon": "ri:linkedin-fill",
+        "color": "#0066C2",
+        "username": "Narain Karthik",
+        "url": "https://www.linkedin.com/in/narainkarthik-vellingiri/"
+      },
+      {
+        "network": "GitHub",
+        "icon": "mdi:github",
+        "color": "#929AAB",
+        "username": "Narain Karthik",
+        "url": "https://github.com/narainkarthikv"
+      },
+      {
+        "network": "Email",
+        "icon": "ri:mail-fill",
+        "color": "#D44638",
+        "username": "Narain Karthik",
+        "url": "mailto:narainkarthik812@gmail.com"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "Bannari Amman Institute of Technology",
+      "url": "https://www.bitsathy.ac.in/",
+      "area": "Electronics and Communication Engineering",
+      "studyType": "Bachelors",
+      "startDate": "2020-09-01",
+      "endDate": "2024-05-01"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "JLPT N5",
+      "date": "2023-12-01",
+      "url": "https://cert.efset.org/es/6jDrGH",
+      "issuer": "JLPT"
+    }
+  ],
+  "work": [
+    {
+      "name": "Vegas Consulting",
+      "position": "Front-end Developer",
+      "location_type": "Remote",
+      "location": "IN",
+      "url": "https://www.linkedin.com/company/aitor-pelaez-zenerconsulting-com/",
+      "startDate": "2024-09-02",
+      "endDate": null,
+      "summary": "Experienced in developing high-complexity, scalable, data-driven front-end projects with a focus on performance, user experience, and system integration.",
+      "highlights": [
+        "Developed a data-intensive Angular project for internal use in the national healthcare system, focusing on managing complex data sets and implementing business logic."
+      ],
+      "responsibilities": [
+        "Developed and maintained front-end projects, ensuring scalability, performance, clean code, efficient architecture and robust user experiences.",
+        "Collaborated with cross-functional teams of developers, designers, and project managers to deliver high-quality solutions.",
+        "Ensured code quality and optimized front-end performance to meet user needs and business objectives.",
+        "Managed complex, data-intensive projects, ensuring smooth integration of business logic and user interfaces.",
+        "Designed and developed highly reactive components and workflows to improve application efficiency and user interaction."
+      ],
+      "achievements": [
+        "Optimized front-end performance by resolving critical issues, improving page load times, and enhancing user experience.",
+        "Developed an internal tool to streamline client-owned code documentation, introducing interactive design guidelines and testable components.",
+        "Created a highly complex Angular application for the national healthcare system, successfully handling large-scale data and implementing intricate business logic.",
+        "Built reusable and scalable Vue components for a multinational client, ensuring consistency and improving code quality across multiple platforms."
+      ],
+      "skills": {
+        "Azure": "simple-icons:microsoftazure",
+        "Bootstrap": "simple-icons:bootstrap",
+        "Confluence": "simple-icons:confluence",
+        "CSS3": "ri:css3-fill",
+        "Docker": "simple-icons:docker",
+        "Express": "simple-icons:express",
+        "Figma": "simple-icons:figma",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github",
+        "HTML5": "simple-icons:html5",
+        "Jira": "simple-icons:jira",
+        "JavaScript ECMA6+": "simple-icons:javascript",
+        "Kubernetes": "simple-icons:kubernetes",
+        "Microsoft Excel": "simple-icons:microsoftexcel",
+        "Microsoft PowerApps": "simple-icons:powerapps",
+        "Microsoft PowerAutomate": "simple-icons:powerautomate",
+        "Microsoft PowerBI": "simple-icons:powerbi",
+        "Microsoft PowerPoint": "simple-icons:microsoftpowerpoint",
+        "Microsoft Word": "simple-icons:microsoftword",
+        "MongoDB": "simple-icons:mongodb",
+        "NodeJS": "ri:nodejs-line",
+        "PostgreSQL": "simple-icons:postgresql",
+        "Postman": "simple-icons:postman",
+        "React": "simple-icons:react",
+        "Wordpress": "simple-icons:wordpress"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "name": "Azure",
+      "icon": "simple-icons:microsoftazure",
+      "level": "Beginner",
+      "keywords": [
+        "Cloud Computing",
+        "Backend",
+        "Infrastructure"
+      ]
+    },
+    {
+      "name": "Astro",
+      "icon": "simple-icons:astro",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "SSR",
+        "Static Generation"
+      ]
+    },
+    {
+      "name": "Bootstrap",
+      "icon": "simple-icons:bootstrap",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "CSS Framework",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "CSS",
+      "icon": "ri:css3-fill",
+      "level": "Advanced",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "Docker",
+      "icon": "mdi:docker",
+      "level": "Beginner",
+      "keywords": [
+        "Virtual Environments",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Figma",
+      "icon": "simple-icons:figma",
+      "level": "Beginner",
+      "keywords": [
+        "Prototyping",
+        "Web Development",
+        "Frontend"
+      ]
+    },
+    {
+      "name": "Git",
+      "icon": "mdi:git",
+      "level": "Advanced",
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code"
+      ]
+    },
+    {
+      "name": "GitHub",
+      "icon": "mdi:github",
+      "level": "Advanced",
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code",
+        "Git"
+      ]
+    },
+    {
+      "name": "HTML",
+      "icon": "simple-icons:html5",
+      "level": "Advanced",
+      "keywords": [
+        "Web Development",
+        "Frontend"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "icon": "simple-icons:javascript",
+      "level": "Advanced",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Backend",
+        "Fullstack"
+      ]
+    },
+    {
+      "name": "Kubernetes",
+      "icon": "mdi:kubernetes",
+      "level": "Beginner",
+      "keywords": [
+        "Virtual Environments",
+        "Backend",
+        "Container Orchestration"
+      ]
+    },
+    {
+      "name": "Linux",
+      "icon": "simple-icons:linux",
+      "level": "Beginner",
+      "keywords": [
+        "OS",
+        "Scripting",
+        "Automation"
+      ]
+    },
+    {
+      "name": "MongoDB",
+      "icon": "simple-icons:mongodb",
+      "level": "Beginner",
+      "keywords": [
+        "Databases",
+        "File",
+        "Data Storage",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Node",
+      "icon": "ri:nodejs-line",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Backend",
+        "JavaScript",
+        "Server"
+      ]
+    },
+    {
+      "name": "PNPM",
+      "icon": "simple-icons:pnpm",
+      "level": "Beginner",
+      "keywords": [
+        "Package Manager",
+        "Web Development",
+        "Frontend",
+        "Backend"
+      ]
+    },
+    {
+      "name": "PostgreSQL",
+      "icon": "simple-icons:postgresql",
+      "level": "Beginner",
+      "keywords": [
+        "Backend",
+        "Databases",
+        "SQL",
+        "Relational Database"
+      ]
+    },
+    {
+      "name": "Postman",
+      "icon": "simple-icons:postman",
+      "level": "Intermediate",
+      "keywords": [
+        "API",
+        "Testing",
+        "Web Development",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Python",
+      "icon": "simple-icons:python",
+      "level": "Beginner",
+      "keywords": [
+        "Scripting",
+        "Automation",
+        "Web Development"
+      ]
+    },
+    {
+      "name": "SCSS",
+      "icon": "simple-icons:sass",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "CSS Preprocessor",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "Shell",
+      "icon": "simple-icons:shell",
+      "level": "Beginner",
+      "keywords": [
+        "Scripting",
+        "Automation"
+      ]
+    },
+    {
+      "name": "Tailwind",
+      "icon": "mdi:tailwind",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "CSS Framework",
+        "Responsive Design"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Tamil",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Bilingual proficiency"
+    },
+    {
+      "language": "Japanese",
+      "fluency": "Elementary proficiency"
+    },
+    {
+      "language": "Kannadam",
+      "fluency": "Elementary proficiency"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Fit Track",
+      "isActive": true,
+      "description": "Fit Track is an exercise monitoring application designed to help users stay on track with their fitness goals.",
+      "highlights": [
+        "🎯 User-friendly interface",
+        "🔥 Streak maintenance",
+        "📊 Real-time analytics"
+      ],
+      "stack": {
+        "MongoDB": "simple-icons:mongodb",
+        "Express": "simple-icons:express",
+        "React": "simple-icons:react",
+        "Redux": "simple-icons:redux",
+        "Bootstrap": "simple-icons:bootstrap",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github"
+      },
+      "imgSrc": "img/portfolio-01.jpg"
+    },
+    {
+      "name": "Sticky Memo",
+      "isActive": true,
+      "description": "Sticky Memo is a sticky notes application built using React.js + Vite along with MUI. Users can view data in Boards, Notes, and Table formats.",
+      "highlights": [
+        "📝 User-friendly interface",
+        "📌 Variety of display options",
+        "💾 Data persistence"
+      ],
+      "stack": {
+        "React": "simple-icons:react",
+        "Recoil": "simple-icons:recoil",
+        "MUI": "simple-icons:mui",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github"
+      },
+      "imgSrc": "img/portfolio-03.jpg"
+    },
+    {
+      "name": "Nmoji",
+      "isActive": true,
+      "description": "Nmoji is a straightforward web application designed for quick emoji selection and filtering.",
+      "highlights": [
+        "😀 User-friendly interface",
+        "⌚ Integration with wearables",
+        "📊 Real-time analytics"
+      ],
+      "stack": {
+        "HTML": "simple-icons:html5",
+        "CSS": "ri:css3-fill",
+        "JavaScript": "simple-icons:javascript",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github"
+      },
+      "imgSrc": "img/portfolio-02.jpg"
+    },
+    {
+      "name": "Contribution Cards",
+      "isActive": true,
+      "description": "This project is a fantastic way to learn about open-source contributions, improve your HTML, CSS, JS, Git skills, and showcase your creativity.",
+      "highlights": [
+        "🎨 User-friendly interface",
+        "🌈 Color variations",
+        "🔍 Filter option"
+      ],
+      "stack": {
+        "HTML": "simple-icons:html5",
+        "CSS": "ri:css3-fill",
+        "JavaScript": "simple-icons:javascript",
+        "Bootstrap": "simple-icons:bootstrap",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github"
+      },
+      "imgSrc": "img/portfolio-04.jpg"
+    }
+  ]
+}
