@@ -100,7 +100,7 @@ const profilesInfo = profiles.map(({ network, url }) => {
       hotkey: 'ctrl+P',
       section: 'Actions',
       handler: () => {
-        window.print()
+        window.open('/NARAIN KARTHIK CV.pdf', '_blank')
       },
     },
     {
@@ -143,6 +143,13 @@ const profilesInfo = profiles.map(({ network, url }) => {
   });
   document.querySelectorAll("#hotkeypad li > div").forEach(li => {
 	  li.setAttribute("data-ccursor", "");
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && event.key === 'p') {
+      event.preventDefault();
+      window.open('/NARAIN KARTHIK CV.pdf', '_blank');
+    }
   });
 </script>
 

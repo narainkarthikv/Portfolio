@@ -9,7 +9,7 @@
     "image": "/pfp.webp",
     "email": "narainkarthik812@gmail.com",
     "url": "https://www.linkedin.com/in/narainkarthik-vellingiri/",
-    "summary": "Front-end developer, at the moment. I work on MERN Stack with Javascript / HTML5. Currently learning about Back-end Development, Cloud Computing and DevOps.",
+    "summary": "Front-end developer, at the moment. I work on MERN Stack. Currently learning about Back-end Development, Cloud Computing and DevOps.",
     "theme": "blue",
     "location": {
       "city": "Coimbatore",
@@ -51,7 +51,7 @@
     {
       "institution": "Bannari Amman Institute of Technology",
       "url": "https://www.bitsathy.ac.in/",
-      "area": "Electronics and Communication Engineering",
+      "area": "Bachelors - Electronics and Communication Engineering",
       "studyType": "Bachelors",
       "startDate": "2020-09-01",
       "endDate": "2024-05-01"
@@ -61,17 +61,16 @@
     {
       "name": "JLPT N5",
       "date": "2023-12-01",
-      "url": "https://cert.efset.org/es/6jDrGH",
       "issuer": "JLPT"
     }
   ],
   "work": [
     {
       "name": "Vegas Consulting",
-      "position": "Front-end Developer",
+      "position": "Associate Software Developer",
       "location_type": "Remote",
       "location": "IN",
-      "url": "https://www.linkedin.com/company/aitor-pelaez-zenerconsulting-com/",
+      "url": "https://www.linkedin.com/company/vegas-consulting/",
       "startDate": "2024-09-02",
       "endDate": null,
       "summary": "Experienced in developing high-complexity, scalable, data-driven front-end projects with a focus on performance, user experience, and system integration.",
@@ -79,32 +78,28 @@
         "Developed a data-intensive Angular project for internal use in the national healthcare system, focusing on managing complex data sets and implementing business logic."
       ],
       "responsibilities": [
-        "Developed and maintained front-end projects, ensuring scalability, performance, clean code, efficient architecture and robust user experiences.",
-        "Collaborated with cross-functional teams of developers, designers, and project managers to deliver high-quality solutions.",
-        "Ensured code quality and optimized front-end performance to meet user needs and business objectives.",
-        "Managed complex, data-intensive projects, ensuring smooth integration of business logic and user interfaces.",
-        "Designed and developed highly reactive components and workflows to improve application efficiency and user interaction."
+        "Designed, developed, and maintained high-performance front-end applications, ensuring scalability, clean architecture, and an exceptional user experience.",
+        "Collaborated with cross-functional teams, including developers, designers, and project managers, to deliver innovative and efficient solutions.",
+        "Optimized front-end codebase for speed, performance, and SEO, improving accessibility and user engagement.",
+        "Managed complex, data-driven projects, seamlessly integrating business logic with intuitive user interfaces.",
+        "Developed highly responsive and reusable components to enhance application efficiency and maintainability."
       ],
       "achievements": [
-        "Optimized front-end performance by resolving critical issues, improving page load times, and enhancing user experience.",
-        "Developed an internal tool to streamline client-owned code documentation, introducing interactive design guidelines and testable components.",
-        "Created a highly complex Angular application for the national healthcare system, successfully handling large-scale data and implementing intricate business logic.",
-        "Built reusable and scalable Vue components for a multinational client, ensuring consistency and improving code quality across multiple platforms."
+        "Integrated Power Platform tools, including Power Apps, Power Automate, and Power BI, to optimize workflows and data visualization.",
+        "Implemented DevOps best practices using Azure and GitHub Actions, automating CI/CD pipelines and enhancing deployment efficiency."
       ],
       "skills": {
         "Azure": "simple-icons:microsoftazure",
         "Bootstrap": "simple-icons:bootstrap",
         "Confluence": "simple-icons:confluence",
         "CSS3": "ri:css3-fill",
-        "Docker": "simple-icons:docker",
         "Express": "simple-icons:express",
-        "Figma": "simple-icons:figma",
         "Git": "mdi:git",
         "GitHub": "mdi:github",
         "HTML5": "simple-icons:html5",
         "Jira": "simple-icons:jira",
         "JavaScript ECMA6+": "simple-icons:javascript",
-        "Kubernetes": "simple-icons:kubernetes",
+        "MUI": "simple-icons:mui",
         "Microsoft Excel": "simple-icons:microsoftexcel",
         "Microsoft PowerApps": "simple-icons:powerapps",
         "Microsoft PowerAutomate": "simple-icons:powerautomate",
@@ -134,7 +129,7 @@
     {
       "name": "Astro",
       "icon": "simple-icons:astro",
-      "level": "Intermediate",
+      "level": "Beginner",
       "keywords": [
         "Web Development",
         "Frontend",
@@ -172,6 +167,16 @@
         "Backend"
       ]
     },
+    {"name": "express",
+     "icon": "simple-icons:express",
+     "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Backend",
+        "JavaScript",
+        "Server"
+      ]
+    },
     {
       "name": "Figma",
       "icon": "simple-icons:figma",
@@ -185,7 +190,7 @@
     {
       "name": "Git",
       "icon": "mdi:git",
-      "level": "Advanced",
+      "level": "Intermediate",
       "keywords": [
         "Version Control",
         "Collaboration",
@@ -195,7 +200,7 @@
     {
       "name": "GitHub",
       "icon": "mdi:github",
-      "level": "Advanced",
+      "level": "Intermediate",
       "keywords": [
         "Version Control",
         "Collaboration",
@@ -236,7 +241,7 @@
     {
       "name": "Linux",
       "icon": "simple-icons:linux",
-      "level": "Beginner",
+      "level": "Intermediate",
       "keywords": [
         "OS",
         "Scripting",
@@ -244,9 +249,20 @@
       ]
     },
     {
+      "name": "MUI",
+      "icon": "simple-icons:mui",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "React",
+        "UI Library"
+      ]
+    },
+    {
       "name": "MongoDB",
       "icon": "simple-icons:mongodb",
-      "level": "Beginner",
+      "level": "Intermediate",
       "keywords": [
         "Databases",
         "File",
@@ -255,7 +271,7 @@
       ]
     },
     {
-      "name": "Node",
+      "name": "NodeJS",
       "icon": "ri:nodejs-line",
       "level": "Intermediate",
       "keywords": [
@@ -266,9 +282,9 @@
       ]
     },
     {
-      "name": "PNPM",
-      "icon": "simple-icons:pnpm",
-      "level": "Beginner",
+      "name": "NPM",
+      "icon": "simple-icons:npm",
+      "level": "Intermediate",
       "keywords": [
         "Package Manager",
         "Web Development",
@@ -298,34 +314,25 @@
         "Backend"
       ]
     },
-    {
-      "name": "Python",
-      "icon": "simple-icons:python",
-      "level": "Beginner",
+    {"name": "React",
+     "icon": "simple-icons:react",
+     "level": "Intermediate",
       "keywords": [
-        "Scripting",
-        "Automation",
-        "Web Development"
+        "Web Development",
+        "Frontend",
+        "JavaScript",
+        "Library"
       ]
     },
     {
       "name": "SCSS",
       "icon": "simple-icons:sass",
-      "level": "Intermediate",
+      "level": "Beginner",
       "keywords": [
         "Web Development",
         "Frontend",
         "CSS Preprocessor",
         "Responsive Design"
-      ]
-    },
-    {
-      "name": "Shell",
-      "icon": "simple-icons:shell",
-      "level": "Beginner",
-      "keywords": [
-        "Scripting",
-        "Automation"
       ]
     },
     {
@@ -377,7 +384,8 @@
         "Git": "mdi:git",
         "GitHub": "mdi:github"
       },
-      "imgSrc": "img/portfolio-01.jpg"
+      "github": "https://github.com/narainkarthikv/fit-track",
+      "url": "https://wisdomfox-fit-track.netlify.app/"
     },
     {
       "name": "Sticky Memo",
@@ -395,7 +403,8 @@
         "Git": "mdi:git",
         "GitHub": "mdi:github"
       },
-      "imgSrc": "img/portfolio-03.jpg"
+      "github": "https://github.com/narainkarthikv/sticky-memo",
+      "url": "https://wisdomfox-sticky-memo.netlify.app/"
     },
     {
       "name": "Nmoji",
@@ -413,12 +422,13 @@
         "Git": "mdi:git",
         "GitHub": "mdi:github"
       },
-      "imgSrc": "img/portfolio-02.jpg"
+      "github": "https://nmoji.netlify.app/",
+      "url": "https://nmoji.netlify.app/"
     },
     {
       "name": "Contribution Cards",
       "isActive": true,
-      "description": "This project is a fantastic way to learn about open-source contributions, improve your HTML, CSS, JS, Git skills, and showcase your creativity.",
+      "description": "Contribution Cards is a fantastic way to learn about open-source contributions, improve your HTML, CSS, JS, Git skills, and showcase your creativity.",
       "highlights": [
         "🎨 User-friendly interface",
         "🌈 Color variations",
@@ -428,11 +438,12 @@
         "HTML": "simple-icons:html5",
         "CSS": "ri:css3-fill",
         "JavaScript": "simple-icons:javascript",
-        "Bootstrap": "simple-icons:bootstrap",
+        "Tailwind": "mdi:tailwind",
         "Git": "mdi:git",
         "GitHub": "mdi:github"
       },
-      "imgSrc": "img/portfolio-04.jpg"
+      "github": "https://github.com/narainkarthikv/contribution-cards",
+      "url": "https://contribution-cards.netlify.app/"
     }
   ]
 }
