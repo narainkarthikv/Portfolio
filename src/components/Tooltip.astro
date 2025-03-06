@@ -1,0 +1,20 @@
+---
+const { message } = Astro.props
+---
+
+<div class="tooltip absolute bottom-full mb-2 hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+  {message}
+</div>
+
+<style>
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: gray-800 transparent transparent transparent;
+}
+</style>
