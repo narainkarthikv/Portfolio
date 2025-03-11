@@ -100,7 +100,7 @@ const profilesInfo = profiles.map(({ network, url }) => {
       hotkey: 'ctrl+P',
       section: 'Actions',
       handler: () => {
-        window.open('/NARAIN KARTHIK CV.pdf', '_blank')
+        location.href = '/NARAIN KARTHIK CV.pdf'
       },
     },
     {
@@ -111,7 +111,7 @@ const profilesInfo = profiles.map(({ network, url }) => {
       section: 'Actions',
       handler: () => {
         if (email && email.length > 0) {
-          window.open(`mailto:${email}`)
+          window.open(`${email}`)
         } else {
           alert('Email not provided')
         }
