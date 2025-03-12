@@ -454,6 +454,26 @@
       },
       "github": "https://github.com/narainkarthikv/contribution-cards",
       "url": "https://contribution-cards.netlify.app/"
+    },
+    {
+      "name": "GLIS",
+      "isActive": true,
+      "description": "Land Information System tracks the land details of the farmers and provides the information to the government.",
+      "highlights": [
+        "🎨 User-friendly interface",
+        "🗺️ Map integration",
+        "🔍 Filter option"
+      ],
+      "stack": {
+        "React": "simple-icons:react",
+        "Express": "simple-icons:express",
+        "MongoDB": "simple-icons:mongodb",
+        "Tailwind": "mdi:tailwind",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github"
+      },
+      "github": "https://github.com/narainkarthikv/contribution-cards",
+      "url": "https://contribution-cards.netlify.app/"
     }
   ]
 }
