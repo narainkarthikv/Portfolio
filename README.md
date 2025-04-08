@@ -54,12 +54,26 @@
 </h3>
 
 <p align="center">
-  <a href="#">
-    <img src="https://skillicons.dev/icons?i=c,cpp,html,css,javascript,mongodb,express,react,nodejs,figma,bootstrap,materialui," />
-  </a>
-  <a href="#">
-    <img src="https://skillicons.dev/icons?i=git,github,gitlab,ansible,postman,notion,linux,docker,kubernetes,githubactions,wordpress" />
-  </a>
+  <table align="center">
+    <tr>
+      <th>Frontend</th>
+      <th>Backend</th>
+      <th>Cloud</th>
+      <th>Database</th>
+      <th>CI/CD</th>
+      <th>Tools</th>
+      <th>OS</th>
+    </tr>
+    <tr>
+      <td><img src="https://skillicons.dev/icons?i=html,css,javascript,react,figma,bootstrap,materialui,tailwind" /></td>
+      <td><img src="https://skillicons.dev/icons?i=nodejs,express" /></td>
+      <td><img src="https://skillicons.dev/icons?i=azure" /></td>
+      <td><img src="https://skillicons.dev/icons?i=mongodb,firebase" /></td>
+      <td><img src="https://skillicons.dev/icons?i=git,github,gitlab,githubactions" /></td>
+      <td><img src="https://skillicons.dev/icons?i=ansible,postman,notion,docker,kubernetes" /></td>
+      <td><img src="https://skillicons.dev/icons?i=linux,ubuntu,windows" /></td>
+    </tr>
+  </table>
 </p>
 
 <h3 align="center">

@@ -1,0 +1,50 @@
+---
+import spotifyLogo from "public/spotify.png";
+
+const currentTrack = {
+  title: "Current Song Title",
+  artist: "Artist Name",
+  cover: "https://via.placeholder.com/300", // Ensure this is a string URL
+  link: "https://open.spotify.com/",
+  isConnected: false, // Simulating connection status
+};
+---
+
+<div
+  class="spotify-mini-player flex items-center bg-black text-white shadow-lg rounded-lg p-4 gap-4"
+>
+  <img src={spotifyLogo.src || spotifyLogo} alt="Spotify Logo" class="w-auto h-10" />
+  <div class="flex-1">
+    {
+      currentTrack.isConnected ? (
+        <>
+          <h2 class="text-lg font-semibold truncate">{currentTrack.title}</h2>
+          <p class="text-sm text-gray-400 truncate">{currentTrack.artist}</p>
+        </>
+      ) : (
+        <p class="text-lg font-semibold">NOT CONNECTED</p>
+      )
+    }
+  </div>
+  {
+    currentTrack.isConnected && (
+      <a
+        href={currentTrack.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary btn-sm"
+      >
+        Play
+      </a>
+    )
+  }
+</div>
+
+<style>
+  .spotify-mini-player {
+    transition: box-shadow 0.3s ease;
+  }
+  .spotify-mini-player:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+</style>
