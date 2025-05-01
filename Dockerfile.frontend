@@ -1,0 +1,25 @@
+FROM node:20-alpine
+# Set the working directory
+
+WORKDIR /app
+
+# Copy only package.json and package-lock.json first for caching
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Verify the Node.js version
+RUN node -v && npm -v
+
+# Copy the rest of the application code
+COPY . .
+
+# Build the Astro project
+RUN npm run build
+
+# Expose the port Astro uses
+EXPOSE 3000
+
+# Start the Astro server
+CMD ["npm", "run", "start"]
