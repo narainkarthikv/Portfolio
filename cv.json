@@ -474,6 +474,23 @@
       },
       "github": "https://github.com/narainkarthikv/contribution-cards",
       "url": "https://contribution-cards.netlify.app/"
+    },
+    {
+      "name": "Readme Shop",
+      "isActive": true,
+      "description": "Open Source README Shop for customising Personal Readme & Readme Docs",
+      "highlights": [
+        "🎨 User-friendly interface",
+        "📝 Multiple templates"
+      ],
+      "stack": {
+        "React": "simple-icons:react",
+        "MUI": "simple-icons:mui",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github"
+      },
+      "github": "https://github.com/narainkarthikv/readme-shop",
+      "url": "https://readmeshopwf.netlify.app/"
     }
   ]
 }

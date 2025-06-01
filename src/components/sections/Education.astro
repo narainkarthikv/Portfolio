@@ -6,7 +6,7 @@ import { certificates } from '@cv'
 ---
 
 <Section className={Astro.props.className} title='Education'>
-  <ul class='space-y-4 py-3 print:space-y-0'>
+  <ul class="space-y-2 py-2">
     {
       education.map(
         ({ institution, startDate, endDate, area, url }) => {
@@ -16,37 +16,19 @@ import { certificates } from '@cv'
           const years = `${startYear} - ${endYear}`
 
           return (
-            <div class='flex items-baseline'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='24'
-                height='24'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                stroke-width='2'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                class='mr-2 hidden h-5 w-5 self-start md:inline-block print:hidden text-skin-hue'>
-                <path d='M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z' />
-                <path d='M22 10v6' />
-                <path d='M6 12.5V16a6 3 0 0 0 12 0v-3.5' />
-              </svg>
-              <div class='relative w-full items-baseline justify-between gap-2'>
-                <h3 class='mr-6 items-baseline gap-x-2 gap-y-0.5 font-medium'>
-                  <a
-                    target='_blank'
-                    class='group flex items-center gap-[6px] text-skin-base decoration-dotted underline-offset-[5px] hover:text-skin-hue hover:underline transition-all sm:hover:cursor-none w-max'
-                    href={url || null}>
-                    {institution}
-                  </a>
-                </h3>
-                <div class='text-sm text-skin-muted'>{area}</div>
-                <time data-ccursor="lift" class='right-0 top-0 text-xs text-skin-muted md:absolute md:block sm:hover:text-skin-hue'>
-                  {years}
-                </time>
+            <li class="rounded border border-skin-muted px-3 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between bg-skin-card">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-1">
+                <a
+                  target='_blank'
+                  class='font-semibold text-skin-base hover:text-skin-hue transition-colors'
+                  href={url || null}>
+                  {institution}
+                </a>
+                <span class="hidden sm:inline mx-2 text-skin-muted">|</span>
+                <span class="text-sm text-skin-muted">{area}</span>
               </div>
-            </div>
+              <span class="text-xs text-skin-muted mt-1 sm:mt-0">{years}</span>
+            </li>
           )
         }
       )
@@ -56,15 +38,20 @@ import { certificates } from '@cv'
   {
     certificates.length > 0 && (
       <>
-        <h4  data-ccursor="lift" class="w-max sm:hover:text-skin-hue">Certificates</h4>
-        <ul class='space-y-4 py-3 print:space-y-0'>
+        <h4 data-ccursor="lift" class="mt-4 mb-2 text-base font-semibold text-skin-base">Certificates</h4>
+        <ul class="space-y-2 py-2">
           {certificates.map(({ name, date, issuer, url }) => (
-            <div>
-              <p>{name}</p>
-              <p>{date}</p>
-              <p>{issuer}</p>
-              {url && <a href={url}>Certificate Link</a>}
-            </div>
+            <li class="rounded border border-skin-muted px-3 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between bg-skin-card">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-1">
+                <span class="font-medium">{name}</span>
+                <span class="hidden sm:inline mx-2 text-skin-muted">|</span>
+                <span class="text-sm text-skin-muted">{issuer}</span>
+              </div>
+              <div class="flex items-center gap-2 mt-1 sm:mt-0">
+                <span class="text-xs text-skin-muted">{date}</span>
+                {url && <a href={url} class="text-xs text-skin-hue underline hover:no-underline ml-2" target="_blank">View</a>}
+              </div>
+            </li>
           ))}
         </ul>
       </>
