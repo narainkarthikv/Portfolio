@@ -13,7 +13,7 @@ const currentTrack = {
 <div
   class="spotify-mini-player flex items-center bg-black text-white shadow-lg rounded-lg p-4 gap-4"
 >
-  <img src={spotifyLogo.src || spotifyLogo} alt="Spotify Logo" class="w-auto h-10" />
+  <img src={typeof spotifyLogo === 'string' ? spotifyLogo : spotifyLogo.src} alt="Spotify Logo" class="w-auto h-10" />
   <div class="flex-1">
     {
       currentTrack.isConnected ? (

@@ -13,7 +13,7 @@ const SOCIAL_ICONS: SocialIcon = {
   LinkedIn: `
 <svg fill="currentColor" height="16" width="16" viewBox="0 0 24 24" xml:space="preserve" stroke="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="social-linkedin"> <path d="M22.2,0H1.8C0.8,0,0,0.8,0,1.8v20.5c0,1,0.8,1.8,1.8,1.8h20.5c1,0,1.8-0.8,1.8-1.8V1.8C24,0.8,23.2,0,22.2,0z M7.2,20.4 H3.5V9h3.6V20.4z M5.3,7.4c-1.1,0-2.1-0.9-2.1-2.1s0.9-2.1,2.1-2.1s2.1,0.9,2.1,2.1S6.5,7.4,5.3,7.4z M20.5,20.5h-3.6v-6.3 c0-1.8-0.8-2.4-1.8-2.4c-1.1,0-2.1,0.8-2.1,2.5v6.2H9.3V9h3.5v1.6h0c0.3-0.7,1.6-1.9,3.4-1.9c2,0,4.2,1.2,4.2,4.7V20.5z"></path> </g> </g></svg>
 `,
-	  "X / Twitter": `
+    "X / Twitter": `
 <svg fill="currentColor" stroke="currentColor" height="16" stroke-width="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"></path></svg
 > `
 }
@@ -104,6 +104,16 @@ const profilesInfo = profiles.map(({ network, url }) => {
       },
     },
     {
+      id: 'legacy',
+      title: 'Legacy Portfolio',
+      icon: `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9V5.25A2.25 2.25 0 0 0 12 3a2.25 2.25 0 0 0-2.25 2.25V9m-3.5 0h11.5m-11.5 0A2.25 2.25 0 0 0 3 11.25v6A2.25 2.25 0 0 0 5.25 19.5h13.5A2.25 2.25 0 0 0 21 17.25v-6A2.25 2.25 0 0 0 18.75 9m-11.5 0V5.25A5.25 5.25 0 0 1 12 0a5.25 5.25 0 0 1 5.25 5.25V9"/></svg>`,
+      hotkey: 'ctrl+Q',
+      section: 'Actions',
+      handler: () => {
+        window.open('https://narainkarthikv.github.io/Portfolio', '_blank');
+      },
+    },
+    {
       id: 'contact',
       title: 'Contact Me',
       icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z" fill="currentColor"></path> </g></svg>`,
@@ -135,20 +145,24 @@ const profilesInfo = profiles.map(({ network, url }) => {
   })
   
   document.querySelectorAll("#hotkeypad li").forEach(li => {
-	  li.setAttribute("data-ccursor", "lift");
-		li.classList.add("modified-cursor-none");
+    li.setAttribute("data-ccursor", "lift");
+    li.classList.add("modified-cursor-none");
   });
   document.querySelectorAll("#hotkeypad footer > p").forEach(li => {
-	  li.setAttribute("data-ccursor", "");
+    li.setAttribute("data-ccursor", "");
   });
   document.querySelectorAll("#hotkeypad li > div").forEach(li => {
-	  li.setAttribute("data-ccursor", "");
+    li.setAttribute("data-ccursor", "");
   });
 
   document.addEventListener('keydown', (event) => {
     if (event.ctrlKey && event.key === 'p') {
       event.preventDefault();
-      window.open('/NARAIN KARTHIK CV.pdf', '_blank');
+      window.open('https://narainkarthikv.github.io/Portfolio', '_blank');
+    }
+    if (event.ctrlKey && (event.key === 'l' || event.key === 'L')) {
+      event.preventDefault();
+      window.open('https://narainkarthikv.github.io/Portfolio', '_blank');
     }
   });
 </script>
