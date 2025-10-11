@@ -65,10 +65,10 @@
       <th>OS</th>
     </tr>
     <tr>
-      <td><img src="https://skillicons.dev/icons?i=html,css,javascript,react,figma,bootstrap,materialui,tailwind" /></td>
+      <td><img src="https://skillicons.dev/icons?i=html,css,javascript,astro,react,figma,bootstrap,materialui,tailwind,vite" /></td>
       <td><img src="https://skillicons.dev/icons?i=nodejs,express" /></td>
-      <td><img src="https://skillicons.dev/icons?i=azure" /></td>
-      <td><img src="https://skillicons.dev/icons?i=mongodb,firebase" /></td>
+      <td><img src="https://skillicons.dev/icons?i=azure,gcp" /></td>
+      <td><img src="https://skillicons.dev/icons?i=mongodb,firebase,postgres" /></td>
       <td><img src="https://skillicons.dev/icons?i=git,github,gitlab,githubactions" /></td>
       <td><img src="https://skillicons.dev/icons?i=ansible,postman,notion,docker,kubernetes" /></td>
       <td><img src="https://skillicons.dev/icons?i=linux,ubuntu,windows" /></td>
