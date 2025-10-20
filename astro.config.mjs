@@ -28,5 +28,5 @@ export default defineConfig({
   ],
   output: "server",
   adapter: vercel(),
-  site: "https://narainkarthik.space",
+  site: "https://narainkarthikv.space",
 });
