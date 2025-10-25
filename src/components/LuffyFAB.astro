@@ -1,0 +1,118 @@
+---
+---
+
+<!-- Luffy FAB (simplified): shows only when data-theme="luffy"; plays audio on click and keeps hover/pulse animations -->
+<div id="luffy-fab" class="fixed right-6 bottom-6 z-50 pointer-events-none" role="presentation" aria-hidden="true">
+  <button
+    id="luffy-fab-btn"
+    class="relative flex items-center justify-center h-16 w-16 rounded-full overflow-visible focus:outline-none pointer-events-auto"
+    aria-label="Luffy Gear 5"
+    type="button"
+  >
+    <!-- moon aura -->
+    <div class="absolute inset-0 rounded-full aura -z-10" aria-hidden></div>
+
+    <!-- subtle cloud swirls -->
+    <svg class="absolute -left-8 -top-6 w-28 h-28 opacity-70 cloud-1 pointer-events-none" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 60 C20 40, 40 30, 60 36 C74 40, 86 50, 92 60 C80 70, 60 76, 44 74 C28 72, 14 68, 10 60 Z" fill="white"/></svg>
+    <svg class="absolute -right-10 -bottom-8 w-32 h-32 opacity-60 cloud-2 pointer-events-none" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M88 40 C78 20, 58 10, 40 16 C26 20, 14 30, 8 40 C20 50, 40 56, 56 54 C72 52, 86 48, 88 40 Z" fill="white"/></svg>
+
+    <!-- artwork (public) -->
+    <img src="/luffy-nika.png" alt="Luffy Nika" class="h-full w-full object-cover rounded-full mix-blend-multiply filter grayscale contrast-105 brightness-95"/>
+  </button>
+</div>
+
+<style is:global>
+  /* base hidden - only visible when body[data-theme="luffy"] */
+  #luffy-fab { opacity: 0; transform: translateY(10px) scale(0.96); transition: opacity 300ms ease, transform 360ms cubic-bezier(.2,.9,.2,1); pointer-events: none; }
+  body[data-theme="luffy"] #luffy-fab { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+
+  /* aura */
+  #luffy-fab .aura { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95) 0%, rgba(var(--color),0.85) 35%, rgba(255,150,200,0.06) 70%); box-shadow: 0 8px 30px rgba(var(--color),0.28), 0 2px 10px rgba(255,150,200,0.12) inset; transition: transform 240ms ease, box-shadow 260ms ease; }
+
+  /* cloud motion (subtle) */
+  #luffy-fab .cloud-1 { animation: swirlA 6s linear infinite; filter: blur(6px) saturate(1.05) opacity(0.85); }
+  #luffy-fab .cloud-2 { animation: swirlB 7s linear infinite; filter: blur(8px) saturate(1.02) opacity(0.75); }
+  @keyframes swirlA { 0%{transform:rotate(0)}50%{transform:rotate(6deg) translateX(2px)}100%{transform:rotate(0)} }
+  @keyframes swirlB { 0%{transform:rotate(0)}50%{transform:rotate(-8deg) translateY(-3px)}100%{transform:rotate(0)} }
+
+  /* hover / rubber */
+  #luffy-fab button { transition: transform 260ms cubic-bezier(.22,.9,.35,1); }
+  #luffy-fab button:hover { transform: translateY(-6px) scale(1.04); }
+  #luffy-fab button:active { transform: translateY(0) scale(0.98); }
+  #luffy-fab button:hover .aura, #luffy-fab button:active .aura { transform: scale(1.06); box-shadow: 0 12px 40px rgba(var(--color),0.36), 0 4px 12px rgba(255,150,200,0.14) inset; }
+
+  /* pulse */
+  #luffy-fab .aura.pulse { animation: pulseAura 560ms ease-out; }
+  @keyframes pulseAura { 0%{box-shadow:0 8px 30px rgba(var(--color),0.32);transform:scale(1)}40%{box-shadow:0 12px 48px rgba(var(--color),0.5);transform:scale(1.12)}100%{box-shadow:0 8px 30px rgba(var(--color),0.28);transform:scale(1)} }
+
+  /* responsive: smaller on mobile, hide clouds */
+  @media (max-width:640px){ #luffy-fab{right:0.875rem;bottom:0.875rem}#luffy-fab button{height:48px;width:48px}#luffy-fab .cloud-1,#luffy-fab .cloud-2{display:none} }
+</style>
+
+<script is:inline>
+  (function () {
+    const btn = document.getElementById('luffy-fab-btn');
+    if (!btn) return;
+
+    const audioDrums = new Audio('/drums-of-liberation.mp3');
+    const audioCue = new Audio('/luffy-nika.mp3');
+
+    function setVisible(yes) {
+      const el = document.getElementById('luffy-fab');
+      if (!el) return;
+      el.setAttribute('aria-hidden', yes ? 'false' : 'true');
+    }
+
+    function update() {
+      const theme = document.body.getAttribute('data-theme') || '';
+      setVisible(theme === 'luffy');
+    }
+
+    update();
+    new MutationObserver(() => update()).observe(document.body, { attributes: true });
+
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+
+      // Prefer reduced-motion: still play sounds but skip heavy animation
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      try {
+        audioDrums.currentTime = 0;
+        audioDrums.play().catch(() => {});
+      } catch (err) {}
+      try {
+        audioCue.currentTime = 0;
+        audioCue.play().catch(() => {});
+      } catch (err) {}
+
+      // small aura pulse
+      const aura = document.querySelector('#luffy-fab .aura');
+      if (aura) {
+        aura.classList.remove('pulse');
+        void aura.offsetWidth; // trigger reflow
+        aura.classList.add('pulse');
+      }
+
+      if (reduced) return;
+
+      // brief decorative pulse animation on the button (non-blocking)
+      btn.animate([
+        { transform: 'translateY(0) scale(1)' },
+        { transform: 'translateY(-10px) scale(1.06)' },
+        { transform: 'translateY(0) scale(1)' }
+      ], { duration: 520, easing: 'cubic-bezier(.22,.9,.35,1)' });
+    });
+
+    // subtle rubber on pointer enter for non-touch devices
+    btn.addEventListener('pointerenter', () => {
+      if (window.matchMedia('(hover: hover)').matches) {
+        btn.animate([
+          { transform: 'translateY(0) scale(1)' },
+          { transform: 'translateY(-6px) scale(1.04)' },
+          { transform: 'translateY(0) scale(1)' }
+        ], { duration: 350, easing: 'cubic-bezier(.22,.9,.45,1)' });
+      }
+    });
+  })();
+</script>

@@ -72,6 +72,23 @@
       --color-nvim-blue: 95, 175, 215;
       --color-nvim-green: 0, 150, 200;
     }
+
+    /* Luffy theme: energetic, adventurous, warm golden tones with moon/sky accents */
+    [data-theme="luffy"] {
+      --color-text-base: 28, 24, 20; /* warm deep brown for text */
+      --color-text-muted: 110, 96, 80;
+      --color-text-inverted: 255, 255, 255;
+      --color-fill: 255, 249, 230; /* warm parchment-like background */
+      --muted: 245, 238, 220;
+      --color: 255, 183, 28; /* lively golden primary */
+      --color-button-accent: 255, 183, 28;
+      --color-button-accent-hover: 255, 210, 80;
+      --color-button-muted: 255, 244, 230;
+      --luffy-sky: 135, 206, 235; /* subtle sky blue */
+      --luffy-moon: 240, 248, 255; /* moonlight tint */
+      --color-nvim-blue: 95, 175, 215;
+      --color-nvim-green: 0, 150, 0;
+    }
   }
 
   .dark {
@@ -139,6 +156,23 @@
       --color-button-accent: 70, 210, 220;
       --color-button-accent-hover: 0, 185, 255;
       --color-button-muted: 25, 81, 86;
+      --color-nvim-blue: 95, 175, 215;
+      --color-nvim-green: 135, 215, 135;
+    }
+
+    /* Dark variant for Luffy theme */
+    [data-theme="luffy"] {
+      --color-text-base: 245, 240, 230;
+      --color-text-muted: 200, 190, 170;
+      --color-text-inverted: 10, 10, 12;
+      --color-fill: 6, 10, 20; /* midnight sky base */
+      --muted: 30, 34, 40;
+      --color: 255, 200, 60; /* slightly muted gold for dark */
+      --color-button-accent: 255, 200, 60;
+      --color-button-accent-hover: 255, 220, 90;
+      --color-button-muted: 12, 14, 20;
+      --luffy-sky: 40, 60, 100; /* darker sky */
+      --luffy-moon: 220, 230, 245; /* cool moonlight */
       --color-nvim-blue: 95, 175, 215;
       --color-nvim-green: 135, 215, 135;
     }
