@@ -1,4 +1,6 @@
 [![SVG Banners](https://svg-banners.vercel.app/api?type=luminance&text1=Wisdom%20Fox&width=1000&height=200)](https://github.com/narainkarthikv/svg-banners)
+[![Deploy static content to Pages](https://github.com/narainkarthikv/Portfolio/actions/workflows/static.yml/badge.svg)](https://github.com/narainkarthikv/Portfolio/actions/workflows/static.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
 <h3 align="center">
   🙋 Join the Community
@@ -86,3 +88,38 @@
   <a href="https://nmoji.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/nmoji.jpg" height="75px" width="75px" target="_blank"/></a>
   <a href="https://contribution-cards.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/contribution-cards.jpg" height="75px" width="75px" target="_blank"/></a>
 </p>
+
+## 📦 Project
+
+A personal portfolio site showcasing projects, skills, and profile. Deployed via GitHub Pages.
+
+## 🚀 Quickstart
+
+View the live site:
+- https://narainkarthikv.github.io/Portfolio
+
+Run locally as a static site from the repo root:
+
+```bash
+python -m http.server 8080
+# or
+npx serve .
+```
+
+If your site content lives in `legacy/`, serve that directory:
+
+```bash
+npx serve legacy
+```
+
+## 🛠 Tech
+
+Static HTML/CSS/JS. GitHub Actions deploys to Pages using `.github/workflows/static.yml` (uploads `./legacy/`).
+
+## 🤝 Contributing
+
+See `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. Use issue templates to report bugs or request features.
+
+## 📜 Changelog
+
+See `CHANGELOG.md` for release notes.
