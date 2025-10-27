@@ -100,7 +100,9 @@ const profilesInfo = profiles.map(({ network, url }) => {
       hotkey: 'ctrl+P',
       section: 'Actions',
       handler: () => {
-        location.href = '../NARAIN_KARTHIK_CV.pdf'
+        // Use an absolute path to the public asset so it resolves the same in
+        // dev and when deployed. Make sure the file is copied to `public/`.
+        location.href = '/NARAIN_KARTHIK_CV.pdf'
       },
     },
     {
@@ -156,14 +158,15 @@ const profilesInfo = profiles.map(({ network, url }) => {
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.ctrlKey && event.key === 'p') {
+    // Normalize to lower-case for consistent matching regardless of Shift state
+    const key = event.key ? event.key.toLowerCase() : ''
+
+    if (event.ctrlKey && key === 'q') {
+      // Prevent the browser's print shortcut and open legacy portfolio
       event.preventDefault();
       window.open('https://narainkarthikv.github.io/Portfolio', '_blank');
     }
-    if (event.ctrlKey && (event.key === 'l' || event.key === 'L')) {
-      event.preventDefault();
-      window.open('https://narainkarthikv.github.io/Portfolio', '_blank');
-    }
+
   });
 </script>
 

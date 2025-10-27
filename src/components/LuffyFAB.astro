@@ -47,15 +47,35 @@
 
   /* responsive: smaller on mobile, hide clouds */
   @media (max-width:640px){ #luffy-fab{right:0.875rem;bottom:0.875rem}#luffy-fab button{height:48px;width:48px}#luffy-fab .cloud-1,#luffy-fab .cloud-2{display:none} }
+
+  /* Luffy moon overlay elements (placed in #luffy-moon-root) */
+  #luffy-moon-root .luffy-moon { position: absolute; left: 0; top: 0; transform-origin: center; will-change: transform, opacity; filter: drop-shadow(0 18px 40px rgba(255,200,120,0.12)); }
+  #luffy-moon-root .luffy-moon .moon-core { width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #ffffff 0%, #fff8e6 30%, #ffd6e9 60%); box-shadow: 0 10px 60px rgba(255,200,120,0.12), 0 2px 12px rgba(255,220,240,0.06) inset; mix-blend-mode: screen; }
+
+  #luffy-moon-root .luffy-trail { position: absolute; left:0; top:0; pointer-events:none; filter: blur(18px) saturate(1.1); opacity:0.95; }
+  #luffy-moon-root .luffy-trail::before { content: ''; position:absolute; left:0; top:50%; transform:translateY(-50%); width:360px; height:120px; border-radius:999px; background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,220,180,0.6), rgba(255,170,200,0.18)); box-shadow:0 0 60px rgba(255,200,220,0.22); }
+
+  #luffy-moon-root .luffy-lightning { position:absolute; left:0; top:0; width:220px; height:220px; pointer-events:none; opacity:0; mix-blend-mode:screen; }
+
+  /* animation helpers when added as classes */
+  .luffy-animate--travel { animation: luffy-moon-fade 400ms ease-out forwards; }
+
+  @keyframes luffy-moon-fade { from { opacity: 0; transform: scale(0.18); } to { opacity: 1; transform: scale(1); } }
+
+  /* reduced motion: keep things minimal */
+  @media (prefers-reduced-motion: reduce) {
+    #luffy-moon-root .luffy-moon, #luffy-moon-root .luffy-trail, #luffy-moon-root .luffy-lightning { transition: none !important; animation: none !important; opacity: 1 !important; }
+  }
 </style>
 
 <script is:inline>
   (function () {
     const btn = document.getElementById('luffy-fab-btn');
-    if (!btn) return;
+    const fabWrap = document.getElementById('luffy-fab');
+    const moonRoot = document.getElementById('luffy-moon-root');
+    if (!btn || !fabWrap) return;
 
     const audioDrums = new Audio('/drums-of-liberation.mp3');
-    const audioCue = new Audio('/luffy-nika.mp3');
 
     function setVisible(yes) {
       const el = document.getElementById('luffy-fab');
@@ -71,37 +91,143 @@
     update();
     new MutationObserver(() => update()).observe(document.body, { attributes: true });
 
-    btn.addEventListener('click', e => {
+    function createMoonElements() {
+      if (!moonRoot) return null;
+      // container
+      const container = document.createElement('div');
+      container.className = 'luffy-moon-wrapper pointer-events-none';
+
+      // main moon
+      const moon = document.createElement('div');
+      moon.className = 'luffy-moon';
+      const core = document.createElement('div');
+      core.className = 'moon-core';
+      moon.appendChild(core);
+
+      // trail
+      const trail = document.createElement('div');
+      trail.className = 'luffy-trail';
+
+      // lightning SVG (subtle)
+      const lightning = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      lightning.setAttribute('viewBox', '0 0 200 200');
+      lightning.classList.add('luffy-lightning');
+      lightning.innerHTML = `
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop stop-color="#fff6e6" offset="0" />
+            <stop stop-color="#ffd6e9" offset="1" />
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#g1)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M140 30 L110 84 L130 84 L90 170" opacity="0.95" stroke-linejoin="round" />
+        </g>
+      `;
+
+      container.appendChild(trail);
+      container.appendChild(moon);
+      container.appendChild(lightning);
+      moonRoot.appendChild(container);
+      return { container, moon, trail, lightning };
+    }
+
+    btn.addEventListener('click', async (e) => {
       e.stopPropagation();
 
-      // Prefer reduced-motion: still play sounds but skip heavy animation
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      try {
-        audioDrums.currentTime = 0;
-        audioDrums.play().catch(() => {});
-      } catch (err) {}
-      try {
-        audioCue.currentTime = 0;
-        audioCue.play().catch(() => {});
-      } catch (err) {}
+      // play drums audio (user gesture) - ignore failures
+      try { audioDrums.currentTime = 0; await audioDrums.play(); } catch (err) {}
 
       // small aura pulse
       const aura = document.querySelector('#luffy-fab .aura');
       if (aura) {
         aura.classList.remove('pulse');
-        void aura.offsetWidth; // trigger reflow
+        void aura.offsetWidth;
         aura.classList.add('pulse');
       }
 
-      if (reduced) return;
-
-      // brief decorative pulse animation on the button (non-blocking)
+      // quick button pop
       btn.animate([
         { transform: 'translateY(0) scale(1)' },
-        { transform: 'translateY(-10px) scale(1.06)' },
+        { transform: 'translateY(-12px) scale(1.08)' },
         { transform: 'translateY(0) scale(1)' }
       ], { duration: 520, easing: 'cubic-bezier(.22,.9,.35,1)' });
+
+      if (reduced || !moonRoot) return;
+
+      const rect = btn.getBoundingClientRect();
+      const startX = rect.left + rect.width / 2;
+      const startY = rect.top + rect.height / 2;
+
+      const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+      const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+
+      const el = createMoonElements();
+      if (!el) return;
+      const { container, moon, trail, lightning } = el;
+
+      // set initial position near FAB
+      container.style.left = `${startX - 80}px`;
+      container.style.top = `${startY - 80}px`;
+      container.style.opacity = '0';
+      moon.style.transform = 'scale(0.16)';
+      lightning.style.opacity = '0';
+
+      // entrance: fade and pop
+      requestAnimationFrame(() => {
+        container.style.transition = 'opacity 320ms ease-out';
+        container.style.opacity = '1';
+        moon.style.transition = 'transform 420ms cubic-bezier(.2,.9,.2,1)';
+        moon.style.transform = 'scale(1)';
+      });
+
+      // compute end position: travel from right to left behind content in a sweeping arc
+      const endX = -Math.max( vw * 0.6, 240 );
+      const midY = vh * 0.36 - (Math.random() * vh * 0.08); // slight vertical variation
+
+      // animate container across screen using Web Animations API for a fluid arc
+      const travel = container.animate([
+        { transform: `translate3d(0px, 0px, 0)`, offset: 0 },
+        { transform: `translate3d(${(endX - startX + 80) * 0.45}px, ${midY - startY}px, 0)`, offset: 0.45 },
+        { transform: `translate3d(${endX - startX + 80}px, ${midY - startY - 40}px, 0)`, offset: 1 }
+      ], { duration: 2200, easing: 'cubic-bezier(.22,.9,.28,1)', fill: 'forwards' });
+
+      // trail animation - stretch and fade
+      trail.style.left = `${startX - 180}px`;
+      trail.style.top = `${startY - 40}px`;
+      trail.animate([
+        { transform: 'scaleX(0.12)', opacity: 0.92 },
+        { transform: 'scaleX(1.0)', opacity: 0.9, offset: 0.45 },
+        { transform: 'scaleX(1.6)', opacity: 0.0 }
+      ], { duration: 2000, easing: 'cubic-bezier(.2,.9,.2,1)', fill: 'forwards' });
+
+      // lightning flash timed near mid-travel
+      setTimeout(() => {
+        lightning.style.left = `${startX - 100}px`;
+        lightning.style.top = `${startY - 100}px`;
+        lightning.animate([
+          { opacity: 0 }, { opacity: 1 }, { opacity: 0 }
+        ], { duration: 520, easing: 'ease-out' });
+      }, 740);
+
+      // subtle glow pulse on core during travel
+      moon.animate([
+        { boxShadow: '0 10px 40px rgba(255,200,120,0.12)' },
+        { boxShadow: '0 22px 80px rgba(255,180,200,0.22)' },
+        { boxShadow: '0 8px 30px rgba(255,200,120,0.12)' }
+      ], { duration: 2200, easing: 'ease-in-out' });
+
+      // cleanup after animation completes
+      travel.onfinish = () => {
+        // fade out the container gracefully
+        container.style.transition = 'opacity 480ms ease-out, transform 480ms ease-out';
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(-12px) scale(0.9)';
+        setTimeout(() => {
+          if (container && container.parentNode) container.parentNode.removeChild(container);
+        }, 520);
+      };
     });
 
     // subtle rubber on pointer enter for non-touch devices
