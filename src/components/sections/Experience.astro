@@ -4,7 +4,7 @@ import { work } from '@cv'
 import { Icon } from 'astro-icon/components'
 
 // Calculate total months and years+months between two dates
-function getMonthYearDiff(startDate, endDate) {
+function getMonthYearDiff(startDate: string, endDate?: string | null) {
   const start = new Date(startDate)
   const end = endDate ? new Date(endDate) : new Date()
   let years = end.getFullYear() - start.getFullYear()

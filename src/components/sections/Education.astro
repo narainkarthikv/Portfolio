@@ -40,7 +40,7 @@ import { certificates } from '@cv'
       <>
         <h4 data-ccursor="lift" class="mt-4 mb-2 text-base font-semibold text-skin-base">Certificates</h4>
         <ul class="space-y-2 py-2">
-          {certificates.map(({ name, date, issuer, url }) => (
+          {certificates.map(({ name, date, issuer }) => (
             <li class="rounded border border-skin-muted px-3 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between bg-skin-card">
               <div class="flex flex-col sm:flex-row sm:items-center gap-1">
                 <span class="font-medium">{name}</span>
@@ -49,7 +49,7 @@ import { certificates } from '@cv'
               </div>
               <div class="flex items-center gap-2 mt-1 sm:mt-0">
                 <span class="text-xs text-skin-muted">{date}</span>
-                {url && <a href={url} class="text-xs text-skin-hue underline hover:no-underline ml-2" target="_blank">View</a>}
+                {/* no url field in certificates in cv.json */}
               </div>
             </li>
           ))}
