@@ -1,0 +1,92 @@
+---
+import CV from '@cv'
+const { basics, skills, projects } = CV;
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  pathname?: string;
+  keywords?: string[];
+}
+
+const { name, summary, image, url, location, profiles } = basics;
+
+const site = Astro.site ?? import.meta.env.SITE ?? url ?? '';
+
+const props = Astro.props as Props;
+const title = props.title ?? `${name} - Portfolio`;
+const description = props.description ?? summary ?? `${name} – Portfolio`;
+const imagePath = props.image ?? image ?? '/pfp.webp';
+const canonical = `${String(site).replace(/\/$/, '')}${props.pathname ?? '/'} `;
+
+// build keywords from skills
+const keywords = props.keywords ?? skills?.flatMap((s: any) => s.keywords ?? [s.name]) ?? [];
+
+// JSON-LD structured data
+const ld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": name,
+      "url": site,
+  "image": String(site).replace(/\/$/, '') + imagePath,
+      "jobTitle": basics.label ?? undefined,
+      "description": description,
+      "address": basics.location ? {
+        "@type": "PostalAddress",
+        "addressLocality": basics.location.city,
+        "addressRegion": basics.location.region,
+        "addressCountry": basics.location.countryCode
+      } : undefined,
+      "sameAs": (profiles || []).map((p: any) => p.url)
+    },
+    {
+      "@type": "WebSite",
+      "url": String(site),
+      "name": name,
+      "description": description,
+    },
+    ...(projects || []).slice(0, 10).map((p: any) => ({
+      "@type": "CreativeWork",
+      "name": p.name,
+      "url": p.url,
+      "description": p.description
+    }))
+  ]
+}
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={Array.from(new Set(keywords)).join(', ')} />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#0ea5e9" />
+<link rel="canonical" href={canonical.trim()} />
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content={name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical.trim()} />
+<meta property="og:image" content={String(site).replace(/\/$/, '') + imagePath} />
+<meta property="og:image:alt" content={`${name} profile image`} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={profiles?.find((p:any)=>p.network.toLowerCase().includes('twitter')||p.network.toLowerCase().includes('x'))?.url ?? ''} />
+<meta name="twitter:creator" content={profiles?.find((p:any)=>p.network.toLowerCase().includes('twitter')||p.network.toLowerCase().includes('x'))?.username ?? ''} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={String(site).replace(/\/$/, '') + imagePath} />
+
+<!-- Accessible language/hreflang -->
+<link rel="alternate" hreflang="en" href={canonical.trim()} />
+
+<!-- Structured data -->
+<script type="application/ld+json" is:inline>
+{JSON.stringify(ld, null, 2)}
+</script>
