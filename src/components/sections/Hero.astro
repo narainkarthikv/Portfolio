@@ -65,10 +65,10 @@ const { city, region } = location
           {
             basics.profiles.map(({network, url, icon, color}) => {
               return (
-                <a
-                  data-ccursor
-                  class="flex flex-col sm:basis-1/2 items-center justify-center rounded-md hover:cursor-none"
-                  href={url}
+        <a
+          data-ccursor
+          class="flex flex-col sm:basis-1/2 items-center justify-center rounded-md hover:cursor-default"
+          href={url}
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label={`${network} (opens in a new tab)`}

@@ -102,7 +102,7 @@ const profilesInfo = profiles.map(({ network, url }) => {
       handler: () => {
         // Use an absolute path to the public asset so it resolves the same in
         // dev and when deployed. Make sure the file is copied to `public/`.
-        location.href = '/NARAIN_KARTHIK_CV.pdf'
+        location.href = '/narainkarthik-cv.pdf'
       },
     },
     {
@@ -148,7 +148,7 @@ const profilesInfo = profiles.map(({ network, url }) => {
   
   document.querySelectorAll("#hotkeypad li").forEach(li => {
     li.setAttribute("data-ccursor", "lift");
-    li.classList.add("modified-cursor-none");
+    li.classList.add("modified-cursor-default");
   });
   document.querySelectorAll("#hotkeypad footer > p").forEach(li => {
     li.setAttribute("data-ccursor", "");

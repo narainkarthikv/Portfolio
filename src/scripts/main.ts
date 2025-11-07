@@ -1,15 +1,10 @@
-import contextCursor from "@/lib/contextCursor";
-
+// Custom animated cursor removed to restore native cursor behavior.
 const mq = window.matchMedia("(min-width: 640px)");
 if (mq.matches) {
-	contextCursor({
-		radius: 25,
-	});
-	
 	const container = document.documentElement;
 	const throttleDelay = 50; // cap the rate of scroll events in ms
 	const scrollSpeedSensitivity = 1.6; // adjust this value to your needs, 1.0 is the 100% scroll speed
-	
+
 	let isDragging = false;
 	let startY !: number;
 	let scrollTop !: number;
@@ -55,6 +50,5 @@ if (mq.matches) {
 	});
 	
 	container.style.scrollBehavior = "smooth";
-	container.style.cursor = "none";
 }
 

@@ -44,7 +44,8 @@ const site = Astro.site ?? import.meta.env.SITE ?? '';
   body{
     * {
     @apply rounded-lg;
-    cursor: none !important;
+    /* allow native cursor */
+    cursor: auto !important;
     -webkit-user-drag: none;
     }
   }
