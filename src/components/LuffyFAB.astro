@@ -1,23 +1,30 @@
 ---
 ---
 
-<!-- Luffy FAB (simplified): shows only when data-theme="luffy"; plays audio on click and keeps hover/pulse animations -->
+<!-- Luffy FAB (Gear 5 Nika Easter Egg): shows only when data-theme="luffy"; plays audio on click with extreme rubber animations -->
 <div id="luffy-fab" class="fixed right-6 bottom-6 z-50 pointer-events-none" role="presentation" aria-hidden="true">
   <button
     id="luffy-fab-btn"
-    class="relative flex items-center justify-center h-16 w-16 rounded-full overflow-visible focus:outline-none pointer-events-auto"
-    aria-label="Luffy Gear 5"
+    class="relative flex items-center justify-center h-16 w-16 rounded-full overflow-visible focus:outline-none pointer-events-auto group"
+    aria-label="Luffy Gear 5 - Nika"
     type="button"
   >
-    <!-- moon aura -->
-    <div class="absolute inset-0 rounded-full aura -z-10" aria-hidden></div>
+    <!-- energy aura with multiple layers -->
+    <div class="absolute inset-0 rounded-full aura-layer-1 -z-10" aria-hidden></div>
+    <div class="absolute inset-0 rounded-full aura-layer-2 -z-10" aria-hidden></div>
+    <div class="absolute inset-0 rounded-full aura-sparkle -z-10" aria-hidden></div>
 
-    <!-- subtle cloud swirls -->
-    <svg class="absolute -left-8 -top-6 w-28 h-28 opacity-70 cloud-1 pointer-events-none" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 60 C20 40, 40 30, 60 36 C74 40, 86 50, 92 60 C80 70, 60 76, 44 74 C28 72, 14 68, 10 60 Z" fill="white"/></svg>
-    <svg class="absolute -right-10 -bottom-8 w-32 h-32 opacity-60 cloud-2 pointer-events-none" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M88 40 C78 20, 58 10, 40 16 C26 20, 14 30, 8 40 C20 50, 40 56, 56 54 C72 52, 86 48, 88 40 Z" fill="white"/></svg>
+    <!-- dynamic cloud swirls with more movement -->
+    <svg class="absolute -left-8 -top-6 w-28 h-28 opacity-75 cloud-1 pointer-events-none" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 60 C20 40, 40 30, 60 36 C74 40, 86 50, 92 60 C80 70, 60 76, 44 74 C28 72, 14 68, 10 60 Z" fill="white"/></svg>
+    <svg class="absolute -right-10 -bottom-8 w-32 h-32 opacity-70 cloud-2 pointer-events-none" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M88 40 C78 20, 58 10, 40 16 C26 20, 14 30, 8 40 C20 50, 40 56, 56 54 C72 52, 86 48, 88 40 Z" fill="white"/></svg>
+    
+    <!-- extra rubber bounce sparkles on hover -->
+    <div class="absolute w-2 h-2 bg-white rounded-full opacity-0 sparkle-1 pointer-events-none" aria-hidden></div>
+    <div class="absolute w-2 h-2 bg-white rounded-full opacity-0 sparkle-2 pointer-events-none" aria-hidden></div>
+    <div class="absolute w-1.5 h-1.5 bg-yellow-200 rounded-full opacity-0 sparkle-3 pointer-events-none" aria-hidden></div>
 
     <!-- artwork (public) -->
-    <img src="/luffy-nika.png" alt="Luffy Nika" class="h-full w-full object-cover rounded-full mix-blend-multiply filter grayscale contrast-105 brightness-95"/>
+    <img src="/luffy-nika.png" alt="Luffy Nika - Gear 5" class="h-full w-full object-cover rounded-full mix-blend-multiply filter grayscale contrast-110 brightness-90 group-hover:brightness-100 transition-all duration-300"/>
   </button>
 </div>
 
@@ -26,50 +33,268 @@
   #luffy-fab { opacity: 0; transform: translateY(10px) scale(0.96); transition: opacity 300ms ease, transform 360ms cubic-bezier(.2,.9,.2,1); pointer-events: none; }
   body[data-theme="luffy"] #luffy-fab { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
 
-  /* aura */
-  #luffy-fab .aura { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95) 0%, rgba(var(--color),0.85) 35%, rgba(255,150,200,0.06) 70%); box-shadow: 0 8px 30px rgba(var(--color),0.28), 0 2px 10px rgba(255,150,200,0.12) inset; transition: transform 240ms ease, box-shadow 260ms ease; }
+  /* multi-layer aura for more energy */
+  #luffy-fab .aura-layer-1 { 
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.98) 0%, rgba(255,200,120,0.9) 25%, rgba(255,150,200,0.4) 65%, transparent 100%); 
+    box-shadow: 0 8px 32px rgba(255,200,120,0.3), 0 0 20px rgba(255,220,150,0.2) inset, 0 -4px 16px rgba(255,180,200,0.12) inset;
+    transition: transform 240ms ease, box-shadow 260ms ease;
+  }
+  
+  #luffy-fab .aura-layer-2 { 
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    box-shadow: 0 0 40px rgba(255,150,200,0.18), 0 12px 48px rgba(255,200,120,0.08) inset;
+    animation: aura-pulse 2.8s ease-in-out infinite;
+  }
+  
+  #luffy-fab .aura-sparkle {
+    background: radial-gradient(circle at 40% 40%, rgba(255,255,200,0.6) 0%, transparent 50%);
+    opacity: 0.3;
+    animation: aura-shimmer 1.2s ease-in-out infinite;
+  }
 
-  /* cloud motion (subtle) */
-  #luffy-fab .cloud-1 { animation: swirlA 6s linear infinite; filter: blur(6px) saturate(1.05) opacity(0.85); }
-  #luffy-fab .cloud-2 { animation: swirlB 7s linear infinite; filter: blur(8px) saturate(1.02) opacity(0.75); }
-  @keyframes swirlA { 0%{transform:rotate(0)}50%{transform:rotate(6deg) translateX(2px)}100%{transform:rotate(0)} }
-  @keyframes swirlB { 0%{transform:rotate(0)}50%{transform:rotate(-8deg) translateY(-3px)}100%{transform:rotate(0)} }
+  @keyframes aura-pulse { 
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.08); opacity: 0.6; }
+  }
 
-  /* hover / rubber */
-  #luffy-fab button { transition: transform 260ms cubic-bezier(.22,.9,.35,1); }
-  #luffy-fab button:hover { transform: translateY(-6px) scale(1.04); }
-  #luffy-fab button:active { transform: translateY(0) scale(0.98); }
-  #luffy-fab button:hover .aura, #luffy-fab button:active .aura { transform: scale(1.06); box-shadow: 0 12px 40px rgba(var(--color),0.36), 0 4px 12px rgba(255,150,200,0.14) inset; }
+  @keyframes aura-shimmer {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+  }
 
-  /* pulse */
-  #luffy-fab .aura.pulse { animation: pulseAura 560ms ease-out; }
-  @keyframes pulseAura { 0%{box-shadow:0 8px 30px rgba(var(--color),0.32);transform:scale(1)}40%{box-shadow:0 12px 48px rgba(var(--color),0.5);transform:scale(1.12)}100%{box-shadow:0 8px 30px rgba(var(--color),0.28);transform:scale(1)} }
+  /* cloud motion - more energetic and unpredictable */
+  #luffy-fab .cloud-1 { 
+    animation: swirlA 5s linear infinite; 
+    filter: blur(5px) saturate(1.1) opacity(0.85); 
+  }
+  #luffy-fab .cloud-2 { 
+    animation: swirlB 6s linear infinite; 
+    filter: blur(7px) saturate(1.08) opacity(0.75); 
+  }
+  
+  @keyframes swirlA { 
+    0% { transform: rotate(0) translateX(0) }
+    25% { transform: rotate(8deg) translateX(3px) translateY(-2px) }
+    50% { transform: rotate(0) translateX(0) }
+    75% { transform: rotate(-6deg) translateX(-2px) translateY(1px) }
+    100% { transform: rotate(0) translateX(0) }
+  }
+  
+  @keyframes swirlB { 
+    0% { transform: rotate(0) translateY(0) }
+    30% { transform: rotate(-10deg) translateY(-4px) translateX(2px) }
+    50% { transform: rotate(0) translateY(0) }
+    80% { transform: rotate(8deg) translateY(2px) translateX(-1px) }
+    100% { transform: rotate(0) translateY(0) }
+  }
+
+  /* sparkles on hover */
+  #luffy-fab .sparkle-1 {
+    animation: sparkle-float-1 0.8s ease-in-out infinite;
+    left: 24px; top: 8px;
+  }
+  
+  #luffy-fab .sparkle-2 {
+    animation: sparkle-float-2 0.9s ease-in-out infinite 0.15s;
+    right: 6px; top: 12px;
+  }
+  
+  #luffy-fab .sparkle-3 {
+    animation: sparkle-float-3 1s ease-in-out infinite 0.3s;
+    left: 6px; bottom: 10px;
+  }
+
+  #luffy-fab button:hover .sparkle-1,
+  #luffy-fab button:hover .sparkle-2,
+  #luffy-fab button:hover .sparkle-3 {
+    opacity: 1 !important;
+  }
+
+  @keyframes sparkle-float-1 {
+    0%, 100% { opacity: 0; transform: translateY(0) scale(0.5); }
+    50% { opacity: 1; transform: translateY(-8px) scale(1); }
+  }
+  
+  @keyframes sparkle-float-2 {
+    0%, 100% { opacity: 0; transform: translateX(0) scale(0.5); }
+    50% { opacity: 1; transform: translateX(6px) scale(1); }
+  }
+  
+  @keyframes sparkle-float-3 {
+    0%, 100% { opacity: 0; transform: translateX(0) translateY(4px) scale(0.5); }
+    50% { opacity: 1; transform: translateX(-6px) translateY(-4px) scale(1); }
+  }
+
+  /* extreme rubber button interactions - Luffy style! */
+  #luffy-fab button { 
+    transition: transform 260ms cubic-bezier(.22,.9,.35,1);
+    filter: drop-shadow(0 4px 12px rgba(255,200,120,0.15));
+  }
+  
+  #luffy-fab button:hover { 
+    transform: translateY(-8px) scale(1.06);
+    filter: drop-shadow(0 8px 24px rgba(255,200,120,0.25));
+  }
+  
+  #luffy-fab button:active { 
+    transform: translateY(-2px) scale(0.95);
+    filter: drop-shadow(0 2px 8px rgba(255,200,120,0.18));
+  }
+  
+  #luffy-fab button:hover .aura-layer-1, 
+  #luffy-fab button:active .aura-layer-1 { 
+    transform: scale(1.12);
+    box-shadow: 0 12px 48px rgba(255,200,120,0.42), 0 0 24px rgba(255,220,150,0.28) inset, 0 -6px 20px rgba(255,180,200,0.18) inset;
+  }
+
+  /* pulse effect on click */
+  #luffy-fab .aura-layer-1.pulse { 
+    animation: pulseAuraEnergetic 560ms cubic-bezier(.22,.9,.2,1) !important;
+  }
+
+  @keyframes pulseAuraEnergetic { 
+    0% { 
+      box-shadow: 0 8px 32px rgba(255,200,120,0.3);
+      transform: scale(1);
+    }
+    35% { 
+      box-shadow: 0 16px 56px rgba(255,200,120,0.5), 0 0 32px rgba(255,150,200,0.3) inset;
+      transform: scale(1.18);
+    }
+    100% { 
+      box-shadow: 0 8px 32px rgba(255,200,120,0.3);
+      transform: scale(1);
+    }
+  }
+
+  /* extra bounce pop animation */
+  @keyframes rubber-pop {
+    0% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(-3px, -4px) scale(0.98); }
+    50% { transform: translate(2px, -8px) scale(1.02); }
+    75% { transform: translate(-1px, -4px) scale(1); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
 
   /* responsive: smaller on mobile, hide clouds */
   @media (max-width:640px){
-    /* anchor to the left side and respect notch / safe-area insets */
-    #luffy-fab{left: calc(env(safe-area-inset-left, 0px) + 0.75rem); bottom: calc(env(safe-area-inset-bottom, 0px) + 0.75rem)}
-    #luffy-fab button{height:48px;width:48px}
-    #luffy-fab .cloud-1,#luffy-fab .cloud-2{display:none}
+    #luffy-fab{
+      left: calc(env(safe-area-inset-left, 0px) + 0.75rem); 
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 0.75rem);
+    }
+    #luffy-fab button{
+      height: 48px;
+      width: 48px;
+      filter: drop-shadow(0 2px 8px rgba(255,200,120,0.12));
+    }
+    #luffy-fab button:hover { 
+      filter: drop-shadow(0 6px 16px rgba(255,200,120,0.2));
+    }
+    #luffy-fab .cloud-1,
+    #luffy-fab .cloud-2{
+      display: none;
+    }
+    #luffy-fab .sparkle-1,
+    #luffy-fab .sparkle-2,
+    #luffy-fab .sparkle-3 {
+      display: none;
+    }
   }
 
   /* Luffy moon overlay elements (placed in #luffy-moon-root) */
-  #luffy-moon-root .luffy-moon { position: absolute; left: 0; top: 0; transform-origin: center; will-change: transform, opacity; filter: drop-shadow(0 18px 40px rgba(255,200,120,0.12)); }
-  #luffy-moon-root .luffy-moon .moon-core { width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #ffffff 0%, #fff8e6 30%, #ffd6e9 60%); box-shadow: 0 10px 60px rgba(255,200,120,0.12), 0 2px 12px rgba(255,220,240,0.06) inset; mix-blend-mode: screen; }
+  #luffy-moon-root .luffy-moon { 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    transform-origin: center; 
+    will-change: transform, opacity; 
+    filter: drop-shadow(0 24px 56px rgba(255,200,120,0.18)) drop-shadow(0 0 32px rgba(255,150,200,0.12));
+  }
+  
+  #luffy-moon-root .luffy-moon .moon-core { 
+    width: 160px; 
+    height: 160px; 
+    border-radius: 50%; 
+    background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fff9e6 28%, #ffd6e9 58%, #ff99cc 85%); 
+    box-shadow: 
+      0 12px 72px rgba(255,200,120,0.15), 
+      0 0 40px rgba(255,150,200,0.12) inset,
+      0 2px 16px rgba(255,220,240,0.08) inset;
+    mix-blend-mode: screen;
+  }
 
-  #luffy-moon-root .luffy-trail { position: absolute; left:0; top:0; pointer-events:none; filter: blur(18px) saturate(1.1); opacity:0.95; }
-  #luffy-moon-root .luffy-trail::before { content: ''; position:absolute; left:0; top:50%; transform:translateY(-50%); width:360px; height:120px; border-radius:999px; background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,220,180,0.6), rgba(255,170,200,0.18)); box-shadow:0 0 60px rgba(255,200,220,0.22); }
+  #luffy-moon-root .luffy-trail { 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    pointer-events: none; 
+    filter: blur(22px) saturate(1.2); 
+    opacity: 0.98;
+  }
+  
+  #luffy-moon-root .luffy-trail::before { 
+    content: ''; 
+    position: absolute; 
+    left: 0; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 420px; 
+    height: 140px; 
+    border-radius: 999px; 
+    background: linear-gradient(90deg, rgba(255,255,200,0.9), rgba(255,220,140,0.72), rgba(255,170,200,0.25), transparent); 
+    box-shadow: 0 0 80px rgba(255,200,200,0.28), 0 0 40px rgba(255,220,150,0.2);
+  }
 
-  #luffy-moon-root .luffy-lightning { position:absolute; left:0; top:0; width:220px; height:220px; pointer-events:none; opacity:0; mix-blend-mode:screen; }
+  #luffy-moon-root .luffy-lightning { 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    width: 240px; 
+    height: 240px; 
+    pointer-events: none; 
+    opacity: 0; 
+    mix-blend-mode: screen;
+  }
+
+  /* fun glow bursts on landing */
+  #luffy-moon-root .glow-burst {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
 
   /* animation helpers when added as classes */
-  .luffy-animate--travel { animation: luffy-moon-fade 400ms ease-out forwards; }
+  .luffy-animate--travel { 
+    animation: luffy-moon-fade 420ms cubic-bezier(.22,.9,.2,1) forwards;
+  }
 
-  @keyframes luffy-moon-fade { from { opacity: 0; transform: scale(0.18); } to { opacity: 1; transform: scale(1); } }
+  @keyframes luffy-moon-fade { 
+    from { 
+      opacity: 0; 
+      transform: scale(0.12) rotate(-45deg);
+    } 
+    to { 
+      opacity: 1; 
+      transform: scale(1) rotate(0deg);
+    } 
+  }
 
   /* reduced motion: keep things minimal */
   @media (prefers-reduced-motion: reduce) {
-    #luffy-moon-root .luffy-moon, #luffy-moon-root .luffy-trail, #luffy-moon-root .luffy-lightning { transition: none !important; animation: none !important; opacity: 1 !important; }
+    #luffy-moon-root .luffy-moon, 
+    #luffy-moon-root .luffy-trail, 
+    #luffy-moon-root .luffy-lightning { 
+      transition: none !important; 
+      animation: none !important; 
+      opacity: 1 !important; 
+    }
+    #luffy-fab .aura-layer-2,
+    #luffy-fab .aura-sparkle,
+    #luffy-fab .cloud-1,
+    #luffy-fab .cloud-2 {
+      animation: none !important;
+    }
   }
 </style>
 
@@ -85,7 +310,6 @@
     function setVisible(yes) {
       const el = document.getElementById('luffy-fab');
       if (!el) return;
-      // aria-hidden should reflect whether the FAB is visible to assistive tech
       el.setAttribute('aria-hidden', yes ? 'false' : 'true');
     }
 
@@ -93,7 +317,6 @@
       const theme = document.body.getAttribute('data-theme') || '';
       const isLuffy = theme === 'luffy';
       setVisible(isLuffy);
-      // ensure the button is programmatically inert when not in Luffy theme
       try {
         btn.disabled = !isLuffy;
         if (isLuffy) {
@@ -104,7 +327,7 @@
           btn.removeAttribute('aria-pressed');
         }
       } catch (err) {
-        // if btn isn't available, ignore
+        // ignore
       }
     }
 
@@ -113,22 +336,18 @@
 
     function createMoonElements() {
       if (!moonRoot) return null;
-      // container
       const container = document.createElement('div');
       container.className = 'luffy-moon-wrapper pointer-events-none';
 
-      // main moon
       const moon = document.createElement('div');
       moon.className = 'luffy-moon';
       const core = document.createElement('div');
       core.className = 'moon-core';
       moon.appendChild(core);
 
-      // trail
       const trail = document.createElement('div');
       trail.className = 'luffy-trail';
 
-      // lightning SVG (subtle)
       const lightning = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       lightning.setAttribute('viewBox', '0 0 200 200');
       lightning.classList.add('luffy-lightning');
@@ -138,9 +357,16 @@
             <stop stop-color="#fff6e6" offset="0" />
             <stop stop-color="#ffd6e9" offset="1" />
           </linearGradient>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
         </defs>
-        <g fill="none" stroke="url(#g1)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M140 30 L110 84 L130 84 L90 170" opacity="0.95" stroke-linejoin="round" />
+        <g fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+          <path d="M140 30 L110 84 L130 84 L90 170" opacity="0.98" />
         </g>
       `;
 
@@ -151,31 +377,84 @@
       return { container, moon, trail, lightning };
     }
 
+    function createGlowBurst(x, y, color = 'rgba(255,200,120,0.5)') {
+      if (!moonRoot) return;
+      const burst = document.createElement('div');
+      burst.className = 'glow-burst';
+      burst.style.left = `${x}px`;
+      burst.style.top = `${y}px`;
+      burst.style.width = '60px';
+      burst.style.height = '60px';
+      burst.style.marginLeft = '-30px';
+      burst.style.marginTop = '-30px';
+      burst.style.background = `radial-gradient(circle, ${color} 0%, transparent 70%)`;
+      burst.style.animation = 'burst-pop 600ms ease-out forwards';
+      moonRoot.appendChild(burst);
+      setTimeout(() => burst.remove(), 620);
+    }
+
+    // Add burst animation to global styles
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes burst-pop {
+        0% { 
+          transform: scale(0.1) rotate(0deg);
+          opacity: 1;
+          filter: blur(2px);
+        }
+        60% {
+          opacity: 1;
+          filter: blur(4px);
+        }
+        100% { 
+          transform: scale(2.5) rotate(180deg);
+          opacity: 0;
+          filter: blur(8px);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
     btn.addEventListener('click', async (e) => {
       e.stopPropagation();
 
-      // guard: only allow interaction when Luffy theme is active
       if (document.body.getAttribute('data-theme') !== 'luffy') return;
 
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // play drums audio (user gesture) - ignore failures
-      try { audioDrums.currentTime = 0; await audioDrums.play(); } catch (err) {}
+      // play audio with energy
+      try { 
+        audioDrums.currentTime = 0; 
+        await audioDrums.play(); 
+      } catch (err) {}
 
-      // small aura pulse
-      const aura = document.querySelector('#luffy-fab .aura');
-      if (aura) {
-        aura.classList.remove('pulse');
-        void aura.offsetWidth;
-        aura.classList.add('pulse');
+      // extreme aura pulse
+      const aura1 = document.querySelector('#luffy-fab .aura-layer-1');
+      const aura2 = document.querySelector('#luffy-fab .aura-layer-2');
+      if (aura1) {
+        aura1.classList.remove('pulse');
+        void aura1.offsetWidth;
+        aura1.classList.add('pulse');
       }
 
-      // quick button pop
+      // rubber bounce with multiple pop phases
       btn.animate([
-        { transform: 'translateY(0) scale(1)' },
-        { transform: 'translateY(-12px) scale(1.08)' },
-        { transform: 'translateY(0) scale(1)' }
-      ], { duration: 520, easing: 'cubic-bezier(.22,.9,.35,1)' });
+        { transform: 'translateY(0) scale(1)', offset: 0 },
+        { transform: 'translateY(-18px) scaleY(0.92) scaleX(1.1)', offset: 0.25 },
+        { transform: 'translateY(2px) scaleY(1.08) scaleX(0.92)', offset: 0.5 },
+        { transform: 'translateY(-8px) scale(1.04)', offset: 0.75 },
+        { transform: 'translateY(0) scale(1)', offset: 1 }
+      ], { duration: 680, easing: 'cubic-bezier(.22,.9,.35,1)' });
+
+      // extra rubber squash on image
+      const img = btn.querySelector('img');
+      if (img) {
+        img.animate([
+          { filter: 'brightness(95%)' },
+          { filter: 'brightness(100%) contrast(1.1)' },
+          { filter: 'brightness(95%)' }
+        ], { duration: 680 });
+      }
 
       if (reduced || !moonRoot) return;
 
@@ -186,84 +465,128 @@
       const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
       const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 
+      // create multiple glow bursts on launch
+      for (let i = 0; i < 3; i++) {
+        setTimeout(() => {
+          const angle = (i / 3) * Math.PI * 2;
+          const dist = 40;
+          createGlowBurst(startX + Math.cos(angle) * dist, startY + Math.sin(angle) * dist, [
+            'rgba(255,200,120,0.6)',
+            'rgba(255,150,200,0.5)',
+            'rgba(255,220,150,0.55)'
+          ][i]);
+        }, 100 * (i + 1));
+      }
+
       const el = createMoonElements();
       if (!el) return;
       const { container, moon, trail, lightning } = el;
 
-      // set initial position near FAB
       container.style.left = `${startX - 80}px`;
       container.style.top = `${startY - 80}px`;
       container.style.opacity = '0';
-      moon.style.transform = 'scale(0.16)';
+      moon.style.transform = 'scale(0.12) rotate(-60deg)';
       lightning.style.opacity = '0';
 
-      // entrance: fade and pop
       requestAnimationFrame(() => {
-        container.style.transition = 'opacity 320ms ease-out';
+        container.style.transition = 'opacity 360ms cubic-bezier(.2,.9,.2,1)';
         container.style.opacity = '1';
-        moon.style.transition = 'transform 420ms cubic-bezier(.2,.9,.2,1)';
-        moon.style.transform = 'scale(1)';
+        moon.style.transition = 'transform 480ms cubic-bezier(.2,.9,.2,1)';
+        moon.style.transform = 'scale(1) rotate(0deg)';
       });
 
-      // compute end position: travel from right to left behind content in a sweeping arc
-      const endX = -Math.max( vw * 0.6, 240 );
-      const midY = vh * 0.36 - (Math.random() * vh * 0.08); // slight vertical variation
+      const endX = -Math.max(vw * 0.6, 240);
+      const midY = vh * 0.32 - (Math.random() * vh * 0.12);
 
-      // animate container across screen using Web Animations API for a fluid arc
       const travel = container.animate([
         { transform: `translate3d(0px, 0px, 0)`, offset: 0 },
-        { transform: `translate3d(${(endX - startX + 80) * 0.45}px, ${midY - startY}px, 0)`, offset: 0.45 },
+        { transform: `translate3d(${(endX - startX + 80) * 0.4}px, ${midY - startY - 20}px, 0)`, offset: 0.35 },
+        { transform: `translate3d(${(endX - startX + 80) * 0.75}px, ${midY - startY - 60}px, 0)`, offset: 0.65 },
         { transform: `translate3d(${endX - startX + 80}px, ${midY - startY - 40}px, 0)`, offset: 1 }
-      ], { duration: 2200, easing: 'cubic-bezier(.22,.9,.28,1)', fill: 'forwards' });
+      ], { duration: 2400, easing: 'cubic-bezier(.15,.9,.25,1)', fill: 'forwards' });
 
-      // trail animation - stretch and fade
-      trail.style.left = `${startX - 180}px`;
-      trail.style.top = `${startY - 40}px`;
+      trail.style.left = `${startX - 210}px`;
+      trail.style.top = `${startY - 50}px`;
       trail.animate([
-        { transform: 'scaleX(0.12)', opacity: 0.92 },
-        { transform: 'scaleX(1.0)', opacity: 0.9, offset: 0.45 },
-        { transform: 'scaleX(1.6)', opacity: 0.0 }
-      ], { duration: 2000, easing: 'cubic-bezier(.2,.9,.2,1)', fill: 'forwards' });
+        { transform: 'scaleX(0.08)', opacity: 0.95 },
+        { transform: 'scaleX(0.8)', opacity: 0.92, offset: 0.35 },
+        { transform: 'scaleX(1.3)', opacity: 0.75, offset: 0.65 },
+        { transform: 'scaleX(1.8)', opacity: 0.0 }
+      ], { duration: 2200, easing: 'cubic-bezier(.15,.9,.25,1)', fill: 'forwards' });
 
-      // lightning flash timed near mid-travel
-      setTimeout(() => {
-        lightning.style.left = `${startX - 100}px`;
-        lightning.style.top = `${startY - 100}px`;
-        lightning.animate([
-          { opacity: 0 }, { opacity: 1 }, { opacity: 0 }
-        ], { duration: 520, easing: 'ease-out' });
-      }, 740);
+      // enhanced lightning with multiple flashes
+      const flashTimes = [680, 1100, 1450];
+      flashTimes.forEach((time, idx) => {
+        setTimeout(() => {
+          lightning.style.left = `${startX - 100}px`;
+          lightning.style.top = `${startY - 100}px`;
+          const duration = [520, 380, 280][idx];
+          lightning.animate([
+            { opacity: 0 },
+            { opacity: 0.8 + (idx * 0.1) },
+            { opacity: 0 }
+          ], { duration, easing: 'cubic-bezier(.22,.9,.2,1)' });
+        }, time);
+      });
 
-      // subtle glow pulse on core during travel
+      // intense glow pulse during travel
       moon.animate([
-        { boxShadow: '0 10px 40px rgba(255,200,120,0.12)' },
-        { boxShadow: '0 22px 80px rgba(255,180,200,0.22)' },
-        { boxShadow: '0 8px 30px rgba(255,200,120,0.12)' }
-      ], { duration: 2200, easing: 'ease-in-out' });
+        { boxShadow: '0 12px 72px rgba(255,200,120,0.15), 0 0 40px rgba(255,150,200,0.12) inset, 0 2px 16px rgba(255,220,240,0.08) inset' },
+        { boxShadow: '0 28px 120px rgba(255,180,200,0.28), 0 8px 60px rgba(255,200,120,0.25) inset, 0 4px 24px rgba(255,220,240,0.15) inset', offset: 0.35 },
+        { boxShadow: '0 32px 140px rgba(255,200,200,0.32), 0 12px 80px rgba(255,170,180,0.3) inset, 0 6px 32px rgba(255,220,200,0.18) inset', offset: 0.65 },
+        { boxShadow: '0 12px 72px rgba(255,200,120,0.15), 0 0 40px rgba(255,150,200,0.12) inset, 0 2px 16px rgba(255,220,240,0.08) inset' }
+      ], { duration: 2400, easing: 'ease-in-out' });
 
-      // cleanup after animation completes
+      // landing burst
       travel.onfinish = () => {
-        // fade out the container gracefully
-        container.style.transition = 'opacity 480ms ease-out, transform 480ms ease-out';
+        // create landing glow bursts
+        for (let i = 0; i < 4; i++) {
+          const angle = (i / 4) * Math.PI * 2;
+          const dist = 60;
+          const burstX = parseFloat(container.style.left) + 80 + Math.cos(angle) * dist;
+          const burstY = parseFloat(container.style.top) + 80 + Math.sin(angle) * dist;
+          createGlowBurst(burstX, burstY, [
+            'rgba(255,200,120,0.6)',
+            'rgba(255,150,200,0.5)',
+            'rgba(255,220,150,0.55)',
+            'rgba(255,180,220,0.5)'
+          ][i]);
+        }
+
+        container.style.transition = 'opacity 520ms ease-out, transform 520ms ease-out';
         container.style.opacity = '0';
-        container.style.transform = 'translateY(-12px) scale(0.9)';
+        container.style.transform = 'translateY(-16px) scale(0.88)';
         setTimeout(() => {
           if (container && container.parentNode) container.parentNode.removeChild(container);
-        }, 520);
+        }, 540);
       };
     });
 
-    // subtle rubber on pointer enter for non-touch devices
+    // wild rubber hover animations on hover
     btn.addEventListener('pointerenter', () => {
-      // only run interaction animation if Luffy theme is active and device supports hover
       if (document.body.getAttribute('data-theme') !== 'luffy') return;
       if (window.matchMedia('(hover: hover)').matches) {
         btn.animate([
-          { transform: 'translateY(0) scale(1)' },
-          { transform: 'translateY(-6px) scale(1.04)' },
-          { transform: 'translateY(0) scale(1)' }
-        ], { duration: 350, easing: 'cubic-bezier(.22,.9,.45,1)' });
+          { transform: 'translateY(0) scale(1)', offset: 0 },
+          { transform: 'translateY(-10px) scaleY(0.94) scaleX(1.08)', offset: 0.4 },
+          { transform: 'translateY(0) scale(1)', offset: 1 }
+        ], { duration: 420, easing: 'cubic-bezier(.22,.9,.45,1)' });
       }
+    });
+
+    // fun click feedback with double tap detection
+    let lastClickTime = 0;
+    btn.addEventListener('click', () => {
+      const now = Date.now();
+      if (now - lastClickTime < 300) {
+        // double tap - extra large bounce!
+        btn.animate([
+          { transform: 'translateY(0) scale(1)' },
+          { transform: 'translateY(-28px) scale(1.12)' },
+          { transform: 'translateY(0) scale(1)' }
+        ], { duration: 720, easing: 'cubic-bezier(.22,.9,.35,1)' });
+      }
+      lastClickTime = now;
     });
   })();
 </script>
