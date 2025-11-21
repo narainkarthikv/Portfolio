@@ -2,36 +2,39 @@
 import { Icon } from 'astro-icon/components'
 ---
 
-<div class='inline-flex items-center print:hidden'>
-  <div
-    class='group/theme flex cursor-pointer items-center gap-2 rounded-md bg-transparent'>
-    <button
-      data-ccursor="lift"
-      id='themeSwitch'
-      class='cursor-default'
-      aria-label='Toggle dark mode'>
-      <i
-        class='flex items-center gap-1 text-sm font-medium leading-6 text-skin-base transition-transform duration-300 ease-in-out group-hover/theme:rotate-45'>
-        <Icon
-          name='ri:moon-fill'
-          class='hidden dark:block sm:hover:text-skin-hue'
-          width={28}
-          height={28}
-        />
-        <Icon name='ri:sun-fill' class='dark:hidden' width={28} height={28} />
-      </i>
-    </button>
-    <select
-      data-ccursor
-      id='themeSelect'
-      class='block w-full rounded-md border-0 bg-transparent py-1.5 pl-3 pr-10 ring-1 ring-inset ring-skin-muted focus:ring-2 focus:ring-skin-hue sm:text-sm sm:leading-6 text-skin-hue hover:cursor-default'>
-      <option value='blue'>Blue</option>
-      <option value='green'>Green</option>
-      <option value='luffy'>Luffy</option>
-      <option value='orange'>Orange</option>
-      <option value='red'>Red</option>
-    </select>
-  </div>
+<div class="inline-flex items-center gap-3 print:hidden">
+  <!-- Dark Mode Toggle -->
+  <button
+    id="themeSwitch"
+    aria-label="Toggle dark mode"
+    aria-pressed="false"
+    class="group rounded-xl p-2 flex items-center transition-all duration-300 hover:bg-skin-muted/20 active:scale-95"
+  >
+    <Icon
+      name="ri:moon-fill"
+      width={28}
+      height={28}
+      class="hidden dark:block transition-colors duration-300"
+    />
+    <Icon
+      name="ri:sun-fill"
+      width={28}
+      height={28}
+      class="dark:hidden transition-colors duration-300"
+    />
+  </button>
+
+  <!-- Theme Select Menu -->
+  <select
+    id="themeSelect"
+    class="rounded-lg border border-skin-muted bg-transparent px-3 py-1.5 text-sm text-skin-base focus:ring-2 focus:ring-skin-hue"
+  >
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+    <option value="luffy">Luffy</option>
+    <option value="orange">Orange</option>
+    <option value="red">Red</option>
+  </select>
 </div>
 
 <style>
@@ -41,106 +44,99 @@ import { Icon } from 'astro-icon/components'
 </style>
 
 <script>
-  let isDark = document.documentElement.classList.contains('dark')
+  let isDark = document.documentElement.classList.contains("dark")
 
-  export function toggleDark(event: MouseEvent) {
-    const isAppearanceTransition =
-      'startViewTransition' in document &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  /** ————————————————————————————
+   *  Toggle Dark Mode with Smooth Transition
+   * ———————————————————————————— */
+  function toggleDark(e) {
+    const animationSupported =
+      "startViewTransition" in document &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
-    if (!isAppearanceTransition) {
+    if (!animationSupported) {
       isDark = !isDark
-      updateTheme()
+      applyDark()
       return
     }
 
-    const x = event.clientX
-    const y = event.clientY
+    const x = e.clientX
+    const y = e.clientY
     const endRadius = Math.hypot(
       Math.max(x, innerWidth - x),
       Math.max(y, innerHeight - y)
     )
 
     // @ts-ignore
-    const transition = document.startViewTransition(async () => {
+    const transition = document.startViewTransition(() => {
       isDark = !isDark
-      updateTheme()
+      applyDark()
     })
 
     transition.ready.then(() => {
-      const clipPath = [
-        `circle(0px at ${x}px ${y}px)`,
-        `circle(${endRadius}px at ${x}px ${y}px)`,
-      ]
+      const from = `circle(0px at ${x}px ${y}px)`
+      const to = `circle(${endRadius}px at ${x}px ${y}px)`
+
       document.documentElement.animate(
+        { clipPath: isDark ? [to, from] : [from, to] },
         {
-          clipPath: isDark ? [...clipPath].reverse() : clipPath,
-        },
-        {
-          duration: 400,
-          easing: 'ease-out',
+          duration: 450,
+          easing: "ease-out",
           pseudoElement: isDark
-            ? '::view-transition-old(root)'
-            : '::view-transition-new(root)',
+            ? "::view-transition-old(root)"
+            : "::view-transition-new(root)",
         }
       )
     })
   }
 
-  function updateTheme() {
-    document.documentElement.classList.toggle('dark', isDark)
-    localStorage.setItem('theme', isDark ? 'dark' : 'light')
+  function applyDark() {
+    document.documentElement.classList.toggle("dark", isDark)
+    document
+      .getElementById("themeSwitch")
+      .setAttribute("aria-pressed", String(isDark))
+    localStorage.setItem("theme", isDark ? "dark" : "light")
   }
 
-  function updateDataTheme(value: string) {
-    document.body.setAttribute('data-theme', value)
-    localStorage.setItem('data-theme', value)
+  /** ————————————————————————————
+   *  Color Theme Selection
+   * ———————————————————————————— */
+  function applyColorTheme(value) {
+    document.body.dataset.theme = value
+    localStorage.setItem("data-theme", value)
   }
 
-  const themeSwitchButton = document.getElementById('themeSwitch')
-  if (themeSwitchButton) {
-    themeSwitchButton.addEventListener('click', toggleDark)
-  }
+  const switchBtn = document.getElementById("themeSwitch")
+  switchBtn?.addEventListener("click", toggleDark)
 
-  const themeSelect = document.getElementById(
-    'themeSelect'
-  ) as HTMLSelectElement
+  const themeSelect = document.getElementById("themeSelect")
+  themeSelect?.addEventListener("change", e => {
+    applyColorTheme(e.target.value)
+  })
 
-  if (themeSelect) {
-    themeSelect.addEventListener('change', e => {
-      const selectedTheme = (e.target as HTMLSelectElement).value
-      updateDataTheme(selectedTheme)
-    })
-  }
+  /** ————————————————————————————
+   *  Initialization
+   * ———————————————————————————— */
 
-  // Initialize theme based on user preference or system setting
-  if (
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    isDark = true
-    updateTheme()
-  }
+  // Dark mode initialization
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+  const storedTheme = localStorage.theme
 
-  // Initialize data-theme based on stored value or default
-  const storedDataTheme =
-    localStorage.getItem('data-theme') ||
-    document.body.getAttribute('data-theme')!
+  isDark = storedTheme === "dark" || (!storedTheme && systemDark)
+  applyDark()
 
-  updateDataTheme(storedDataTheme)
+  // Color theme initialization
+  const savedColor = localStorage.getItem("data-theme") || "blue"
+  applyColorTheme(savedColor)
+  if (themeSelect) themeSelect.value = savedColor
 
-  if (themeSelect) {
-    themeSelect.value = storedDataTheme
-  }
-
-  // Listen for changes in system color scheme
+  // Listen to system changes
   window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .addEventListener('change', e => {
-      if (!('theme' in localStorage)) {
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", e => {
+      if (!localStorage.theme) {
         isDark = e.matches
-        updateTheme()
+        applyDark()
       }
     })
 </script>
@@ -151,16 +147,11 @@ import { Icon } from 'astro-icon/components'
     animation: none;
     mix-blend-mode: normal;
   }
-  ::view-transition-old(root) {
-    z-index: 1;
-  }
+
   ::view-transition-new(root) {
     z-index: 9999;
   }
-  .dark::view-transition-old(root) {
-    z-index: 9999;
-  }
-  .dark::view-transition-new(root) {
+  .dark ::view-transition-new(root) {
     z-index: 1;
   }
 </style>
