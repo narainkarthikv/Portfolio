@@ -6,39 +6,46 @@ import ThemeSwitch from "@/components/ThemeSwitch.astro";
 import Hero from "@/components/sections/Hero.astro";
 import About from "@/components/sections/About.astro";
 import { basics } from "@cv";
+import Parser from "rss-parser";
 
 const { name } = basics;
 
-// Use your verified username
-const MEDIUM_USERNAME = "narainkarthikv"; 
-
-// FIX: Encode the URL to handle the '@' symbol correctly
+const MEDIUM_USERNAME = "narainkarthikv";
 const FEED_URL = `https://medium.com/feed/@${MEDIUM_USERNAME}`;
-const RSS_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(FEED_URL)}`;
+
+const parser = new Parser({
+  customFields: {
+    item: ["categories"],
+  },
+});
 
 let posts = [];
 let error = null;
 
 try {
-  const response = await fetch(RSS_URL);
-  const data = await response.json();
-  
-  if (data.status === 'ok') {
-    posts = data.items;
-  } else {
-    error = "Could not fetch blog posts. Please ensure your Medium handle is correct and public.";
-  }
+  const feed = await parser.parseURL(FEED_URL);
+
+  posts = feed.items.map((item) => ({
+    title: item.title ?? "",
+    link: item.link ?? "",
+    pubDate: item.pubDate ?? "",
+    description: item.content || item.contentSnippet || "",
+    categories: item.categories ?? [],
+  }));
 } catch (e) {
-  error = "An error occurred while loading the blog.";
+  console.error("Blog page Medium fetch failed:", e);
+  error = "Failed to load Medium posts.";
 }
 
 /**
- * Helper to clean up Medium's messy HTML description
- * It looks for the first paragraph or provides a fallback
+ * Clean Medium HTML excerpt
  */
 const getExcerpt = (html) => {
+  if (!html) return "Read more on Medium...";
   const match = html.match(/<p>(.*?)<\/p>/);
-  return match ? match[1].replace(/<[^>]*>?/gm, '').slice(0, 180) + '...' : 'Read more on Medium...';
+  return match
+    ? match[1].replace(/<[^>]*>?/gm, "").slice(0, 180) + "..."
+    : "Read more on Medium...";
 };
 ---
 
@@ -55,7 +62,7 @@ const getExcerpt = (html) => {
     </div>
 
     <div class="slide-enter-content space-y-12 md:col-span-4">
-      <Section title="Blog">
+      <Section title="My Blog">
         {error && <p class="text-red-500 font-mono text-sm">{error}</p>}
         
         <div class="grid gap-8">
