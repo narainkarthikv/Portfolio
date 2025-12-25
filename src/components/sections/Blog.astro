@@ -1,0 +1,57 @@
+---
+import Section from "../Section.astro";
+import Parser from "rss-parser";
+
+const MEDIUM_USERNAME = "narainkarthikv";
+const FEED_URL = `https://medium.com/feed/@${MEDIUM_USERNAME}`;
+
+const parser = new Parser();
+let posts = [];
+
+try {
+  const feed = await parser.parseURL(FEED_URL);
+  posts = feed.items.slice(0, 3);
+} catch (e) {
+  console.error("Home page blog fetch failed:", e);
+}
+
+const { className } = Astro.props;
+---
+
+<Section title="Blogs" className={className}>
+  <div class="flex flex-col gap-y-4">
+    {posts.length > 0 ? (
+      posts.map((post) => (
+        <div class="flex flex-col gap-1 border-b border-skin-muted/10 pb-3 last:border-0">
+          <div class="flex items-center justify-between gap-2">
+            <h3 class="text-sm font-medium">
+              <a
+                href={post.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-skin-hue transition-colors line-clamp-1"
+              >
+                {post.title}
+              </a>
+            </h3>
+            <time class="text-[10px] text-skin-muted whitespace-nowrap">
+              {new Date(post.pubDate).toLocaleDateString("en-US", {
+                month: "short",
+                year: "numeric",
+              })}
+            </time>
+          </div>
+        </div>
+      ))
+    ) : (
+      <p class="text-xs text-skin-muted italic">No recent posts found.</p>
+    )}
+
+    <a
+      href="/blog"
+      class="text-xs font-semibold text-skin-hue hover:underline mt-2 flex items-center gap-1"
+    >
+      View all articles →
+    </a>
+  </div>
+</Section>

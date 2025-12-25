@@ -1,0 +1,125 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Section from "@/components/Section.astro";
+import KeyboardManager from "@/components/KeyboardManager.astro";
+import ThemeSwitch from "@/components/ThemeSwitch.astro";
+import Hero from "@/components/sections/Hero.astro";
+import About from "@/components/sections/About.astro";
+import { basics } from "@cv";
+import Parser from "rss-parser";
+
+const { name } = basics;
+
+const MEDIUM_USERNAME = "narainkarthikv";
+const FEED_URL = `https://medium.com/feed/@${MEDIUM_USERNAME}`;
+
+const parser = new Parser({
+  customFields: {
+    item: ["categories"],
+  },
+});
+
+let posts = [];
+let error = null;
+
+try {
+  const feed = await parser.parseURL(FEED_URL);
+
+  posts = feed.items.map((item) => ({
+    title: item.title ?? "",
+    link: item.link ?? "",
+    pubDate: item.pubDate ?? "",
+    description: item.content || item.contentSnippet || "",
+    categories: item.categories ?? [],
+  }));
+} catch (e) {
+  console.error("Blog page Medium fetch failed:", e);
+  error = "Failed to load Medium posts.";
+}
+
+/**
+ * Clean Medium HTML excerpt
+ */
+const getExcerpt = (html) => {
+  if (!html) return "Read more on Medium...";
+  const match = html.match(/<p>(.*?)<\/p>/);
+  return match
+    ? match[1].replace(/<[^>]*>?/gm, "").slice(0, 180) + "..."
+    : "Read more on Medium...";
+};
+---
+
+<Layout title={`${name} - Blog`} pathname="/blog">
+  <main class="relative grid h-full max-w-7xl gap-12 p-8 max-sm:py-16 md:min-h-screen md:grid-cols-6 md:p-16 xl:gap-24 text-skin-base">
+    
+    <div class="slide-enter space-y-6 md:col-span-2">
+      <Hero />
+      <ThemeSwitch />
+      <About />
+      <a href="/" class="text-skin-hue hover:underline flex items-center gap-2 font-mono text-sm transition-all">
+        ← Back to Portfolio
+      </a>
+    </div>
+
+    <div class="slide-enter-content space-y-12 md:col-span-4">
+      <Section title="My Blog">
+        {error && <p class="text-red-500 font-mono text-sm">{error}</p>}
+        
+        <div class="grid gap-8">
+          {posts.map((post, index) => (
+            <article 
+              class="group relative flex flex-col gap-4 p-5 rounded-xl border border-skin-muted/20 bg-skin-button-muted/30 hover:bg-skin-button-muted/60 transition-all duration-300"
+              style={`--enter-stage: ${index + 1};`}
+            >
+              <div class="flex flex-col gap-2">
+                <div class="flex justify-between items-start gap-4">
+                  <h3 class="text-lg font-bold group-hover:text-skin-hue transition-colors leading-tight">
+                    <a href={post.link} target="_blank" rel="noopener noreferrer">
+                      {post.title}
+                    </a>
+                  </h3>
+                  <span class="text-[10px] uppercase tracking-wider text-skin-muted whitespace-nowrap mt-1">
+                    {new Date(post.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  </span>
+                </div>
+                
+                <div class="text-sm text-skin-muted line-clamp-3 leading-relaxed" set:html={getExcerpt(post.description)}>
+                </div>
+
+                {post.categories.length > 0 && (
+                  <div class="flex flex-wrap gap-2 mt-3">
+                    {post.categories.map((tag) => (
+                      <span class="px-2 py-0.5 text-[10px] font-mono rounded-md bg-skin-hue/10 text-skin-hue border border-skin-hue/20">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {!error && posts.length === 0 && (
+          <p class="text-skin-muted italic font-mono text-sm">No posts found yet. Check back soon!</p>
+        )}
+      </Section>
+    </div>
+  </main>
+  <KeyboardManager />
+</Layout>
+
+<style>
+  /* Staggered animation logic consistent with your Portfolio */
+  @keyframes slide-enter {
+    0% { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .slide-enter-content > * {
+    --enter-stage: 0;
+    --enter-step: 150ms;
+    animation: slide-enter 1s both 1;
+    animation-delay: calc(var(--enter-stage) * var(--enter-step));
+  }
+</style>
