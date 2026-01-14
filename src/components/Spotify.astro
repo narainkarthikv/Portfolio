@@ -1,50 +1,62 @@
 ---
-import spotifyLogo from "public/spotify.png";
-
-const currentTrack = {
-  title: "Current Song Title",
-  artist: "Artist Name",
-  cover: "https://via.placeholder.com/300", // Ensure this is a string URL
-  link: "https://open.spotify.com/",
-  isConnected: false, // Simulating connection status
-};
+const spotifyUrl =
+  "https://spotify-github-profile.kittinanx.com/api/view?uid=31kjez2sc5umwskdatczxceb3xdi&cover_image=true&theme=spotify-embed&show_offline=false&background_color=121212&interchange=false&profanity=false&bar_color=53b14f&bar_color_cover=false&mode=dark";
 ---
 
-<div
-  class="spotify-mini-player flex items-center bg-black text-white shadow-lg rounded-lg p-4 gap-4"
->
-  <img src={typeof spotifyLogo === 'string' ? spotifyLogo : spotifyLogo.src} alt="Spotify Logo" class="w-auto h-10" />
-  <div class="flex-1">
-    {
-      currentTrack.isConnected ? (
-        <>
-          <h2 class="text-lg font-semibold truncate">{currentTrack.title}</h2>
-          <p class="text-sm text-gray-400 truncate">{currentTrack.artist}</p>
-        </>
-      ) : (
-        <p class="text-lg font-semibold">NOT CONNECTED</p>
-      )
-    }
-  </div>
-  {
-    currentTrack.isConnected && (
-      <a
-        href={currentTrack.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-primary btn-sm"
-      >
-        Play
-      </a>
-    )
-  }
+<div class="spotify-card">
+  <a
+    href="https://github.com/kittinan/spotify-github-profile"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Open Spotify GitHub Profile Generator"
+  >
+    <img
+      src={spotifyUrl}
+      alt="Spotify GitHub Profile"
+      class="spotify-img"
+      loading="lazy"
+    />
+  </a>
 </div>
 
 <style>
-  .spotify-mini-player {
-    transition: box-shadow 0.3s ease;
+  .spotify-card {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background: var(--card-bg, #121212);
+    box-shadow: 0 8px 24px rgba(16, 16, 16, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
-  .spotify-mini-player:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  .spotify-card:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 0 16px 32px rgba(16, 16, 16, 0.45);
+  }
+
+  .spotify-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Better responsiveness */
+  @media (max-width: 480px) {
+    .spotify-card {
+      border-radius: 0.75rem;
+    }
+  }
+
+  /* Optional light mode support */
+  @media (prefers-color-scheme: light) {
+    .spotify-card {
+      --card-bg: #ffffff;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
   }
 </style>
