@@ -9,6 +9,7 @@ import Skills from "@/components/sections/Skills.astro";
 import KeyboardManager from "@/components/KeyboardManager.astro";
 import ThemeSwitch from "@/components/ThemeSwitch.astro";
 import Education from "@/components/sections/Education.astro";
+import Certifications from "@/components/sections/Certifications.astro";
 import Spotify from "@/components/Spotify.astro";
 
 import CV, { basics } from "@cv";
@@ -38,6 +39,7 @@ const { name } = basics;
           <>
             <Projects className="print:hidden" />
             {CV?.education && <Education className="order-first" />}
+            {CV?.certificates && <Certifications className="order-first" />}
           </>
         )
       }

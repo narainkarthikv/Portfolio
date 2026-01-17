@@ -1,0 +1,103 @@
+---
+import { Icon } from 'astro-icon/components';
+import Section from '../Section.astro';
+
+import { certificates } from '@cv'
+
+// Map issuer names to icons
+const getIssuerIcon = (issuer: string): string => {
+  const iconMap: Record<string, string> = {
+    'Microsoft': 'simple-icons:microsoft',
+    'JLPT': 'ri:book-2-line',
+    'Google': 'simple-icons:google',
+    'AWS': 'simple-icons:amazonaws',
+    'Coursera': 'simple-icons:coursera',
+    'Udemy': 'simple-icons:udemy',
+    'freeCodeCamp': 'simple-icons:freecodecamp',
+  };
+  return iconMap[issuer] || 'ri:award-fill';
+};
+
+// Format date to readable format
+const formatDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+};
+
+const { className } = Astro.props;
+---
+
+<Section title="Certifications" className={className}>
+  <div class="flex flex-col gap-y-3">
+    {certificates.length > 0 ? (
+      certificates.map(({ name, date, issuer }) => (
+        <div class="certificate-card group relative overflow-hidden rounded-lg border border-skin-muted bg-skin-card px-4 py-3 transition-all duration-300 hover:border-skin-hue hover:shadow-lg">
+          {/* Animated gradient background on hover */}
+          <div class="absolute inset-0 -z-10 bg-gradient-to-r from-skin-hue/10 to-skin-hue/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+          {/* Fluid background animation */}
+          <div class="absolute inset-0 -z-20 overflow-hidden rounded-lg">
+            <div class="absolute inset-0 bg-gradient-to-br from-skin-hue/20 via-transparent to-skin-hue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            {/* Left side - Icon and content */}
+            <div class="flex items-start gap-3 flex-1 min-w-0">
+              {/* Icon with animation */}
+              <div class="flex-shrink-0 mt-0.5 p-2 rounded-lg bg-skin-hue/10 group-hover:bg-skin-hue/20 transition-all duration-300 group-hover:scale-110">
+                <Icon
+                  name={getIssuerIcon(issuer)}
+                  class="w-5 h-5 text-skin-hue transition-transform duration-300 group-hover:rotate-12"
+                />
+              </div>
+
+              {/* Certificate details */}
+              <div class="flex-1 min-w-0">
+                <h4 class="font-medium text-skin-base line-clamp-2 group-hover:text-skin-hue transition-colors duration-300">
+                  {name}
+                </h4>
+                <p class="text-sm text-skin-muted mt-0.5 flex flex-wrap items-center gap-1">
+                  <span>{issuer}</span>
+                </p>
+              </div>
+            </div>
+
+            {/* Right side - Date */}
+            <div class="text-xs text-skin-muted whitespace-nowrap opacity-75 group-hover:opacity-100 group-hover:text-skin-hue transition-all duration-300">
+              {formatDate(date)}
+            </div>
+          </div>
+
+          {/* Hover accent line */}
+          <div class="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-skin-hue to-transparent group-hover:w-full transition-all duration-500" />
+        </div>
+      ))
+    ) : (
+      <p class="text-xs text-skin-muted italic">No certifications found.</p>
+    )}
+  </div>
+</Section>
+
+<style>
+  .certificate-card {
+    @apply relative;
+  }
+
+  /* Subtle floating animation on hover */
+  .certificate-card:hover {
+    animation: float 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+  }
+</style>

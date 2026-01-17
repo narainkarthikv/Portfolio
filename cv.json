@@ -58,11 +58,16 @@
     }
   ],
   "certificates": [
-    {
-      "name": "JLPT N5",
-      "date": "2023-12-01",
-      "issuer": "JLPT"
-    }
+  {
+    "name": "JLPT N5",
+    "date": "2023-12-01",
+    "issuer": "JLPT"
+  },
+  {
+    "name": "Microsoft Certified: Azure Fundamentals (AZ-900)",
+    "date": "2026-01-10",
+    "issuer": "Microsoft"
+  }
   ],
   "work": [
     {
