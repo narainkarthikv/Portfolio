@@ -5,14 +5,26 @@ import Parser from "rss-parser";
 const MEDIUM_USERNAME = "narainkarthikv";
 const FEED_URL = `https://medium.com/feed/@${MEDIUM_USERNAME}`;
 
-const parser = new Parser();
+const parser = new Parser({
+  timeout: 5000, // 10 second timeout instead of default 60s
+  customFields: {
+    item: [["content:encoded", "content"]],
+  },
+});
+
 let posts = [];
 
 try {
-  const feed = await parser.parseURL(FEED_URL);
+  const feed = await Promise.race([
+    parser.parseURL(FEED_URL),
+    new Promise((_, reject) =>
+      setTimeout(() => reject(new Error("Feed fetch timeout")), 15000)
+    ),
+  ]);
   posts = feed.items.slice(0, 3);
 } catch (e) {
   console.error("Home page blog fetch failed:", e);
+  // Silently fail - section will show "No recent posts found"
 }
 
 const { className } = Astro.props;

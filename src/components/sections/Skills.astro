@@ -4,19 +4,219 @@ import { skills } from '@cv'
 import { Icon } from 'astro-icon/components'
 ---
 
-<Section className={Astro.props.className} title='Skills'>
+<Section className={Astro.props.className} title="Skills">
+  <!-- ========================= -->
+  <!-- Mobile / Tablet Skills -->
+  <!-- ========================= -->
   <ul
-    class='inline-flex print:mt-4 flex-wrap gap-3 [&>li>svg]:text-skin-hue [&>li]:text-sm'>
-    {
-      skills.map(({ name, icon, level}) => {
-        return (
-          <li class='group relative flex items-center gap-1 rounded-md border border-solid cursor-default border-skin-hue/20 bg-skin-button-accent/20 px-1 py-0.5 text-xs text-skin-hue print:border-none print:bg-transparent print:p-0 print:text-zinc-800 transform transition-transform duration-500 hover:scale-110 hover:translate-y-[-8px] sm:hover:cursor-default'>
-            {icon && <Icon name={icon} width={18} height={18} title={level} />}{' '}
-              <span>{name}</span>
-              <span class="absolute transition-transform duration-300 group-hover:translate-y-full opacity-0 group-hover:opacity-100">{level}</span>
-          </li>
-        )
-      })
-    }
+    class="
+      lg:hidden
+      inline-flex flex-wrap gap-3
+      print:mt-4
+      [&>li>svg]:text-skin-hue
+      [&>li]:text-sm
+    "
+  >
+    {skills.map(({ name, icon, level }) => (
+      <li
+        class="
+          group relative flex items-center gap-1
+          rounded-md border border-skin-hue/20
+          bg-skin-button-accent/20
+          px-2 py-1
+          text-xs text-skin-hue
+          cursor-default
+          transform transition-transform duration-300
+          hover:scale-110 hover:-translate-y-1
+          print:border-none print:bg-transparent print:p-0 print:text-zinc-800
+        "
+      >
+        {icon && (
+          <Icon
+            name={icon}
+            width={16}
+            height={16}
+            title={level}
+          />
+        )}
+        <span>{name}</span>
+
+        <!-- Level reveal on hover (mobile safe) -->
+        <span
+          class="
+            pointer-events-none absolute inset-x-0 top-full mt-1
+            text-[10px] text-skin-hue/80
+            opacity-0 translate-y-1
+            transition-all duration-200
+            group-hover:opacity-100 group-hover:translate-y-0
+          "
+        >
+          {level}
+        </span>
+      </li>
+    ))}
   </ul>
+
+  <!-- ========================= -->
+  <!-- Desktop Skills Grid -->
+  <!-- ========================= -->
+  <div class="relative hidden lg:block">
+    <!-- Ambient glow -->
+    <div class="pointer-events-none absolute inset-0 -z-10">
+      <div
+        class="absolute left-1/2 top-28 h-[380px] w-[380px]
+               -translate-x-1/2 rounded-full
+               bg-skin-hue/10 blur-3xl">
+      </div>
+    </div>
+
+    <!-- Skills Grid -->
+    <div
+      class="
+        grid
+        grid-cols-8
+        xl:grid-cols-9
+        gap-x-8 gap-y-12
+        place-items-center
+      "
+    >
+      {skills.map(({ name, icon, level, keywords }, index) => (
+        <div class="group relative flex items-center justify-center">
+          <!-- Icon Button -->
+          <button
+            class={`
+              relative flex items-center justify-center
+              h-14 w-14
+              rounded-full
+              bg-skin-fill/70 dark:bg-skin-fill/60
+              backdrop-blur-xl
+              text-skin-hue
+
+              transition-all duration-300 ease-out
+              hover:-translate-y-0.5 hover:scale-[1.06]
+
+              focus-visible:outline-none
+              focus-visible:ring-2 focus-visible:ring-skin-hue/70
+              focus-visible:ring-offset-2
+              focus-visible:ring-offset-skin-fill
+
+              ring-1 ring-inset
+              ring-black/15 dark:ring-white/20
+
+              ${index % 3 === 0 ? 'skill-float' : ''}
+            `}
+            aria-label={`${name} skill`}
+          >
+            {icon && (
+              <Icon
+                name={icon}
+                class="h-6 w-6 transition-transform duration-200 group-hover:scale-110"
+                aria-hidden="true"
+              />
+            )}
+
+            <!-- Skill level indicator -->
+            <span
+              class={`
+                absolute -bottom-2 left-1/2 h-1
+                -translate-x-1/2 rounded-full
+                ${
+                  level === 'Beginner'
+                    ? 'w-5 bg-skin-hue/50'
+                    : level === 'Intermediate'
+                    ? 'w-8 bg-skin-hue/70'
+                    : 'w-12 bg-skin-hue'
+                }
+              `}
+              aria-hidden="true"
+            />
+          </button>
+
+          <!-- Tooltip -->
+          <div
+            role="tooltip"
+            class="
+              pointer-events-none absolute bottom-full left-1/2 z-[9999] mb-4
+              w-max max-w-xs -translate-x-1/2
+              rounded-2xl
+              bg-skin-fill/85 dark:bg-skin-fill/70
+              backdrop-blur-2xl
+              text-skin-hue
+              px-4 py-3 shadow-xl
+
+              ring-1 ring-inset
+              ring-black/15 dark:ring-white/25
+
+              opacity-0 scale-95 translate-y-2
+              transition-all duration-200 ease-out
+              group-hover:opacity-100
+              group-hover:scale-100
+              group-hover:translate-y-0
+            "
+          >
+            <div class="space-y-2">
+              <div class="flex items-center gap-2 text-sm font-semibold">
+                <span>{name}</span>
+                <span class="opacity-50">|</span>
+                <span class="text-xs font-medium opacity-80">
+                  {level}
+                </span>
+              </div>
+
+              {keywords?.length > 0 && (
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  {keywords.slice(0, 4).map((keyword) => (
+                    <span
+                      class="
+                        rounded-full px-2.5 py-0.5
+                        text-[10px] font-medium
+                        bg-skin-button-accent/30
+                        text-skin-hue
+                        ring-1 ring-inset
+                        ring-black/10 dark:ring-white/15
+                      "
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div
+              class="
+                absolute left-1/2 top-full h-2.5 w-2.5
+                -translate-x-1/2 rotate-45
+                bg-skin-fill/85 dark:bg-skin-fill/70
+                ring-1 ring-black/15 dark:ring-white/25
+              "
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <style>
+    /* Desktop float */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    .skill-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @media print {
+      button {
+        border: none;
+        background: transparent;
+        padding: 0;
+      }
+      [role='tooltip'] {
+        display: none;
+      }
+    }
+  </style>
 </Section>
