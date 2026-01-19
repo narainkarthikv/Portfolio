@@ -7,9 +7,11 @@ const words = summary.split(' ');
 ---
 
 <Section title="About">
-  <p class="font-mono opacity-75 print:font-sans text-skin-hue font-semibold print:text-skin-base print:font-normal w-full select-none">
-      {words.map((word) => (
-      <span class="w-min sm:hover:bg-skin-button-muted transition-all duration-200 sm:hover:cursor-default">{word}</span> <span> </span>
-    ))}
-  </p>
+  <div class="rounded-lg bg-skin-button-muted/40 backdrop-blur-lg ring-1 ring-white/15 dark:ring-white/10 px-4 py-3 transition-all duration-300">
+    <p class="font-mono text-sm text-skin-base font-medium print:font-sans print:font-normal w-full select-none leading-relaxed">
+        {words.map((word) => (
+        <span class="w-min inline-block transition-all duration-200 hover:bg-skin-button-accent/30 hover:backdrop-blur-md px-1 rounded sm:hover:cursor-default">{word}</span>
+      ))}
+    </p>
+  </div>
 </Section>
