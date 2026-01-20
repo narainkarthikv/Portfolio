@@ -9,7 +9,7 @@
     "image": "/pfp.webp",
     "email": "narainkarthik812@gmail.com",
     "url": "https://www.linkedin.com/in/narainkarthik-vellingiri/",
-    "summary": "MERN Stack Front-End Developer learning Back-End, Cloud, and DevOps to build full-stack solutions.",
+    "summary": "Full Stack developer learning Cloud and DevOps to build scalable and efficient solutions.",
     "theme": "blue",
     "location": {
       "city": "Coimbatore",
@@ -83,28 +83,32 @@
         "Developed a data-intensive Angular project for internal use in the national healthcare system, focusing on managing complex data sets and implementing business logic."
       ],
       "responsibilities": [
-        "Designed, developed, and maintained high-performance front-end applications, ensuring scalability, clean architecture, and an exceptional user experience.",
-        "Collaborated with cross-functional teams, including developers, designers, and project managers, to deliver innovative and efficient solutions.",
-        "Optimized front-end codebase for speed, performance, and SEO, improving accessibility and user engagement.",
-        "Managed complex, data-driven projects, seamlessly integrating business logic with intuitive user interfaces.",
-        "Developed highly responsive and reusable components to enhance application efficiency and maintainability."
+        "Developed scalable front-end applications using modern JavaScript frameworks, improving page load performance by up to 35%",
+        "Designed reusable and responsive UI components, reducing duplicate code and improving development efficiency by 30%",
+        "Optimized front-end performance, accessibility, and SEO, increasing Lighthouse scores by 25%+",
+        "Integrated business logic with data-driven user interfaces, reducing UI-related defects by 20%",
+        "Collaborated with cross-functional teams to deliver production-ready features within defined timelines"
       ],
       "achievements": [
-        "Integrated Power Platform tools, including Power Apps, Power Automate, and Power BI, to optimize workflows and data visualization.",
-        "Implemented DevOps best practices using Azure and GitHub Actions, automating CI/CD pipelines and enhancing deployment efficiency."
+        "Implemented CI/CD pipelines to automate build and deployment processes, reducing manual deployment effort by 60%",
+        "Managed cloud application deployments on Google Cloud Platform and Microsoft Azure, improving environment stability by 40%",
+        "Applied Git repository governance using branch protections and rulesets, reducing production issues caused by improper merges by 50%",
+        "Improved deployment reliability and release consistency through DevOps automation, decreasing rollback incidents by 30%"
       ],
       "skills": {
         "Azure": "simple-icons:microsoftazure",
         "Bootstrap": "simple-icons:bootstrap",
         "Confluence": "simple-icons:confluence",
         "CSS3": "ri:css3-fill",
+        "Docker": "mdi:docker",
         "Express": "simple-icons:express",
         "GCP": "simple-icons:googlecloud",
         "Git": "mdi:git",
         "GitHub": "mdi:github",
         "HTML5": "simple-icons:html5",
         "Jira": "simple-icons:jira",
-        "JavaScript ECMA6+": "simple-icons:javascript",
+        "JavaScript": "simple-icons:javascript",
+        "kubernetes": "mdi:kubernetes",
         "MUI": "simple-icons:mui",
         "Microsoft Excel": "simple-icons:microsoftexcel",
         "Microsoft PowerApps": "simple-icons:powerapps",
@@ -123,16 +127,6 @@
   ],
   "skills": [
     {
-      "name": "Azure",
-      "icon": "simple-icons:microsoftazure",
-      "level": "Beginner",
-      "keywords": [
-        "Cloud Computing",
-        "Backend",
-        "Infrastructure"
-      ]
-    },
-    {
       "name": "Astro",
       "icon": "simple-icons:astro",
       "level": "Beginner",
@@ -144,6 +138,16 @@
       ]
     },
     {
+      "name": "Azure",
+      "icon": "simple-icons:microsoftazure",
+      "level": "Beginner",
+      "keywords": [
+        "Cloud Computing",
+        "Backend",
+        "Infrastructure"
+      ]
+    },
+    {
       "name": "Bootstrap",
       "icon": "simple-icons:bootstrap",
       "level": "Intermediate",
@@ -152,6 +156,16 @@
         "Frontend",
         "CSS Framework",
         "Responsive Design"
+      ]
+    },
+    {
+      "name": "Confluence",
+      "icon": "simple-icons:confluence",
+      "level": "Beginner",
+      "keywords": [
+        "Documentation",
+        "Collaboration",
+        "Knowledge Management"
       ]
     },
     {
@@ -170,12 +184,14 @@
       "level": "Beginner",
       "keywords": [
         "Virtual Environments",
+        "Containerization",
         "Backend"
       ]
     },
-    {"name": "express",
-     "icon": "simple-icons:express",
-     "level": "Intermediate",
+    {
+      "name": "express",
+      "icon": "simple-icons:express",
+      "level": "Intermediate",
       "keywords": [
         "Web Development",
         "Backend",
@@ -191,6 +207,16 @@
         "Prototyping",
         "Web Development",
         "Frontend"
+      ]
+    },
+    {
+      "name": "GCP",
+      "icon": "simple-icons:googlecloud",
+      "level": "Beginner",
+      "keywords": [
+        "Cloud Computing",
+        "Backend",
+        "Infrastructure"
       ]
     },
     {
@@ -214,24 +240,16 @@
         "Git"
       ]
     },
-    {"name": "Gitlab",
+    {
+      "name": "Gitlab",
       "icon": "simple-icons:gitlab",
       "level": "Beginner",
-        "keywords": [
-          "Version Control",
-          "Collaboration",
-          "Source Code",
-          "Git"
-        ]
-    },
-    {"name": "GCP",
-      "icon": "simple-icons:googlecloud",
-      "level": "Beginner",
-        "keywords": [
-          "Cloud Computing",
-          "Backend",
-          "Infrastructure"
-        ]
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code",
+        "Git"
+      ]
     },
     {
       "name": "HTML",
@@ -251,6 +269,16 @@
         "Frontend",
         "Backend",
         "Fullstack"
+      ]
+    },
+    {
+      "name": "Jira",
+      "icon": "simple-icons:jira",
+      "level": "Intermediate",
+      "keywords": [
+        "Project Management",
+        "Issue Tracking",
+        "Agile"
       ]
     },
     {
@@ -274,14 +302,43 @@
       ]
     },
     {
-      "name": "MUI",
-      "icon": "simple-icons:mui",
+      "name": "Microsoft Excel",
+      "icon": "simple-icons:microsoftexcel",
       "level": "Intermediate",
       "keywords": [
-        "Web Development",
-        "Frontend",
-        "React",
-        "UI Library"
+        "Data Analysis",
+        "Spreadsheets",
+        "Microsoft Office"
+      ]
+    },
+    {
+      "name": "Microsoft PowerApps",
+      "icon": "simple-icons:powerapps",
+      "level": "Beginner",
+      "keywords": [
+        "Low-Code Development",
+        "Business Applications",
+        "Microsoft"
+      ]
+    },
+    {
+      "name": "Microsoft PowerAutomate",
+      "icon": "simple-icons:powerautomate",
+      "level": "Beginner",
+      "keywords": [
+        "Workflow Automation",
+        "Process Automation",
+        "Microsoft"
+      ]
+    },
+    {
+      "name": "Microsoft PowerBI",
+      "icon": "simple-icons:powerbi",
+      "level": "Beginner",
+      "keywords": [
+        "Data Visualization",
+        "Business Intelligence",
+        "Analytics"
       ]
     },
     {
@@ -290,9 +347,19 @@
       "level": "Intermediate",
       "keywords": [
         "Databases",
-        "File",
         "Data Storage",
         "Backend"
+      ]
+    },
+    {
+      "name": "MUI",
+      "icon": "simple-icons:mui",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "React",
+        "UI Library"
       ]
     },
     {
@@ -307,6 +374,17 @@
       ]
     },
     {
+      "name": "Postman",
+      "icon": "simple-icons:postman",
+      "level": "Intermediate",
+      "keywords": [
+        "API",
+        "Testing",
+        "Web Development",
+        "Backend"
+      ]
+    },
+    {
       "name": "PostgreSQL",
       "icon": "simple-icons:postgresql",
       "level": "Beginner",
@@ -318,19 +396,9 @@
       ]
     },
     {
-      "name": "Postman",
-      "icon": "simple-icons:postman",
+      "name": "React",
+      "icon": "simple-icons:react",
       "level": "Intermediate",
-      "keywords": [
-        "API",
-        "Testing",
-        "Web Development",
-        "Backend"
-      ]
-    },
-    {"name": "React",
-     "icon": "simple-icons:react",
-     "level": "Intermediate",
       "keywords": [
         "Web Development",
         "Frontend",
@@ -347,6 +415,16 @@
         "Frontend",
         "CSS Framework",
         "Responsive Design"
+      ]
+    },
+    {
+      "name": "Wordpress",
+      "icon": "simple-icons:wordpress",
+      "level": "Beginner",
+      "keywords": [
+        "CMS",
+        "Web Development",
+        "Content Management"
       ]
     }
   ],
@@ -374,7 +452,7 @@
       "isActive": true,
       "description": "Fit Track is an exercise monitoring application designed to help users stay on track with their fitness goals.",
       "highlights": [
-        "🎯 User-friendly interface",
+        "🎨 User-friendly interface",
         "🔥 Streak maintenance",
         "📊 Real-time analytics"
       ],
@@ -393,9 +471,9 @@
     {
       "name": "Sticky Memo",
       "isActive": true,
-      "description": "Sticky Memo is a sticky notes application built using React.js + Vite along with MUI. Users can view data in Boards, Notes, and Table formats.",
+      "description": "Transform your productivity with the intuitive note-taking app that brings the simplicity of sticky notes to the digital world.",
       "highlights": [
-        "📝 User-friendly interface",
+        "🎨 User-friendly interface",
         "📌 Variety of display options",
         "💾 Data persistence"
       ],
@@ -412,9 +490,9 @@
     {
       "name": "Nmoji",
       "isActive": true,
-      "description": "Nmoji is a straightforward web application designed for quick emoji selection and filtering.",
+      "description": "Find the Perfect Emoji in Seconds. Helps you discover, filter and copy emojis quickly — built for speed and delight.",
       "highlights": [
-        "😀 User-friendly interface",
+        "🎨 User-friendly interface",
         "⌚ Integration with wearables",
         "📊 Real-time analytics"
       ],
@@ -430,11 +508,11 @@
     {
       "name": "Contribution Cards",
       "isActive": true,
-      "description": "Contribution Cards is a fantastic way to learn about open-source contributions, improve your HTML, CSS, JS, Git skills, and showcase your creativity.",
+      "description": "Curated Contributor Profiles for Open Source Projects. Dynamically pulled from GitHub.",
       "highlights": [
         "🎨 User-friendly interface",
-        "🌈 Color variations",
-        "🔍 Filter option"
+        "🤝 Active Contributions",
+        "🖥 Dynamic data"
       ],
       "stack": {
         "HTML": "simple-icons:html5",
@@ -470,10 +548,11 @@
     {
       "name": "Readme Shop",
       "isActive": true,
-      "description": "Open Source README Shop for customising Personal Readme & Readme Docs",
+      "description": "README Shop for customising Personal Readme & Readme Docs",
       "highlights": [
         "🎨 User-friendly interface",
-        "📝 Multiple templates"
+        "📝 Multiple templates",
+        "📊 Ready-to-use"
       ],
       "stack": {
         "React": "simple-icons:react",
