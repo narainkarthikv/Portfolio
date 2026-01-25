@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio of Narain Karthik - Full Stack Developer specializing in MERN, Cloud, and DevOps">
+    <meta name="keywords"
+        content="Narain Karthik, Full Stack Developer, MERN, React, Node.js, Frontend, Backend, DevOps">
+    <meta name="author" content="Narain Karthik">
+    <meta name="theme-color" content="#3b82f6">
+
+    <title>Narain Karthik - Full Stack Developer</title>
+
+    <!-- Preload fonts for performance -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.min.css">
+
+    <!-- External Stylesheets -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.min.css">
+
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet" href="./styles.css">
+
+    <!-- Inline Critical Styles (Fallback) -->
+    <style>
+        * {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1e40af;
+            --primary-light: #dbeafe;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --border: #cbd5e1;
+            --bg-light: #f8fafc;
+            --glass-bg: rgba(241, 245, 249, 0.7);
+            --glass-border: rgba(203, 213, 225, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            min-height: 100vh;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f1f5f9;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 50%, #06b6d4 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            top: -150px;
+            right: -100px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-gradient::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -50px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-slide-in-right {
+            animation: slideInRight 0.6s ease-out forwards;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+            transform: translateY(-100%);
+        }
+
+        .navbar.visible {
+            transform: translateY(0);
+        }
+
+        body.dark-mode .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom-color: rgba(148, 163, 184, 0.2);
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 30;
+            border: none;
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .form-input {
+            transition: all 0.3s ease;
+            background: var(--bg-light);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        body.dark-mode .form-input {
+            background: rgba(15, 23, 42, 0.5);
+            border-color: rgba(148, 163, 184, 0.2);
+            color: #f1f5f9;
+        }
+
+        body.dark-mode .form-input:focus {
+            background: rgba(15, 23, 42, 0.7);
+        }
+
+        .toggle-checkbox {
+            display: none;
+        }
+
+        .toggle-label {
+            display: inline-block;
+            width: 50px;
+            height: 28px;
+            background: var(--border);
+            border-radius: 14px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .toggle-label::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: left 0.3s ease;
+        }
+
+        .toggle-checkbox:checked + .toggle-label {
+            background: var(--primary);
+        }
+
+        .toggle-checkbox:checked + .toggle-label::after {
+            left: 24px;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+        }
+
+        /* Skill Styles */
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        body.dark-mode .skill-item {
+            background: rgba(15, 23, 42, 0.5);
+            border-color: rgba(148, 163, 184, 0.2);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
+        }
+
+        .skill-item img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 0.5rem;
+            object-fit: contain;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        body.dark-mode .skill-name {
+            color: #f1f5f9;
+        }
+
+        .skill-level {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        body.dark-mode .skill-level {
+            color: #cbd5e1;
+        }
+
+        /* Project Styles */
+        .minimal-project-card {
+            background: rgba(248, 250, 252, 0.9);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        body.dark-mode .minimal-project-card {
+            background: rgba(15, 23, 42, 0.6);
+            border-color: rgba(148, 163, 184, 0.2);
+        }
+
+        .minimal-project-card:hover {
+            background: rgba(248, 250, 252, 1);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1);
+            transform: translateY(-4px);
+        }
+
+        body.dark-mode .minimal-project-card:hover {
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .project-minimal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-minimal-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        body.dark-mode .project-minimal-title {
+            color: #f1f5f9;
+        }
+
+        .project-minimal-status {
+            font-size: 0.75rem;
+            color: #22c55e;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .project-minimal-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        body.dark-mode .project-minimal-desc {
+            color: #cbd5e1;
+        }
+
+        .project-minimal-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .minimal-tech-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            font-size: 0.75rem;
+            color: var(--primary);
+        }
+
+        body.dark-mode .minimal-tech-badge {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .minimal-tech-badge img {
+            width: 14px;
+            height: 14px;
+            object-fit: contain;
+        }
+
+        .project-minimal-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .minimal-project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            background: transparent;
+            border: 1px solid var(--border);
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .minimal-project-link {
+            color: #e2e8f0;
+            border-color: rgba(148, 163, 184, 0.2);
+        }
+
+        .minimal-project-link:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Animation for slide-in */
+        .slide-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .slide-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-400 to-cyan-600 flex items-center justify-center text-white font-bold">
+                    NK
+                </div>
+                <span class="font-bold text-lg text-slate-900 dark:text-white">Narain</span>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-slate-900 dark:text-gray-300 active">Home</a>
+                <a href="#about" class="nav-link text-slate-900 dark:text-gray-300">About</a>
+                <a href="#experience" class="nav-link text-slate-900 dark:text-gray-300">Experience</a>
+                <a href="#skills" class="nav-link text-slate-900 dark:text-gray-300">Skills</a>
+                <a href="#projects" class="nav-link text-slate-900 dark:text-gray-300">Projects</a>
+                <a href="#contact" class="nav-link text-slate-900 dark:text-gray-300">Contact</a>
+            </div>
+
+            <!-- Theme Toggle -->
+            <div class="flex items-center space-x-4">
+                <input type="checkbox" id="theme-toggle" class="toggle-checkbox" aria-label="Toggle dark mode">
+                <label for="theme-toggle" class="toggle-label"></label>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+                <!-- Hero Content -->
+                <div class="space-y-8">
+                    <div class="space-y-4 animate-fade-in-up">
+                        <p class="text-white/90 text-lg font-medium">Welcome to my portfolio</p>
+                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                            Narain<br>Karthik
+                        </h1>
+                        <p class="text-xl text-white/80 font-light">Full Stack Developer • Cloud Enthusiast • DevOps Explorer</p>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style="animation-delay: 0.2s">
+                        <a href="#projects" class="btn-primary px-8 py-3 rounded-lg text-white font-semibold inline-flex items-center justify-center gap-2">
+                            <i class="ri-arrow-right-line"></i>View My Work
+                        </a>
+                        <a href="./cv.json" download class="px-8 py-3 rounded-lg text-white font-semibold border-2 border-white hover:bg-white hover:text-blue-600 transition inline-flex items-center justify-center gap-2">
+                            <i class="ri-download-line"></i>Download CV
+                        </a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex gap-4 pt-4 animate-fade-in-up" style="animation-delay: 0.4s">
+                        <a href="https://github.com/narainkarthikv" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition" aria-label="GitHub">
+                            <i class="ri-github-fill"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/narainkarthik-vellingiri" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition" aria-label="LinkedIn">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/narainkarthikv" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition" aria-label="Twitter">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="mailto:narainkarthik812@gmail.com" class="w-10 h-10 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition" aria-label="Email">
+                            <i class="ri-mail-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Profile Image Placeholder -->
+                <div class="hidden md:flex justify-center animate-slide-in-right" style="animation-delay: 0.3s">
+                    <div class="w-64 h-64 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                        <i class="ri-user-fill text-white text-6xl opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-10 lg:py-12 bg-white dark:bg-slate-950 fade-in-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">
+                    About <span class="text-blue-600">Me</span>
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400">Learn more about my journey and expertise</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                        I'm a passionate full-stack developer with expertise in building scalable web applications using modern technologies. With a strong foundation in both frontend and backend development, I craft solutions that are not only functional but also user-friendly and performant.
+                    </p>
+                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                        My journey in tech has equipped me with proficiency in MERN stack, cloud technologies, and DevOps practices. I'm committed to continuous learning and staying updated with industry best practices.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-4 bg-blue-50 dark:bg-slate-800 rounded-lg">
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">Technical Expertise</h3>
+                        <p class="text-sm text-slate-700 dark:text-slate-300">Full Stack Development, Cloud Architecture, DevOps, System Design</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 dark:bg-slate-800 rounded-lg">
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">Current Focus</h3>
+                        <p class="text-sm text-slate-700 dark:text-slate-300">Building scalable applications and exploring cloud-native architectures</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-10 lg:py-12 bg-slate-50 dark:bg-slate-900 fade-in-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">
+                    Experience <span class="text-blue-600">&</span> Education
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400">My professional journey and academic background</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Experience -->
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Work Experience</h3>
+                    <div class="space-y-6">
+                        <div class="timeline-item">
+                            <h4 class="font-semibold text-slate-900 dark:text-white">Full Stack Developer</h4>
+                            <p class="text-sm text-blue-600">Company • 2022 - Present</p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Building scalable web applications and APIs</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-semibold text-slate-900 dark:text-white">Junior Developer</h4>
+                            <p class="text-sm text-blue-600">Company • 2021 - 2022</p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Contributed to frontend and backend features</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Education</h3>
+                    <div class="space-y-6">
+                        <div class="timeline-item">
+                            <h4 class="font-semibold text-slate-900 dark:text-white">Bachelor of Technology</h4>
+                            <p class="text-sm text-blue-600">University • Graduation 2022</p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Computer Science & Engineering</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-10 lg:py-12 bg-white dark:bg-slate-950 fade-in-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">
+                    Skills <span class="text-blue-600">&</span> Technologies
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400">Technologies I work with</p>
+            </div>
+
+            <!-- Skill Categories -->
+            <div class="flex flex-col lg:flex-row gap-6">
+                <div class="lg:w-40 flex-shrink-0">
+                    <div class="flex lg:flex-col gap-2 lg:sticky lg:top-20 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
+                        <button class="skills-category-btn active px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-blue-600 text-sm" data-category="all">
+                            All
+                        </button>
+                        <button class="skills-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-category="frontend">
+                            Frontend
+                        </button>
+                        <button class="skills-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-category="backend">
+                            Backend
+                        </button>
+                        <button class="skills-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-category="devops">
+                            DevOps
+                        </button>
+                        <button class="skills-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-category="tools">
+                            Tools
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Skills Grid -->
+                <div class="flex-1">
+                    <div id="skills-container" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+                        <!-- Skills will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-10 lg:py-12 bg-slate-50 dark:bg-slate-900 fade-in-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">
+                    Featured <span class="text-blue-600">Projects</span>
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400">Curated selection of my work</p>
+            </div>
+
+            <!-- Project Categories -->
+            <div class="flex flex-col lg:flex-row gap-6">
+                <div class="lg:w-40 flex-shrink-0">
+                    <div class="flex lg:flex-col gap-2 lg:sticky lg:top-20 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
+                        <button class="projects-category-btn active px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-blue-600 text-sm" data-project-category="all">
+                            All
+                        </button>
+                        <button class="projects-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-project-category="web">
+                            Web Apps
+                        </button>
+                        <button class="projects-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-project-category="tools">
+                            Tools
+                        </button>
+                        <button class="projects-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-project-category="featured">
+                            Featured
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Projects Container -->
+                <div class="flex-1">
+                    <div id="projects-container" class="space-y-2 lg:space-y-3">
+                        <!-- Projects will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-10 lg:py-12 bg-white dark:bg-slate-950 fade-in-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">
+                    Get In <span class="text-blue-600">Touch</span>
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400">Let's collaborate and create something amazing</p>
+            </div>
+
+            <!-- Contact Grid -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Contact Information -->
+                <div class="space-y-4">
+                    <div class="flex gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                            <i class="ri-mail-fill text-blue-600 text-base"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Email</h3>
+                            <a href="mailto:narainkarthik812@gmail.com" class="text-slate-600 dark:text-gray-400 hover:text-blue-600 transition text-sm">
+                                narainkarthik812@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                            <i class="ri-map-pin-fill text-blue-600 text-base"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Location</h3>
+                            <p class="text-slate-600 dark:text-gray-400 text-sm">Coimbatore, India</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                            <i class="ri-share-2-fill text-blue-600 text-base"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Social</h3>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="https://github.com/narainkarthikv" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-gray-400 hover:text-blue-600 transition text-sm">
+                                    GitHub
+                                </a>
+                                <span class="text-slate-300 dark:text-slate-700">•</span>
+                                <a href="https://linkedin.com/in/narainkarthik-vellingiri" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-gray-400 hover:text-blue-600 transition text-sm">
+                                    LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form id="contact-form" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-semibold text-slate-900 dark:text-white mb-1">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full form-input px-3 py-2 text-sm" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-slate-900 dark:text-white mb-1">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full form-input px-3 py-2 text-sm" placeholder="Your email">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-semibold text-slate-900 dark:text-white mb-1">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full form-input px-3 py-2 text-sm resize-none" placeholder="Your message"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full px-4 py-2 rounded-lg text-white font-semibold">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 dark:bg-slate-950 text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="flex items-center space-x-2">
+                    <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-400 to-cyan-600 flex items-center justify-center font-bold text-xs">
+                        NK
+                    </div>
+                    <span class="font-bold text-sm">Narain Karthik</span>
+                </div>
+
+                <div class="flex gap-2">
+                    <a href="https://github.com/narainkarthikv" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition text-sm" aria-label="GitHub">
+                        <i class="ri-github-fill"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/narainkarthik-vellingiri" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition text-sm" aria-label="LinkedIn">
+                        <i class="ri-linkedin-fill"></i>
+                    </a>
+                    <a href="https://twitter.com/narainkarthikv" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition text-sm" aria-label="Twitter">
+                        <i class="ri-twitter-fill"></i>
+                    </a>
+                    <a href="mailto:narainkarthik812@gmail.com" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition text-sm" aria-label="Email">
+                        <i class="ri-mail-fill"></i>
+                    </a>
+                </div>
+
+                <p class="text-white/60 text-xs">
+                    &copy; 2026 Narain Karthik. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <i class="ri-arrow-up-line text-xl"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
