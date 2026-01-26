@@ -1,47 +1,19 @@
-/**
- * Portfolio Application
- * Handles all JavaScript functionality for the legacy portfolio
- */
-
 // ========== Configuration ==========
 const CONFIG = {
-    cvPath: './cv.json', // Local path - not root
+    cvPath: 'cv.json',
     formEndpoint: 'https://formsubmit.co/ajax/narainkarthik812@gmail.com',
-    iconCDN: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons',
-    scrollOffset: 80,
-    debounceDelay: 50,
-    navVisibilityThreshold: 100,
-    scrollToTopThreshold: 300
+    iconCDN: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons'
 };
 
 // ========== Utility Functions ==========
 const Utils = {
-    /**
-     * Sanitize text to prevent XSS attacks
-     */
     sanitizeHtml: (text) => {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
     },
-
-    /**
-     * Extract icon name from icon string
-     */
-    getIconName: (icon) => {
-        return icon ? icon.split(':')[1] || 'dev' : 'dev';
-    },
-
-    /**
-     * Build icon URL from icon name
-     */
-    getIconUrl: (iconName) => {
-        return `${CONFIG.iconCDN}/${iconName}.svg`;
-    },
-
-    /**
-     * Debounce function to limit function calls
-     */
+    getIconName: (icon) => icon ? icon.split(':')[1] || 'dev' : 'dev',
+    getIconUrl: (iconName) => `${CONFIG.iconCDN}/${iconName}.svg`,
     debounce: (fn, delay) => {
         let timeoutId;
         return (...args) => {
@@ -62,9 +34,6 @@ const DOM = {
     sections: null,
     contactForm: null,
 
-    /**
-     * Initialize DOM references
-     */
     init() {
         this.skillsContainer = document.getElementById('skills-container');
         this.projectsContainer = document.getElementById('projects-container');
@@ -81,10 +50,7 @@ const DOM = {
 // ========== Skill Renderer ==========
 const SkillRenderer = {
     categories: {},
-
-    /**
-     * Initialize skill categories
-     */
+    
     init(skills) {
         this.categories = {
             all: skills,
@@ -95,9 +61,6 @@ const SkillRenderer = {
         };
     },
 
-    /**
-     * Render skills for a given category
-     */
     render(category = 'all') {
         const skills = this.categories[category] || this.categories.all;
         DOM.skillsContainer.innerHTML = '';
@@ -108,9 +71,6 @@ const SkillRenderer = {
         });
     },
 
-    /**
-     * Create a skill element
-     */
     createSkillElement(skill, index) {
         const skillDiv = document.createElement('div');
         skillDiv.className = 'skill-item slide-in';
@@ -133,9 +93,6 @@ const SkillRenderer = {
 const ProjectRenderer = {
     categories: {},
 
-    /**
-     * Initialize project categories
-     */
     init(projects) {
         this.categories = {
             all: projects,
@@ -151,9 +108,6 @@ const ProjectRenderer = {
         };
     },
 
-    /**
-     * Render projects for a given category
-     */
     render(category = 'all') {
         const projects = this.categories[category] || this.categories.all;
         DOM.projectsContainer.innerHTML = '';
@@ -169,9 +123,6 @@ const ProjectRenderer = {
         });
     },
 
-    /**
-     * Create a project element
-     */
     createProjectElement(project, index) {
         const projectDiv = document.createElement('div');
         projectDiv.className = 'minimal-project-card slide-in';
@@ -185,8 +136,8 @@ const ProjectRenderer = {
         }).join('');
 
         const links = [
-            project.url ? `<a href="${project.url}" target="_blank" rel="noopener noreferrer" class="minimal-project-link"><i class="ri-external-link-line"></i> Live Demo</a>` : '',
-            project.github ? `<a href="${project.github}" target="_blank" rel="noopener noreferrer" class="minimal-project-link"><i class="ri-github-fill"></i> Source</a>` : ''
+            project.url ? `<a href="${project.url}" target="_blank" rel="noopener" class="minimal-project-link"><i class="ri-external-link-line"></i> Live Demo</a>` : '',
+            project.github ? `<a href="${project.github}" target="_blank" rel="noopener" class="minimal-project-link"><i class="ri-github-fill"></i> Source</a>` : ''
         ].filter(Boolean).join('');
 
         projectDiv.innerHTML = `
@@ -205,9 +156,6 @@ const ProjectRenderer = {
 
 // ========== Tab Manager ==========
 const TabManager = {
-    /**
-     * Initialize skill category tabs
-     */
     initSkillTabs(renderer) {
         document.querySelectorAll('.skills-category-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -217,9 +165,6 @@ const TabManager = {
         });
     },
 
-    /**
-     * Initialize project category tabs
-     */
     initProjectTabs(renderer) {
         document.querySelectorAll('.projects-category-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -229,9 +174,6 @@ const TabManager = {
         });
     },
 
-    /**
-     * Update active tab state
-     */
     updateTabState(activeBtn) {
         const buttons = activeBtn.parentElement.querySelectorAll('button');
         buttons.forEach(btn => {
@@ -243,28 +185,50 @@ const TabManager = {
     }
 };
 
+// ========== Initialize App ==========
+document.addEventListener('DOMContentLoaded', () => {
+    DOM.init();
+
+    fetch(CONFIG.cvPath)
+        .then(response => {
+            if (!response.ok) throw new Error('Failed to load CV data');
+            return response.json();
+        })
+        .then(cvData => {
+            SkillRenderer.init(cvData.skills);
+            ProjectRenderer.init(cvData.projects);
+
+            SkillRenderer.render('all');
+            ProjectRenderer.render('all');
+
+            TabManager.initSkillTabs(SkillRenderer);
+            TabManager.initProjectTabs(ProjectRenderer);
+        })
+        .catch(err => console.error('Failed to load CV data:', err));
+
+    initializeNavigation();
+    initializeTheme();
+    initializeContactForm();
+});
+
 // ========== Navigation Setup ==========
 function initializeNavigation() {
     document.addEventListener('scroll', Utils.debounce(() => {
-        // Show/hide navbar on scroll
-        if (window.scrollY > CONFIG.navVisibilityThreshold) {
+        if (window.scrollY > 100) {
             DOM.navbar.classList.add('visible');
         } else {
             DOM.navbar.classList.remove('visible');
         }
 
-        // Update active navigation link
         updateActiveNavLink();
 
-        // Show/hide scroll to top button
-        if (window.scrollY > CONFIG.scrollToTopThreshold) {
+        if (window.scrollY > 300) {
             DOM.scrollToTop.classList.add('visible');
         } else {
             DOM.scrollToTop.classList.remove('visible');
         }
-    }, CONFIG.debounceDelay));
+    }, 50));
 
-    // Smooth scroll navigation
     DOM.navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
@@ -278,18 +242,14 @@ function initializeNavigation() {
         });
     });
 
-    // Scroll to top button
     DOM.scrollToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
-/**
- * Update active nav link based on current scroll position
- */
 function updateActiveNavLink() {
     DOM.sections.forEach(section => {
-        const sectionTop = section.offsetTop - CONFIG.scrollOffset;
+        const sectionTop = section.offsetTop - 100;
         const sectionHeight = section.clientHeight;
         if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
             DOM.navLinks.forEach(link => link.classList.remove('active'));
@@ -306,7 +266,6 @@ function initializeTheme() {
         localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     });
 
-    // Load saved theme or use system preference
     if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.body.classList.add('dark-mode');
         DOM.themeToggle.checked = true;
@@ -343,87 +302,20 @@ function initializeContactForm() {
     });
 }
 
-// ========== Intersection Observer Setup ==========
-function initializeIntersectionObserver() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
+// ========== Intersection Observer for Fade-in Sections ==========
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in-section').forEach(section => {
-        observer.observe(section);
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
     });
-}
+});
 
-// ========== Load CV Data and Initialize App ==========
-async function loadCVData() {
-    try {
-        console.log('Loading CV from:', CONFIG.cvPath);
-        const response = await fetch(CONFIG.cvPath);
-        
-        if (!response.ok) {
-            throw new Error(`Failed to load CV data: ${response.status} ${response.statusText}`);
-        }
-
-        const cvData = await response.json();
-        
-        console.log('CV loaded successfully. Skills:', cvData.skills?.length, 'Projects:', cvData.projects?.length);
-
-        // Validate CV data structure
-        if (!cvData.skills || !cvData.projects) {
-            throw new Error('Invalid CV data structure. Missing skills or projects.');
-        }
-
-        // Initialize renderers
-        SkillRenderer.init(cvData.skills);
-        ProjectRenderer.init(cvData.projects);
-
-        // Render initial data
-        SkillRenderer.render('all');
-        ProjectRenderer.render('all');
-
-        // Initialize tab managers
-        TabManager.initSkillTabs(SkillRenderer);
-        TabManager.initProjectTabs(ProjectRenderer);
-        
-        console.log('Portfolio data loaded and rendered successfully');
-    } catch (error) {
-        console.error('Error loading CV data:', error);
-        
-        // Display user-friendly error message
-        const errorMsg = `<div style="padding: 2rem; text-align: center; color: #dc2626; background: #fee2e2; border-radius: 8px;">
-            <p><strong>Error loading portfolio data</strong></p>
-            <p style="font-size: 0.875rem; margin-top: 0.5rem;">${error.message}</p>
-        </div>`;
-        
-        if (DOM.skillsContainer) {
-            DOM.skillsContainer.innerHTML = errorMsg;
-        }
-        if (DOM.projectsContainer) {
-            DOM.projectsContainer.innerHTML = errorMsg;
-        }
-    }
-}
-
-// ========== Main Initialization ==========
-document.addEventListener('DOMContentLoaded', async () => {
-    // Initialize DOM references
-    DOM.init();
-
-    // Load CV data and initialize renderers
-    await loadCVData();
-
-    // Initialize all features
-    initializeNavigation();
-    initializeTheme();
-    initializeContactForm();
-    initializeIntersectionObserver();
+document.querySelectorAll('.fade-in-section').forEach(section => {
+    observer.observe(section);
 });
