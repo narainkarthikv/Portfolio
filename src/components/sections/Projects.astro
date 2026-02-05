@@ -5,25 +5,52 @@ import { Icon } from "astro-icon/components";
 import { projects } from "@cv";
 ---
 
-<Section className={Astro.props.className} title="Projects">
-  <div class="grid grid-cols-1 gap-3 md:grid-cols-2 print:flex print:flex-col">
-    {
-      projects && projects.map(
-        ({ url, description, highlights, name, isActive, github, stack }) => {
-          return (
-            <div
-              role="contentinfo"
-              class="grid-span-1 group relative flex min-h-80 flex-col overflow-hidden rounded-md bg-skin-button-muted/40 backdrop-blur-lg p-5 shadow-lg ring-1 ring-white/15 dark:ring-white/10 sm:hover:ring-2 sm:hover:ring-skin-hue/60 sm:hover:bg-skin-button-muted/50 sm:hover:backdrop-blur-xl transition-all duration-300 ease-in-out" 
-            >
+<Section className={Astro.props.className}>
+  <div class="projects-coverflow print:flex print:flex-col">
+    <div class="flex items-center justify-between">
+      <h3 data-ccursor="lift" class="relative flex w-max items-center gap-3 pb-4 text-3xl print:gap-1 print:pb-0 print:text-xl sm:hover:text-skin-hue">
+        Projects
+      </h3>
+      <div class="hidden md:inline-flex items-center gap-2 pb-4">
+        <button
+          type="button"
+          data-projects-prev
+          class="inline-flex items-center justify-center size-10 rounded-full bg-skin-button-muted/60 ring-1 ring-white/20 dark:ring-white/10 hover:ring-2 hover:ring-skin-hue/60 transition"
+          aria-label="View previous project"
+        >
+          <Icon name="mdi:arrow-left" class="size-5" />
+        </button>
+        <button
+          type="button"
+          data-projects-next
+          class="inline-flex items-center justify-center size-10 rounded-full bg-skin-button-muted/60 ring-1 ring-white/20 dark:ring-white/10 hover:ring-2 hover:ring-skin-hue/60 transition"
+          aria-label="View next project"
+        >
+          <Icon name="mdi:arrow-right" class="size-5" />
+        </button>
+      </div>
+    </div>
+
+    <div class="projects-track flex flex-col gap-3 md:relative md:h-[430px] md:items-center md:justify-center md:overflow-hidden" style={`--stack-count: ${projects?.length ?? 0};`}>
+      {
+        projects && projects.map(
+          ({ url, description, highlights, name, isActive, github, stack }, index) => {
+            return (
               <div
-                class='relative z-10 flex items-center justify-between space-x-[10px]'
+                role="contentinfo"
+                class="project-card group relative flex min-h-80 flex-col overflow-hidden rounded-xl border border-white/10 bg-skin-fill/95 p-5 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.6)] transition-all duration-300 ease-in-out sm:hover:-translate-y-1 sm:hover:shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)]"
+                style={`--stack-index: ${index};`}
               >
+              <div class="project-card-glow" aria-hidden="true"></div>
+              <div class='relative z-10 flex items-center justify-between space-x-[10px]'>
                 <div class="flex items-center gap-2">
-                  <Icon data-ccursor="lift" name="mdi:folder-outline" class="size-4" />
+                  <span class="project-icon">
+                    <Icon data-ccursor="lift" name="mdi:folder-outline" class="size-4" />
+                  </span>
                   <div class="flex items-center gap-[6px]">
                     {isActive ? (
                       <a
-                        class="group flex items-center gap-[6px] text-lg decoration-dotted underline-offset-[5px] hover:text-skin-hue hover:underline transition-all sm:hover:cursor-default"
+                        class="group flex items-center gap-[6px] text-lg font-semibold tracking-tight decoration-dotted underline-offset-[5px] hover:text-skin-hue hover:underline transition-all sm:hover:cursor-default"
                         href={url}
                         title={`${name}`}
                         target="_blank"
@@ -47,14 +74,14 @@ import { projects } from "@cv";
                     aria-label={`View ${name} in GitHub`}
                     target="_blank"
                     rel="noopener"
-                    class="opacity-75 hover:opacity-100 cursor-default"
+                    class="project-github"
                   >
                     <Icon name="mdi:github" width={24} height={24} />
                   </a>
                 )}
               </div>
 
-              <p data-ccursor="noPadding" class='relative z-10 py-3 text-sm text-skin-base'>
+              <p data-ccursor="noPadding" class='relative z-10 py-3 text-sm leading-relaxed text-skin-base'>
                 {description}
               </p>
               <ul class='z-10 mt-1 text-sm'>
@@ -65,7 +92,7 @@ import { projects } from "@cv";
               
               <ul class="flex print:hidden flex-wrap gap-2 mt-4" aria-label="Technologies used">
                 {stack && Object.entries(stack).map(([label, icon]) => (
-                  <li data-ccursor="lift" class="flex gap-1.5 items-center border-skin-hue/40 text-skin-base print:p-0 print:bg-transparent print:text-zinc-800 border-solid print:border-none border rounded-md px-2.5 py-1 text-xs bg-skin-button-accent/20 backdrop-blur-md hover:bg-skin-button-accent/30 hover:border-skin-hue/60 transition-all duration-200 ring-1 ring-inset ring-white/10 dark:ring-white/5 group/stack">
+                  <li data-ccursor="lift" class="project-chip flex gap-1.5 items-center border-skin-hue/30 text-skin-base print:p-0 print:bg-transparent print:text-zinc-800 border-solid print:border-none border rounded-full px-2.5 py-1 text-xs bg-skin-button-muted/70 hover:bg-skin-button-muted/90 hover:border-skin-hue/60 transition-all duration-200 ring-1 ring-inset ring-white/10 dark:ring-white/5 group/stack">
                     {icon &&
                       <span class="flex gap-1">
                       <Icon name={icon} width={16} height={16} /> <span class="transition-all duration-200">{label}</span>
@@ -74,16 +101,87 @@ import { projects } from "@cv";
                   </li>
                 ))}
               </ul>
-            </div>
-          );
-        },
-      )
-    }
+              </div>
+            );
+          },
+        )
+      }
+    </div>
   </div>
 </Section>
 <script>
   import { Fancybox } from "@fancyapps/ui";
   Fancybox.bind('[data-fancybox="projects"]', { hideScrollbar: false });
+
+  const projectsRoot = document.querySelector(".projects-coverflow");
+  if (projectsRoot) {
+    const cards = Array.from(projectsRoot.querySelectorAll(".project-card"));
+    const prevButton = projectsRoot.querySelector("[data-projects-prev]");
+    const nextButton = projectsRoot.querySelector("[data-projects-next]");
+    let activeIndex = Math.floor(cards.length / 2);
+
+    const applyCoverflow = () => {
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+      const total = cards.length;
+      const half = Math.floor(total / 2);
+      cards.forEach((card, index) => {
+        if (!isDesktop) {
+          card.style.transform = "";
+          card.style.opacity = "";
+          card.style.zIndex = "";
+          card.style.filter = "";
+          card.style.pointerEvents = "";
+          card.classList.toggle("is-active", index === activeIndex);
+          return;
+        }
+
+        let offset = index - activeIndex;
+        if (total > 0) {
+          offset = ((offset + total + half) % total) - half;
+        }
+        const absOffset = Math.abs(offset);
+        const translateX = offset * 220;
+        const scale = 1 - Math.min(absOffset * 0.12, 0.36);
+        const rotateY = offset * -16;
+        const maxVisible = Math.max(2, Math.min(3, half));
+        const opacity = absOffset > maxVisible ? 0 : 1 - absOffset * 0.15;
+
+        card.style.transform = `translate(-50%, -50%) translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg)`;
+        card.style.zIndex = String(10 - absOffset);
+        card.style.opacity = String(opacity);
+        card.style.filter = absOffset === 0 ? "none" : "saturate(0.85)";
+        card.style.pointerEvents = absOffset === 0 ? "auto" : "none";
+        card.classList.toggle("is-active", absOffset === 0);
+      });
+    };
+
+    const clampIndex = (index) => {
+      if (cards.length === 0) return 0;
+      if (index < 0) return cards.length - 1;
+      if (index >= cards.length) return 0;
+      return index;
+    };
+
+    const setActiveIndex = (index) => {
+      activeIndex = clampIndex(index);
+      applyCoverflow();
+    };
+
+    prevButton?.addEventListener("click", () => setActiveIndex(activeIndex - 1));
+    nextButton?.addEventListener("click", () => setActiveIndex(activeIndex + 1));
+
+    cards.forEach((card, index) => {
+      card.addEventListener("click", () => {
+        const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+        if (isDesktop) {
+          setActiveIndex(index);
+        }
+      });
+    });
+
+    window.addEventListener("resize", applyCoverflow);
+    applyCoverflow();
+  }
 </script>
 
 <style>
@@ -108,5 +206,86 @@ import { projects } from "@cv";
     font-size: 0.6rem;
     font-weight: 500;
     padding: 0.2rem 0.6rem;
+  }
+
+  .projects-track {
+    perspective: 1200px;
+  }
+
+  .project-card {
+    position: relative;
+  }
+
+  .project-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(130deg, rgba(255, 255, 255, 0.05), transparent 60%);
+    pointer-events: none;
+  }
+
+  .project-card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 120% at 0% 0%, rgba(84, 137, 255, 0.25), transparent 45%);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .project-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .project-github {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    opacity: 0.8;
+    transition: all 200ms ease;
+  }
+
+  .project-github:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.6);
+  }
+
+  @media (max-width: 767px) {
+    .projects-track {
+      gap: 24px;
+      padding-bottom: calc(var(--stack-count) * 48px);
+    }
+
+    .project-card {
+      position: sticky;
+      top: 96px;
+      transform: translateY(calc(var(--stack-index) * 10px));
+    }
+
+    .project-card::after {
+      opacity: 0.35;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .project-card {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: min(540px, 70vw);
+      transform-style: preserve-3d;
+      transition: transform 400ms ease, opacity 300ms ease;
+    }
   }
 </style>

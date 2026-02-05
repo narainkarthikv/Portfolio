@@ -23,6 +23,9 @@ const { city, region } = location
             class='scale-110 sm:grayscale sm:scale-100 transition-all sm:group-hover:scale-110 sm:group-hover:grayscale-0'
             height={600}
             width={600}
+            id="profileImage"
+            data-default-src={image}
+            data-luffy-src="/luffy-pfp.webp"
             src={image}
             alt={`Profile of ${name}`}
             loading='eager'
@@ -31,21 +34,44 @@ const { city, region } = location
           />
         </figure>
         <div class="flex flex-col items-center">
-          <h1 class="hover:hover-grad-text font-semibold">{name}</h1>
+          <h1
+            id="heroName"
+            data-default-value={name}
+            data-luffy-value="ナラインカルティク"
+            class="hover:hover-grad-text font-semibold"
+          >
+            {name}
+          </h1>
           <div class="overflow-hidden mt-1">
             <div class="font-roboto-condensed font-bold lowercase text-xl lg:text-[1rem] lg:leading-[1rem]">
               <div class="group/subtitle relative flex gap-1 hover:gap-5 active:gap-5 transition-all">
                 <div class="transition-all duration-450 ease-in-out group-hover/subtitle:-translate-y-16">
-                  <p class="font-roboto-condensed font-medium lowercase text-xl lg:text-[1rem] lg:leading-[1rem]">
+                  <p
+                    id="secondaryInitialLabel"
+                    data-default-value={animated_secondary_initial_label}
+                    data-luffy-value="海賊王"
+                    class="font-roboto-condensed font-medium lowercase text-xl lg:text-[1rem] lg:leading-[1rem]"
+                  >
                     {animated_secondary_initial_label}
                   </p>
                 </div>
                 <div class="absolute inset-x-0 top-0 w-max translate-y-16 transition-all duration-450 ease-in-out group-hover/subtitle:translate-y-0">
-                  <p class="font-roboto-condensed font-bold lowercase text-xl lg:text-[1rem] lg:leading-[1rem] bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-700">
+                  <p
+                    id="secondaryFinalLabel"
+                    data-default-value={animated_secondary_final_label}
+                    data-luffy-value="海賊王"
+                    class="font-roboto-condensed font-bold lowercase text-xl lg:text-[1rem] lg:leading-[1rem] bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-700"
+                  >
                     {animated_secondary_final_label}
                   </p>
                 </div>
-                <p>{animated_main_label}</p>
+                <p
+                  id="mainLabel"
+                  data-default-value={animated_main_label}
+                  data-luffy-value="におれはなる"
+                >
+                  {animated_main_label}
+                </p>
               </div>
             </div>
           </div>

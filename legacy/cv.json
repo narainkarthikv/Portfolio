@@ -58,16 +58,16 @@
     }
   ],
   "certificates": [
-    {
-      "name": "JLPT N5",
-      "date": "2023-12-01",
-      "issuer": "JLPT"
-    },
-    {
-      "name": "Microsoft Certified: Azure Fundamentals (AZ-900)",
-      "date": "2026-01-10",
-      "issuer": "Microsoft"
-    }
+  {
+    "name": "JLPT N5",
+    "date": "2023-12-01",
+    "issuer": "JLPT"
+  },
+  {
+    "name": "Microsoft Certified: Azure Fundamentals (AZ-900)",
+    "date": "2026-01-10",
+    "issuer": "Microsoft"
+  }
   ],
   "work": [
     {
@@ -108,19 +108,15 @@
         "HTML5": "simple-icons:html5",
         "Jira": "simple-icons:jira",
         "JavaScript": "simple-icons:javascript",
-        "kubernetes": "mdi:kubernetes",
+        "Kubernetes": "mdi:kubernetes",
         "MUI": "simple-icons:mui",
-        "Microsoft Excel": "simple-icons:microsoftexcel",
-        "Microsoft PowerApps": "simple-icons:powerapps",
-        "Microsoft PowerAutomate": "simple-icons:powerautomate",
-        "Microsoft PowerBI": "simple-icons:powerbi",
-        "Microsoft PowerPoint": "simple-icons:microsoftpowerpoint",
-        "Microsoft Word": "simple-icons:microsoftword",
         "MongoDB": "simple-icons:mongodb",
         "NodeJS": "ri:nodejs-line",
         "PostgreSQL": "simple-icons:postgresql",
         "Postman": "simple-icons:postman",
         "React": "simple-icons:react",
+        "Tailwind": "mdi:tailwind",
+        "Typescript": "simple-icons:typescript",
         "Wordpress": "simple-icons:wordpress"
       }
     }
@@ -169,7 +165,7 @@
       ]
     },
     {
-      "name": "CSS",
+      "name": "CSS3",
       "icon": "ri:css3-fill",
       "level": "Intermediate",
       "keywords": [
@@ -189,7 +185,7 @@
       ]
     },
     {
-      "name": "express",
+      "name": "Express",
       "icon": "simple-icons:express",
       "level": "Intermediate",
       "keywords": [
@@ -241,7 +237,7 @@
       ]
     },
     {
-      "name": "Gitlab",
+      "name": "GitLab",
       "icon": "simple-icons:gitlab",
       "level": "Beginner",
       "keywords": [
@@ -252,12 +248,32 @@
       ]
     },
     {
-      "name": "HTML",
+      "name": "GitHub Actions",
+      "icon": "simple-icons:githubactions",
+      "level": "Beginner",
+      "keywords": [
+        "CI/CD",
+        "Automation",
+        "DevOps"
+      ]
+    },
+    {
+      "name": "HTML5",
       "icon": "simple-icons:html5",
       "level": "Intermediate",
       "keywords": [
         "Web Development",
         "Frontend"
+      ]
+    },
+    {
+      "name": "Jira",
+      "icon": "simple-icons:jira",
+      "level": "Intermediate",
+      "keywords": [
+        "Project Management",
+        "Issue Tracking",
+        "Agile"
       ]
     },
     {
@@ -269,16 +285,6 @@
         "Frontend",
         "Backend",
         "Fullstack"
-      ]
-    },
-    {
-      "name": "Jira",
-      "icon": "simple-icons:jira",
-      "level": "Intermediate",
-      "keywords": [
-        "Project Management",
-        "Issue Tracking",
-        "Agile"
       ]
     },
     {
@@ -302,43 +308,14 @@
       ]
     },
     {
-      "name": "Microsoft Excel",
-      "icon": "simple-icons:microsoftexcel",
+      "name": "MUI",
+      "icon": "simple-icons:mui",
       "level": "Intermediate",
       "keywords": [
-        "Data Analysis",
-        "Spreadsheets",
-        "Microsoft Office"
-      ]
-    },
-    {
-      "name": "Microsoft PowerApps",
-      "icon": "simple-icons:powerapps",
-      "level": "Beginner",
-      "keywords": [
-        "Low-Code Development",
-        "Business Applications",
-        "Microsoft"
-      ]
-    },
-    {
-      "name": "Microsoft PowerAutomate",
-      "icon": "simple-icons:powerautomate",
-      "level": "Beginner",
-      "keywords": [
-        "Workflow Automation",
-        "Process Automation",
-        "Microsoft"
-      ]
-    },
-    {
-      "name": "Microsoft PowerBI",
-      "icon": "simple-icons:powerbi",
-      "level": "Beginner",
-      "keywords": [
-        "Data Visualization",
-        "Business Intelligence",
-        "Analytics"
+        "Web Development",
+        "Frontend",
+        "React",
+        "UI Library"
       ]
     },
     {
@@ -349,17 +326,6 @@
         "Databases",
         "Data Storage",
         "Backend"
-      ]
-    },
-    {
-      "name": "MUI",
-      "icon": "simple-icons:mui",
-      "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "React",
-        "UI Library"
       ]
     },
     {
@@ -374,17 +340,6 @@
       ]
     },
     {
-      "name": "Postman",
-      "icon": "simple-icons:postman",
-      "level": "Intermediate",
-      "keywords": [
-        "API",
-        "Testing",
-        "Web Development",
-        "Backend"
-      ]
-    },
-    {
       "name": "PostgreSQL",
       "icon": "simple-icons:postgresql",
       "level": "Beginner",
@@ -393,6 +348,17 @@
         "Databases",
         "SQL",
         "Relational Database"
+      ]
+    },
+    {
+      "name": "Postman",
+      "icon": "simple-icons:postman",
+      "level": "Intermediate",
+      "keywords": [
+        "API",
+        "Testing",
+        "Web Development",
+        "Backend"
       ]
     },
     {
@@ -415,6 +381,26 @@
         "Frontend",
         "CSS Framework",
         "Responsive Design"
+      ]
+    },
+    {
+      "name": "Typescript",
+      "icon": "simple-icons:typescript",
+      "level": "Beginner",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Windows",
+      "icon": "simple-icons:windows",
+      "level": "Intermediate",
+      "keywords": [
+        "OS",
+        "Desktop",
+        "Microsoft"
       ]
     },
     {
@@ -450,20 +436,23 @@
     {
       "name": "Fit Track",
       "isActive": true,
-      "description": "Fit Track is an exercise monitoring application designed to help users stay on track with their fitness goals.",
+      "description": "Log workouts, monitor progress, and stay consistent. A straightforward tool for people serious about their fitness.",
       "highlights": [
         "🎨 User-friendly interface",
         "🔥 Streak maintenance",
         "📊 Real-time analytics"
       ],
       "stack": {
-        "MongoDB": "simple-icons:mongodb",
+        "Docker": "mdi:docker",
         "Express": "simple-icons:express",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github",
+        "GitHub Actions": "simple-icons:githubactions",
+        "MongoDB": "simple-icons:mongodb",
+        "MUI": "simple-icons:mui",
         "React": "simple-icons:react",
         "Redux": "simple-icons:redux",
-        "Bootstrap": "simple-icons:bootstrap",
-        "Git": "mdi:git",
-        "GitHub": "mdi:github"
+        "Typescript": "simple-icons:typescript"
       },
       "github": "https://github.com/narainkarthikv/fit-track",
       "url": "https://wisdomfox-fit-track.netlify.app/"
@@ -471,18 +460,21 @@
     {
       "name": "Sticky Memo",
       "isActive": true,
-      "description": "Transform your productivity with the intuitive note-taking app that brings the simplicity of sticky notes to the digital world.",
+      "description": "Write freely, knowing your thoughts are yours alone. No cloud. No tracking. Just honest, local-first note-taking.",
       "highlights": [
         "🎨 User-friendly interface",
         "📌 Variety of display options",
-        "💾 Data persistence"
+        "💾 Privacy Focused"
       ],
       "stack": {
+        "Docker": "mdi:docker",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github",
+        "GitHub Actions": "simple-icons:githubactions",
         "React": "simple-icons:react",
         "Recoil": "simple-icons:recoil",
-        "MUI": "simple-icons:mui",
-        "Git": "mdi:git",
-        "GitHub": "mdi:github"
+        "Tailwind": "mdi:tailwind",
+        "Typescript": "simple-icons:typescript"
       },
       "github": "https://github.com/narainkarthikv/sticky-memo",
       "url": "https://wisdomfox-sticky-memo.netlify.app/"
@@ -492,58 +484,41 @@
       "isActive": true,
       "description": "Find the Perfect Emoji in Seconds. Helps you discover, filter and copy emojis quickly — built for speed and delight.",
       "highlights": [
-        "🎨 User-friendly interface",
-        "⌚ Integration with wearables",
-        "📊 Real-time analytics"
+        "🎨 User-friendly interface", 
+        "🔍 Fast search and filter",
+        "📊 Emoji Suggestions"
       ],
       "stack": {
         "Astro": "simple-icons:astro",
-        "Tailwind": "mdi:tailwind",
         "Git": "mdi:git",
-        "GitHub": "mdi:github"
+        "GitHub": "mdi:github",
+        "GitHub Actions": "simple-icons:githubactions",
+        "React": "simple-icons:react",
+        "Tailwind": "mdi:tailwind",
+        "Typescript": "simple-icons:typescript"
       },
-      "github": "https://nmoji.netlify.app/",
+      "github": "https://github.com/narainakarthikv/nmoji",
       "url": "https://nmoji.netlify.app/"
     },
     {
       "name": "Contribution Cards",
       "isActive": true,
-      "description": "Curated Contributor Profiles for Open Source Projects. Dynamically pulled from GitHub.",
+      "description": "Discover, filter, and explore contributors dynamically pulled from GitHub across multiple open-source repositories.",
       "highlights": [
         "🎨 User-friendly interface",
         "🤝 Active Contributions",
         "🖥 Dynamic data"
       ],
       "stack": {
-        "HTML": "simple-icons:html5",
-        "CSS": "ri:css3-fill",
-        "JavaScript": "simple-icons:javascript",
-        "Tailwind": "mdi:tailwind",
         "Git": "mdi:git",
-        "GitHub": "mdi:github"
+        "GitHub": "mdi:github",
+        "GitHub Actions": "simple-icons:githubactions",
+        "React": "simple-icons:react",
+        "Tailwind": "mdi:tailwind",
+        "Typescript": "simple-icons:typescript"
       },
       "github": "https://github.com/narainkarthikv/contribution-cards",
       "url": "https://contribution-cards.netlify.app/"
-    },
-    {
-      "name": "GLIS",
-      "isActive": true,
-      "description": "Land Information System tracks the land details of the farmers and provides the information to the government.",
-      "highlights": [
-        "🎨 User-friendly interface",
-        "🗺️ Map integration",
-        "🔍 Filter option"
-      ],
-      "stack": {
-        "React": "simple-icons:react",
-        "Express": "simple-icons:express",
-        "MongoDB": "simple-icons:mongodb",
-        "Tailwind": "mdi:tailwind",
-        "Git": "mdi:git",
-        "GitHub": "mdi:github"
-      },
-      "github": "https://github.com/narainkarthikv/GLIS",
-      "url": "https://glis-stats-on-view.netlify.app/"
     },
     {
       "name": "Readme Shop",
@@ -555,10 +530,12 @@
         "📊 Ready-to-use"
       ],
       "stack": {
-        "React": "simple-icons:react",
-        "MUI": "simple-icons:mui",
         "Git": "mdi:git",
-        "GitHub": "mdi:github"
+        "GitHub": "mdi:github",
+        "GitHub Actions": "simple-icons:githubactions",
+        "MUI": "simple-icons:mui",
+        "React": "simple-icons:react",
+        "Typescript": "simple-icons:typescript"
       },
       "github": "https://github.com/narainkarthikv/readme-shop",
       "url": "https://readmeshopwf.netlify.app/"

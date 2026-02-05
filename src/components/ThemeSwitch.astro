@@ -24,12 +24,11 @@ import { Icon } from 'astro-icon/components'
     <select
       data-ccursor
       id='themeSelect'
-      class='block w-full rounded-md border-0 bg-transparent py-1.5 pl-3 pr-10 ring-1 ring-inset ring-skin-muted focus:ring-2 focus:ring-skin-hue sm:text-sm sm:leading-6 text-skin-hue hover:cursor-default'>
+      class='block w-full rounded-md border-0 bg-transparent py-1.5 pl-3 pr-10 ring-1 ring-inset ring-skin-muted focus:ring-2 focus:ring-skin-hue sm:text-sm sm:leading-6 text-skin-base hover:cursor-default'>
       <option value='blue'>Blue</option>
       <option value='green'>Green</option>
-      <option value='luffy'>Luffy</option>
       <option value='orange'>Orange</option>
-      <option value='red'>Red</option>
+      <option value='luffy'>Luffy</option>
     </select>
   </div>
 </div>
@@ -37,6 +36,24 @@ import { Icon } from 'astro-icon/components'
 <style>
   :global(.dark) {
     color-scheme: dark;
+  }
+
+  :global(#themeSelect) {
+    color: rgb(var(--color-text-base));
+    background-color: rgba(var(--color-fill), 0.85);
+  }
+
+  :global(#themeSelect option) {
+    color: rgb(var(--color-text-base));
+    background-color: rgb(var(--color-button-muted));
+  }
+
+  :global(.dark #themeSelect) {
+    background-color: rgba(var(--color-button-muted), 0.9);
+  }
+
+  :global(.dark #themeSelect option) {
+    background-color: rgb(var(--color-button-muted));
   }
 </style>
 
@@ -95,6 +112,40 @@ import { Icon } from 'astro-icon/components'
   function updateDataTheme(value: string) {
     document.body.setAttribute('data-theme', value)
     localStorage.setItem('data-theme', value)
+    updateProfileImage(value)
+    updateHeroSubtitle(value)
+  }
+
+  function updateProfileImage(themeValue: string) {
+    const profileImage = document.getElementById(
+      'profileImage'
+    ) as HTMLImageElement | null
+    if (!profileImage) return
+
+    const defaultSrc =
+      profileImage.dataset.defaultSrc || profileImage.getAttribute('src') || ''
+    const luffySrc = profileImage.dataset.luffySrc || defaultSrc
+
+    profileImage.src = themeValue === 'luffy' ? luffySrc : defaultSrc
+  }
+
+  function updateHeroSubtitle(themeValue: string) {
+    const elements = [
+      'secondaryInitialLabel',
+      'secondaryFinalLabel',
+      'mainLabel',
+      'heroName',
+    ]
+
+    elements.forEach(id => {
+      const el = document.getElementById(id) as HTMLElement | null
+      if (!el) return
+
+      const defaultValue = el.dataset.defaultValue ?? el.textContent ?? ''
+      const luffyValue = el.dataset.luffyValue ?? defaultValue
+
+      el.textContent = themeValue === 'luffy' ? luffyValue : defaultValue
+    })
   }
 
   const themeSwitchButton = document.getElementById('themeSwitch')
