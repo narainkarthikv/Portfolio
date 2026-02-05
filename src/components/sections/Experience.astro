@@ -34,7 +34,16 @@ function getMonthYearDiff(startDate: string, endDate?: string | null) {
           <div data-expanded="false" class="group relative grid pb-1 print:pb-0 transition-all print:grid-cols-1 print:gap-1 sm:grid-cols-12 sm:gap-8 md:gap-6 lg:hover:!opacity-100 expand-container">
             <div class="relative mt-1 text-xs font-semibold sm:col-span-2">
               <time datetime={startDate} data-title={startDate}>{startYear}</time> - <time datetime={endDate} data-title={endDate}>{endYear}</time>
-              <time datetime={workedDatetime} data-title={workedDatetime} class="flex mt-1 text-skin-hue print:hidden">{workedTime}</time>
+              <time
+                datetime={workedDatetime}
+                data-title={workedDatetime}
+                data-worked-time
+                data-start-date={startDate}
+                data-end-date={endDate ?? ''}
+                class="flex mt-1 text-skin-hue print:hidden"
+              >
+                {workedTime}
+              </time>
             </div>
             <div class="relative flex flex-col pb-6 print:pb-0 before:-ml-6 sm:col-span-10 before:w-px print:before:hidden before:absolute before:bg-skin-muted before:h-full before:mt-2">
             <div class="absolute w-2 h-2 bg-skin-muted rounded-full mt-2 -translate-x-[1.71rem] ring print:hidden ring-skin-fill"></div>
@@ -135,6 +144,53 @@ function getMonthYearDiff(startDate: string, endDate?: string | null) {
       const expandText = button.querySelector('.expand-text')!;
       expandText.innerHTML = container.dataset.expanded === 'true' ? 'Show less' : 'Show more'
     });
+  });
+
+  const formatWorkedTime = (startDate: string, endDate?: string | null) => {
+    const start = new Date(startDate);
+    const end = endDate ? new Date(endDate) : new Date();
+    if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return "";
+
+    let years = end.getFullYear() - start.getFullYear();
+    let months = end.getMonth() - start.getMonth();
+    let days = end.getDate() - start.getDate();
+    if (days < 0) months--;
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    const yearText = years > 0 ? `${years} yr${years > 1 ? 's' : ''}` : '';
+    const monthText = months > 0 ? `${months} mo${months > 1 ? 's' : ''}` : years === 0 ? "0 mos" : '';
+    return `${yearText}${yearText && monthText ? ' ' : ''}${monthText}`.trim();
+  };
+
+  const toDuration = (startDate: string, endDate?: string | null) => {
+    const start = new Date(startDate);
+    const end = endDate ? new Date(endDate) : new Date();
+    if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return "";
+
+    let years = end.getFullYear() - start.getFullYear();
+    let months = end.getMonth() - start.getMonth();
+    let days = end.getDate() - start.getDate();
+    if (days < 0) months--;
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    return `P${years > 0 ? years + 'Y' : ''}${months > 0 ? months + 'M' : ''}`;
+  };
+
+  document.querySelectorAll<HTMLElement>("[data-worked-time]").forEach((node) => {
+    const startDate = node.dataset.startDate;
+    const endDate = node.dataset.endDate || null;
+    if (!startDate) return;
+    const workedTime = formatWorkedTime(startDate, endDate);
+    if (workedTime) node.textContent = workedTime;
+    const duration = toDuration(startDate, endDate);
+    if (duration) node.setAttribute("datetime", duration);
+    if (duration) node.setAttribute("data-title", duration);
   });
 </script>
 
