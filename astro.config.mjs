@@ -1,10 +1,10 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
 import astroIcon from 'astro-icon';
 import mdx from '@astrojs/mdx';
-import playformCompress from "@playform/compress";
-import vercel from "@astrojs/vercel";
+import playformCompress from '@playform/compress';
+import vercel from '@astrojs/vercel';
 import react from '@astrojs/react';
 
 // https://astro.build/config
@@ -15,7 +15,7 @@ export default defineConfig({
     mdx(),
     astroIcon({
       include: {
-        mdi: ["*"],
+        mdi: ['*'],
         ri: ['*'],
         'simple-icons': ['*'],
       },
@@ -24,11 +24,11 @@ export default defineConfig({
       CSS: false,
       Image: false,
       Action: {
-        Passed: async () => true,   // https://github.com/PlayForm/Compress/issues/376
+        Passed: async () => true, // https://github.com/PlayForm/Compress/issues/376
       },
-    })
+    }),
   ],
-  output: "server",
+  output: 'server',
   adapter: vercel(),
-  site: "https://narainkarthikv.space",
+  site: 'https://narainkarthikv.space',
 });

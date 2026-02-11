@@ -17,7 +17,7 @@
     --color-nvim-blue: 35, 95, 135;
     --color-nvim-green: 0, 150, 0;
 
-    [data-theme="blue"] {
+    [data-theme='blue'] {
       --color-text-base: 15, 23, 42;
       --color-text-muted: 100, 116, 139;
       --color-text-inverted: 240, 240, 240;
@@ -31,7 +31,7 @@
       --color-nvim-green: 0, 150, 0;
     }
 
-    [data-theme="red"] {
+    [data-theme='red'] {
       --color-text-base: 28, 25, 23;
       --color-text-muted: 100, 100, 100;
       --color-text-inverted: 245, 245, 245;
@@ -45,7 +45,7 @@
       --color-nvim-green: 0, 150, 0;
     }
 
-    [data-theme="green"] {
+    [data-theme='green'] {
       --color-text-base: 40, 40, 40;
       --color-text-muted: 110, 110, 110;
       --color-text-inverted: 230, 230, 230;
@@ -59,7 +59,21 @@
       --color-nvim-green: 0, 150, 0;
     }
 
-    [data-theme="cyber"] {
+    [data-theme='orange'] {
+      --color-text-base: 35, 25, 10;
+      --color-text-muted: 120, 100, 80;
+      --color-text-inverted: 245, 245, 245;
+      --color-fill: 255, 240, 220;
+      --muted: 230, 210, 190;
+      --color: 249, 115, 22;
+      --color-button-accent: 249, 115, 22;
+      --color-button-accent-hover: 255, 150, 60;
+      --color-button-muted: 255, 228, 200;
+      --color-nvim-blue: 95, 175, 215;
+      --color-nvim-green: 0, 150, 0;
+    }
+
+    [data-theme='cyber'] {
       --color-text-base: 130, 130, 130;
       --color-text-muted: 144, 135, 5;
       --color-text-inverted: 240, 240, 240;
@@ -74,7 +88,7 @@
     }
 
     /* Luffy theme: energetic, adventurous, warm golden tones with moon/sky accents */
-    [data-theme="luffy"] {
+    [data-theme='luffy'] {
       --color-text-base: 28, 24, 20; /* warm deep brown for text */
       --color-text-muted: 110, 96, 80;
       --color-text-inverted: 255, 255, 255;
@@ -104,7 +118,7 @@
     --color-nvim-blue: 95, 175, 215;
     --color-nvim-green: 135, 215, 135;
 
-    [data-theme="blue"] {
+    [data-theme='blue'] {
       --color-text-base: 248, 250, 252;
       --color-text-muted: 148, 163, 184;
       --color-text-inverted: 240, 240, 240;
@@ -118,7 +132,7 @@
       --color-nvim-green: 135, 215, 135;
     }
 
-    [data-theme="red"] {
+    [data-theme='red'] {
       --color-text-base: 231, 229, 228;
       --color-text-muted: 168, 162, 158;
       --color-text-inverted: 245, 245, 245;
@@ -132,7 +146,7 @@
       --color-nvim-green: 135, 215, 135;
     }
 
-    [data-theme="green"] {
+    [data-theme='green'] {
       --color-text-base: 230, 230, 230;
       --color-text-muted: 104, 124, 104;
       --color-text-inverted: 230, 230, 230;
@@ -146,7 +160,21 @@
       --color-nvim-green: 135, 215, 135;
     }
 
-    [data-theme="cyber"] {
+    [data-theme='orange'] {
+      --color-text-base: 255, 240, 230;
+      --color-text-muted: 210, 170, 130;
+      --color-text-inverted: 20, 20, 20;
+      --color-fill: 18, 12, 8;
+      --muted: 70, 50, 35;
+      --color: 251, 146, 60;
+      --color-button-accent: 251, 146, 60;
+      --color-button-accent-hover: 253, 186, 116;
+      --color-button-muted: 52, 36, 26;
+      --color-nvim-blue: 95, 175, 215;
+      --color-nvim-green: 135, 215, 135;
+    }
+
+    [data-theme='cyber'] {
       --color-text-base: 252, 255, 54;
       --color-text-muted: 125, 125, 125;
       --color-text-inverted: 240, 240, 240;
@@ -161,7 +189,7 @@
     }
 
     /* Dark variant for Luffy theme */
-    [data-theme="luffy"] {
+    [data-theme='luffy'] {
       --color-text-base: 245, 240, 230;
       --color-text-muted: 200, 190, 170;
       --color-text-inverted: 10, 10, 12;
@@ -177,7 +205,7 @@
       --color-nvim-green: 135, 215, 135;
     }
 
-    [data-theme="pink"] {
+    [data-theme='pink'] {
       --color-text-base: 255, 240, 245;
       --color-text-muted: 255, 182, 193;
       --color-text-inverted: 40, 40, 40;
@@ -222,13 +250,13 @@
   .hover-grad-text {
     @apply text-center text-transparent bg-clip-text transition-all ease-in-out duration-700;
     background-image: linear-gradient(
-            to right,
-            theme("colors.slate.950"),
-            theme("colors.slate.950") 33%,
-            theme("colors.red.500") 66%,
-            theme("colors.orange.400"),
-            theme("colors.yellow.500"),
-            theme("colors.purple.500")
+      to right,
+      theme('colors.slate.950'),
+      theme('colors.slate.950') 33%,
+      theme('colors.red.500') 66%,
+      theme('colors.orange.400'),
+      theme('colors.yellow.500'),
+      theme('colors.purple.500')
     );
     background-size: 300% 100%;
     background-position: top left 100%;

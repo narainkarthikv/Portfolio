@@ -12,16 +12,22 @@ const parser = new Parser({
   },
 });
 
-let posts = [];
+type MediumItem = {
+  title?: string;
+  link?: string;
+  pubDate?: string;
+};
+
+let posts: MediumItem[] = [];
 
 try {
-  const feed = await Promise.race([
+  const feed = (await Promise.race([
     parser.parseURL(FEED_URL),
     new Promise((_, reject) =>
       setTimeout(() => reject(new Error("Feed fetch timeout")), 15000)
     ),
-  ]);
-  posts = feed.items.slice(0, 3);
+  ])) as { items?: MediumItem[] };
+  posts = (feed.items ?? []).slice(0, 3);
 } catch (e) {
   console.error("Home page blog fetch failed:", e);
   // Silently fail - section will show "No recent posts found"
@@ -47,10 +53,12 @@ const { className } = Astro.props;
               </a>
             </h3>
             <time class="text-[10px] text-skin-muted whitespace-nowrap">
-              {new Date(post.pubDate).toLocaleDateString("en-US", {
-                month: "short",
-                year: "numeric",
-              })}
+              {post.pubDate
+                ? new Date(post.pubDate).toLocaleDateString("en-US", {
+                    month: "short",
+                    year: "numeric",
+                  })
+                : ""}
             </time>
           </div>
         </div>

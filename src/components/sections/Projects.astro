@@ -115,7 +115,9 @@ import { projects } from "@cv";
 
   const projectsRoot = document.querySelector(".projects-coverflow");
   if (projectsRoot) {
-    const cards = Array.from(projectsRoot.querySelectorAll(".project-card"));
+    const cards = Array.from(
+      projectsRoot.querySelectorAll<HTMLElement>(".project-card")
+    );
     const prevButton = projectsRoot.querySelector("[data-projects-prev]");
     const nextButton = projectsRoot.querySelector("[data-projects-next]");
     let activeIndex = Math.floor(cards.length / 2);
@@ -155,14 +157,14 @@ import { projects } from "@cv";
       });
     };
 
-    const clampIndex = (index) => {
+    const clampIndex = (index: number) => {
       if (cards.length === 0) return 0;
       if (index < 0) return cards.length - 1;
       if (index >= cards.length) return 0;
       return index;
     };
 
-    const setActiveIndex = (index) => {
+    const setActiveIndex = (index: number) => {
       activeIndex = clampIndex(index);
       applyCoverflow();
     };

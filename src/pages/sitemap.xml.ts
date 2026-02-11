@@ -1,11 +1,10 @@
-import CV from '../../cv.json';
-
 export async function GET() {
   const site = import.meta.env.SITE ?? '';
   const base = site.replace(/\/$/, '');
 
   const pages = [
     { url: '/', priority: 1.0 },
+    { url: '/blog', priority: 0.6 },
   ];
 
   const lastmod = new Date().toISOString();
@@ -26,6 +25,6 @@ export async function GET() {
   </urlset>`;
 
   return new Response(xml, {
-    headers: { 'Content-Type': 'application/xml' }
+    headers: { 'Content-Type': 'application/xml' },
   });
 }

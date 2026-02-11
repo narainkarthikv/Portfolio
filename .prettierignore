@@ -1,0 +1,30 @@
+# Dependencies
+node_modules
+
+# Astro / Vite build outputs
+.astro
+dist
+dist/**
+.dist
+.dist/**
+build
+
+# Deployment
+.vercel
+
+# Testing
+coverage
+
+# Editor folders
+.vscode
+.idea
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+# Env files
+.env
+.env.*

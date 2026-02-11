@@ -1,146 +1,184 @@
 // ========== Configuration ==========
 const CONFIG = {
-    cvPath: 'cv.json',
-    formEndpoint: 'https://formsubmit.co/ajax/narainkarthik812@gmail.com',
-    iconCDN: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons'
+  cvPath: 'cv.json',
+  formEndpoint: 'https://formsubmit.co/ajax/narainkarthik812@gmail.com',
+  iconCDN: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons',
 };
 
 // ========== Utility Functions ==========
 const Utils = {
-    sanitizeHtml: (text) => {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    },
-    getIconName: (icon) => icon ? icon.split(':')[1] || 'dev' : 'dev',
-    getIconUrl: (iconName) => `${CONFIG.iconCDN}/${iconName}.svg`,
-    debounce: (fn, delay) => {
-        let timeoutId;
-        return (...args) => {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(() => fn(...args), delay);
-        };
-    }
+  sanitizeHtml: (text) => {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  },
+  getIconName: (icon) => (icon ? icon.split(':')[1] || 'dev' : 'dev'),
+  getIconUrl: (iconName) => `${CONFIG.iconCDN}/${iconName}.svg`,
+  debounce: (fn, delay) => {
+    let timeoutId;
+    return (...args) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => fn(...args), delay);
+    };
+  },
 };
 
 // ========== DOM Cache ==========
 const DOM = {
-    skillsContainer: null,
-    projectsContainer: null,
-    themeToggle: null,
-    navbar: null,
-    scrollToTop: null,
-    navLinks: null,
-    sections: null,
-    contactForm: null,
+  skillsContainer: null,
+  projectsContainer: null,
+  themeToggle: null,
+  navbar: null,
+  scrollToTop: null,
+  navLinks: null,
+  sections: null,
+  contactForm: null,
 
-    init() {
-        this.skillsContainer = document.getElementById('skills-container');
-        this.projectsContainer = document.getElementById('projects-container');
-        this.themeToggle = document.getElementById('theme-toggle');
-        this.navbar = document.querySelector('.navbar');
-        this.scrollToTop = document.querySelector('.scroll-to-top');
-        this.navLinks = document.querySelectorAll('.nav-link');
-        this.sections = document.querySelectorAll('section');
-        this.contactForm = document.getElementById('contact-form');
-        return this;
-    }
+  init() {
+    this.skillsContainer = document.getElementById('skills-container');
+    this.projectsContainer = document.getElementById('projects-container');
+    this.themeToggle = document.getElementById('theme-toggle');
+    this.navbar = document.querySelector('.navbar');
+    this.scrollToTop = document.querySelector('.scroll-to-top');
+    this.navLinks = document.querySelectorAll('.nav-link');
+    this.sections = document.querySelectorAll('section');
+    this.contactForm = document.getElementById('contact-form');
+    return this;
+  },
 };
 
 // ========== Skill Renderer ==========
 const SkillRenderer = {
-    categories: {},
-    
-    init(skills) {
-        this.categories = {
-            all: skills,
-            frontend: skills.filter(s => s.keywords && s.keywords.some(k => k.toLowerCase().includes('frontend'))),
-            backend: skills.filter(s => s.keywords && s.keywords.some(k => k.toLowerCase().includes('backend'))),
-            devops: skills.filter(s => s.keywords && (s.keywords.some(k => k.toLowerCase().includes('cloud')) || s.keywords.some(k => k.toLowerCase().includes('container')))),
-            tools: skills.filter(s => !s.keywords || !s.keywords.some(k => ['frontend', 'backend', 'cloud', 'container'].some(cat => k.toLowerCase().includes(cat))))
-        };
-    },
+  categories: {},
 
-    render(category = 'all') {
-        const skills = this.categories[category] || this.categories.all;
-        DOM.skillsContainer.innerHTML = '';
+  init(skills) {
+    this.categories = {
+      all: skills,
+      frontend: skills.filter(
+        (s) =>
+          s.keywords &&
+          s.keywords.some((k) => k.toLowerCase().includes('frontend'))
+      ),
+      backend: skills.filter(
+        (s) =>
+          s.keywords &&
+          s.keywords.some((k) => k.toLowerCase().includes('backend'))
+      ),
+      devops: skills.filter(
+        (s) =>
+          s.keywords &&
+          (s.keywords.some((k) => k.toLowerCase().includes('cloud')) ||
+            s.keywords.some((k) => k.toLowerCase().includes('container')))
+      ),
+      tools: skills.filter(
+        (s) =>
+          !s.keywords ||
+          !s.keywords.some((k) =>
+            ['frontend', 'backend', 'cloud', 'container'].some((cat) =>
+              k.toLowerCase().includes(cat)
+            )
+          )
+      ),
+    };
+  },
 
-        skills.forEach((skill, index) => {
-            const skillEl = this.createSkillElement(skill, index);
-            DOM.skillsContainer.appendChild(skillEl);
-        });
-    },
+  render(category = 'all') {
+    const skills = this.categories[category] || this.categories.all;
+    DOM.skillsContainer.innerHTML = '';
 
-    createSkillElement(skill, index) {
-        const skillDiv = document.createElement('div');
-        skillDiv.className = 'skill-item slide-in';
-        skillDiv.style.animationDelay = `${index * 0.05}s`;
+    skills.forEach((skill, index) => {
+      const skillEl = this.createSkillElement(skill, index);
+      DOM.skillsContainer.appendChild(skillEl);
+    });
+  },
 
-        const iconName = Utils.getIconName(skill.icon);
-        const iconUrl = Utils.getIconUrl(iconName);
+  createSkillElement(skill, index) {
+    const skillDiv = document.createElement('div');
+    skillDiv.className = 'skill-item slide-in';
+    skillDiv.style.animationDelay = `${index * 0.05}s`;
 
-        skillDiv.innerHTML = `
+    const iconName = Utils.getIconName(skill.icon);
+    const iconUrl = Utils.getIconUrl(iconName);
+
+    skillDiv.innerHTML = `
             <img src="${iconUrl}" alt="${Utils.sanitizeHtml(skill.name)}" style="width: 48px; height: 48px; filter: brightness(0) saturate(100%); transition: filter 0.3s ease;" />
             <div class="skill-name">${Utils.sanitizeHtml(skill.name)}</div>
             <div class="skill-level">${Utils.sanitizeHtml(skill.level)}</div>
         `;
 
-        return skillDiv;
-    }
+    return skillDiv;
+  },
 };
 
 // ========== Project Renderer ==========
 const ProjectRenderer = {
-    categories: {},
+  categories: {},
 
-    init(projects) {
-        this.categories = {
-            all: projects,
-            web: projects.filter(p => {
-                const stack = Object.keys(p.stack).join(' ').toLowerCase();
-                return stack.includes('react') || stack.includes('express') || stack.includes('mongodb');
-            }),
-            tools: projects.filter(p => {
-                const name = p.name.toLowerCase();
-                return name.includes('emoji') || name.includes('card') || name.includes('readme');
-            }),
-            featured: projects.filter(p => p.isActive).slice(0, 3)
-        };
-    },
+  init(projects) {
+    this.categories = {
+      all: projects,
+      web: projects.filter((p) => {
+        const stack = Object.keys(p.stack).join(' ').toLowerCase();
+        return (
+          stack.includes('react') ||
+          stack.includes('express') ||
+          stack.includes('mongodb')
+        );
+      }),
+      tools: projects.filter((p) => {
+        const name = p.name.toLowerCase();
+        return (
+          name.includes('emoji') ||
+          name.includes('card') ||
+          name.includes('readme')
+        );
+      }),
+      featured: projects.filter((p) => p.isActive).slice(0, 3),
+    };
+  },
 
-    render(category = 'all') {
-        const projects = this.categories[category] || this.categories.all;
-        DOM.projectsContainer.innerHTML = '';
+  render(category = 'all') {
+    const projects = this.categories[category] || this.categories.all;
+    DOM.projectsContainer.innerHTML = '';
 
-        if (projects.length === 0) {
-            DOM.projectsContainer.innerHTML = '<div class="text-center text-slate-600 dark:text-slate-400 py-8">No projects in this category</div>';
-            return;
-        }
+    if (projects.length === 0) {
+      DOM.projectsContainer.innerHTML =
+        '<div class="text-center text-slate-600 dark:text-slate-400 py-8">No projects in this category</div>';
+      return;
+    }
 
-        projects.forEach((project, index) => {
-            const projectEl = this.createProjectElement(project, index);
-            DOM.projectsContainer.appendChild(projectEl);
-        });
-    },
+    projects.forEach((project, index) => {
+      const projectEl = this.createProjectElement(project, index);
+      DOM.projectsContainer.appendChild(projectEl);
+    });
+  },
 
-    createProjectElement(project, index) {
-        const projectDiv = document.createElement('div');
-        projectDiv.className = 'minimal-project-card slide-in';
-        projectDiv.style.animationDelay = `${index * 0.05}s`;
+  createProjectElement(project, index) {
+    const projectDiv = document.createElement('div');
+    projectDiv.className = 'minimal-project-card slide-in';
+    projectDiv.style.animationDelay = `${index * 0.05}s`;
 
-        const techStack = Object.entries(project.stack).slice(0, 4);
-        const techHtml = techStack.map(([tech, icon]) => {
-            const iconName = Utils.getIconName(icon);
-            const iconUrl = Utils.getIconUrl(iconName);
-            return `<div class="minimal-tech-badge"><img src="${iconUrl}" alt="${Utils.sanitizeHtml(tech)}" /><span>${Utils.sanitizeHtml(tech)}</span></div>`;
-        }).join('');
+    const techStack = Object.entries(project.stack).slice(0, 4);
+    const techHtml = techStack
+      .map(([tech, icon]) => {
+        const iconName = Utils.getIconName(icon);
+        const iconUrl = Utils.getIconUrl(iconName);
+        return `<div class="minimal-tech-badge"><img src="${iconUrl}" alt="${Utils.sanitizeHtml(tech)}" /><span>${Utils.sanitizeHtml(tech)}</span></div>`;
+      })
+      .join('');
 
-        const links = [
-            project.url ? `<a href="${project.url}" target="_blank" rel="noopener" class="minimal-project-link"><i class="ri-external-link-line"></i> Live Demo</a>` : '',
-            project.github ? `<a href="${project.github}" target="_blank" rel="noopener" class="minimal-project-link"><i class="ri-github-fill"></i> Source</a>` : ''
-        ].filter(Boolean).join('');
+    const links = [
+      project.url
+        ? `<a href="${project.url}" target="_blank" rel="noopener" class="minimal-project-link"><i class="ri-external-link-line"></i> Live Demo</a>`
+        : '',
+      project.github
+        ? `<a href="${project.github}" target="_blank" rel="noopener" class="minimal-project-link"><i class="ri-github-fill"></i> Source</a>`
+        : '',
+    ]
+      .filter(Boolean)
+      .join('');
 
-        projectDiv.innerHTML = `
+    projectDiv.innerHTML = `
             <div class="project-minimal-header">
                 <h3 class="project-minimal-title">${Utils.sanitizeHtml(project.name)}</h3>
                 ${project.isActive ? '<div class="project-minimal-status">● Active</div>' : ''}
@@ -150,172 +188,207 @@ const ProjectRenderer = {
             <div class="project-minimal-links">${links}</div>
         `;
 
-        return projectDiv;
-    }
+    return projectDiv;
+  },
 };
 
 // ========== Tab Manager ==========
 const TabManager = {
-    initSkillTabs(renderer) {
-        document.querySelectorAll('.skills-category-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                this.updateTabState(btn);
-                renderer.render(btn.dataset.category);
-            });
-        });
-    },
+  initSkillTabs(renderer) {
+    document.querySelectorAll('.skills-category-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        this.updateTabState(btn);
+        renderer.render(btn.dataset.category);
+      });
+    });
+  },
 
-    initProjectTabs(renderer) {
-        document.querySelectorAll('.projects-category-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                this.updateTabState(btn);
-                renderer.render(btn.dataset.projectCategory);
-            });
-        });
-    },
+  initProjectTabs(renderer) {
+    document.querySelectorAll('.projects-category-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        this.updateTabState(btn);
+        renderer.render(btn.dataset.projectCategory);
+      });
+    });
+  },
 
-    updateTabState(activeBtn) {
-        const buttons = activeBtn.parentElement.querySelectorAll('button');
-        buttons.forEach(btn => {
-            btn.classList.remove('active', 'bg-blue-50', 'dark:bg-slate-800', 'text-blue-600', 'dark:text-blue-400', 'border-blue-600');
-            btn.classList.add('text-slate-600', 'dark:text-slate-400', 'border-transparent');
-        });
-        activeBtn.classList.add('active', 'bg-blue-50', 'dark:bg-slate-800', 'text-blue-600', 'dark:text-blue-400', 'border-blue-600');
-        activeBtn.classList.remove('text-slate-600', 'dark:text-slate-400', 'border-transparent');
-    }
+  updateTabState(activeBtn) {
+    const buttons = activeBtn.parentElement.querySelectorAll('button');
+    buttons.forEach((btn) => {
+      btn.classList.remove(
+        'active',
+        'bg-blue-50',
+        'dark:bg-slate-800',
+        'text-blue-600',
+        'dark:text-blue-400',
+        'border-blue-600'
+      );
+      btn.classList.add(
+        'text-slate-600',
+        'dark:text-slate-400',
+        'border-transparent'
+      );
+    });
+    activeBtn.classList.add(
+      'active',
+      'bg-blue-50',
+      'dark:bg-slate-800',
+      'text-blue-600',
+      'dark:text-blue-400',
+      'border-blue-600'
+    );
+    activeBtn.classList.remove(
+      'text-slate-600',
+      'dark:text-slate-400',
+      'border-transparent'
+    );
+  },
 };
 
 // ========== Initialize App ==========
 document.addEventListener('DOMContentLoaded', () => {
-    DOM.init();
+  DOM.init();
 
-    fetch(CONFIG.cvPath)
-        .then(response => {
-            if (!response.ok) throw new Error('Failed to load CV data');
-            return response.json();
-        })
-        .then(cvData => {
-            SkillRenderer.init(cvData.skills);
-            ProjectRenderer.init(cvData.projects);
+  fetch(CONFIG.cvPath)
+    .then((response) => {
+      if (!response.ok) throw new Error('Failed to load CV data');
+      return response.json();
+    })
+    .then((cvData) => {
+      SkillRenderer.init(cvData.skills);
+      ProjectRenderer.init(cvData.projects);
 
-            SkillRenderer.render('all');
-            ProjectRenderer.render('all');
+      SkillRenderer.render('all');
+      ProjectRenderer.render('all');
 
-            TabManager.initSkillTabs(SkillRenderer);
-            TabManager.initProjectTabs(ProjectRenderer);
-        })
-        .catch(err => console.error('Failed to load CV data:', err));
+      TabManager.initSkillTabs(SkillRenderer);
+      TabManager.initProjectTabs(ProjectRenderer);
+    })
+    .catch((err) => console.error('Failed to load CV data:', err));
 
-    initializeNavigation();
-    initializeTheme();
-    initializeContactForm();
+  initializeNavigation();
+  initializeTheme();
+  initializeContactForm();
 });
 
 // ========== Navigation Setup ==========
 function initializeNavigation() {
-    document.addEventListener('scroll', Utils.debounce(() => {
-        if (window.scrollY > 100) {
-            DOM.navbar.classList.add('visible');
-        } else {
-            DOM.navbar.classList.remove('visible');
+  document.addEventListener(
+    'scroll',
+    Utils.debounce(() => {
+      if (window.scrollY > 100) {
+        DOM.navbar.classList.add('visible');
+      } else {
+        DOM.navbar.classList.remove('visible');
+      }
+
+      updateActiveNavLink();
+
+      if (window.scrollY > 300) {
+        DOM.scrollToTop.classList.add('visible');
+      } else {
+        DOM.scrollToTop.classList.remove('visible');
+      }
+    }, 50)
+  );
+
+  DOM.navLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-
-        updateActiveNavLink();
-
-        if (window.scrollY > 300) {
-            DOM.scrollToTop.classList.add('visible');
-        } else {
-            DOM.scrollToTop.classList.remove('visible');
-        }
-    }, 50));
-
-    DOM.navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-        });
+      }
     });
+  });
 
-    DOM.scrollToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  DOM.scrollToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }
 
 function updateActiveNavLink() {
-    DOM.sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            DOM.navLinks.forEach(link => link.classList.remove('active'));
-            const activeLink = document.querySelector(`a[href="#${section.id}"]`);
-            if (activeLink) activeLink.classList.add('active');
-        }
-    });
+  DOM.sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionHeight = section.clientHeight;
+    if (
+      window.scrollY >= sectionTop &&
+      window.scrollY < sectionTop + sectionHeight
+    ) {
+      DOM.navLinks.forEach((link) => link.classList.remove('active'));
+      const activeLink = document.querySelector(`a[href="#${section.id}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+  });
 }
 
 // ========== Theme Setup ==========
 function initializeTheme() {
-    DOM.themeToggle.addEventListener('change', () => {
-        document.body.classList.toggle('dark-mode');
-        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-    });
+  DOM.themeToggle.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem(
+      'theme',
+      document.body.classList.contains('dark-mode') ? 'dark' : 'light'
+    );
+  });
 
-    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.body.classList.add('dark-mode');
-        DOM.themeToggle.checked = true;
-    }
+  if (
+    localStorage.getItem('theme') === 'dark' ||
+    (!localStorage.getItem('theme') &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.body.classList.add('dark-mode');
+    DOM.themeToggle.checked = true;
+  }
 }
 
 // ========== Contact Form Setup ==========
 function initializeContactForm() {
-    if (!DOM.contactForm) return;
+  if (!DOM.contactForm) return;
 
-    DOM.contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+  DOM.contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-        const formData = new FormData(DOM.contactForm);
-        const data = Object.fromEntries(formData);
+    const formData = new FormData(DOM.contactForm);
+    const data = Object.fromEntries(formData);
 
-        try {
-            const response = await fetch(CONFIG.formEndpoint, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
+    try {
+      const response = await fetch(CONFIG.formEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
 
-            if (response.ok) {
-                alert('Message sent successfully! I will get back to you soon.');
-                DOM.contactForm.reset();
-            } else {
-                alert('Failed to send message. Please try again.');
-            }
-        } catch (error) {
-            console.error('Form submission error:', error);
-            alert('Error sending message. Please try again or email me directly.');
-        }
-    });
+      if (response.ok) {
+        alert('Message sent successfully! I will get back to you soon.');
+        DOM.contactForm.reset();
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Error sending message. Please try again or email me directly.');
+    }
+  });
 }
 
 // ========== Intersection Observer for Fade-in Sections ==========
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px',
 };
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
 });
 
-document.querySelectorAll('.fade-in-section').forEach(section => {
-    observer.observe(section);
+document.querySelectorAll('.fade-in-section').forEach((section) => {
+  observer.observe(section);
 });

@@ -21,8 +21,8 @@ export default {
         'nvim-bg': '#1c1c1c',
         'nvim-fg': '#d0d0d0',
         'nvim-gray': '#4e4e4e',
-        'blue': '#5fafd7',
-        'green': '#87d787',
+        blue: '#5fafd7',
+        green: '#87d787',
         'nvim-statusline': '#303030',
         skin: {
           hue: withOpacity('--color'),
@@ -31,7 +31,7 @@ export default {
         nvim: {
           blue: withOpacity('--color-nvim-blue'),
           green: withOpacity('--color-nvim-green'),
-        }
+        },
       },
       textColor: {
         skin: {
@@ -42,7 +42,7 @@ export default {
         nvim: {
           green: withOpacity('--color-nvim-green'),
           blue: withOpacity('--color-nvim-blue'),
-        }
+        },
       },
       backgroundColor: {
         skin: {
@@ -68,9 +68,5 @@ export default {
       },
     },
   },
-  plugins: [
-    typography,
-    daisyui,
-    scrollbar,
-  ],
+  plugins: [typography, daisyui, scrollbar],
 };

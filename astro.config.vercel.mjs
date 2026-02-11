@@ -1,9 +1,9 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
-import vercel from "@astrojs/vercel";
-import playformCompress from "@playform/compress";
+import vercel from '@astrojs/vercel';
+import playformCompress from '@playform/compress';
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,20 +11,20 @@ export default defineConfig({
     tailwind(),
     icon({
       include: {
-        mdi: ["*"],
-        'ri': ['*'],
+        mdi: ['*'],
+        ri: ['*'],
         'simple-icons': ['*'],
-      }
+      },
     }),
     playformCompress({
       CSS: false,
       Image: false,
       Action: {
-        Passed: async () => true,   // https://github.com/PlayForm/Compress/issues/376
+        Passed: async () => true, // https://github.com/PlayForm/Compress/issues/376
       },
-    })
+    }),
   ],
   outDir: 'dist',
   output: 'static',
-  adapter: vercel()
+  adapter: vercel(),
 });

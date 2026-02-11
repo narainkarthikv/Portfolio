@@ -3,7 +3,14 @@ import { basics } from '@cv'
 import Section from '@/components/Section.astro'
 import { Icon } from 'astro-icon/components'
 
-const { name, animated_secondary_initial_label, animated_main_label, animated_secondary_final_label, image, location } = basics
+const {
+  name,
+  animated_secondary_initial_label,
+  animated_main_label,
+  animated_secondary_final_label,
+  image,
+  location,
+} = basics
 const { city, region } = location
 ---
 
@@ -14,9 +21,7 @@ const { city, region } = location
       aria-label="About me"
       class="group flex gap-2 sm:-rotate-2 flex-col rounded-3xl bg-skin-muted sm:bg-skin-button-muted p-4 transition-all sm:hover:rotate-0 sm:hover:bg-skin-muted"
     >
-      <div
-        class="flex items-center text-center gap-4"
-      >
+      <div class="flex items-center text-center gap-4">
         <figure class='print:hidden'>
           <img
             data-ccursor="lift"

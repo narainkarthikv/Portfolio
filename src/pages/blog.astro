@@ -19,18 +19,26 @@ const parser = new Parser({
   },
 });
 
-let posts = [];
-let error = null;
+type BlogPost = {
+  title: string;
+  link: string;
+  pubDate: string;
+  description: string;
+  categories: string[];
+};
+
+let posts: BlogPost[] = [];
+let error: string | null = null;
 
 try {
-  const feed = await parser.parseURL(FEED_URL);
+  const feed = (await parser.parseURL(FEED_URL)) as { items?: Array<any> };
 
-  posts = feed.items.map((item) => ({
+  posts = (feed.items ?? []).map((item: any): BlogPost => ({
     title: item.title ?? "",
     link: item.link ?? "",
     pubDate: item.pubDate ?? "",
     description: item.content || item.contentSnippet || "",
-    categories: item.categories ?? [],
+    categories: Array.isArray(item.categories) ? item.categories : [],
   }));
 } catch (e) {
   console.error("Blog page Medium fetch failed:", e);
@@ -40,7 +48,7 @@ try {
 /**
  * Clean Medium HTML excerpt
  */
-const getExcerpt = (html) => {
+const getExcerpt = (html: string) => {
   if (!html) return "Read more on Medium...";
   const match = html.match(/<p>(.*?)<\/p>/);
   return match
