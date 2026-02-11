@@ -1,478 +1,712 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portfolio of Narainkarthik Vellingiri (Wisdom Fox), full-stack developer focused on frontend performance, cloud, and DevOps.">
-    <meta name="keywords"
-        content="Narainkarthik Vellingiri, Narainkarthik, Wisdom Fox, Full Stack Developer, Frontend, React, Node.js, Cloud, DevOps, Portfolio">
-    <meta name="author" content="Narainkarthik Vellingiri">
-    <meta name="robots" content="index,follow">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="theme-color" content="#0ea5e9">
-    <link rel="canonical" href="https://narainkarthikv.space/">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Full-stack developer and Cloud/DevOps practitioner focused on scalable, high-performance applications." />
+    <meta
+      name="keywords"
+      content="Narainkarthik Vellingiri, Narainkarthik, Wisdom Fox, Full Stack Developer, Frontend, React, Node.js, Cloud, DevOps, Portfolio" />
+    <meta name="author" content="Narainkarthik Vellingiri" />
+    <meta name="robots" content="index,follow" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#0ea5e9" />
+    <link rel="canonical" href="https://narainkarthikv.space/" />
 
     <!-- Open Graph -->
-    <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="Narainkarthik Vellingiri">
-    <meta property="og:title" content="Narainkarthik Vellingiri - Full Stack Developer">
-    <meta property="og:description"
-        content="Portfolio of Narainkarthik Vellingiri (Wisdom Fox), full-stack developer focused on frontend performance, cloud, and DevOps.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://narainkarthikv.space/">
-    <meta property="og:image" content="https://narainkarthikv.space/pfp.webp">
-    <meta property="og:image:alt" content="Narainkarthik Vellingiri profile image">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Narainkarthik Vellingiri" />
+    <meta
+      property="og:title"
+      content="Narainkarthik Vellingiri - Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Full-stack developer and Cloud/DevOps practitioner focused on scalable, high-performance applications." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://narainkarthikv.space/" />
+    <meta property="og:image" content="https://narainkarthikv.space/pfp.webp" />
+    <meta
+      property="og:image:alt"
+      content="Narainkarthik Vellingiri profile image" />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Narainkarthik Vellingiri - Full Stack Developer">
-    <meta name="twitter:description"
-        content="Portfolio of Narainkarthik Vellingiri (Wisdom Fox), full-stack developer focused on frontend performance, cloud, and DevOps.">
-    <meta name="twitter:image" content="https://narainkarthikv.space/pfp.webp">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Narainkarthik Vellingiri - Full Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Full-stack developer and Cloud/DevOps practitioner focused on scalable, high-performance applications." />
+    <meta
+      name="twitter:image"
+      content="https://narainkarthikv.space/pfp.webp" />
 
     <title>Narainkarthik Vellingiri - Full Stack Developer</title>
 
     <!-- Preload fonts for performance -->
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-        as="style">
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      as="style" />
 
     <!-- Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.min.css" />
+    <link rel="stylesheet" href="styles.css" />
 
     <!-- Fallback for older browsers (ICO format) -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="pfp.webp">
-</head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="pfp.webp" />
+  </head>
 
-<body>
+  <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-400 to-cyan-600 flex items-center justify-center text-white font-bold">
-                    NK
-                </div>
-                <span class="font-bold text-lg text-slate-900 dark:text-white">Narain</span>
-            </div>
-
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link text-slate-900 dark:text-gray-300 active">Home</a>
-                <a href="#about" class="nav-link text-slate-900 dark:text-gray-300">About</a>
-                <a href="#experience" class="nav-link text-slate-900 dark:text-gray-300">Experience</a>
-                <a href="#skills" class="nav-link text-slate-900 dark:text-gray-300">Skills</a>
-                <a href="#projects" class="nav-link text-slate-900 dark:text-gray-300">Projects</a>
-                <a href="#contact" class="nav-link text-slate-900 dark:text-gray-300">Contact</a>
-            </div>
-
-            <div class="flex items-center space-x-4">
-                <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
-                <label for="theme-toggle" class="toggle-label"></label>
-            </div>
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <div
+            class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-400 to-cyan-600 flex items-center justify-center text-white font-bold">
+            NK
+          </div>
+          <span class="font-bold text-lg text-slate-900 dark:text-white"
+            >Narain</span
+          >
         </div>
+
+        <div class="hidden md:flex items-center space-x-8">
+          <a
+            href="#home"
+            class="nav-link text-slate-900 dark:text-gray-300 active"
+            >Home</a
+          >
+          <a href="#about" class="nav-link text-slate-900 dark:text-gray-300"
+            >About</a
+          >
+          <a
+            href="#experience"
+            class="nav-link text-slate-900 dark:text-gray-300"
+            >Experience</a
+          >
+          <a href="#skills" class="nav-link text-slate-900 dark:text-gray-300"
+            >Skills</a
+          >
+          <a href="#projects" class="nav-link text-slate-900 dark:text-gray-300"
+            >Projects</a
+          >
+          <a href="#contact" class="nav-link text-slate-900 dark:text-gray-300"
+            >Contact</a
+          >
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <input type="checkbox" id="theme-toggle" class="toggle-checkbox" />
+          <label for="theme-toggle" class="toggle-label"></label>
+        </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-gradient relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
-                <!-- Left Content -->
-                <div class="space-y-8">
-                    <div class="space-y-4 animate-fade-in-up">
-                        <p class="text-white/90 text-lg font-medium">Welcome to my portfolio</p>
-                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                            Narain<br>Karthik
-                        </h1>
-                        <p class="text-xl text-white/80 font-light">Full Stack Developer • Cloud Enthusiast • DevOps Explorer</p>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style="animation-delay: 0.2s">
-                        <a href="#projects" class="btn-primary px-8 py-3 rounded-lg text-white font-semibold inline-flex items-center justify-center gap-2">
-                            <i class="ri-arrow-right-line"></i>View My Work
-                        </a>
-                        <a href="narainkarthik-cv.pdf" target="_blank" class="px-8 py-3 rounded-lg text-white font-semibold border-2 border-white hover:bg-white hover:text-blue-600 transition inline-flex items-center justify-center gap-2">
-                            <i class="ri-download-line"></i>Download CV
-                        </a>
-                    </div>
-
-                    <!-- Social Links -->
-                    <div class="flex gap-4 pt-4 animate-fade-in-up" style="animation-delay: 0.4s">
-                        <a href="https://github.com/narainkarthikv" target="_blank" class="w-10 h-10 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition">
-                            <i class="ri-github-fill"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/narainkarthik-vellingiri" target="_blank" class="w-10 h-10 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition">
-                            <i class="ri-linkedin-fill"></i>
-                        </a>
-                        <a href="https://twitter.com/narainkarthikv" target="_blank" class="w-10 h-10 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition">
-                            <i class="ri-twitter-fill"></i>
-                        </a>
-                        <a href="mailto:narainkarthik812@gmail.com" class="w-10 h-10 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition">
-                            <i class="ri-mail-fill"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right Side - Profile Image -->
-                <div class="hidden md:flex justify-center animate-slide-in-right" style="animation-delay: 0.3s">
-                    <div class="relative">
-                        <div class="w-80 h-80 rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl">
-                            <img src="pfp.webp" alt="Narain Karthik" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-white/10 blur-3xl"></div>
-                    </div>
-                </div>
+    <section
+      id="home"
+      class="hero-gradient relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+          <!-- Left Content -->
+          <div class="space-y-8">
+            <div class="space-y-4 animate-fade-in-up">
+              <p class="text-white/90 text-lg font-medium">
+                Welcome to my portfolio
+              </p>
+              <h1
+                class="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                Narain<br />Karthik
+              </h1>
+              <p class="text-xl text-white/80 font-light">
+                Full Stack Developer • Cloud Enthusiast • DevOps Explorer
+              </p>
             </div>
-        </div>
 
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
-            <i class="ri-arrow-down-line text-2xl"></i>
+            <div
+              class="flex flex-col sm:flex-row gap-4 animate-fade-in-up"
+              style="animation-delay: 0.2s">
+              <a
+                href="#projects"
+                class="btn-primary px-8 py-3 rounded-lg text-white font-semibold inline-flex items-center justify-center gap-2">
+                <i class="ri-arrow-right-line"></i>View My Work
+              </a>
+              <a
+                href="narainkarthik-cv.pdf"
+                target="_blank"
+                class="px-8 py-3 rounded-lg text-white font-semibold border-2 border-white hover:bg-white hover:text-blue-600 transition inline-flex items-center justify-center gap-2">
+                <i class="ri-download-line"></i>Download CV
+              </a>
+            </div>
+
+            <!-- Social Links -->
+            <div
+              class="flex gap-4 pt-4 animate-fade-in-up"
+              style="animation-delay: 0.4s">
+              <a
+                href="https://github.com/narainkarthikv"
+                target="_blank"
+                class="w-10 h-10 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition">
+                <i class="ri-github-fill"></i>
+              </a>
+              <a
+                href="https://linkedin.com/in/narainkarthik-vellingiri"
+                target="_blank"
+                class="w-10 h-10 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition">
+                <i class="ri-linkedin-fill"></i>
+              </a>
+              <a
+                href="https://twitter.com/narainkarthikv"
+                target="_blank"
+                class="w-10 h-10 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition">
+                <i class="ri-twitter-fill"></i>
+              </a>
+              <a
+                href="mailto:narainkarthik812@gmail.com"
+                class="w-10 h-10 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition">
+                <i class="ri-mail-fill"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Side - Profile Image -->
+          <div
+            class="hidden md:flex justify-center animate-slide-in-right"
+            style="animation-delay: 0.3s">
+            <div class="relative">
+              <div
+                class="w-80 h-80 rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl">
+                <img
+                  src="pfp.webp"
+                  alt="Narain Karthik"
+                  class="w-full h-full object-cover" />
+              </div>
+              <div
+                class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-white/10 blur-3xl"></div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+        <i class="ri-arrow-down-line text-2xl"></i>
+      </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-12 bg-white dark:bg-slate-950 fade-in-section">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="space-y-10">
-                <!-- Section Header -->
-                <div class="text-center space-y-2">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
-                        About<span class="text-blue-600"> Me</span>
-                    </h2>
-                    <p class="text-slate-600 dark:text-gray-400 text-sm max-w-2xl mx-auto">
-                        Passionate full-stack developer with expertise in building scalable applications.
-                    </p>
-                </div>
+    <section
+      id="about"
+      class="py-12 bg-white dark:bg-slate-950 fade-in-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="space-y-10">
+          <!-- Section Header -->
+          <div class="text-center space-y-2">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+              About<span class="text-blue-600"> Me</span>
+            </h2>
+            <p
+              class="text-slate-600 dark:text-gray-400 text-sm max-w-2xl mx-auto">
+              Passionate full-stack developer with expertise in building
+              scalable applications.
+            </p>
+          </div>
 
-                <!-- About Grid -->
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Info Card 1 -->
-                    <div class="project-card p-8 card-hover">
-                        <div class="text-4xl mb-4">🎓</div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Education</h3>
-                        <p class="text-slate-600 dark:text-gray-400">
-                            B.E in Electronics & Communication from Bannari Amman Institute of Technology (2020-2024)
-                        </p>
-                    </div>
-
-                    <!-- Info Card 2 -->
-                    <div class="project-card p-8 card-hover">
-                        <div class="text-4xl mb-4">💼</div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Experience</h3>
-                        <p class="text-slate-600 dark:text-gray-400">
-                            2+ years in web development, specializing in frontend optimization and DevOps automation
-                        </p>
-                    </div>
-
-                    <!-- Info Card 3 -->
-                    <div class="project-card p-8 card-hover">
-                        <div class="text-4xl mb-4">🎯</div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Mission</h3>
-                        <p class="text-slate-600 dark:text-gray-400">
-                            Building performant, scalable, and user-focused applications with modern technologies
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Personal Details -->
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="space-y-6">
-                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Quick Facts</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-4">
-                                <i class="ri-check-double-fill text-blue-600 text-xl mt-1"></i>
-                                <div>
-                                    <p class="font-semibold text-slate-900 dark:text-white">Location</p>
-                                    <p class="text-slate-600 dark:text-gray-400">Coimbatore, India</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <i class="ri-check-double-fill text-blue-600 text-xl mt-1"></i>
-                                <div>
-                                    <p class="font-semibold text-slate-900 dark:text-white">Languages</p>
-                                    <p class="text-slate-600 dark:text-gray-400">Tamil, English, Japanese (Elementary)</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <i class="ri-check-double-fill text-blue-600 text-xl mt-1"></i>
-                                <div>
-                                    <p class="font-semibold text-slate-900 dark:text-white">Skills</p>
-                                    <p class="text-slate-600 dark:text-gray-400">Team player, Quick learner, Problem solver</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Certifications</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-3 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20">
-                                <i class="ri-medal-fill text-blue-600 text-2xl"></i>
-                                <div>
-                                    <p class="font-semibold text-slate-900 dark:text-white">JLPT N5</p>
-                                    <p class="text-sm text-slate-600 dark:text-gray-400">December 2023</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-3 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20">
-                                <i class="ri-medal-fill text-blue-600 text-2xl"></i>
-                                <div>
-                                    <p class="font-semibold text-slate-900 dark:text-white">Azure Fundamentals (AZ-900)</p>
-                                    <p class="text-sm text-slate-600 dark:text-gray-400">January 2026</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <!-- About Grid -->
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Info Card 1 -->
+            <div class="project-card p-8 card-hover">
+              <div class="text-4xl mb-4">🎓</div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                Education
+              </h3>
+              <p class="text-slate-600 dark:text-gray-400">
+                B.E in Electronics & Communication from Bannari Amman Institute
+                of Technology (2020-2024)
+              </p>
             </div>
+
+            <!-- Info Card 2 -->
+            <div class="project-card p-8 card-hover">
+              <div class="text-4xl mb-4">💼</div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                Experience
+              </h3>
+              <p class="text-slate-600 dark:text-gray-400">
+                2+ years in web development, specializing in frontend
+                optimization and DevOps automation
+              </p>
+            </div>
+
+            <!-- Info Card 3 -->
+            <div class="project-card p-8 card-hover">
+              <div class="text-4xl mb-4">🎯</div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                Mission
+              </h3>
+              <p class="text-slate-600 dark:text-gray-400">
+                Building performant, scalable, and user-focused applications
+                with modern technologies
+              </p>
+            </div>
+          </div>
+
+          <!-- Personal Details -->
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white">
+                Quick Facts
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                  <i
+                    class="ri-check-double-fill text-blue-600 text-xl mt-1"></i>
+                  <div>
+                    <p class="font-semibold text-slate-900 dark:text-white">
+                      Location
+                    </p>
+                    <p class="text-slate-600 dark:text-gray-400">
+                      Coimbatore, India
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <i
+                    class="ri-check-double-fill text-blue-600 text-xl mt-1"></i>
+                  <div>
+                    <p class="font-semibold text-slate-900 dark:text-white">
+                      Languages
+                    </p>
+                    <p class="text-slate-600 dark:text-gray-400">
+                      Tamil, English, Japanese (Elementary)
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <i
+                    class="ri-check-double-fill text-blue-600 text-xl mt-1"></i>
+                  <div>
+                    <p class="font-semibold text-slate-900 dark:text-white">
+                      Skills
+                    </p>
+                    <p class="text-slate-600 dark:text-gray-400">
+                      Team player, Quick learner, Problem solver
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h3
+                class="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+                Certifications
+              </h3>
+              <div class="space-y-3">
+                <div
+                  class="flex items-center gap-3 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20">
+                  <i class="ri-medal-fill text-blue-600 text-2xl"></i>
+                  <div>
+                    <p class="font-semibold text-slate-900 dark:text-white">
+                      JLPT N5
+                    </p>
+                    <p class="text-sm text-slate-600 dark:text-gray-400">
+                      December 2023
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-3 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20">
+                  <i class="ri-medal-fill text-blue-600 text-2xl"></i>
+                  <div>
+                    <p class="font-semibold text-slate-900 dark:text-white">
+                      Azure Fundamentals (AZ-900)
+                    </p>
+                    <p class="text-sm text-slate-600 dark:text-gray-400">
+                      January 2026
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-12 bg-slate-50 dark:bg-slate-900 fade-in-section">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="space-y-10">
-                <!-- Section Header -->
-                <div class="text-center space-y-2">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
-                        Experience &<span class="text-blue-600"> Education</span>
-                    </h2>
-                </div>
+    <section
+      id="experience"
+      class="py-12 bg-slate-50 dark:bg-slate-900 fade-in-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="space-y-10">
+          <!-- Section Header -->
+          <div class="text-center space-y-2">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+              Experience &<span class="text-blue-600"> Education</span>
+            </h2>
+          </div>
 
-                <!-- Timeline Grid -->
-                <div class="grid md:grid-cols-2 gap-12">
-                    <!-- Education -->
-                    <div class="space-y-6">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Education</h3>
-                        
-                        <div class="timeline-item">
-                            <h4 class="text-base font-bold text-slate-900 dark:text-white">Bachelor of Engineering</h4>
-                            <p class="text-blue-600 font-semibold text-sm">Bannari Amman Institute of Technology</p>
-                            <p class="text-xs text-slate-600 dark:text-gray-400">2020 - 2024</p>
-                            <p class="text-slate-700 dark:text-gray-300 mt-1 text-sm">Electronics & Communication • CGPA: 8.18</p>
-                        </div>
-                    </div>
+          <!-- Timeline Grid -->
+          <div class="grid md:grid-cols-2 gap-12">
+            <!-- Education -->
+            <div class="space-y-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">
+                Education
+              </h3>
 
-                    <!-- Work Experience -->
-                    <div class="space-y-6">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Work Experience</h3>
-                        
-                        <div class="timeline-item">
-                            <h4 class="text-base font-bold text-slate-900 dark:text-white">Associate Software Developer</h4>
-                            <p class="text-blue-600 font-semibold text-sm">Vegas Consulting</p>
-                            <p class="text-xs text-slate-600 dark:text-gray-400">Sep 2024 - Present</p>
-                            <p class="text-slate-700 dark:text-gray-300 mt-1 text-sm">Full Stack & DevOps. Optimizing performance and automating deployments.</p>
-                        </div>
-                    </div>
-                </div>
+              <div class="timeline-item">
+                <h4 class="text-base font-bold text-slate-900 dark:text-white">
+                  Bachelor of Engineering
+                </h4>
+                <p class="text-blue-600 font-semibold text-sm">
+                  Bannari Amman Institute of Technology
+                </p>
+                <p class="text-xs text-slate-600 dark:text-gray-400">
+                  2020 - 2024
+                </p>
+                <p class="text-slate-700 dark:text-gray-300 mt-1 text-sm">
+                  Electronics & Communication • CGPA: 8.18
+                </p>
+              </div>
             </div>
+
+            <!-- Work Experience -->
+            <div class="space-y-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">
+                Work Experience
+              </h3>
+
+              <div class="timeline-item">
+                <h4 class="text-base font-bold text-slate-900 dark:text-white">
+                  Associate Software Developer
+                </h4>
+                <p class="text-blue-600 font-semibold text-sm">
+                  Vegas Consulting
+                </p>
+                <p class="text-xs text-slate-600 dark:text-gray-400">
+                  Sep 2024 - Present
+                </p>
+                <p class="text-slate-700 dark:text-gray-300 mt-1 text-sm">
+                  Full Stack & DevOps. Optimizing performance and automating
+                  deployments.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Technical Skills Section with Vertical Tabs -->
-    <section id="skills" class="py-10 lg:py-12 bg-white dark:bg-slate-950 fade-in-section">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-6">
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-1">
-                    Technical<span class="text-blue-600"> Stack</span>
-                </h2>
-                <p class="text-slate-600 dark:text-slate-400 text-sm">Technologies powering my projects</p>
-            </div>
-            
-            <div class="flex flex-col lg:flex-row gap-6">
-                <!-- Skills Categories Sidebar (Vertical Tabs) -->
-                <div class="lg:w-40 flex-shrink-0">
-                    <div class="flex lg:flex-col gap-2 lg:sticky lg:top-20 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
-                        <button class="skills-category-btn active px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-blue-600 text-sm" data-category="all">
-                            All Skills
-                        </button>
-                        <button class="skills-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-category="frontend">
-                            Frontend
-                        </button>
-                        <button class="skills-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-category="backend">
-                            Backend
-                        </button>
-                        <button class="skills-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-category="devops">
-                            DevOps & Cloud
-                        </button>
-                        <button class="skills-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-category="tools">
-                            Tools & Others
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Skills Content Area with Smooth Animation -->
-                <div class="flex-1">
-                    <div id="skills-container" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 gap-2 lg:gap-3 animate-fade-in">
-                        <!-- Skills will be dynamically inserted here -->
-                    </div>
-                </div>
-            </div>
+    <section
+      id="skills"
+      class="py-10 lg:py-12 bg-white dark:bg-slate-950 fade-in-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-6">
+          <h2
+            class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-1">
+            Technical<span class="text-blue-600"> Stack</span>
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">
+            Technologies powering my projects
+          </p>
         </div>
+
+        <div class="flex flex-col lg:flex-row gap-6">
+          <!-- Skills Categories Sidebar (Vertical Tabs) -->
+          <div class="lg:w-40 flex-shrink-0">
+            <div
+              class="flex lg:flex-col gap-2 lg:sticky lg:top-20 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
+              <button
+                class="skills-category-btn active px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-blue-600 text-sm"
+                data-category="all">
+                All Skills
+              </button>
+              <button
+                class="skills-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm"
+                data-category="frontend">
+                Frontend
+              </button>
+              <button
+                class="skills-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm"
+                data-category="backend">
+                Backend
+              </button>
+              <button
+                class="skills-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm"
+                data-category="devops">
+                DevOps & Cloud
+              </button>
+              <button
+                class="skills-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm"
+                data-category="tools">
+                Tools & Others
+              </button>
+            </div>
+          </div>
+
+          <!-- Skills Content Area with Smooth Animation -->
+          <div class="flex-1">
+            <div
+              id="skills-container"
+              class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 gap-2 lg:gap-3 animate-fade-in">
+              <!-- Skills will be dynamically inserted here -->
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Projects Section with Vertical Tabs (Minimal Design) -->
-    <section id="projects" class="py-10 lg:py-12 bg-slate-50 dark:bg-slate-900 fade-in-section">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-6">
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-1">
-                    Featured<span class="text-blue-600"> Projects</span>
-                </h2>
-                <p class="text-slate-600 dark:text-slate-400 text-sm">Curated selection of my work</p>
-            </div>
-            
-            <div class="flex flex-col lg:flex-row gap-6">
-                <!-- Projects Categories Sidebar (Vertical Tabs) -->
-                <div class="lg:w-40 flex-shrink-0">
-                    <div class="flex lg:flex-col gap-2 lg:sticky lg:top-20 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
-                        <button class="projects-category-btn active px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-blue-600 text-sm" data-project-category="all">
-                            All
-                        </button>
-                        <button class="projects-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-project-category="web">
-                            Web Apps
-                        </button>
-                        <button class="projects-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-project-category="tools">
-                            Tools
-                        </button>
-                        <button class="projects-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm" data-project-category="featured">
-                            Featured
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Projects Content Area - Minimal Cards -->
-                <div class="flex-1">
-                    <div id="projects-container" class="space-y-2 lg:space-y-3 animate-fade-in">
-                        <!-- Projects will be dynamically inserted here -->
-                    </div>
-                </div>
-            </div>
+    <section
+      id="projects"
+      class="py-10 lg:py-12 bg-slate-50 dark:bg-slate-900 fade-in-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-6">
+          <h2
+            class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-1">
+            Featured<span class="text-blue-600"> Projects</span>
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">
+            Curated selection of my work
+          </p>
         </div>
+
+        <div class="flex flex-col lg:flex-row gap-6">
+          <!-- Projects Categories Sidebar (Vertical Tabs) -->
+          <div class="lg:w-40 flex-shrink-0">
+            <div
+              class="flex lg:flex-col gap-2 lg:sticky lg:top-20 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
+              <button
+                class="projects-category-btn active px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-blue-600 text-sm"
+                data-project-category="all">
+                All
+              </button>
+              <button
+                class="projects-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm"
+                data-project-category="web">
+                Web Apps
+              </button>
+              <button
+                class="projects-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm"
+                data-project-category="tools">
+                Tools
+              </button>
+              <button
+                class="projects-category-btn px-3 py-2 rounded-lg font-medium whitespace-nowrap lg:w-full transition-all duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border-b-2 lg:border-b-0 lg:border-l-4 border-transparent text-sm"
+                data-project-category="featured">
+                Featured
+              </button>
+            </div>
+          </div>
+
+          <!-- Projects Content Area - Minimal Cards -->
+          <div class="flex-1">
+            <div
+              id="projects-container"
+              class="space-y-2 lg:space-y-3 animate-fade-in">
+              <!-- Projects will be dynamically inserted here -->
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-10 lg:py-12 bg-white dark:bg-slate-950 fade-in-section">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-6">
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-1">
-                    Get In<span class="text-blue-600"> Touch</span>
-                </h2>
-                <p class="text-slate-600 dark:text-slate-400 text-sm">Let's collaborate and create something amazing</p>
-            </div>
-
-            <!-- Contact Grid -->
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Contact Information -->
-                <div class="space-y-3">
-                    <div class="flex gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
-                            <i class="ri-mail-fill text-blue-600 text-base"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Email</h3>
-                            <a href="mailto:narainkarthik812@gmail.com" class="text-slate-600 dark:text-gray-400 hover:text-blue-600 transition text-xs">
-                                narainkarthik812@gmail.com
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
-                            <i class="ri-map-pin-fill text-blue-600 text-base"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Location</h3>
-                            <p class="text-slate-600 dark:text-gray-400 text-xs">Coimbatore, India</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
-                            <i class="ri-share-2-fill text-blue-600 text-base"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Social</h3>
-                            <div class="flex gap-2">
-                                <a href="https://github.com/narainkarthikv" target="_blank" class="text-slate-600 dark:text-gray-400 hover:text-blue-600 transition text-xs">
-                                    GitHub
-                                </a>
-                                <span class="text-slate-300 dark:text-slate-700">•</span>
-                                <a href="https://linkedin.com/in/narainkarthik-vellingiri" target="_blank" class="text-slate-600 dark:text-gray-400 hover:text-blue-600 transition text-xs">
-                                    LinkedIn
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form -->
-                <form id="contact-form" class="space-y-3">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-900 dark:text-white mb-1">Name</label>
-                        <input type="text" name="name" required class="w-full form-input px-3 py-2 text-xs" placeholder="Your name">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-900 dark:text-white mb-1">Email</label>
-                        <input type="email" name="email" required class="w-full form-input px-3 py-2 text-xs" placeholder="Your email">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-900 dark:text-white mb-1">Message</label>
-                        <textarea name="message" rows="3" required class="w-full form-input px-3 py-2 text-xs" placeholder="Your message"></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary w-full px-4 py-2 rounded-lg text-white font-semibold text-xs">
-                        Send Message
-                    </button>
-                </form>
-            </div>
+    <section
+      id="contact"
+      class="py-10 lg:py-12 bg-white dark:bg-slate-950 fade-in-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-6">
+          <h2
+            class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-1">
+            Get In<span class="text-blue-600"> Touch</span>
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">
+            Let's collaborate and create something amazing
+          </p>
         </div>
+
+        <!-- Contact Grid -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Contact Information -->
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <div
+                class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                <i class="ri-mail-fill text-blue-600 text-base"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white text-sm">
+                  Email
+                </h3>
+                <a
+                  href="mailto:narainkarthik812@gmail.com"
+                  class="text-slate-600 dark:text-gray-400 hover:text-blue-600 transition text-xs">
+                  narainkarthik812@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div
+                class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                <i class="ri-map-pin-fill text-blue-600 text-base"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white text-sm">
+                  Location
+                </h3>
+                <p class="text-slate-600 dark:text-gray-400 text-xs">
+                  Coimbatore, India
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div
+                class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                <i class="ri-share-2-fill text-blue-600 text-base"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white text-sm">
+                  Social
+                </h3>
+                <div class="flex gap-2">
+                  <a
+                    href="https://github.com/narainkarthikv"
+                    target="_blank"
+                    class="text-slate-600 dark:text-gray-400 hover:text-blue-600 transition text-xs">
+                    GitHub
+                  </a>
+                  <span class="text-slate-300 dark:text-slate-700">•</span>
+                  <a
+                    href="https://linkedin.com/in/narainkarthik-vellingiri"
+                    target="_blank"
+                    class="text-slate-600 dark:text-gray-400 hover:text-blue-600 transition text-xs">
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form id="contact-form" class="space-y-3">
+            <div>
+              <label
+                class="block text-xs font-semibold text-slate-900 dark:text-white mb-1"
+                >Name</label
+              >
+              <input
+                type="text"
+                name="name"
+                required
+                class="w-full form-input px-3 py-2 text-xs"
+                placeholder="Your name" />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-semibold text-slate-900 dark:text-white mb-1"
+                >Email</label
+              >
+              <input
+                type="email"
+                name="email"
+                required
+                class="w-full form-input px-3 py-2 text-xs"
+                placeholder="Your email" />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-semibold text-slate-900 dark:text-white mb-1"
+                >Message</label
+              >
+              <textarea
+                name="message"
+                rows="3"
+                required
+                class="w-full form-input px-3 py-2 text-xs"
+                placeholder="Your message"></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn-primary w-full px-4 py-2 rounded-lg text-white font-semibold text-xs">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-slate-900 dark:bg-slate-950 text-white py-6 text-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
-                <div class="flex items-center space-x-2">
-                    <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-400 to-cyan-600 flex items-center justify-center font-bold text-xs">
-                        NK
-                    </div>
-                    <span class="font-bold text-sm">Narain Karthik</span>
-                </div>
-
-                <div class="flex gap-2">
-                    <a href="https://github.com/narainkarthikv" target="_blank" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition text-xs">
-                        <i class="ri-github-fill"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/narainkarthik-vellingiri" target="_blank" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition text-xs">
-                        <i class="ri-linkedin-fill"></i>
-                    </a>
-                    <a href="https://twitter.com/narainkarthikv" target="_blank" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition text-xs">
-                        <i class="ri-twitter-fill"></i>
-                    </a>
-                    <a href="mailto:narainkarthik812@gmail.com" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition text-xs">
-                        <i class="ri-mail-fill"></i>
-                    </a>
-                </div>
-
-                <p class="text-white/60 text-xs">
-                    &copy; 2026 Narain Karthik. All rights reserved.
-                </p>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="flex items-center space-x-2">
+            <div
+              class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-400 to-cyan-600 flex items-center justify-center font-bold text-xs">
+              NK
             </div>
+            <span class="font-bold text-sm">Narain Karthik</span>
+          </div>
+
+          <div class="flex gap-2">
+            <a
+              href="https://github.com/narainkarthikv"
+              target="_blank"
+              class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition text-xs">
+              <i class="ri-github-fill"></i>
+            </a>
+            <a
+              href="https://linkedin.com/in/narainkarthik-vellingiri"
+              target="_blank"
+              class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition text-xs">
+              <i class="ri-linkedin-fill"></i>
+            </a>
+            <a
+              href="https://twitter.com/narainkarthikv"
+              target="_blank"
+              class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition text-xs">
+              <i class="ri-twitter-fill"></i>
+            </a>
+            <a
+              href="mailto:narainkarthik812@gmail.com"
+              class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition text-xs">
+              <i class="ri-mail-fill"></i>
+            </a>
+          </div>
+
+          <p class="text-white/60 text-xs">
+            &copy; 2026 Narain Karthik. All rights reserved.
+          </p>
         </div>
+      </div>
     </footer>
 
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top" aria-label="Scroll to top">
-        <i class="ri-arrow-up-line text-xl"></i>
+      <i class="ri-arrow-up-line text-xl"></i>
     </button>
 
     <!-- Scripts -->
     <script src="app.js"></script>
-</body>
-
+  </body>
 </html>

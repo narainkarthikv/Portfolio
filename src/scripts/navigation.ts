@@ -11,17 +11,18 @@ let currentMode: EMode = EMode.NORMAL;
 let commandBuffer = '';
 
 const windowSize = {
-  'width': window.innerWidth,
-  'height': window.innerHeight,
-  'vw': window.innerWidth / 100,
-  'vh': window.innerHeight / 100,
-}
+  width: window.innerWidth,
+  height: window.innerHeight,
+  vw: window.innerWidth / 100,
+  vh: window.innerHeight / 100,
+};
 let cursorPosition = {
-  'x': windowSize.vw,
-  'y': windowSize.vh,
-}
+  x: windowSize.vw,
+  y: windowSize.vh,
+};
 let currentLine = 0;
-let currentPageItems: NodeListOf<Element> = document.querySelectorAll('.nvim-line');
+let currentPageItems: NodeListOf<Element> =
+  document.querySelectorAll('.nvim-line');
 
 const firstItem = currentPageItems[0]?.getBoundingClientRect();
 
@@ -49,7 +50,7 @@ document.addEventListener('keydown', (e: KeyboardEvent) => {
       break;
     case 'Escape':
       handleEscape();
-      window.clearSearch()
+      window.clearSearch();
       break;
     case 'Enter':
       if (currentMode === EMode.COMMAND || currentMode === EMode.SEARCH) {
@@ -112,7 +113,7 @@ function handleCommand(command: string) {
         if (keyBindings) {
           keyBindings.classList.toggle('hidden');
         }
-        break
+        break;
       default:
         console.log('Unknown command:', cmd);
     }
@@ -129,10 +130,10 @@ function handleNormalModeKey(key: string) {
       break;
     case 'j':
     case 'k':
-      moveCursor(key)
+      moveCursor(key);
       break;
     case 'g':
-      moveCursorTop()
+      moveCursorTop();
       break;
     case 'G':
       moveCursorBottom();
@@ -146,13 +147,18 @@ function handleNormalModeKey(key: string) {
       window.updateStatusBar(currentMode);
       break;
   }
-  
+
   updatePosition();
 }
 
 function updatePosition() {
-  window.updateStatusBar(undefined, undefined, undefined, `${Math.floor(cursorPosition.y / 100) || 1}:${Math.floor(cursorPosition.x) || 1}`);
-  
+  window.updateStatusBar(
+    undefined,
+    undefined,
+    undefined,
+    `${Math.floor(cursorPosition.y / 100) || 1}:${Math.floor(cursorPosition.x) || 1}`
+  );
+
   if (cursor) {
     cursor.style.top = `${cursorPosition.y}px`;
     cursor.style.left = `${cursorPosition.x}px`;
@@ -169,15 +175,16 @@ function moveCursor(direction: 'j' | 'k') {
       }
       break;
     case 'j':
-      if (currentLine < currentPageItems.length -1) {
+      if (currentLine < currentPageItems.length - 1) {
         currentLine++;
       }
       break;
     default:
       console.log('Invalid direction');
   }
-  
-  const { y: screenVerticalPosition, x: screenHorizontalPosition } = currentPageItems[currentLine]?.getBoundingClientRect() ?? { y: 0, x: 0 };
+
+  const { y: screenVerticalPosition, x: screenHorizontalPosition } =
+    currentPageItems[currentLine]?.getBoundingClientRect() ?? { y: 0, x: 0 };
   cursorPosition.y = screenVerticalPosition;
   cursorPosition.x = screenHorizontalPosition - 18;
 }
@@ -202,14 +209,14 @@ function navigateUp() {
     window.location.href = '/';
   } else {
     // Remove the last part of the path
-    window.location.href = "/" + pathParts.slice(0, -1).join("/");
+    window.location.href = '/' + pathParts.slice(0, -1).join('/');
   }
 }
 
 function navigateTo() {
-  const currentItem : Element | undefined = currentPageItems[currentLine];
+  const currentItem: Element | undefined = currentPageItems[currentLine];
   const itemUrl: string | null = currentItem?.getAttribute('data-href');
-  
+
   if (itemUrl) {
     window.location.href = itemUrl;
   }

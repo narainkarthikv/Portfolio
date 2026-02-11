@@ -25,6 +25,6 @@ export async function GET() {
   </urlset>`;
 
   return new Response(xml, {
-    headers: { 'Content-Type': 'application/xml' }
+    headers: { 'Content-Type': 'application/xml' },
   });
 }

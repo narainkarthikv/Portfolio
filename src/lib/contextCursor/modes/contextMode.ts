@@ -1,6 +1,6 @@
-import { TweenLite } from "gsap";
-import { getMoveIndex, isElHasProperty, getStyleProp } from "../chunks";
-import propNames from "../propNames";
+import { TweenLite } from 'gsap';
+import { getMoveIndex, isElHasProperty, getStyleProp } from '../chunks';
+import propNames from '../propNames';
 
 const contextMode = (
   cursor: HTMLElement,
@@ -42,10 +42,10 @@ const contextMode = (
             parallaxSpeed.target
           ),
           scale: 1.1,
-          boxShadow: getStyleProp("--ghost-shadow"),
+          boxShadow: getStyleProp('--ghost-shadow'),
         });
         TweenLite.to(cursor, props.transitionSpeed, {
-          filter: "blur(8px)",
+          filter: 'blur(8px)',
           x:
             cursorTarget.getBoundingClientRect().left +
             (e.clientX -
@@ -132,7 +132,7 @@ const contextMode = (
     );
 
     if (isElHasProperty(cursorTarget, propNames.lift)) {
-      cursor.classList.add("c-cursor-lift_active");
+      cursor.classList.add('c-cursor-lift_active');
       TweenLite.to(cursor, props.transitionSpeed, {
         borderRadius: borderRadius,
         width: cursorTarget.clientWidth,
@@ -140,50 +140,50 @@ const contextMode = (
         scale: 1.1,
       });
     } else {
-      cursor.classList.add("c-cursor_active");
+      cursor.classList.add('c-cursor_active');
     }
   };
 
   const handleMouseOut = (e: MouseEvent) => {
     isHovered = false;
-    cursor.classList.remove("c-cursor_active");
-    cursor.classList.remove("c-cursor-lift_active");
+    cursor.classList.remove('c-cursor_active');
+    cursor.classList.remove('c-cursor-lift_active');
 
     TweenLite.to(cursor, props.transitionSpeed, {
       x: e.clientX - props.radius / 2,
       y: e.clientY - props.radius / 2,
       width: props.radius,
       height: props.radius,
-      borderRadius: "100px",
+      borderRadius: '100px',
       scale: 1,
-      backgroundImage: "none",
-      filter: "blur(0px)",
+      backgroundImage: 'none',
+      filter: 'blur(0px)',
     });
     TweenLite.to(cursorTarget, props.transitionSpeed, {
       x: 0,
       y: 0,
       scale: 1,
-      boxShadow: "0 7px 15px rgba(0,0,0,0.0)",
+      boxShadow: '0 7px 15px rgba(0,0,0,0.0)',
     });
   };
 
   // Event listeners
-  document.addEventListener("mousewheel", (e: WheelEvent) => {
+  document.addEventListener('mousewheel', (e: WheelEvent) => {
     handleMouseOut(e);
   });
 
-  document.addEventListener("mousemove", (e: MouseEvent) => {
+  document.addEventListener('mousemove', (e: MouseEvent) => {
     moveCursor(e);
   });
 
   interactElements.forEach((item) => {
-    item.addEventListener("mouseenter", (e: MouseEvent) => {
+    item.addEventListener('mouseenter', (e: MouseEvent) => {
       handleMouseOver(e);
     });
   });
 
   interactElements.forEach((item) => {
-    item.addEventListener("mouseleave", (e: MouseEvent) => {
+    item.addEventListener('mouseleave', (e: MouseEvent) => {
       handleMouseOut(e);
     });
   });

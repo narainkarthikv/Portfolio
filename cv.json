@@ -3,10 +3,7 @@
   "basics": {
     "name": "Narain Karthik",
     "fullName": "Narainkarthik Vellingiri",
-    "alternateName": [
-      "Narainkarthik Vellingiri",
-      "Wisdom Fox"
-    ],
+    "alternateName": ["Narainkarthik Vellingiri", "Wisdom Fox"],
     "label": "Full-stack developer",
     "animated_main_label": "developer",
     "animated_secondary_initial_label": "software",
@@ -14,7 +11,7 @@
     "image": "/pfp.webp",
     "email": "narainkarthik812@gmail.com",
     "url": "https://narainkarthikv.space/",
-    "summary": "Full-stack developer focused on frontend performance, cloud, and DevOps.",
+    "summary": "Full-stack developer and Cloud/DevOps practitioner focused on scalable, high-performance applications.",
     "theme": "blue",
     "location": {
       "city": "Coimbatore",
@@ -72,16 +69,16 @@
     }
   ],
   "certificates": [
-  {
-    "name": "JLPT N5",
-    "date": "2023-12-01",
-    "issuer": "JLPT"
-  },
-  {
-    "name": "Microsoft Certified: Azure Fundamentals (AZ-900)",
-    "date": "2026-01-10",
-    "issuer": "Microsoft"
-  }
+    {
+      "name": "JLPT N5",
+      "date": "2023-12-01",
+      "issuer": "JLPT"
+    },
+    {
+      "name": "Microsoft Certified: Azure Fundamentals (AZ-900)",
+      "date": "2026-01-10",
+      "issuer": "Microsoft"
+    }
   ],
   "work": [
     {
@@ -140,22 +137,13 @@
       "name": "Astro",
       "icon": "simple-icons:astro",
       "level": "Beginner",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "SSR",
-        "Static Generation"
-      ]
+      "keywords": ["Web Development", "Frontend", "SSR", "Static Generation"]
     },
     {
       "name": "Azure",
       "icon": "simple-icons:microsoftazure",
       "level": "Beginner",
-      "keywords": [
-        "Cloud Computing",
-        "Backend",
-        "Infrastructure"
-      ]
+      "keywords": ["Cloud Computing", "Backend", "Infrastructure"]
     },
     {
       "name": "Bootstrap",
@@ -172,219 +160,127 @@
       "name": "Confluence",
       "icon": "simple-icons:confluence",
       "level": "Beginner",
-      "keywords": [
-        "Documentation",
-        "Collaboration",
-        "Knowledge Management"
-      ]
+      "keywords": ["Documentation", "Collaboration", "Knowledge Management"]
     },
     {
       "name": "CSS3",
       "icon": "ri:css3-fill",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "Responsive Design"
-      ]
+      "keywords": ["Web Development", "Frontend", "Responsive Design"]
     },
     {
       "name": "Docker",
       "icon": "mdi:docker",
       "level": "Beginner",
-      "keywords": [
-        "Virtual Environments",
-        "Containerization",
-        "Backend"
-      ]
+      "keywords": ["Virtual Environments", "Containerization", "Backend"]
     },
     {
       "name": "Express",
       "icon": "simple-icons:express",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Backend",
-        "JavaScript",
-        "Server"
-      ]
+      "keywords": ["Web Development", "Backend", "JavaScript", "Server"]
     },
     {
       "name": "Figma",
       "icon": "simple-icons:figma",
       "level": "Beginner",
-      "keywords": [
-        "Prototyping",
-        "Web Development",
-        "Frontend"
-      ]
+      "keywords": ["Prototyping", "Web Development", "Frontend"]
     },
     {
       "name": "GCP",
       "icon": "simple-icons:googlecloud",
       "level": "Beginner",
-      "keywords": [
-        "Cloud Computing",
-        "Backend",
-        "Infrastructure"
-      ]
+      "keywords": ["Cloud Computing", "Backend", "Infrastructure"]
     },
     {
       "name": "Git",
       "icon": "mdi:git",
       "level": "Intermediate",
-      "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code"
-      ]
+      "keywords": ["Version Control", "Collaboration", "Source Code"]
     },
     {
       "name": "GitHub",
       "icon": "mdi:github",
       "level": "Intermediate",
-      "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code",
-        "Git"
-      ]
+      "keywords": ["Version Control", "Collaboration", "Source Code", "Git"]
     },
     {
       "name": "GitLab",
       "icon": "simple-icons:gitlab",
       "level": "Beginner",
-      "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code",
-        "Git"
-      ]
+      "keywords": ["Version Control", "Collaboration", "Source Code", "Git"]
     },
     {
       "name": "GitHub Actions",
       "icon": "simple-icons:githubactions",
       "level": "Beginner",
-      "keywords": [
-        "CI/CD",
-        "Automation",
-        "DevOps"
-      ]
+      "keywords": ["CI/CD", "Automation", "DevOps"]
     },
     {
       "name": "HTML5",
       "icon": "simple-icons:html5",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend"
-      ]
+      "keywords": ["Web Development", "Frontend"]
     },
     {
       "name": "Jira",
       "icon": "simple-icons:jira",
       "level": "Intermediate",
-      "keywords": [
-        "Project Management",
-        "Issue Tracking",
-        "Agile"
-      ]
+      "keywords": ["Project Management", "Issue Tracking", "Agile"]
     },
     {
       "name": "JavaScript",
       "icon": "simple-icons:javascript",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "Backend",
-        "Fullstack"
-      ]
+      "keywords": ["Web Development", "Frontend", "Backend", "Fullstack"]
     },
     {
       "name": "Kubernetes",
       "icon": "mdi:kubernetes",
       "level": "Beginner",
-      "keywords": [
-        "Virtual Environments",
-        "Backend",
-        "Container Orchestration"
-      ]
+      "keywords": ["Virtual Environments", "Backend", "Container Orchestration"]
     },
     {
       "name": "Linux",
       "icon": "simple-icons:linux",
       "level": "Intermediate",
-      "keywords": [
-        "OS",
-        "Scripting",
-        "Automation"
-      ]
+      "keywords": ["OS", "Scripting", "Automation"]
     },
     {
       "name": "MUI",
       "icon": "simple-icons:mui",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "React",
-        "UI Library"
-      ]
+      "keywords": ["Web Development", "Frontend", "React", "UI Library"]
     },
     {
       "name": "MongoDB",
       "icon": "simple-icons:mongodb",
       "level": "Intermediate",
-      "keywords": [
-        "Databases",
-        "Data Storage",
-        "Backend"
-      ]
+      "keywords": ["Databases", "Data Storage", "Backend"]
     },
     {
       "name": "NodeJS",
       "icon": "ri:nodejs-line",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Backend",
-        "JavaScript",
-        "Server"
-      ]
+      "keywords": ["Web Development", "Backend", "JavaScript", "Server"]
     },
     {
       "name": "PostgreSQL",
       "icon": "simple-icons:postgresql",
       "level": "Beginner",
-      "keywords": [
-        "Backend",
-        "Databases",
-        "SQL",
-        "Relational Database"
-      ]
+      "keywords": ["Backend", "Databases", "SQL", "Relational Database"]
     },
     {
       "name": "Postman",
       "icon": "simple-icons:postman",
       "level": "Intermediate",
-      "keywords": [
-        "API",
-        "Testing",
-        "Web Development",
-        "Backend"
-      ]
+      "keywords": ["API", "Testing", "Web Development", "Backend"]
     },
     {
       "name": "React",
       "icon": "simple-icons:react",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "JavaScript",
-        "Library"
-      ]
+      "keywords": ["Web Development", "Frontend", "JavaScript", "Library"]
     },
     {
       "name": "Tailwind",
@@ -401,31 +297,19 @@
       "name": "Typescript",
       "icon": "simple-icons:typescript",
       "level": "Beginner",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "Backend"
-      ]
+      "keywords": ["Web Development", "Frontend", "Backend"]
     },
     {
       "name": "Windows",
       "icon": "simple-icons:windows",
       "level": "Intermediate",
-      "keywords": [
-        "OS",
-        "Desktop",
-        "Microsoft"
-      ]
+      "keywords": ["OS", "Desktop", "Microsoft"]
     },
     {
       "name": "Wordpress",
       "icon": "simple-icons:wordpress",
       "level": "Beginner",
-      "keywords": [
-        "CMS",
-        "Web Development",
-        "Content Management"
-      ]
+      "keywords": ["CMS", "Web Development", "Content Management"]
     }
   ],
   "languages": [
@@ -498,7 +382,7 @@
       "isActive": true,
       "description": "Find the Perfect Emoji in Seconds. Helps you discover, filter and copy emojis quickly — built for speed and delight.",
       "highlights": [
-        "🎨 User-friendly interface", 
+        "🎨 User-friendly interface",
         "🔍 Fast search and filter",
         "📊 Emoji Suggestions"
       ],
