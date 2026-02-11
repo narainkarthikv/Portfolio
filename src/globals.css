@@ -59,6 +59,20 @@
       --color-nvim-green: 0, 150, 0;
     }
 
+    [data-theme="orange"] {
+      --color-text-base: 35, 25, 10;
+      --color-text-muted: 120, 100, 80;
+      --color-text-inverted: 245, 245, 245;
+      --color-fill: 255, 240, 220;
+      --muted: 230, 210, 190;
+      --color: 249, 115, 22;
+      --color-button-accent: 249, 115, 22;
+      --color-button-accent-hover: 255, 150, 60;
+      --color-button-muted: 255, 228, 200;
+      --color-nvim-blue: 95, 175, 215;
+      --color-nvim-green: 0, 150, 0;
+    }
+
     [data-theme="cyber"] {
       --color-text-base: 130, 130, 130;
       --color-text-muted: 144, 135, 5;
@@ -142,6 +156,20 @@
       --color-button-accent: 132, 204, 22;
       --color-button-accent-hover: 120, 220, 120;
       --color-button-muted: 34, 44, 34;
+      --color-nvim-blue: 95, 175, 215;
+      --color-nvim-green: 135, 215, 135;
+    }
+
+    [data-theme="orange"] {
+      --color-text-base: 255, 240, 230;
+      --color-text-muted: 210, 170, 130;
+      --color-text-inverted: 20, 20, 20;
+      --color-fill: 18, 12, 8;
+      --muted: 70, 50, 35;
+      --color: 251, 146, 60;
+      --color-button-accent: 251, 146, 60;
+      --color-button-accent-hover: 253, 186, 116;
+      --color-button-muted: 52, 36, 26;
       --color-nvim-blue: 95, 175, 215;
       --color-nvim-green: 135, 215, 135;
     }

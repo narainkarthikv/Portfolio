@@ -2,14 +2,19 @@
   "analyticsCode": "",
   "basics": {
     "name": "Narain Karthik",
-    "label": "Software developer",
+    "fullName": "Narainkarthik Vellingiri",
+    "alternateName": [
+      "Narainkarthik Vellingiri",
+      "Wisdom Fox"
+    ],
+    "label": "Full-stack developer",
     "animated_main_label": "developer",
     "animated_secondary_initial_label": "software",
     "animated_secondary_final_label": "full-stack",
     "image": "/pfp.webp",
     "email": "narainkarthik812@gmail.com",
-    "url": "https://www.linkedin.com/in/narainkarthik-vellingiri/",
-    "summary": "Full Stack developer learning Cloud and DevOps to build scalable and efficient solutions.",
+    "url": "https://narainkarthikv.space/",
+    "summary": "Full-stack developer focused on frontend performance, cloud, and DevOps.",
     "theme": "blue",
     "location": {
       "city": "Coimbatore",
@@ -18,32 +23,41 @@
     },
     "profiles": [
       {
-        "network": "X / Twitter",
-        "icon": "ri:twitter-fill",
-        "color": "#1DA1F2",
-        "username": "narainkarthik31",
-        "url": "https://x.com/narainkarthikv"
-      },
-      {
         "network": "LinkedIn",
         "icon": "ri:linkedin-fill",
         "color": "#0066C2",
-        "username": "Narain Karthik",
+        "username": "Narainkarthik Vellingiri",
         "url": "https://www.linkedin.com/in/narainkarthik-vellingiri/"
       },
       {
         "network": "GitHub",
         "icon": "mdi:github",
         "color": "#929AAB",
-        "username": "Narain Karthik",
+        "username": "narainkarthikv",
         "url": "https://github.com/narainkarthikv"
+      },
+      {
+        "network": "Medium",
+        "icon": "simple-icons:medium",
+        "color": "#12100E",
+        "username": "narainkarthikv",
+        "url": "https://narainkarthikv.medium.com/"
       },
       {
         "network": "Email",
         "icon": "ri:mail-fill",
         "color": "#D44638",
-        "username": "Narain Karthik",
+        "username": "narainkarthik812@gmail.com",
         "url": "mailto:narainkarthik812@gmail.com"
+      }
+    ],
+    "keyboardProfiles": [
+      {
+        "network": "X / Twitter",
+        "icon": "ri:twitter-fill",
+        "color": "#1DA1F2",
+        "username": "narainkarthik31",
+        "url": "https://x.com/narainkarthikv"
       }
     ]
   },

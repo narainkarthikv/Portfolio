@@ -13,7 +13,6 @@ interface Props {
 const { title, pathname } = Astro.props as Props;
 
 const { theme } = CV.basics;
-const site = Astro.site ?? import.meta.env.SITE ?? '';
 ---
 
 <!doctype html>
@@ -21,6 +20,9 @@ const site = Astro.site ?? import.meta.env.SITE ?? '';
   <head>
     <meta charset="UTF-8" />
     <SEO title={title} pathname={pathname ?? '/'} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/pfp.webp" />
+    <link rel="manifest" href="/site.webmanifest" />
     {CV?.analyticsCode && <script is:inline src={CV.analyticsCode} />}
   </head>
   <body data-theme={theme} class="relative bg-skin-fill font-sans">

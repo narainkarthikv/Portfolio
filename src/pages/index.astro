@@ -14,10 +14,10 @@ import Certifications from "@/components/sections/Certifications.astro";
 import Spotify from "@/components/Spotify.astro";
 
 import CV, { basics } from "@cv";
-const { name } = basics;
+const { name, fullName } = basics;
 ---
 
-<Layout title={`${name} - Portfolio`} pathname="/">
+<Layout title={`${fullName ?? name} - Portfolio`} pathname="/">
   <main
     class="relative grid h-full max-w-7xl gap-12 p-8 max-sm:py-16 md:min-h-screen md:grid-cols-6 md:p-16 xl:gap-24 print:max-w-none print:grid-cols-1 print:gap-6 text-skin-base"
   >

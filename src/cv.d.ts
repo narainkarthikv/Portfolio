@@ -14,6 +14,8 @@ export interface CV {
 
 interface Basics {
   name: string;
+  fullName?: string;
+  alternateName?: Array<string>;
   label: string;
   image: string;
   email: string;
@@ -22,6 +24,7 @@ interface Basics {
   summary: string;
   location: Location;
   profiles: Array<Profiles>;
+  keyboardProfiles?: Array<Profiles>;
 }
 
 interface Location {

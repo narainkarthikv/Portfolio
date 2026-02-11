@@ -2,16 +2,12 @@
 import Section from "../Section.astro";
 import CV from "@cv";
 const { summary } = CV.basics;
-
-const words = summary.split(' ');
 ---
 
 <Section title="About">
   <div class="rounded-lg bg-skin-button-muted/40 backdrop-blur-lg ring-1 ring-white/15 dark:ring-white/10 px-4 py-3 transition-all duration-300">
-    <p class="font-mono text-sm text-skin-base font-medium print:font-sans print:font-normal w-full select-none leading-relaxed">
-        {words.map((word) => (
-        <span class="w-min inline-block transition-all duration-200 hover:bg-skin-button-accent/30 hover:backdrop-blur-md px-1 rounded sm:hover:cursor-default">{word}</span>
-      ))}
+    <p class="font-mono text-sm text-skin-base font-medium print:font-sans print:font-normal w-full select-none leading-relaxed text-pretty">
+      {summary}
     </p>
   </div>
 </Section>
