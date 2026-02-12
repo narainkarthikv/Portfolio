@@ -97,8 +97,17 @@ interface Project {
   isActive: boolean;
   description: string;
   highlights: Highlights;
+  stack?: Record<string, string>;
   url?: URL;
   github?: URL;
+  caseStudy?: CaseStudy;
+}
+
+interface CaseStudy {
+  usage: string;
+  tradeoffs: Array<string>;
+  technicalNeeds: Array<string>;
+  experience: string;
 }
 
 interface Interests {

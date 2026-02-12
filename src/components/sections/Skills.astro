@@ -13,23 +13,23 @@ import { Icon } from 'astro-icon/components'
       lg:hidden
       inline-flex flex-wrap gap-3
       print:mt-4
-      [&>li>svg]:text-skin-base
+      [&>li>svg]:text-skin-hue
     "
   >
     {skills.map(({ name, icon, level }) => (
       <li
         class="
           group relative flex items-center gap-1.5
-          rounded-lg border border-skin-hue/30
-          bg-skin-button-accent/40
+          rounded-lg border border-skin-hue/20
+          bg-skin-button-accent/20
           backdrop-blur-md
           px-3 py-2
           text-xs text-skin-base font-medium
           cursor-default
           transform transition-all duration-300
           hover:scale-110 hover:-translate-y-1
-          hover:bg-skin-button-accent/50
-          hover:border-skin-hue/50
+          hover:bg-skin-button-accent/30
+          hover:border-skin-hue/35
           hover:backdrop-blur-lg
           ring-1 ring-inset ring-white/10 dark:ring-white/5
           print:border-none print:bg-transparent print:p-0 print:text-zinc-800
@@ -40,6 +40,7 @@ import { Icon } from 'astro-icon/components'
             name={icon}
             width={16}
             height={16}
+            class="text-skin-hue"
             title={level}
           />
         )}
@@ -117,7 +118,7 @@ import { Icon } from 'astro-icon/components'
             {icon && (
               <Icon
                 name={icon}
-                class="h-6 w-6 transition-transform duration-200 group-hover:scale-110"
+                class="h-6 w-6 text-skin-hue transition-transform duration-200 group-hover:scale-110"
                 aria-hidden="true"
               />
             )}
@@ -208,7 +209,6 @@ import { Icon } from 'astro-icon/components'
 
   <style>
     :global(body[data-theme="luffy"]:not(.dark) .skills-grid .skill-item button) {
-      color: rgb(var(--color-text-base));
       background-color: rgba(var(--color-button-muted), 0.9);
     }
 

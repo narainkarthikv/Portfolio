@@ -61,12 +61,19 @@ const getExcerpt = (html: string) => {
   <main class="relative grid h-full max-w-7xl gap-12 p-8 max-sm:py-16 md:min-h-screen md:grid-cols-6 md:p-16 xl:gap-24 text-skin-base">
     
     <div class="slide-enter space-y-6 md:col-span-2">
+      <a
+        href="/"
+        data-ccursor="lift"
+        aria-label="Back to portfolio"
+        class="back-pill group sticky top-6 z-10 flex w-fit items-center gap-2 rounded-full border border-skin-muted/40 bg-skin-button-muted/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-skin-base shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur transition-all hover:-translate-y-0.5 hover:border-skin-hue/60 hover:bg-skin-button-muted/90"
+      >
+        <span class="back-pill-icon text-skin-hue">←</span>
+        <span class="hidden sm:inline">Back to Portfolio</span>
+        <span class="sm:hidden">Back</span>
+      </a>
       <Hero />
       <ThemeSwitch />
       <About />
-      <a href="/" class="text-skin-hue hover:underline flex items-center gap-2 font-mono text-sm transition-all">
-        ← Back to Portfolio
-      </a>
     </div>
 
     <div class="slide-enter-content space-y-12 md:col-span-4">
@@ -129,5 +136,13 @@ const getExcerpt = (html: string) => {
     --enter-step: 150ms;
     animation: slide-enter 1s both 1;
     animation-delay: calc(var(--enter-stage) * var(--enter-step));
+  }
+
+  .back-pill-icon {
+    transition: transform 200ms ease;
+  }
+
+  .back-pill:hover .back-pill-icon {
+    transform: translateX(-2px);
   }
 </style>

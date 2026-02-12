@@ -63,8 +63,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Sora', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        'roboto-condensed': ['Sora', 'system-ui', 'sans-serif'],
       },
     },
   },
