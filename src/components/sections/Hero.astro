@@ -94,7 +94,7 @@ const { city, region } = location
           class="flex group/social flex-wrap justify-evenly sm:h-40 sm:w-36 w-full h-min sm:flex-col rounded-3xl p-4 transition-all rotate-0 bg-skin-muted sm:bg-skin-button-muted sm:-rotate-2 sm:hover:rotate-0 sm:hover:bg-skin-muted"
         >
           {
-            basics.profiles.map(({network, url, icon, color}) => {
+            basics.profiles.map(({network, url, icon}) => {
               return (
         <a
           data-ccursor
@@ -106,7 +106,7 @@ const { city, region } = location
                   data-umami-event={`${network} click`}
                   id={network}
                 >
-                  <Icon name={icon} width={28} height={28} class='sm:grayscale sm:group-hover/social:grayscale-0 transition-all' style=`color: ${color};` aria-label={network}/>
+                  <Icon name={icon} width={28} height={28} class='text-skin-hue sm:grayscale sm:group-hover/social:grayscale-0 transition-all' aria-label={network}/>
                 </a>
               )
             })

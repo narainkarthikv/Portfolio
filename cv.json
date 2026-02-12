@@ -335,6 +335,18 @@
       "name": "Fit Track",
       "isActive": true,
       "description": "Log workouts, monitor progress, and stay consistent. A straightforward tool for people serious about their fitness.",
+      "caseStudy": {
+        "usage": "Fast workout logging, streak checks, and weekly progress review for consistent training.",
+        "tradeoffs": [
+          "Speed-first logging limits deep program builder flexibility.",
+          "Weekly trend focus trades off per-set granularity."
+        ],
+        "technicalNeeds": [
+          "Indexed workout collections for fast filtering and charts.",
+          "Optimistic UI with offline-safe caching to reduce friction."
+        ],
+        "experience": "DX: schema-driven forms, consistent entities, and simple chart adapters. UX: fast capture, streak cues, and clear progress summaries."
+      },
       "highlights": [
         "🎨 User-friendly interface",
         "🔥 Streak maintenance",
@@ -359,6 +371,18 @@
       "name": "Sticky Memo",
       "isActive": true,
       "description": "Write freely, knowing your thoughts are yours alone. No cloud. No tracking. Just honest, local-first note-taking.",
+      "caseStudy": {
+        "usage": "Local-first notes with quick capture, pinning, and flexible layouts for daily ideation.",
+        "tradeoffs": [
+          "Privacy-first local storage means no native multi-device sync.",
+          "Lightweight formatting favors speed over rich layout."
+        ],
+        "technicalNeeds": [
+          "Local persistence with debounced writes to avoid UI jank.",
+          "Exportable data model for long-term portability."
+        ],
+        "experience": "DX: atomic state with durable persistence and easy migrations. UX: instant capture, minimal cognitive load, trust-first feel."
+      },
       "highlights": [
         "🎨 User-friendly interface",
         "📌 Variety of display options",
@@ -381,6 +405,18 @@
       "name": "Nmoji",
       "isActive": true,
       "description": "Find the Perfect Emoji in Seconds. Helps you discover, filter and copy emojis quickly — built for speed and delight.",
+      "caseStudy": {
+        "usage": "Search, filter, and copy emojis in seconds with keyboard-first controls.",
+        "tradeoffs": [
+          "Client-side index increases bundle size to keep search instant.",
+          "Tighter metadata taxonomy reduces niche filters."
+        ],
+        "technicalNeeds": [
+          "Precomputed search index and lightweight fuzzy matching.",
+          "Clipboard-first interaction with low-latency feedback."
+        ],
+        "experience": "DX: compact dataset and deterministic search pipeline. UX: immediate results, keyboard-first flow, clear copy feedback."
+      },
       "highlights": [
         "🎨 User-friendly interface",
         "🔍 Fast search and filter",
@@ -401,7 +437,19 @@
     {
       "name": "Contribution Cards",
       "isActive": true,
-      "description": "Discover, filter, and explore contributors dynamically pulled from GitHub across multiple open-source repositories.",
+      "description": "Contribution Cards turns contributor impact into premium, share-ready cards. Highlight the people behind every repo with a polished, modern experience.",
+      "caseStudy": {
+        "usage": "Browse contributors, filter by repo, and surface active profiles in one view.",
+        "tradeoffs": [
+          "API rate limits require caching, trading real-time freshness.",
+          "Contributor scoring emphasizes clarity over deep metrics."
+        ],
+        "technicalNeeds": [
+          "Request caching with backoff to protect rate limits.",
+          "Stable sorting rules to keep cards predictable."
+        ],
+        "experience": "DX: clean API adapters and reusable card grid. UX: quick filtering, consistent hierarchy, low-noise browsing."
+      },
       "highlights": [
         "🎨 User-friendly interface",
         "🤝 Active Contributions",
@@ -421,7 +469,19 @@
     {
       "name": "Readme Shop",
       "isActive": true,
-      "description": "README Shop for customising Personal Readme & Readme Docs",
+      "description": "README Shop blends templates, badges, icons, and GitHub stats into a single workflow so your project ships with clarity and confidence.",
+      "caseStudy": {
+        "usage": "Assemble README sections, preview output, and copy publish-ready markdown.",
+        "tradeoffs": [
+          "Opinionated defaults speed output but reduce layout freedom.",
+          "Live preview adds processing cost for authoring confidence."
+        ],
+        "technicalNeeds": [
+          "Markdown rendering pipeline with safe copy actions.",
+          "Componentized template blocks for faster iteration."
+        ],
+        "experience": "DX: modular templates, predictable slots, composable blocks. UX: guided assembly, instant preview, copy-ready output."
+      },
       "highlights": [
         "🎨 User-friendly interface",
         "📝 Multiple templates",
@@ -431,9 +491,9 @@
         "Git": "mdi:git",
         "GitHub": "mdi:github",
         "GitHub Actions": "simple-icons:githubactions",
+        "Javascript": "simple-icons:javascript",
         "MUI": "simple-icons:mui",
-        "React": "simple-icons:react",
-        "Typescript": "simple-icons:typescript"
+        "React": "simple-icons:react"
       },
       "github": "https://github.com/narainkarthikv/readme-shop",
       "url": "https://readmeshopwf.netlify.app/"

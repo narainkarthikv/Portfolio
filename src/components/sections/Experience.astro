@@ -57,7 +57,7 @@ function getMonthYearDiff(startDate: string, endDate?: string | null) {
                   )}
                   {url &&
                     <span class="inline-block text-skin-hue print:[&>svg]:hidden">
-                      <Icon name="ri:arrow-up-line" class="inline-block w-4 h-4 ml-1 transition-transform translate-y-px shrink-0 group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none rotate-45" aria-hidden="true">
+                      <Icon name="ri:arrow-down-line" class="inline-block w-4 h-4 ml-1 transition-transform translate-y-px shrink-0 group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none rotate-45" aria-hidden="true">
                       </Icon>
                     </span>
                   }
@@ -110,16 +110,16 @@ function getMonthYearDiff(startDate: string, endDate?: string | null) {
                 )}
                 </div>
 
-                <button data-ccursor="lift" class="print:hidden group/more w-fit cursor-pointer items-center justify-center gap-1.5 text-xs underline text-skin-muted transition-all hover:text-skin-inverted flex expand-button">
+                <button data-ccursor="lift" class="print:hidden group/more w-fit cursor-pointer items-center justify-center gap-1 text-xs text-skin-base transition-all hover:text-skin-base flex expand-button bg-skin-button-accent/20 border-skin-hue/20 border-solid border rounded-md px-2 py-0.5 backdrop-blur-sm select-none hover:bg-skin-button-accent/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-skin-hue/60 focus-visible:ring-offset-2 focus-visible:ring-offset-skin-fill">
                   <span class="expand-text">Show more</span>
-                  <Icon name="ri:arrow-up-s-line" class="w-4 h-4 group-hover/more:translate-y-0.5 duration-200 ease-out group-data-[expanded=true]:rotate-180" width={24} height={24}></Icon>
+                  <Icon name="ri:arrow-down-s-line" class="w-4 h-4 group-hover/more:translate-y-0.5 duration-200 ease-out group-data-[expanded=true]:rotate-180" width={24} height={24}></Icon>
                 </button>
 
 
                 <ul class="flex print:hidden flex-wrap gap-2" aria-label="Technologies used">
                   {skills && Object.entries(skills).map(([label, icon]) =>  (
-                      <li data-ccursor="lift" class="bg-skin-button-accent/20 border-skin-hue/20 text-skin-hue print:p-0 print:bg-transparent print:text-zinc-800 flex gap-1 items-center border-solid print:border-none border rounded-md px-2 py-0.5 text-xs backdrop-blur-sm select-none">
-                        {icon && <Icon name={icon} width={16} height={16} />} <span>{label}</span>
+                      <li data-ccursor="lift" class="bg-skin-button-accent/20 border-skin-hue/20 text-skin-base print:p-0 print:bg-transparent print:text-zinc-800 flex gap-1 items-center border-solid print:border-none border rounded-md px-2 py-0.5 text-xs backdrop-blur-sm select-none">
+                        {icon && <Icon name={icon} width={16} height={16} class="text-skin-hue" />} <span>{label}</span>
                       </li>
                     )
                   )
