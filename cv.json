@@ -348,9 +348,7 @@
         "DX": [
           "Schema-driven forms, consistent entities, and simple chart adapters."
         ],
-        "UX": [
-          "Fast capture, streak cues, and clear progress summaries."
-        ]
+        "UX": ["Fast capture, streak cues, and clear progress summaries."]
       },
       "highlights": [
         "🎨 User-friendly interface",
@@ -386,12 +384,8 @@
           "Local persistence with debounced writes to avoid UI jank.",
           "Exportable data model for long-term portability."
         ],
-        "DX": [
-          "Atomic state with durable persistence and easy migrations."
-        ],
-        "UX": [
-          "Instant capture, minimal cognitive load, trust-first feel."
-        ]
+        "DX": ["Atomic state with durable persistence and easy migrations."],
+        "UX": ["Instant capture, minimal cognitive load, trust-first feel."]
       },
       "highlights": [
         "🎨 User-friendly interface",
@@ -425,12 +419,8 @@
           "Precomputed search index and lightweight fuzzy matching.",
           "Clipboard-first interaction with low-latency feedback."
         ],
-        "DX": [
-          "Compact dataset and deterministic search pipeline."
-        ],
-        "UX": [
-          "Immediate results, keyboard-first flow, clear copy feedback."
-        ]
+        "DX": ["Compact dataset and deterministic search pipeline."],
+        "UX": ["Immediate results, keyboard-first flow, clear copy feedback."]
       },
       "highlights": [
         "🎨 User-friendly interface",
@@ -463,12 +453,8 @@
           "Request caching with backoff to protect rate limits.",
           "Stable sorting rules to keep cards predictable."
         ],
-        "DX": [
-          "Clean API adapters and reusable card grid."
-        ],
-        "UX": [
-          "Quick filtering, consistent hierarchy, low-noise browsing."
-        ]
+        "DX": ["Clean API adapters and reusable card grid."],
+        "UX": ["Quick filtering, consistent hierarchy, low-noise browsing."]
       },
       "highlights": [
         "🎨 User-friendly interface",
@@ -500,12 +486,8 @@
           "Markdown rendering pipeline with safe copy actions.",
           "Componentized template blocks for faster iteration."
         ],
-        "DX": [
-          "Modular templates, predictable slots, composable blocks."
-        ],
-        "UX": [
-          "Guided assembly, instant preview, copy-ready output."
-        ]
+        "DX": ["Modular templates, predictable slots, composable blocks."],
+        "UX": ["Guided assembly, instant preview, copy-ready output."]
       },
       "highlights": [
         "🎨 User-friendly interface",
