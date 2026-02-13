@@ -345,7 +345,12 @@
           "Indexed workout collections for fast filtering and charts.",
           "Optimistic UI with offline-safe caching to reduce friction."
         ],
-        "experience": "DX: schema-driven forms, consistent entities, and simple chart adapters. UX: fast capture, streak cues, and clear progress summaries."
+        "DX": [
+          "Schema-driven forms, consistent entities, and simple chart adapters."
+        ],
+        "UX": [
+          "Fast capture, streak cues, and clear progress summaries."
+        ]
       },
       "highlights": [
         "🎨 User-friendly interface",
@@ -381,7 +386,12 @@
           "Local persistence with debounced writes to avoid UI jank.",
           "Exportable data model for long-term portability."
         ],
-        "experience": "DX: atomic state with durable persistence and easy migrations. UX: instant capture, minimal cognitive load, trust-first feel."
+        "DX": [
+          "Atomic state with durable persistence and easy migrations."
+        ],
+        "UX": [
+          "Instant capture, minimal cognitive load, trust-first feel."
+        ]
       },
       "highlights": [
         "🎨 User-friendly interface",
@@ -415,7 +425,12 @@
           "Precomputed search index and lightweight fuzzy matching.",
           "Clipboard-first interaction with low-latency feedback."
         ],
-        "experience": "DX: compact dataset and deterministic search pipeline. UX: immediate results, keyboard-first flow, clear copy feedback."
+        "DX": [
+          "Compact dataset and deterministic search pipeline."
+        ],
+        "UX": [
+          "Immediate results, keyboard-first flow, clear copy feedback."
+        ]
       },
       "highlights": [
         "🎨 User-friendly interface",
@@ -437,7 +452,7 @@
     {
       "name": "Contribution Cards",
       "isActive": true,
-      "description": "Contribution Cards turns contributor impact into premium, share-ready cards. Highlight the people behind every repo with a polished, modern experience.",
+      "description": "See who’s building what. Contribution Cards highlights active contributors across repositories with simple, elegant profiles.",
       "caseStudy": {
         "usage": "Browse contributors, filter by repo, and surface active profiles in one view.",
         "tradeoffs": [
@@ -448,7 +463,12 @@
           "Request caching with backoff to protect rate limits.",
           "Stable sorting rules to keep cards predictable."
         ],
-        "experience": "DX: clean API adapters and reusable card grid. UX: quick filtering, consistent hierarchy, low-noise browsing."
+        "DX": [
+          "Clean API adapters and reusable card grid."
+        ],
+        "UX": [
+          "Quick filtering, consistent hierarchy, low-noise browsing."
+        ]
       },
       "highlights": [
         "🎨 User-friendly interface",
@@ -469,7 +489,7 @@
     {
       "name": "Readme Shop",
       "isActive": true,
-      "description": "README Shop blends templates, badges, icons, and GitHub stats into a single workflow so your project ships with clarity and confidence.",
+      "description": "Structure your README with confidence. Build clean, ready-to-publish documentation using guided templates and live previews.",
       "caseStudy": {
         "usage": "Assemble README sections, preview output, and copy publish-ready markdown.",
         "tradeoffs": [
@@ -480,7 +500,12 @@
           "Markdown rendering pipeline with safe copy actions.",
           "Componentized template blocks for faster iteration."
         ],
-        "experience": "DX: modular templates, predictable slots, composable blocks. UX: guided assembly, instant preview, copy-ready output."
+        "DX": [
+          "Modular templates, predictable slots, composable blocks."
+        ],
+        "UX": [
+          "Guided assembly, instant preview, copy-ready output."
+        ]
       },
       "highlights": [
         "🎨 User-friendly interface",

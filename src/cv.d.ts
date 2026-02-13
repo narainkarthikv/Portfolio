@@ -107,7 +107,8 @@ interface CaseStudy {
   usage: string;
   tradeoffs: Array<string>;
   technicalNeeds: Array<string>;
-  experience: string;
+  DX: Array<string>;
+  UX: Array<string>;
 }
 
 interface Interests {
