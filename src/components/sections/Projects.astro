@@ -36,17 +36,8 @@ import { projects } from "@cv";
         projects && projects.map(
           ({ url, description, highlights, name, isActive, github, stack, caseStudy }, index) => {
             const stackEntries = stack ? Object.entries(stack) : [];
-            const experienceEntries = caseStudy?.experience
-              ? Array.from(
-                caseStudy.experience.matchAll(/(DX|UX)\s*:\s*([\s\S]*?)(?=(?:DX|UX)\s*:|$)/gi),
-              ).map(([, key, value]) => ({
-                key: key.toUpperCase(),
-                value: value.trim(),
-              }))
-              : [];
-            const dxNote = experienceEntries.find(({ key }) => key === "DX")?.value ?? "";
-            const uxNote = experienceEntries.find(({ key }) => key === "UX")?.value ?? "";
-            const fallbackExperience = !dxNote && !uxNote ? (caseStudy?.experience?.trim() ?? "") : "";
+            const dxNotes = caseStudy?.DX ?? [];
+            const uxNotes = caseStudy?.UX ?? [];
             const maxMobileStack = 3;
             const maxDesktopStack = 6;
             const mobileVisibleStack = stackEntries.slice(0, maxMobileStack);
@@ -218,11 +209,19 @@ import { projects } from "@cv";
                         </div>
                         <div class="project-case-item">
                           <h4>UX</h4>
-                          <p>{uxNote || fallbackExperience || "No UX notes provided."}</p>
+                          <ul>
+                            {uxNotes.length > 0 ? uxNotes.map((item) => (
+                              <li>{item ? item.charAt(0).toUpperCase() + item.slice(1) : item}</li>
+                            )) : <li>No UX notes provided.</li>}
+                          </ul>
                         </div>
                         <div class="project-case-item">
                           <h4>DX</h4>
-                          <p>{dxNote || "No DX notes provided."}</p>
+                          <ul>
+                            {dxNotes.length > 0 ? dxNotes.map((item) => (
+                              <li>{item ? item.charAt(0).toUpperCase() + item.slice(1) : item}</li>
+                            )) : <li>No DX notes provided.</li>}
+                          </ul>
                         </div>
                       </div>
                     </div>
