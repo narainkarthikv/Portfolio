@@ -3,7 +3,11 @@
   "basics": {
     "name": "Narain Karthik",
     "fullName": "Narainkarthik Vellingiri",
-    "alternateName": ["Narainkarthik Vellingiri", "Wisdom Fox"],
+    "alternateName": [
+      "Narainkarthik Vellingiri",
+      "Narainkarthik",
+      "Wisdom Fox"
+    ],
     "label": "Full-stack developer",
     "animated_main_label": "developer",
     "animated_secondary_initial_label": "software",
@@ -90,9 +94,6 @@
       "startDate": "2024-09-02",
       "endDate": null,
       "summary": "Experienced in developing high-complexity, scalable, data-driven front-end projects with a focus on performance, user experience, and system integration.",
-      "highlights": [
-        "Developed a data-intensive Angular project for internal use in the national healthcare system, focusing on managing complex data sets and implementing business logic."
-      ],
       "responsibilities": [
         "Developed scalable front-end applications using modern JavaScript frameworks, improving page load performance by up to 35%",
         "Designed reusable and responsive UI components, reducing duplicate code and improving development efficiency by 30%",
