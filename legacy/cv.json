@@ -292,7 +292,7 @@
       "name": "Windows",
       "icon": "simple-icons:windows",
       "level": "Intermediate",
-      "keywords": ["OS", "Desktop", "Microsoft"]
+      "keywords": ["OS", "Desktop"]
     },
     {
       "name": "Wordpress",
