@@ -331,36 +331,36 @@
       "fluency": "Elementary proficiency"
     }
   ],
-    "projects": [
+  "projects": [
     {
       "name": "Fit Track",
       "isActive": true,
-      "description": "Modern MERN fitness log with responsive dashboard, built for athletes who need speed and insight without friction.",
+      "description": "🏋️ Full-stack MERN fitness tracker with responsive dashboards, streak analytics, and custom routine management for performance-focused workout tracking.",
       "caseStudy": {
-        "usage": "Users log workouts quickly, view streaks and analytics, and manage custom routines across devices.",
+        "usage": "💪 Athletes log workouts, maintain streaks, and view progress insights across devices with fast, responsive analytics.",
         "tradeoffs": [
-          "Full-stack MERN architecture increases onboarding complexity but ensures end-to-end control.",
-          "Redux Toolkit and optimistic updates boost responsiveness at the cost of bundle size.",
-          "Material‑UI theming accelerates design consistency but couples UI to one component library."
+          "⚖️ MERN stack adds setup complexity but ensures scalability and full backend control.",
+          "📦 Redux Toolkit improves state responsiveness at the cost of slightly larger bundle size.",
+          "🎨 Material-UI speeds up consistent UI development with opinionated styling patterns."
         ],
         "technicalNeeds": [
-          "Indexed Mongo collections and memoized selectors for fast filtering.",
-          "Express API with JWT auth, Mongoose models and standard REST endpoints.",
-          "Docker‑Compose configuration for development parity across frontend and backend."
+          "🗄️ Indexed Mongo collections for fast workout and analytics queries.",
+          "🔐 Express API with JWT authentication and REST endpoints for secure access.",
+          "🐳 Docker-Compose setup for consistent and reproducible dev environments."
         ],
         "DX": [
-          "Monorepo‑style repo layout with shared env conventions and scripts.",
-          "Preconfigured ESLint/Prettier, Conventional Commit guidelines, CI/CD via GitHub Actions."
+          "🧩 Monorepo layout with shared scripts for streamlined development.",
+          "🧹 Linting, commit guidelines, and CI/CD pipelines for maintainable releases."
         ],
         "UX": [
-          "Minimal data entry friction with schema-driven forms and heatmap cues.",
-          "Mobile‑first layout, instant charts, and progress summaries for habit formation."
+          "🧾 Schema-driven forms reduce input friction and improve consistency.",
+          "📱 Mobile-first charts and summaries encourage habit building and engagement."
         ]
       },
       "highlights": [
-        "🎨 Material‑UI dashboard",
-        "🔥 Habit‑forming streak tracker",
-        "📊 Real‑time analytics"
+        "🎛️ Material-UI dashboard",
+        "🔥 Streak tracker",
+        "📈 Real-time analytics"
       ],
       "stack": {
         "Docker": "mdi:docker",
@@ -380,32 +380,35 @@
     {
       "name": "Sticky Memo",
       "isActive": true,
-      "description": "Write freely, knowing your thoughts are yours alone—privacy‑first, local‑only note taking with rich views and zero server dependency.",
+      "description": "📝 Privacy-first note-taking app with offline storage, multiple view modes, and zero server dependency for distraction-free productivity.",
       "caseStudy": {
-        "usage": "Capture ideas fast, switch between grid/kanban/table/roadmap, and export when needed—all from the browser.",
+        "usage": "⚡ Capture ideas quickly, switch between grid/kanban/table layouts, and export notes locally without cloud dependency.",
         "tradeoffs": [
-          "Offline‑first local storage precludes built‑in sync or collaboration.",
-          "Lightweight formatting and no analytics prioritize speed over features."
+          "⚖️ Offline storage improves privacy but limits sync and collaboration.",
+          "🪶 Lightweight formatting prioritizes speed and simplicity over advanced features."
         ],
         "technicalNeeds": [
-          "Durable persistence using IndexedDB/localStorage with debounced writes.",
-          "Pluggable views and drag‑and‑drop controllers for flexible organisation."
+          "💾 IndexedDB/localStorage persistence with debounced writes for performance.",
+          "🧲 Drag-and-drop controllers for flexible note organisation."
         ],
         "DX": [
-          "Clear folder structure (components, controllers, services) and TypeScript models.",
-          "No-env setup reduces friction; simple build scripts and conventions."
+          "📂 Clear folder structure with TypeScript models for maintainability.",
+          "⚙️ Simple build scripts and conventions for faster onboarding."
         ],
         "UX": [
-          "Instant response, low cognitive load, trust built by silence (no tracking).",
-          "Multiple view modes support individual workflows."
+          "⚡ Instant response with low cognitive load.",
+          "🧩 Multiple views support different productivity workflows."
         ]
       },
       "highlights": [
-        "🎨 Intuitive interface",
-        "📌 Multiple display options",
-        "💾 Fully local & offline"
+        "✨ Intuitive interface",
+        "🗂️ Multiple display options",
+        "🔒 Fully local & offline"
       ],
       "stack": {
+        "Git": "mdi:git",
+        "GitHub": "mdi:github",
+        "GitHub Actions": "simple-icons:githubactions",
         "React": "simple-icons:react",
         "TypeScript": "simple-icons:typescript",
         "Tailwind": "mdi:tailwind",
@@ -418,32 +421,35 @@
     {
       "name": "Nmoji",
       "isActive": true,
-      "description": "Instant emoji search and picker built on Astro—leveraging static generation for lightning‑fast client side filtering and a companion browser extension.",
+      "description": "😀 Emoji search and picker built with Astro and React, optimized for instant filtering, keyboard-first navigation, and extension-ready performance.",
       "caseStudy": {
-        "usage": "Type or navigate with keyboard to filter thousands of emojis, then copy with a single keystroke.",
+        "usage": "⌨️ Search thousands of emojis via keyboard and copy instantly for chats, content creation, or quick workflows.",
         "tradeoffs": [
-          "Bundling the full emoji dataset inflates initial payload but guarantees zero‑latency search.",
-          "Tight metadata taxonomy keeps UI simple at the expense of niche classification."
+          "⚖️ Bundled dataset increases payload but guarantees zero-latency search.",
+          "🧩 Simplified taxonomy keeps UI clean while limiting niche category depth."
         ],
         "technicalNeeds": [
-          "Build‑time index generation and lightweight fuzzy matching on the client.",
-          "Astro for static pages, React components for interactive UI, and extension packaging."
+          "📚 Build-time index generation with fuzzy matching for instant results.",
+          "⚡ Astro static pages combined with React components for performance."
         ],
         "DX": [
-          "Astro+React hybrid enables small runtime and familiar React workflows.",
-          "Clear directory layout, utility libs, and reusable UI components."
+          "🧱 Astro+React hybrid provides small runtime with familiar workflows.",
+          "♻️ Reusable UI components and clear directory layout."
         ],
         "UX": [
-          "Keyboard‑first flow, immediate feedback, and minimal distractions make lookup feel effortless."
+          "⌨️ Keyboard-first flow with immediate feedback for power users."
         ]
       },
       "highlights": [
-        "🎨 Clean, responsive UI",
-        "🔍 Blazing‑fast search",
-        "🔗 Built‑in browser extension"
+        "📱 Responsive UI",
+        "⚡ Fast search",
+        "🧩 Browser extension"
       ],
       "stack": {
         "Astro": "simple-icons:astro",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github",
+        "GitHub Actions": "simple-icons:githubactions",
         "React": "simple-icons:react",
         "TypeScript": "simple-icons:typescript",
         "Tailwind": "mdi:tailwind",
@@ -455,30 +461,33 @@
     {
       "name": "Contribution Cards",
       "isActive": true,
-      "description": "Dynamic directory of GitHub contributors – filters, caches and surfaces active profiles across repositories without a server.",
+      "description": "👥 GitHub contributor directory with smart caching, filtering, and profile surfacing without requiring a backend service.",
       "caseStudy": {
-        "usage": "Aggregate contributor data, apply filters, and render profile cards while respecting API rate limits.",
+        "usage": "🔎 Aggregate contributor data, apply filters, and render profile cards efficiently while respecting API rate limits.",
         "tradeoffs": [
-          "Aggressive caching adds complexity but is necessary to stay under GitHub rate limits.",
-          "Simplified scoring sacrifices deep analytics in favor of clarity and performance."
+          "⚖️ Caching adds complexity but avoids GitHub API rate-limit issues.",
+          "📊 Simplified scoring favors clarity over deep analytics."
         ],
         "technicalNeeds": [
-          "Dual‑layer in‑memory/localStorage cache with backoff/retry logic.",
-          "SWR pattern for stale‑while‑revalidate data fetching."
+          "🧠 Dual-layer cache with retry logic for resilience.",
+          "🔄 SWR pattern for efficient data fetching and revalidation."
         ],
         "DX": [
-          "Modular hooks, controllers and clear docs (CACHING_AND_RATE_LIMITING.md) support contributor growth."
+          "🧩 Modular hooks and clear documentation for maintainability."
         ],
         "UX": [
-          "Instant filtering, consistent card layout, and low‑noise data presentation."
+          "⚡ Instant filtering with consistent card layout for easy browsing."
         ]
       },
       "highlights": [
-        "🎨 Responsive UI",
-        "🤝 Highlights active contributors",
-        "⚡ Smart caching"
+        "📱 Responsive UI",
+        "⭐ Active contributor highlights",
+        "🧠 Smart caching"
       ],
       "stack": {
+        "Git": "mdi:git",
+        "GitHub": "mdi:github",
+        "GitHub Actions": "simple-icons:githubactions",
         "React": "simple-icons:react",
         "TypeScript": "simple-icons:typescript",
         "Tailwind": "mdi:tailwind",
@@ -490,30 +499,33 @@
     {
       "name": "Readme Shop",
       "isActive": true,
-      "description": "Interactive README builder with live markdown preview, template library and badge/metric components—accelerating documentation creation.",
+      "description": "📄 Interactive README builder with live Markdown preview, reusable templates, and badge components for faster developer documentation.",
       "caseStudy": {
-        "usage": "Compose sections from templates, preview Markdown in real time, then copy or embed the result.",
+        "usage": "🧩 Compose documentation from templates, preview changes in real time, and copy or embed polished output instantly.",
         "tradeoffs": [
-          "Opinionated templates speed authoring but constrain bespoke layouts.",
-          "Live preview requires continuous parsing but builds confidence for authors."
+          "⚖️ Templates accelerate authoring but limit custom layouts.",
+          "🔄 Live preview requires continuous parsing during editing."
         ],
         "technicalNeeds": [
-          "Markdown pipeline using Marked and DOMPurify, with clipboard hooks.",
-          "Zustand store for global state and modular template components."
+          "📝 Markdown pipeline with Marked and DOMPurify for safe rendering.",
+          "🧠 Zustand store for lightweight global state management."
         ],
         "DX": [
-          "Design system alignment (Wisdom Fox), semantic release, and rich CLI scripts."
+          "🚀 Semantic release and rich CLI scripts for smooth development cycles."
         ],
         "UX": [
-          "Guided assembly, visible focus states, and responsive UI for both desktop and mobile."
+          "🧭 Guided assembly with responsive UI for better readability."
         ]
       },
       "highlights": [
-        "🎨 Template-driven UI",
+        "🧩 Template-driven UI",
         "📝 Live Markdown editing",
-        "📊 Copy-ready output"
+        "📋 Copy-ready output"
       ],
       "stack": {
+        "Git": "mdi:git",
+        "GitHub": "mdi:github",
+        "GitHub Actions": "simple-icons:githubactions",
         "React": "simple-icons:react",
         "Javascript": "simple-icons:javascript",
         "MUI": "simple-icons:mui",
