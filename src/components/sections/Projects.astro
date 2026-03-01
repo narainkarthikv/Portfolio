@@ -461,8 +461,8 @@ import { projects } from "@cv";
   .project-card::before {
     content: "";
     position: absolute;
-    inset: -20px;
-    border-radius: 24px;
+    inset: 0;
+    border-radius: 12px;
     background: radial-gradient(50% 40% at 50% 15%, rgba(var(--color), 0.12), transparent 70%);
     opacity: 0;
     transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -470,7 +470,7 @@ import { projects } from "@cv";
   }
 
   .project-card.is-flipped::before {
-    opacity: 1;
+    opacity: 0;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -487,12 +487,21 @@ import { projects } from "@cv";
     pointer-events: none;
   }
 
+  .project-card.is-flipped::after {
+    display: none;
+  }
+
   .project-card-glow {
     position: absolute;
     inset: 0;
-    background: radial-gradient(120% 120% at 0% 0%, rgba(84, 137, 255, 0.25), transparent 45%);
-    opacity: 0.6;
+    border-radius: 12px;
+    background: radial-gradient(120% 120% at 0% 0%, rgba(84, 137, 255, 0.15), transparent 55%);
+    opacity: 0.3;
     pointer-events: none;
+  }
+
+  .project-card.is-flipped .project-card-glow {
+    display: none;
   }
 
   .project-icon {
