@@ -304,7 +304,7 @@
       "name": "Windows",
       "icon": "simple-icons:windows",
       "level": "Intermediate",
-      "keywords": ["OS", "Desktop", "Microsoft"]
+      "keywords": ["OS", "Desktop"]
     },
     {
       "name": "Wordpress",
@@ -335,26 +335,32 @@
     {
       "name": "Fit Track",
       "isActive": true,
-      "description": "Log workouts, monitor progress, and stay consistent. A straightforward tool for people serious about their fitness.",
+      "description": "🏋️ Full-stack MERN fitness tracker with responsive dashboards, streak analytics, and custom routine management for performance-focused workout tracking.",
       "caseStudy": {
-        "usage": "Fast workout logging, streak checks, and weekly progress review for consistent training.",
+        "usage": "💪 Athletes log workouts, maintain streaks, and view progress insights across devices with fast, responsive analytics.",
         "tradeoffs": [
-          "Speed-first logging limits deep program builder flexibility.",
-          "Weekly trend focus trades off per-set granularity."
+          "⚖️ MERN stack adds setup complexity but ensures scalability and full backend control.",
+          "📦 Redux Toolkit improves state responsiveness at the cost of slightly larger bundle size.",
+          "🎨 Material-UI speeds up consistent UI development with opinionated styling patterns."
         ],
         "technicalNeeds": [
-          "Indexed workout collections for fast filtering and charts.",
-          "Optimistic UI with offline-safe caching to reduce friction."
+          "🗄️ Indexed Mongo collections for fast workout and analytics queries.",
+          "🔐 Express API with JWT authentication and REST endpoints for secure access.",
+          "🐳 Docker-Compose setup for consistent and reproducible dev environments."
         ],
         "DX": [
-          "Schema-driven forms, consistent entities, and simple chart adapters."
+          "🧩 Monorepo layout with shared scripts for streamlined development.",
+          "🧹 Linting, commit guidelines, and CI/CD pipelines for maintainable releases."
         ],
-        "UX": ["Fast capture, streak cues, and clear progress summaries."]
+        "UX": [
+          "🧾 Schema-driven forms reduce input friction and improve consistency.",
+          "📱 Mobile-first charts and summaries encourage habit building and engagement."
+        ]
       },
       "highlights": [
-        "🎨 User-friendly interface",
-        "🔥 Streak maintenance",
-        "📊 Real-time analytics"
+        "🎛️ Material-UI dashboard",
+        "🔥 Streak tracker",
+        "📈 Real-time analytics"
       ],
       "stack": {
         "Docker": "mdi:docker",
@@ -374,34 +380,40 @@
     {
       "name": "Sticky Memo",
       "isActive": true,
-      "description": "Write freely, knowing your thoughts are yours alone. No cloud. No tracking. Just honest, local-first note-taking.",
+      "description": "📝 Privacy-first note-taking app with offline storage, multiple view modes, and zero server dependency for distraction-free productivity.",
       "caseStudy": {
-        "usage": "Local-first notes with quick capture, pinning, and flexible layouts for daily ideation.",
+        "usage": "⚡ Capture ideas quickly, switch between grid/kanban/table layouts, and export notes locally without cloud dependency.",
         "tradeoffs": [
-          "Privacy-first local storage means no native multi-device sync.",
-          "Lightweight formatting favors speed over rich layout."
+          "⚖️ Offline storage improves privacy but limits sync and collaboration.",
+          "🪶 Lightweight formatting prioritizes speed and simplicity over advanced features."
         ],
         "technicalNeeds": [
-          "Local persistence with debounced writes to avoid UI jank.",
-          "Exportable data model for long-term portability."
+          "💾 IndexedDB/localStorage persistence with debounced writes for performance.",
+          "🧲 Drag-and-drop controllers for flexible note organisation."
         ],
-        "DX": ["Atomic state with durable persistence and easy migrations."],
-        "UX": ["Instant capture, minimal cognitive load, trust-first feel."]
+        "DX": [
+          "📂 Clear folder structure with TypeScript models for maintainability.",
+          "⚙️ Simple build scripts and conventions for faster onboarding."
+        ],
+        "UX": [
+          "⚡ Instant response with low cognitive load.",
+          "🧩 Multiple views support different productivity workflows."
+        ]
       },
       "highlights": [
-        "🎨 User-friendly interface",
-        "📌 Variety of display options",
-        "💾 Privacy Focused"
+        "✨ Intuitive interface",
+        "🗂️ Multiple display options",
+        "🔒 Fully local & offline"
       ],
       "stack": {
-        "Docker": "mdi:docker",
         "Git": "mdi:git",
         "GitHub": "mdi:github",
         "GitHub Actions": "simple-icons:githubactions",
         "React": "simple-icons:react",
-        "Recoil": "simple-icons:recoil",
+        "TypeScript": "simple-icons:typescript",
         "Tailwind": "mdi:tailwind",
-        "Typescript": "simple-icons:typescript"
+        "Lucide": "simple-icons:lucide",
+        "Vite": "simple-icons:vite"
       },
       "github": "https://github.com/narainkarthikv/sticky-memo",
       "url": "https://wisdomfox-sticky-memo.netlify.app/"
@@ -409,24 +421,29 @@
     {
       "name": "Nmoji",
       "isActive": true,
-      "description": "Find the Perfect Emoji in Seconds. Helps you discover, filter and copy emojis quickly — built for speed and delight.",
+      "description": "😀 Emoji search and picker built with Astro and React, optimized for instant filtering, keyboard-first navigation, and extension-ready performance.",
       "caseStudy": {
-        "usage": "Search, filter, and copy emojis in seconds with keyboard-first controls.",
+        "usage": "⌨️ Search thousands of emojis via keyboard and copy instantly for chats, content creation, or quick workflows.",
         "tradeoffs": [
-          "Client-side index increases bundle size to keep search instant.",
-          "Tighter metadata taxonomy reduces niche filters."
+          "⚖️ Bundled dataset increases payload but guarantees zero-latency search.",
+          "🧩 Simplified taxonomy keeps UI clean while limiting niche category depth."
         ],
         "technicalNeeds": [
-          "Precomputed search index and lightweight fuzzy matching.",
-          "Clipboard-first interaction with low-latency feedback."
+          "📚 Build-time index generation with fuzzy matching for instant results.",
+          "⚡ Astro static pages combined with React components for performance."
         ],
-        "DX": ["Compact dataset and deterministic search pipeline."],
-        "UX": ["Immediate results, keyboard-first flow, clear copy feedback."]
+        "DX": [
+          "🧱 Astro+React hybrid provides small runtime with familiar workflows.",
+          "♻️ Reusable UI components and clear directory layout."
+        ],
+        "UX": [
+          "⌨️ Keyboard-first flow with immediate feedback for power users."
+        ]
       },
       "highlights": [
-        "🎨 User-friendly interface",
-        "🔍 Fast search and filter",
-        "📊 Emoji Suggestions"
+        "📱 Responsive UI",
+        "⚡ Fast search",
+        "🧩 Browser extension"
       ],
       "stack": {
         "Astro": "simple-icons:astro",
@@ -434,41 +451,47 @@
         "GitHub": "mdi:github",
         "GitHub Actions": "simple-icons:githubactions",
         "React": "simple-icons:react",
+        "TypeScript": "simple-icons:typescript",
         "Tailwind": "mdi:tailwind",
-        "Typescript": "simple-icons:typescript"
+        "Vite": "simple-icons:vite"
       },
-      "github": "https://github.com/narainakarthikv/nmoji",
+      "github": "https://github.com/narainkarthikv/nmoji",
       "url": "https://nmoji.netlify.app/"
     },
     {
       "name": "Contribution Cards",
       "isActive": true,
-      "description": "See who’s building what. Contribution Cards highlights active contributors across repositories with simple, elegant profiles.",
+      "description": "👥 GitHub contributor directory with smart caching, filtering, and profile surfacing without requiring a backend service.",
       "caseStudy": {
-        "usage": "Browse contributors, filter by repo, and surface active profiles in one view.",
+        "usage": "🔎 Aggregate contributor data, apply filters, and render profile cards efficiently while respecting API rate limits.",
         "tradeoffs": [
-          "API rate limits require caching, trading real-time freshness.",
-          "Contributor scoring emphasizes clarity over deep metrics."
+          "⚖️ Caching adds complexity but avoids GitHub API rate-limit issues.",
+          "📊 Simplified scoring favors clarity over deep analytics."
         ],
         "technicalNeeds": [
-          "Request caching with backoff to protect rate limits.",
-          "Stable sorting rules to keep cards predictable."
+          "🧠 Dual-layer cache with retry logic for resilience.",
+          "🔄 SWR pattern for efficient data fetching and revalidation."
         ],
-        "DX": ["Clean API adapters and reusable card grid."],
-        "UX": ["Quick filtering, consistent hierarchy, low-noise browsing."]
+        "DX": [
+          "🧩 Modular hooks and clear documentation for maintainability."
+        ],
+        "UX": [
+          "⚡ Instant filtering with consistent card layout for easy browsing."
+        ]
       },
       "highlights": [
-        "🎨 User-friendly interface",
-        "🤝 Active Contributions",
-        "🖥 Dynamic data"
+        "📱 Responsive UI",
+        "⭐ Active contributor highlights",
+        "🧠 Smart caching"
       ],
       "stack": {
         "Git": "mdi:git",
         "GitHub": "mdi:github",
         "GitHub Actions": "simple-icons:githubactions",
         "React": "simple-icons:react",
+        "TypeScript": "simple-icons:typescript",
         "Tailwind": "mdi:tailwind",
-        "Typescript": "simple-icons:typescript"
+        "Vite": "simple-icons:vite"
       },
       "github": "https://github.com/narainkarthikv/contribution-cards",
       "url": "https://contribution-cards.netlify.app/"
@@ -476,32 +499,37 @@
     {
       "name": "Readme Shop",
       "isActive": true,
-      "description": "Structure your README with confidence. Build clean, ready-to-publish documentation using guided templates and live previews.",
+      "description": "📄 Interactive README builder with live Markdown preview, reusable templates, and badge components for faster developer documentation.",
       "caseStudy": {
-        "usage": "Assemble README sections, preview output, and copy publish-ready markdown.",
+        "usage": "🧩 Compose documentation from templates, preview changes in real time, and copy or embed polished output instantly.",
         "tradeoffs": [
-          "Opinionated defaults speed output but reduce layout freedom.",
-          "Live preview adds processing cost for authoring confidence."
+          "⚖️ Templates accelerate authoring but limit custom layouts.",
+          "🔄 Live preview requires continuous parsing during editing."
         ],
         "technicalNeeds": [
-          "Markdown rendering pipeline with safe copy actions.",
-          "Componentized template blocks for faster iteration."
+          "📝 Markdown pipeline with Marked and DOMPurify for safe rendering.",
+          "🧠 Zustand store for lightweight global state management."
         ],
-        "DX": ["Modular templates, predictable slots, composable blocks."],
-        "UX": ["Guided assembly, instant preview, copy-ready output."]
+        "DX": [
+          "🚀 Semantic release and rich CLI scripts for smooth development cycles."
+        ],
+        "UX": [
+          "🧭 Guided assembly with responsive UI for better readability."
+        ]
       },
       "highlights": [
-        "🎨 User-friendly interface",
-        "📝 Multiple templates",
-        "📊 Ready-to-use"
+        "🧩 Template-driven UI",
+        "📝 Live Markdown editing",
+        "📋 Copy-ready output"
       ],
       "stack": {
         "Git": "mdi:git",
         "GitHub": "mdi:github",
         "GitHub Actions": "simple-icons:githubactions",
+        "React": "simple-icons:react",
         "Javascript": "simple-icons:javascript",
         "MUI": "simple-icons:mui",
-        "React": "simple-icons:react"
+        "Vite": "simple-icons:vite"
       },
       "github": "https://github.com/narainkarthikv/readme-shop",
       "url": "https://readmeshopwf.netlify.app/"
