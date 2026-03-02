@@ -3,6 +3,33 @@ import Section from "../Section.astro";
 import { Icon } from "astro-icon/components";
 
 import { projects } from "@cv";
+
+const MAX_MOBILE_STACK = 3;
+const MAX_DESKTOP_STACK = 6;
+const MAX_DESCRIPTION_WORDS = 22;
+const MAX_MOBILE_DESCRIPTION_CHARS = 60;
+
+function getStackSegments(stack) {
+  const stackEntries = stack ? Object.entries(stack) : [];
+  const mobileVisibleStack = stackEntries.slice(0, MAX_MOBILE_STACK);
+  const desktopExtraStack = stackEntries.slice(MAX_MOBILE_STACK, MAX_DESKTOP_STACK);
+  const mobileOverflowCount = Math.max(0, stackEntries.length - MAX_MOBILE_STACK);
+  const desktopOverflowCount = Math.max(0, stackEntries.length - MAX_DESKTOP_STACK);
+  return { stackEntries, mobileVisibleStack, desktopExtraStack, mobileOverflowCount, desktopOverflowCount };
+}
+
+function shortDescriptionFrom(description) {
+  const words = description.split(" ");
+  return words.length > MAX_DESCRIPTION_WORDS ? `${words.slice(0, MAX_DESCRIPTION_WORDS).join(" ")}...` : description;
+}
+
+function mobileDescriptionFrom(description) {
+  return description.length > MAX_MOBILE_DESCRIPTION_CHARS ? `${description.slice(0, MAX_MOBILE_DESCRIPTION_CHARS).trimEnd()}...` : description;
+}
+
+function capitalize(item) {
+  return item ? item.charAt(0).toUpperCase() + item.slice(1) : item;
+}
 ---
 
 <Section className={Astro.props.className}>
@@ -35,24 +62,11 @@ import { projects } from "@cv";
       {
         projects && projects.map(
           ({ url, description, highlights, name, isActive, github, stack, caseStudy }, index) => {
-            const stackEntries = stack ? Object.entries(stack) : [];
             const dxNotes = caseStudy?.DX ?? [];
             const uxNotes = caseStudy?.UX ?? [];
-            const maxMobileStack = 3;
-            const maxDesktopStack = 6;
-            const mobileVisibleStack = stackEntries.slice(0, maxMobileStack);
-            const desktopExtraStack = stackEntries.slice(maxMobileStack, maxDesktopStack);
-            const mobileOverflowCount = Math.max(0, stackEntries.length - maxMobileStack);
-            const desktopOverflowCount = Math.max(0, stackEntries.length - maxDesktopStack);
-            const maxDescriptionWords = 22;
-            const descriptionWords = description.split(" ");
-            const shortDescription = descriptionWords.length > maxDescriptionWords
-              ? `${descriptionWords.slice(0, maxDescriptionWords).join(" ")}...`
-              : description;
-            const maxMobileDescriptionChars = 60;
-            const mobileDescription = description.length > maxMobileDescriptionChars
-              ? `${description.slice(0, maxMobileDescriptionChars).trimEnd()}...`
-              : description;
+            const { stackEntries, mobileVisibleStack, desktopExtraStack, mobileOverflowCount, desktopOverflowCount } = getStackSegments(stack);
+            const shortDescription = shortDescriptionFrom(description);
+            const mobileDescription = mobileDescriptionFrom(description);
             return (
               <div
                 role="contentinfo"
@@ -238,17 +252,17 @@ import { projects } from "@cv";
                               <div class="project-case-item">
                                 <h4>UX</h4>
                                 <ul>
-                                  {uxNotes.length > 0 ? uxNotes.map((item) => (
-                                    <li>{item ? item.charAt(0).toUpperCase() + item.slice(1) : item}</li>
-                                  )) : <li>No UX notes provided.</li>}
+                                          {uxNotes.length > 0 ? uxNotes.map((item) => (
+                                            <li>{capitalize(item)}</li>
+                                          )) : <li>No UX notes provided.</li>}
                                 </ul>
                               </div>
                               <div class="project-case-item">
                                 <h4>DX</h4>
                                 <ul>
-                                  {dxNotes.length > 0 ? dxNotes.map((item) => (
-                                    <li>{item ? item.charAt(0).toUpperCase() + item.slice(1) : item}</li>
-                                  )) : <li>No DX notes provided.</li>}
+                                          {dxNotes.length > 0 ? dxNotes.map((item) => (
+                                            <li>{capitalize(item)}</li>
+                                          )) : <li>No DX notes provided.</li>}
                                 </ul>
                               </div>
                             </div>
@@ -272,6 +286,29 @@ import { projects } from "@cv";
 
   const projectsRoot = document.querySelector(".projects-coverflow");
   if (projectsRoot) {
+    // make the region focusable for keyboard users and assist hover-based activation
+    projectsRoot.tabIndex = 0;
+
+    // keyboard handler used while pointer is inside the projects region or it's focused
+    const keyHandler = (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        setActiveIndex(activeIndex - 1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        setActiveIndex(activeIndex + 1);
+      }
+    };
+
+    const enableKeyboard = () => document.addEventListener("keydown", keyHandler);
+    const disableKeyboard = () => document.removeEventListener("keydown", keyHandler);
+
+    // Attach pointer/focus listeners to enable keyboard navigation only while relevant
+    projectsRoot.addEventListener("pointerenter", enableKeyboard);
+    projectsRoot.addEventListener("pointerleave", disableKeyboard);
+    projectsRoot.addEventListener("focus", enableKeyboard);
+    projectsRoot.addEventListener("blur", disableKeyboard);
+
     const cards = Array.from(
       projectsRoot.querySelectorAll<HTMLElement>(".project-card")
     );
@@ -384,6 +421,8 @@ import { projects } from "@cv";
 
     window.addEventListener("resize", applyCoverflow);
     applyCoverflow();
+    // ensure keyboard is disabled initially
+    disableKeyboard();
   }
 </script>
 
