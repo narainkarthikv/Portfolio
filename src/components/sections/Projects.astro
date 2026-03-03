@@ -8,8 +8,17 @@ const MAX_MOBILE_STACK = 3;
 const MAX_DESKTOP_STACK = 6;
 const MAX_DESCRIPTION_WORDS = 22;
 const MAX_MOBILE_DESCRIPTION_CHARS = 60;
+const CASE_STUDY_SECTION_KEYS = ["technicalNeeds", "tradeoffs", "UX", "DX"] as const;
+const DESKTOP_CASE_TABS = [["technicalNeeds", "tradeoffs"], ["UX", "DX"]] as const;
+const MOBILE_CASE_TABS = [["technicalNeeds"], ["tradeoffs"], ["UX"], ["DX"]] as const;
+const CASE_STUDY_SECTION_TITLES: Record<(typeof CASE_STUDY_SECTION_KEYS)[number], string> = {
+  technicalNeeds: "Technical Needs",
+  tradeoffs: "Trade-offs",
+  UX: "UX",
+  DX: "DX",
+};
 
-function getStackSegments(stack) {
+function getStackSegments(stack: Record<string, string | undefined> | undefined) {
   const stackEntries = stack ? Object.entries(stack) : [];
   const mobileVisibleStack = stackEntries.slice(0, MAX_MOBILE_STACK);
   const desktopExtraStack = stackEntries.slice(MAX_MOBILE_STACK, MAX_DESKTOP_STACK);
@@ -18,16 +27,16 @@ function getStackSegments(stack) {
   return { stackEntries, mobileVisibleStack, desktopExtraStack, mobileOverflowCount, desktopOverflowCount };
 }
 
-function shortDescriptionFrom(description) {
+function shortDescriptionFrom(description: string) {
   const words = description.split(" ");
   return words.length > MAX_DESCRIPTION_WORDS ? `${words.slice(0, MAX_DESCRIPTION_WORDS).join(" ")}...` : description;
 }
 
-function mobileDescriptionFrom(description) {
+function mobileDescriptionFrom(description: string) {
   return description.length > MAX_MOBILE_DESCRIPTION_CHARS ? `${description.slice(0, MAX_MOBILE_DESCRIPTION_CHARS).trimEnd()}...` : description;
 }
 
-function capitalize(item) {
+function capitalize(item: string) {
   return item ? item.charAt(0).toUpperCase() + item.slice(1) : item;
 }
 ---
@@ -64,9 +73,17 @@ function capitalize(item) {
           ({ url, description, highlights, name, isActive, github, stack, caseStudy }, index) => {
             const dxNotes = caseStudy?.DX ?? [];
             const uxNotes = caseStudy?.UX ?? [];
-            const { stackEntries, mobileVisibleStack, desktopExtraStack, mobileOverflowCount, desktopOverflowCount } = getStackSegments(stack);
+            const { mobileVisibleStack, desktopExtraStack, mobileOverflowCount, desktopOverflowCount } = getStackSegments(stack);
             const shortDescription = shortDescriptionFrom(description);
             const mobileDescription = mobileDescriptionFrom(description);
+            const caseStudySections = caseStudy
+              ? {
+                  technicalNeeds: caseStudy.technicalNeeds ?? [],
+                  tradeoffs: caseStudy.tradeoffs ?? [],
+                  UX: uxNotes,
+                  DX: dxNotes,
+                }
+              : null;
             return (
               <div
                 role="contentinfo"
@@ -179,24 +196,47 @@ function capitalize(item) {
                           </span>
                           <span class="text-lg font-semibold">{name} Case Study</span>
                         </div>
-                        <div class="project-case-dots-header" role="tablist" aria-label="Case study tabs">
-                          <button
-                            type="button"
-                            class="project-case-dot-header is-active"
-                            data-tab="0"
-                            role="tab"
-                            aria-selected="true"
-                            aria-label="Trade-offs and Technical Needs"
-                          />
-                          <button
-                            type="button"
-                            class="project-case-dot-header"
-                            data-tab="1"
-                            role="tab"
-                            aria-selected="false"
-                            aria-label="UX and DX"
-                          />
-                        </div>
+                        <div class="project-case-tab-controls">
+
+  <!-- DESKTOP TABS -->
+  <div
+    class="project-case-dots-header project-case-dots-header-desktop hidden md:flex"
+    role="tablist"
+    aria-label="Desktop case study tabs"
+  >
+    {DESKTOP_CASE_TABS.map((sections, tabIndex) => (
+      <button
+        type="button"
+        class:list={["project-case-dot-header", { "is-active": tabIndex === 0 }]}
+        data-tab-index={tabIndex}
+        data-tab-breakpoint="desktop"
+        role="tab"
+        aria-selected={tabIndex === 0}
+        aria-label={sections.map((section) => CASE_STUDY_SECTION_TITLES[section]).join(" and ")}
+      />
+    ))}
+  </div>
+
+  <!-- MOBILE TABS -->
+  <div
+    class="project-case-dots-header project-case-dots-header-mobile flex md:hidden"
+    role="tablist"
+    aria-label="Mobile case study tabs"
+  >
+    {MOBILE_CASE_TABS.map((sections, tabIndex) => (
+      <button
+        type="button"
+        class:list={["project-case-dot-header", { "is-active": tabIndex === 0 }]}
+        data-tab-index={tabIndex}
+        data-tab-breakpoint="mobile"
+        role="tab"
+        aria-selected={tabIndex === 0}
+        aria-label={sections.map((section) => CASE_STUDY_SECTION_TITLES[section]).join(" and ")}
+      />
+    ))}
+  </div>
+
+</div>
                         <div class="project-card-actions">
                           {github && (
                             <a
@@ -222,51 +262,27 @@ function capitalize(item) {
                           </button>
                         </div>
                       </div>
-                      <div class="project-case-container">
-                        <div class="project-case-tabs">
-                          {/* Tab 1: Trade-offs and Technical Needs */}
-                          <div class="project-case-tab project-case-tab-1 is-active">
-                            <div class="project-case-grid">
-                              <div class="project-case-item">
-                                <h4>Trade-offs</h4>
-                                <ul>
-                                  {caseStudy.tradeoffs.map((item) => (
-                                    <li>{item}</li>
-                                  ))}
-                                </ul>
-                              </div>
-                              <div class="project-case-item">
-                                <h4>Technical Needs</h4>
-                                <ul>
-                                  {caseStudy.technicalNeeds.map((item) => (
-                                    <li>{item}</li>
-                                  ))}
-                                </ul>
-                              </div>
+                      <div
+                        class="project-case-container"
+                        data-active-tab="0"
+                        data-case-tabs-desktop={JSON.stringify(DESKTOP_CASE_TABS)}
+                        data-case-tabs-mobile={JSON.stringify(MOBILE_CASE_TABS)}
+                      >
+                        <div class="project-case-grid" data-case-grid>
+                          {CASE_STUDY_SECTION_KEYS.map((sectionKey) => (
+                            <div class="project-case-item" data-case-section={sectionKey}>
+                              <h4>{CASE_STUDY_SECTION_TITLES[sectionKey]}</h4>
+                              <ul>
+                                {caseStudySections && caseStudySections[sectionKey].length > 0 ? (
+                                  caseStudySections[sectionKey].map((item) => (
+                                    <li>{sectionKey === "UX" || sectionKey === "DX" ? capitalize(item) : item}</li>
+                                  ))
+                                ) : (
+                                  <li>No {CASE_STUDY_SECTION_TITLES[sectionKey]} notes provided.</li>
+                                )}
+                              </ul>
                             </div>
-                          </div>
-                          
-                          {/* Tab 2: UX and DX */}
-                          <div class="project-case-tab project-case-tab-2">
-                            <div class="project-case-grid">
-                              <div class="project-case-item">
-                                <h4>UX</h4>
-                                <ul>
-                                          {uxNotes.length > 0 ? uxNotes.map((item) => (
-                                            <li>{capitalize(item)}</li>
-                                          )) : <li>No UX notes provided.</li>}
-                                </ul>
-                              </div>
-                              <div class="project-case-item">
-                                <h4>DX</h4>
-                                <ul>
-                                          {dxNotes.length > 0 ? dxNotes.map((item) => (
-                                            <li>{capitalize(item)}</li>
-                                          )) : <li>No DX notes provided.</li>}
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -284,13 +300,13 @@ function capitalize(item) {
   import { Fancybox } from "@fancyapps/ui";
   Fancybox.bind('[data-fancybox="projects"]', { hideScrollbar: false });
 
-  const projectsRoot = document.querySelector(".projects-coverflow");
+  const projectsRoot = document.querySelector<HTMLElement>(".projects-coverflow");
   if (projectsRoot) {
     // make the region focusable for keyboard users and assist hover-based activation
     projectsRoot.tabIndex = 0;
 
     // keyboard handler used while pointer is inside the projects region or it's focused
-    const keyHandler = (event) => {
+    const keyHandler = (event: KeyboardEvent) => {
       if (event.key === "ArrowLeft") {
         event.preventDefault();
         setActiveIndex(activeIndex - 1);
@@ -375,51 +391,82 @@ function capitalize(item) {
       });
     });
 
+    const getActiveTabConfig = (container: HTMLElement) => {
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+      const datasetValue = isDesktop ? container.dataset.caseTabsDesktop : container.dataset.caseTabsMobile;
+      if (!datasetValue) return [] as string[][];
+      try {
+        const parsed = JSON.parse(datasetValue) as string[][];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    };
+
+    const updateCaseStudyView = (card: HTMLElement, requestedTab?: number) => {
+      const container = card.querySelector<HTMLElement>(".project-case-container");
+      if (!container) return;
+      const sections = Array.from(card.querySelectorAll<HTMLElement>("[data-case-section]"));
+      const tabConfig = getActiveTabConfig(container);
+      if (tabConfig.length === 0 || sections.length === 0) return;
+
+      const currentActiveTab = Number(container.dataset.activeTab ?? "0");
+      const normalizedTab = Number.isNaN(requestedTab ?? Number.NaN)
+        ? currentActiveTab
+        : Math.min(Math.max(requestedTab ?? 0, 0), tabConfig.length - 1);
+      container.dataset.activeTab = String(normalizedTab);
+
+      const activeSections = new Set(tabConfig[normalizedTab] ?? []);
+      sections.forEach((section) => {
+        const sectionKey = section.dataset.caseSection;
+        const isVisible = sectionKey ? activeSections.has(sectionKey) : false;
+        section.classList.toggle("is-active", isVisible);
+      });
+
+      const activeBreakpoint = window.matchMedia("(min-width: 768px)").matches ? "desktop" : "mobile";
+      const dots = card.querySelectorAll<HTMLButtonElement>(".project-case-dot-header");
+      dots.forEach((dot) => {
+        const dotBreakpoint = dot.dataset.tabBreakpoint;
+        const dotIndex = Number(dot.dataset.tabIndex ?? "0");
+        const isCurrentBreakpoint = dotBreakpoint === activeBreakpoint;
+        const isActiveDot = isCurrentBreakpoint && dotIndex === normalizedTab;
+        dot.classList.toggle("is-active", isActiveDot);
+        dot.setAttribute("aria-selected", String(isActiveDot));
+      });
+    };
+
     projectsRoot.querySelectorAll<HTMLButtonElement>("[data-project-spin]").forEach((button) => {
       button.addEventListener("click", (event) => {
         event.stopPropagation();
         const card = (button as HTMLElement).closest<HTMLElement>(".project-card");
         if (!card) return;
         card.classList.toggle("is-flipped");
-        
-        // Reset tabs when flipping back to front
+
         if (!card.classList.contains("is-flipped")) {
-          const dots = card.querySelectorAll<HTMLButtonElement>(".project-case-dot-header");
-          const tabs = card.querySelectorAll<HTMLElement>(".project-case-tab");
-          dots.forEach((dot, index) => {
-            dot.classList.toggle("is-active", index === 0);
-            dot.setAttribute("aria-selected", String(index === 0));
-          });
-          tabs.forEach((tab, index) => {
-            tab.classList.toggle("is-active", index === 0);
-          });
+          updateCaseStudyView(card, 0);
         }
       });
     });
 
-    // Handle case study tab switching
+    projectsRoot.querySelectorAll<HTMLElement>(".project-card").forEach((card) => {
+      updateCaseStudyView(card, 0);
+    });
+
     projectsRoot.querySelectorAll<HTMLButtonElement>(".project-case-dot-header").forEach((dot) => {
       dot.addEventListener("click", (event) => {
         event.stopPropagation();
         const card = (event.target as HTMLElement).closest<HTMLElement>(".project-card");
         if (!card) return;
-        
-        const tabIndex = parseInt((dot as HTMLElement).getAttribute("data-tab") ?? "0", 10);
-        const dots = card.querySelectorAll<HTMLButtonElement>(".project-case-dot-header");
-        const tabs = card.querySelectorAll<HTMLElement>(".project-case-tab");
-        
-        dots.forEach((d, index) => {
-          d.classList.toggle("is-active", index === tabIndex);
-          d.setAttribute("aria-selected", String(index === tabIndex));
-        });
-        
-        tabs.forEach((tab, index) => {
-          tab.classList.toggle("is-active", index === tabIndex);
-        });
+        updateCaseStudyView(card, Number(dot.dataset.tabIndex ?? "0"));
       });
     });
 
-    window.addEventListener("resize", applyCoverflow);
+    window.addEventListener("resize", () => {
+      applyCoverflow();
+      projectsRoot.querySelectorAll<HTMLElement>(".project-card").forEach((card) => {
+        updateCaseStudyView(card);
+      });
+    });
     applyCoverflow();
     // ensure keyboard is disabled initially
     disableKeyboard();
@@ -613,39 +660,47 @@ function capitalize(item) {
     position: relative;
     flex: 1;
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: flex-start;
-    gap: 0;
     padding-top: 20px;
+    min-height: 220px;
   }
 
-  .project-case-tabs {
-    flex: 1;
-    position: relative;
-    min-height: 0;
-    width: 100%;
-  }
-
-  .project-case-tab {
-    position: relative;
-    display: none;
-    opacity: 0;
-    transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
-    flex-direction: column;
-  }
-
-  .project-case-tab.is-active {
-    display: flex;
-    opacity: 1;
+  .project-case-tab-controls {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
   }
 
   .project-case-dots-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    position: relative;
-    padding-bottom: 0;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  padding-bottom: 0;
+}
+
+/* Mobile default */
+.project-case-dots-header-mobile {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.project-case-dots-header-desktop {
+  display: none;
+  gap: 10px;
+}
+
+/* Desktop breakpoint */
+@media (min-width: 768px) {
+  .project-case-dots-header-mobile {
+    display: none;
   }
+
+  .project-case-dots-header-desktop {
+    display: inline-flex;
+  }
+}
 
   .project-case-dot-header {
     width: 8px;
@@ -674,7 +729,7 @@ function capitalize(item) {
 
   .project-case-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     gap: 10px;
     width: 100%;
   }
@@ -684,6 +739,16 @@ function capitalize(item) {
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(255, 255, 255, 0.02);
     padding: 10px;
+    display: none;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 260ms ease, transform 260ms ease;
+  }
+
+  .project-case-item.is-active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .project-case-grid h4 {
@@ -742,10 +807,6 @@ function capitalize(item) {
       padding-bottom: 0;
     }
 
-    .project-case-button {
-      display: none;
-    }
-
     .project-card {
       position: relative;
       top: auto;
@@ -765,6 +826,10 @@ function capitalize(item) {
       width: min(540px, 70vw);
       transform-style: preserve-3d;
       transition: transform 400ms ease, opacity 300ms ease;
+    }
+
+    .project-case-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>

@@ -472,9 +472,7 @@
           "🧠 Dual-layer cache with retry logic for resilience.",
           "🔄 SWR pattern for efficient data fetching and revalidation."
         ],
-        "DX": [
-          "🧩 Modular hooks and clear documentation for maintainability."
-        ],
+        "DX": ["🧩 Modular hooks and clear documentation for maintainability."],
         "UX": [
           "⚡ Instant filtering with consistent card layout for easy browsing."
         ]
@@ -513,9 +511,7 @@
         "DX": [
           "🚀 Semantic release and rich CLI scripts for smooth development cycles."
         ],
-        "UX": [
-          "🧭 Guided assembly with responsive UI for better readability."
-        ]
+        "UX": ["🧭 Guided assembly with responsive UI for better readability."]
       },
       "highlights": [
         "🧩 Template-driven UI",
