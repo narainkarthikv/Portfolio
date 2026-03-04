@@ -6,8 +6,7 @@ import { projects } from "@cv";
 
 const MAX_MOBILE_STACK = 3;
 const MAX_DESKTOP_STACK = 6;
-const MAX_DESCRIPTION_WORDS = 22;
-const MAX_MOBILE_DESCRIPTION_CHARS = 60;
+const DESKTOP_DESCRIPTION_WORD_LIMIT = 22;
 const CASE_STUDY_SECTION_KEYS = ["technicalNeeds", "tradeoffs", "UX", "DX"] as const;
 const DESKTOP_CASE_TABS = [["technicalNeeds", "tradeoffs"], ["UX", "DX"]] as const;
 const MOBILE_CASE_TABS = [["technicalNeeds"], ["tradeoffs"], ["UX"], ["DX"]] as const;
@@ -29,11 +28,7 @@ function getStackSegments(stack: Record<string, string | undefined> | undefined)
 
 function shortDescriptionFrom(description: string) {
   const words = description.split(" ");
-  return words.length > MAX_DESCRIPTION_WORDS ? `${words.slice(0, MAX_DESCRIPTION_WORDS).join(" ")}...` : description;
-}
-
-function mobileDescriptionFrom(description: string) {
-  return description.length > MAX_MOBILE_DESCRIPTION_CHARS ? `${description.slice(0, MAX_MOBILE_DESCRIPTION_CHARS).trimEnd()}...` : description;
+  return words.length > DESKTOP_DESCRIPTION_WORD_LIMIT ? `${words.slice(0, DESKTOP_DESCRIPTION_WORD_LIMIT).join(" ")}...` : description;
 }
 
 function capitalize(item: string) {
@@ -75,7 +70,6 @@ function capitalize(item: string) {
             const uxNotes = caseStudy?.UX ?? [];
             const { mobileVisibleStack, desktopExtraStack, mobileOverflowCount, desktopOverflowCount } = getStackSegments(stack);
             const shortDescription = shortDescriptionFrom(description);
-            const mobileDescription = mobileDescriptionFrom(description);
             const caseStudySections = caseStudy
               ? {
                   technicalNeeds: caseStudy.technicalNeeds ?? [],
@@ -87,7 +81,7 @@ function capitalize(item: string) {
             return (
               <div
                 role="contentinfo"
-                class="project-card group relative flex min-h-80 flex-col overflow-hidden rounded-xl border border-white/10 bg-skin-fill/95 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.6)] transition-all duration-300 ease-in-out sm:hover:-translate-y-1 sm:hover:shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)]"
+                class="project-card group relative flex flex-col overflow-hidden rounded-xl border border-white/10 bg-skin-fill/95 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.6)] transition-all duration-300 ease-in-out sm:hover:-translate-y-1 sm:hover:shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)] md:min-h-80"
                 style={`--stack-index: ${index};`}
               >
                 <div class="project-card-glow" aria-hidden="true"></div>
@@ -134,7 +128,7 @@ function capitalize(item: string) {
                             type="button"
                             data-project-spin
                             aria-label={`Spin ${name} case study`}
-                            class="project-case-button hidden sm:inline-flex"
+                            class="project-case-button inline-flex"
                             data-ccursor="lift"
                           >
                             <Icon name="mdi:book-open-variant" width={18} height={18} />
@@ -144,14 +138,14 @@ function capitalize(item: string) {
                     </div>
 
                     <p data-ccursor="noPadding" class='relative z-10 py-3 text-sm leading-relaxed text-skin-base sm:hidden'>
-                      {mobileDescription}
+                      {description}
                     </p>
                     <p data-ccursor="noPadding" class='relative z-10 py-3 text-sm leading-relaxed text-skin-base hidden sm:block'>
                       {shortDescription}
                     </p>
                     <ul class='z-10 mt-1 text-sm'>
                       {highlights.map((highlight) => {
-                        return <li data-ccursor class="w-max">{highlight}</li>;
+                        return <li data-ccursor class="w-full sm:w-max">{highlight}</li>;
                       })}
                     </ul>
 
@@ -255,7 +249,7 @@ function capitalize(item: string) {
                             type="button"
                             data-project-spin
                             aria-label={`Return from ${name} case study`}
-                            class="project-case-button hidden sm:inline-flex"
+                            class="project-case-button inline-flex"
                             data-ccursor="lift"
                           >
                             <Icon name="mdi:book-open-variant" width={18} height={18} />
@@ -663,7 +657,6 @@ function capitalize(item: string) {
     align-items: stretch;
     justify-content: flex-start;
     padding-top: 20px;
-    min-height: 220px;
   }
 
   .project-case-tab-controls {
@@ -813,12 +806,46 @@ function capitalize(item: string) {
       transform: none;
     }
 
+    .project-card-shell {
+      height: auto;
+      transform: none !important;
+      transition: opacity 220ms ease;
+    }
+
+    .project-card-face {
+      position: relative;
+      inset: auto;
+      height: auto;
+    }
+
+    .project-card-back {
+      display: none;
+      transform: none;
+    }
+
+    .project-card.is-flipped .project-card-front {
+      display: none;
+    }
+
+    .project-card.is-flipped .project-card-back {
+      display: flex;
+    }
+
+    .project-case-container {
+      min-height: 0;
+      padding-top: 16px;
+    }
+
     .project-card::after {
       opacity: 0.35;
     }
   }
 
   @media (min-width: 768px) {
+    .project-case-container {
+      min-height: 220px;
+    }
+
     .project-card {
       position: absolute;
       left: 50%;
