@@ -63,6 +63,8 @@ const ld = {
     }))
   ]
 }
+
+const ldJson = JSON.stringify(ld).replace(/</g, '\u003c');
 ---
 
 <title>{title}</title>
@@ -106,6 +108,4 @@ const ld = {
 <link rel="alternate" hreflang="en" href={canonical.trim()} />
 
 <!-- Structured data -->
-<script type="application/ld+json" is:inline>
-{JSON.stringify(ld, null, 2)}
-</script>
+<script type="application/ld+json" is:inline set:html={ldJson}></script>
