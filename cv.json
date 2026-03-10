@@ -378,7 +378,7 @@
       "url": "https://wisdomfox-fit-track.netlify.app/"
     },
     {
-      "name": "Sticky Memo",
+      "name": "Ownlyst",
       "isActive": true,
       "description": "📝 Privacy-first note-taking app with offline storage, multiple view modes, and zero server dependency for distraction-free productivity.",
       "caseStudy": {
@@ -415,8 +415,8 @@
         "Lucide": "simple-icons:lucide",
         "Vite": "simple-icons:vite"
       },
-      "github": "https://github.com/narainkarthikv/sticky-memo",
-      "url": "https://wisdomfox-sticky-memo.netlify.app/"
+      "github": "https://github.com/narainkarthikv/ownlyst",
+      "url": "https://ownlyst.netlify.app/"
     },
     {
       "name": "Nmoji",
