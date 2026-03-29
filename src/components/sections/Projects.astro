@@ -4,8 +4,8 @@ import { Icon } from "astro-icon/components";
 
 import { projects } from "@cv";
 
-const MAX_MOBILE_STACK = 10;
-const MAX_DESKTOP_STACK = 8;
+const MAX_MOBILE_STACK = 3;
+const MAX_DESKTOP_STACK = 4;
 const DESKTOP_DESCRIPTION_WORD_LIMIT = 22;
 const CASE_STUDY_SECTION_KEYS = ["technicalNeeds", "tradeoffs", "UX", "DX"] as const;
 const DESKTOP_CASE_TABS = [["technicalNeeds", "tradeoffs"], ["UX", "DX"]] as const;
@@ -19,11 +19,9 @@ const CASE_STUDY_SECTION_TITLES: Record<(typeof CASE_STUDY_SECTION_KEYS)[number]
 
 function getStackSegments(stack: Record<string, string | undefined> | undefined) {
   const stackEntries = stack ? Object.entries(stack) : [];
-  const mobileVisibleStack = stackEntries.slice(0, MAX_MOBILE_STACK);
-  const desktopExtraStack = stackEntries.slice(MAX_MOBILE_STACK, MAX_DESKTOP_STACK);
   const mobileOverflowCount = Math.max(0, stackEntries.length - MAX_MOBILE_STACK);
   const desktopOverflowCount = Math.max(0, stackEntries.length - MAX_DESKTOP_STACK);
-  return { stackEntries, mobileVisibleStack, desktopExtraStack, mobileOverflowCount, desktopOverflowCount };
+  return { stackEntries, mobileOverflowCount, desktopOverflowCount };
 }
 
 function shortDescriptionFrom(description: string) {
@@ -68,7 +66,7 @@ function capitalize(item: string) {
           ({ url, description, highlights, name, isActive, github, stack, caseStudy }, index) => {
             const dxNotes = caseStudy?.DX ?? [];
             const uxNotes = caseStudy?.UX ?? [];
-            const { mobileVisibleStack, desktopExtraStack, mobileOverflowCount, desktopOverflowCount } = getStackSegments(stack);
+            const { stackEntries, mobileOverflowCount, desktopOverflowCount } = getStackSegments(stack);
             const shortDescription = shortDescriptionFrom(description);
             const caseStudySections = caseStudy
               ? {
@@ -149,9 +147,16 @@ function capitalize(item: string) {
                       })}
                     </ul>
 
-                    <ul class="flex print:hidden flex-wrap gap-2 mt-4" aria-label="Technologies used">
-                      {mobileVisibleStack.map(([label, icon]) => (
-                        <li data-ccursor="lift" class="project-chip flex gap-1.5 items-center border-skin-hue/30 text-skin-base print:p-0 print:bg-transparent print:text-zinc-800 border-solid print:border-none border rounded-full px-2.5 py-1 text-xs bg-skin-button-muted/70 hover:bg-skin-button-muted/90 hover:border-skin-hue/60 transition-all duration-200 ring-1 ring-inset ring-white/10 dark:ring-white/5 group/stack">
+                    <ul
+                      class="flex print:hidden flex-wrap gap-2 mt-4"
+                      aria-label="Technologies used"
+                      data-stack-list
+                      data-expanded="false"
+                      data-mobile-overflow={String(mobileOverflowCount)}
+                      data-desktop-overflow={String(desktopOverflowCount)}
+                    >
+                      {stackEntries.map(([label, icon], stackIndex) => (
+                        <li data-ccursor="lift" data-stack-item data-stack-index={String(stackIndex)} class="project-chip flex gap-1.5 items-center border-skin-hue/30 text-skin-base print:p-0 print:bg-transparent print:text-zinc-800 border-solid print:border-none border rounded-full px-2.5 py-1 text-xs bg-skin-button-muted/70 hover:bg-skin-button-muted/90 hover:border-skin-hue/60 transition-all duration-200 ring-1 ring-inset ring-white/10 dark:ring-white/5 group/stack">
                           {icon &&
                             <span class="flex gap-1">
                             <Icon name={icon} width={16} height={16} class="text-skin-hue" /> <span class="project-chip-label transition-all duration-200">{label}</span>
@@ -159,25 +164,17 @@ function capitalize(item: string) {
                           }
                         </li>
                       ))}
-                      {desktopExtraStack.map(([label, icon]) => (
-                        <li data-ccursor="lift" class="project-chip hidden sm:flex gap-1.5 items-center border-skin-hue/30 text-skin-base print:p-0 print:bg-transparent print:text-zinc-800 border-solid print:border-none border rounded-full px-2.5 py-1 text-xs bg-skin-button-muted/70 hover:bg-skin-button-muted/90 hover:border-skin-hue/60 transition-all duration-200 ring-1 ring-inset ring-white/10 dark:ring-white/5 group/stack">
-                          {icon &&
-                            <span class="flex gap-1">
-                            <Icon name={icon} width={16} height={16} class="text-skin-hue" /> <span class="project-chip-label transition-all duration-200">{label}</span>
-                            </span>
-                          }
-                        </li>
-                      ))}
-                      {mobileOverflowCount > 0 && (
-                        <li class="project-chip flex sm:hidden items-center border-skin-hue/30 text-skin-base border-solid border rounded-full px-2.5 py-1 text-xs bg-skin-button-muted/70 hover:bg-skin-button-muted/90 hover:border-skin-hue/60 transition-all duration-200 ring-1 ring-inset ring-white/10 dark:ring-white/5">
-                          +{mobileOverflowCount} more
-                        </li>
-                      )}
-                      {desktopOverflowCount > 0 && (
-                        <li class="project-chip hidden sm:flex items-center border-skin-hue/30 text-skin-base border-solid border rounded-full px-2.5 py-1 text-xs bg-skin-button-muted/70 hover:bg-skin-button-muted/90 hover:border-skin-hue/60 transition-all duration-200 ring-1 ring-inset ring-white/10 dark:ring-white/5">
-                          +{desktopOverflowCount} more
-                        </li>
-                      )}
+                      <li data-stack-toggle class="project-chip items-center border-skin-hue/30 text-skin-base border-solid border rounded-full px-2.5 py-1 text-xs bg-skin-button-muted/70 hover:bg-skin-button-muted/90 hover:border-skin-hue/60 transition-all duration-200 ring-1 ring-inset ring-white/10 dark:ring-white/5">
+                        <button
+                          type="button"
+                          data-stack-toggle-button
+                          data-ccursor="lift"
+                          class="inline-flex items-center"
+                          aria-expanded="false"
+                        >
+                          <span data-stack-toggle-label>Show less</span>
+                        </button>
+                      </li>
                     </ul>
                   </div>
 
@@ -296,6 +293,37 @@ function capitalize(item: string) {
 
   const projectsRoot = document.querySelector<HTMLElement>(".projects-coverflow");
   if (projectsRoot) {
+    const maxMobileStack = 3;
+    const maxDesktopStack = 4;
+
+    const updateStackVisibility = (card: HTMLElement) => {
+      const stackList = card.querySelector<HTMLElement>("[data-stack-list]");
+      if (!stackList) return;
+
+      const stackItems = Array.from(stackList.querySelectorAll<HTMLElement>("[data-stack-item]"));
+      const toggleChip = stackList.querySelector<HTMLElement>("[data-stack-toggle]");
+      const toggleButton = stackList.querySelector<HTMLButtonElement>("[data-stack-toggle-button]");
+      const toggleLabel = stackList.querySelector<HTMLElement>("[data-stack-toggle-label]");
+      const isDesktop = window.matchMedia("(min-width: 640px)").matches;
+      const limit = isDesktop ? maxDesktopStack : maxMobileStack;
+      const overflowCount = Math.max(0, stackItems.length - limit);
+      const isExpanded = stackList.dataset.expanded === "true";
+
+      stackItems.forEach((item, index) => {
+        item.style.display = !isExpanded && index >= limit ? "none" : "flex";
+      });
+
+      if (!toggleChip || !toggleButton || !toggleLabel) return;
+      if (overflowCount <= 0) {
+        toggleChip.style.display = "none";
+        return;
+      }
+
+      toggleChip.style.display = "flex";
+      toggleLabel.textContent = isExpanded ? "Show less" : `+ ${overflowCount} more`;
+      toggleButton.setAttribute("aria-expanded", String(isExpanded));
+    };
+
     // make the region focusable for keyboard users and assist hover-based activation
     projectsRoot.tabIndex = 0;
 
@@ -444,6 +472,15 @@ function capitalize(item: string) {
 
     projectsRoot.querySelectorAll<HTMLElement>(".project-card").forEach((card) => {
       updateCaseStudyView(card, 0);
+      updateStackVisibility(card);
+      const toggleButton = card.querySelector<HTMLButtonElement>("[data-stack-toggle-button]");
+      const stackList = card.querySelector<HTMLElement>("[data-stack-list]");
+      toggleButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if (!stackList) return;
+        stackList.dataset.expanded = stackList.dataset.expanded === "true" ? "false" : "true";
+        updateStackVisibility(card);
+      });
     });
 
     projectsRoot.querySelectorAll<HTMLButtonElement>(".project-case-dot-header").forEach((dot) => {
@@ -459,6 +496,7 @@ function capitalize(item: string) {
       applyCoverflow();
       projectsRoot.querySelectorAll<HTMLElement>(".project-card").forEach((card) => {
         updateCaseStudyView(card);
+        updateStackVisibility(card);
       });
     });
     applyCoverflow();
