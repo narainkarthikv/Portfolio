@@ -2,14 +2,20 @@
   "analyticsCode": "",
   "basics": {
     "name": "Narain Karthik",
-    "label": "Software developer",
+    "fullName": "Narainkarthik Vellingiri",
+    "alternateName": [
+      "Narainkarthik Vellingiri",
+      "Narainkarthik",
+      "Wisdom Fox"
+    ],
+    "label": "Full-stack developer",
     "animated_main_label": "developer",
     "animated_secondary_initial_label": "software",
     "animated_secondary_final_label": "full-stack",
     "image": "/pfp.webp",
     "email": "narainkarthik812@gmail.com",
-    "url": "https://www.linkedin.com/in/narainkarthik-vellingiri/",
-    "summary": "Full Stack developer learning Cloud and DevOps to build scalable and efficient solutions.",
+    "url": "https://narainkarthikv.space/",
+    "summary": "Full-stack developer and Cloud/DevOps practitioner focused on scalable, high-performance applications.",
     "theme": "blue",
     "location": {
       "city": "Coimbatore",
@@ -18,32 +24,41 @@
     },
     "profiles": [
       {
-        "network": "X / Twitter",
-        "icon": "ri:twitter-fill",
-        "color": "#1DA1F2",
-        "username": "narainkarthik31",
-        "url": "https://x.com/narainkarthikv"
-      },
-      {
         "network": "LinkedIn",
         "icon": "ri:linkedin-fill",
         "color": "#0066C2",
-        "username": "Narain Karthik",
+        "username": "Narainkarthik Vellingiri",
         "url": "https://www.linkedin.com/in/narainkarthik-vellingiri/"
       },
       {
         "network": "GitHub",
         "icon": "mdi:github",
         "color": "#929AAB",
-        "username": "Narain Karthik",
+        "username": "narainkarthikv",
         "url": "https://github.com/narainkarthikv"
+      },
+      {
+        "network": "Medium",
+        "icon": "simple-icons:medium",
+        "color": "#12100E",
+        "username": "narainkarthikv",
+        "url": "https://narainkarthikv.medium.com/"
       },
       {
         "network": "Email",
         "icon": "ri:mail-fill",
         "color": "#D44638",
-        "username": "Narain Karthik",
+        "username": "narainkarthik812@gmail.com",
         "url": "mailto:narainkarthik812@gmail.com"
+      }
+    ],
+    "keyboardProfiles": [
+      {
+        "network": "X / Twitter",
+        "icon": "ri:twitter-fill",
+        "color": "#1DA1F2",
+        "username": "narainkarthik31",
+        "url": "https://x.com/narainkarthikv"
       }
     ]
   },
@@ -79,9 +94,6 @@
       "startDate": "2024-09-02",
       "endDate": null,
       "summary": "Experienced in developing high-complexity, scalable, data-driven front-end projects with a focus on performance, user experience, and system integration.",
-      "highlights": [
-        "Developed a data-intensive Angular project for internal use in the national healthcare system, focusing on managing complex data sets and implementing business logic."
-      ],
       "responsibilities": [
         "Developed scalable front-end applications using modern JavaScript frameworks, improving page load performance by up to 35%",
         "Designed reusable and responsive UI components, reducing duplicate code and improving development efficiency by 30%",
@@ -315,7 +327,7 @@
       "fluency": "Elementary proficiency"
     },
     {
-      "language": "Kannadam",
+      "language": "Kannada",
       "fluency": "Elementary proficiency"
     }
   ],
@@ -323,22 +335,41 @@
     {
       "name": "Fit Track",
       "isActive": true,
-      "description": "Log workouts, monitor progress, and stay consistent. A straightforward tool for people serious about their fitness.",
+      "description": "🏋️ Full-stack MERN fitness tracker with responsive dashboards, streak analytics, and custom routine management for performance-focused workout tracking.",
+      "caseStudy": {
+        "usage": "💪 Athletes log workouts, maintain streaks, and view progress insights across devices with fast, responsive analytics.",
+        "tradeoffs": [
+          "⚖️ MERN stack adds setup complexity but ensures scalability and full backend control.",
+          "📦 Redux Toolkit improves state responsiveness at the cost of slightly larger bundle size.",
+          "🎨 Material-UI speeds up consistent UI development with opinionated styling patterns."
+        ],
+        "technicalNeeds": [
+          "🗄️ Indexed Mongo collections for fast workout and analytics queries.",
+          "🔐 Express API with JWT authentication and REST endpoints for secure access.",
+          "🐳 Docker-Compose setup for consistent and reproducible dev environments."
+        ],
+        "DX": [
+          "🧩 Monorepo layout with shared scripts for streamlined development.",
+          "🧹 Linting, commit guidelines, and CI/CD pipelines for maintainable releases."
+        ],
+        "UX": [
+          "🧾 Schema-driven forms reduce input friction and improve consistency.",
+          "📱 Mobile-first charts and summaries encourage habit building and engagement."
+        ]
+      },
       "highlights": [
-        "🎨 User-friendly interface",
-        "🔥 Streak maintenance",
-        "📊 Real-time analytics"
+        "🎛️ Material-UI dashboard",
+        "🔥 Streak tracker",
+        "📈 Real-time analytics"
       ],
       "stack": {
         "Docker": "mdi:docker",
         "Express": "simple-icons:express",
         "Git": "mdi:git",
-        "GitHub": "mdi:github",
         "GitHub Actions": "simple-icons:githubactions",
         "MongoDB": "simple-icons:mongodb",
         "MUI": "simple-icons:mui",
         "React": "simple-icons:react",
-        "Redux": "simple-icons:redux",
         "Typescript": "simple-icons:typescript"
       },
       "github": "https://github.com/narainkarthikv/fit-track",
@@ -347,21 +378,38 @@
     {
       "name": "Ownlyst",
       "isActive": true,
-      "description": "Write freely, knowing your thoughts are yours alone. No cloud. No tracking. Just honest, local-first note-taking.",
+      "description": "📝 Privacy-first note-taking app with offline storage, multiple view modes, and zero server dependency for distraction-free productivity.",
+      "caseStudy": {
+        "usage": "⚡ Capture ideas quickly, switch between grid/kanban/table layouts, and export notes locally without cloud dependency.",
+        "tradeoffs": [
+          "⚖️ Offline storage improves privacy but limits sync and collaboration.",
+          "🪶 Lightweight formatting prioritizes speed and simplicity over advanced features."
+        ],
+        "technicalNeeds": [
+          "💾 IndexedDB/localStorage persistence with debounced writes for performance.",
+          "🧲 Drag-and-drop controllers for flexible note organisation."
+        ],
+        "DX": [
+          "📂 Clear folder structure with TypeScript models for maintainability.",
+          "⚙️ Simple build scripts and conventions for faster onboarding."
+        ],
+        "UX": [
+          "⚡ Instant response with low cognitive load.",
+          "🧩 Multiple views support different productivity workflows."
+        ]
+      },
       "highlights": [
-        "🎨 User-friendly interface",
-        "📌 Variety of display options",
-        "💾 Privacy Focused"
+        "✨ Intuitive interface",
+        "🗂️ Multiple display options",
+        "🔒 Fully local & offline"
       ],
       "stack": {
         "Docker": "mdi:docker",
         "Git": "mdi:git",
-        "GitHub": "mdi:github",
         "GitHub Actions": "simple-icons:githubactions",
         "React": "simple-icons:react",
-        "Recoil": "simple-icons:recoil",
-        "Tailwind": "mdi:tailwind",
-        "Typescript": "simple-icons:typescript"
+        "TypeScript": "simple-icons:typescript",
+        "Tailwind": "mdi:tailwind"
       },
       "github": "https://github.com/narainkarthikv/ownlyst",
       "url": "https://ownlyst.netlify.app/"
@@ -369,63 +417,110 @@
     {
       "name": "Nmoji",
       "isActive": true,
-      "description": "Find the Perfect Emoji in Seconds. Helps you discover, filter and copy emojis quickly — built for speed and delight.",
+      "description": "😀 Emoji search and picker built with Astro and React, optimized for instant filtering, keyboard-first navigation, and extension-ready performance.",
+      "caseStudy": {
+        "usage": "⌨️ Search thousands of emojis via keyboard and copy instantly for chats, content creation, or quick workflows.",
+        "tradeoffs": [
+          "⚖️ Bundled dataset increases payload but guarantees zero-latency search.",
+          "🧩 Simplified taxonomy keeps UI clean while limiting niche category depth."
+        ],
+        "technicalNeeds": [
+          "📚 Build-time index generation with fuzzy matching for instant results.",
+          "⚡ Astro static pages combined with React components for performance."
+        ],
+        "DX": [
+          "🧱 Astro+React hybrid provides small runtime with familiar workflows.",
+          "♻️ Reusable UI components and clear directory layout."
+        ],
+        "UX": [
+          "⌨️ Keyboard-first flow with immediate feedback for power users."
+        ]
+      },
       "highlights": [
-        "🎨 User-friendly interface",
-        "🔍 Fast search and filter",
-        "📊 Emoji Suggestions"
+        "📱 Responsive UI",
+        "⚡ Fast search",
+        "🧩 Browser extension"
       ],
       "stack": {
         "Astro": "simple-icons:astro",
         "Git": "mdi:git",
-        "GitHub": "mdi:github",
         "GitHub Actions": "simple-icons:githubactions",
         "React": "simple-icons:react",
-        "Tailwind": "mdi:tailwind",
-        "Typescript": "simple-icons:typescript"
+        "TypeScript": "simple-icons:typescript",
+        "Tailwind": "mdi:tailwind"
       },
-      "github": "https://github.com/narainakarthikv/nmoji",
+      "github": "https://github.com/narainkarthikv/nmoji",
       "url": "https://nmoji.netlify.app/"
     },
     {
       "name": "Contribution Cards",
       "isActive": true,
-      "description": "Discover, filter, and explore contributors dynamically pulled from GitHub across multiple open-source repositories.",
+      "description": "👥 GitHub contributor directory with smart caching, filtering, and profile surfacing without requiring a backend service.",
+      "caseStudy": {
+        "usage": "🔎 Aggregate contributor data, apply filters, and render profile cards efficiently while respecting API rate limits.",
+        "tradeoffs": [
+          "⚖️ Caching adds complexity but avoids GitHub API rate-limit issues.",
+          "📊 Simplified scoring favors clarity over deep analytics."
+        ],
+        "technicalNeeds": [
+          "🧠 Dual-layer cache with retry logic for resilience.",
+          "🔄 SWR pattern for efficient data fetching and revalidation."
+        ],
+        "DX": ["🧩 Modular hooks and clear documentation for maintainability."],
+        "UX": [
+          "⚡ Instant filtering with consistent card layout for easy browsing."
+        ]
+      },
       "highlights": [
-        "🎨 User-friendly interface",
-        "🤝 Active Contributions",
-        "🖥 Dynamic data"
+        "📱 Responsive UI",
+        "⭐ Active contributor highlights",
+        "🧠 Smart caching"
       ],
       "stack": {
+        "Docker": "mdi:docker",
         "Git": "mdi:git",
-        "GitHub": "mdi:github",
         "GitHub Actions": "simple-icons:githubactions",
         "React": "simple-icons:react",
-        "Tailwind": "mdi:tailwind",
-        "Typescript": "simple-icons:typescript"
+        "TypeScript": "simple-icons:typescript",
+        "Tailwind": "mdi:tailwind"
       },
       "github": "https://github.com/narainkarthikv/contribution-cards",
       "url": "https://contribution-cards.netlify.app/"
     },
     {
-      "name": "Readme Shop",
+      "name": "Markdown Shop",
       "isActive": true,
-      "description": "README Shop for customising Personal Readme & Readme Docs",
+      "description": "📄 Interactive README builder with live Markdown preview, reusable templates, and badge components for faster developer documentation.",
+      "caseStudy": {
+        "usage": "🧩 Compose documentation from templates, preview changes in real time, and copy or embed polished output instantly.",
+        "tradeoffs": [
+          "⚖️ Templates accelerate authoring but limit custom layouts.",
+          "🔄 Live preview requires continuous parsing during editing."
+        ],
+        "technicalNeeds": [
+          "📝 Markdown pipeline with Marked and DOMPurify for safe rendering.",
+          "🧠 Zustand store for lightweight global state management."
+        ],
+        "DX": [
+          "🚀 Semantic release and rich CLI scripts for smooth development cycles."
+        ],
+        "UX": ["🧭 Guided assembly with responsive UI for better readability."]
+      },
       "highlights": [
-        "🎨 User-friendly interface",
-        "📝 Multiple templates",
-        "📊 Ready-to-use"
+        "🧩 Template-driven UI",
+        "📝 Live Markdown editing",
+        "📋 Copy-ready output"
       ],
       "stack": {
+        "Docker": "mdi:docker",
         "Git": "mdi:git",
-        "GitHub": "mdi:github",
         "GitHub Actions": "simple-icons:githubactions",
-        "MUI": "simple-icons:mui",
         "React": "simple-icons:react",
-        "Typescript": "simple-icons:typescript"
+        "Javascript": "simple-icons:javascript",
+        "MUI": "simple-icons:mui"
       },
-      "github": "https://github.com/narainkarthikv/readme-shop",
-      "url": "https://readmeshopwf.netlify.app/"
+      "github": "https://github.com/narainkarthikv/markdown-shop",
+      "url": "https://markdownshop.netlify.app/"
     }
   ]
 }

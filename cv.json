@@ -488,7 +488,7 @@
       "url": "https://contribution-cards.netlify.app/"
     },
     {
-      "name": "Readme Shop",
+      "name": "Markdown Shop",
       "isActive": true,
       "description": "📄 Interactive README builder with live Markdown preview, reusable templates, and badge components for faster developer documentation.",
       "caseStudy": {
@@ -512,14 +512,15 @@
         "📋 Copy-ready output"
       ],
       "stack": {
+        "Docker": "mdi:docker",
         "Git": "mdi:git",
         "GitHub Actions": "simple-icons:githubactions",
         "React": "simple-icons:react",
         "Javascript": "simple-icons:javascript",
         "MUI": "simple-icons:mui"
       },
-      "github": "https://github.com/narainkarthikv/readme-shop",
-      "url": "https://readmeshopwf.netlify.app/"
+      "github": "https://github.com/narainkarthikv/markdown-shop",
+      "url": "https://markdownshop.netlify.app/"
     }
   ]
 }
