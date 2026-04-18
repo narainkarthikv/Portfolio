@@ -333,7 +333,7 @@
   ],
   "projects": [
     {
-      "name": "Fit Track",
+      "name": "FitProgressr",
       "isActive": true,
       "description": "🏋️ Full-stack MERN fitness tracker with responsive dashboards, streak analytics, and custom routine management for performance-focused workout tracking.",
       "caseStudy": {
@@ -372,8 +372,8 @@
         "React": "simple-icons:react",
         "Typescript": "simple-icons:typescript"
       },
-      "github": "https://github.com/narainkarthikv/fit-track",
-      "url": "https://wisdomfox-fit-track.netlify.app/"
+      "github": "https://github.com/narainkarthikv/fitprogressr",
+      "url": "https://fitprogressr.netlify.app/"
     },
     {
       "name": "Ownlyst",

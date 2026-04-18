@@ -25,7 +25,28 @@ const { name, fullName } = basics;
       class="slide-enter space-y-6 ease-in md:col-span-2 print:col-span-1 print:grid print:grid-cols-2 print:gap-5 print:space-y-0"
     >
       <Hero />
-      <ThemeSwitch />
+      <div class="grid grid-cols-2 gap-4 items-center">
+        <div class="flex items-center justify-center">
+          <ThemeSwitch />
+        </div>
+        <div class="flex items-center justify-center">
+          <a
+            id="resume-download"
+            href="/narainkarthik-cv.pdf"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="View resume (opens in a new tab)"
+            data-umami-event="Resume view"
+            data-ccursor="lift"
+            class="flex items-center gap-3 rounded-md w-full max-w-[220px] bg-skin-muted sm:bg-skin-button-muted px-3 py-1.5 ring-1 ring-inset ring-skin-muted hover:opacity-95 transition-colors"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="text-skin-hue">
+              <path d="M12 16l4-5h-3V4h-2v7H8l4 5zM6 18v2h12v-2H6z" />
+            </svg>
+            <span class="font-mono sm:text-sm sm:leading-6 text-skin-base hover:cursor-default">Resume/CV</span>
+          </a>
+        </div>
+      </div>
       <About />
       <!-- <Spotify /> component removed for a more professional portfolio -->
       <Skills className="print:hidden" />

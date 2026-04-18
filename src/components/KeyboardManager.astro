@@ -109,9 +109,8 @@ const profilesInfo = paletteProfiles.map(({ network, url }) => {
       hotkey: 'ctrl+P',
       section: 'Actions',
       handler: () => {
-        // Use an absolute path to the public asset so it resolves the same in
-        // dev and when deployed. Make sure the file is copied to `public/`.
-        location.href = '/narainkarthik-cv.pdf'
+        // Open resume in a new tab to match view-based behaviour
+        window.open('/narainkarthik-cv.pdf', '_blank')
       },
     },
     {

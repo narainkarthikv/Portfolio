@@ -80,7 +80,7 @@ I'm a **passionate full-stack creator** bringing ideas to life through **modern 
 </h3>
 
 <p align="center">
-  <a href="https://wisdomfox-fit-track.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/fit-track.jpg" height="75px" width="75px" target="_blank"/></a>
+  <a href="https://fitprogressr.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/fitprogressr.jpg" height="75px" width="75px" target="_blank"/></a>
   <a href="https://ownlyst.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/ownlyst.jpg" height="75px" width="75px" target="_blank"/></a>
   <a href="https://nmoji.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/nmoji.jpg" height="75px" width="75px" target="_blank"/></a>
   <a href="https://contribution-cards.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/contribution-cards.jpg" height="75px" width="75px" target="_blank"/></a>
