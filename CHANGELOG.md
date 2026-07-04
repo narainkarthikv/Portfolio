@@ -5,6 +5,19 @@ All notable changes to this portfolio are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-06-22
+
+### Added
+- Added a Chromium Playwright suite covering homepage smoke, theme switching, links, projects, and responsive layout.
+
+### Fixed
+- Fixed the homepage theme initializer so the active theme is applied safely at runtime.
+
+### Changed
+- Added `lint`, `test:e2e`, and `test:e2e:ui` package scripts for local validation.
+
+[1.0.2]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.0.2
+
 ## [1.0.0] - 2026-03-05
 
 Initial stable release of the personal portfolio, covering the evolution from the first commit to a production-ready Astro experience.
@@ -35,3 +48,10 @@ Initial stable release of the personal portfolio, covering the evolution from th
 - This release also restores a dedicated changelog after prior removal and aligns release history with current repository state.
 
 [1.0.0]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.0.0
+
+## [1.0.1] - 2026-06-04
+
+### Fixed
+- Prevent horizontal overflow for the Projects card back header on small screens by allowing the case study title to wrap. This fixes an issue where long titles (e.g. "Contribution Cards Case Study") caused the card to exceed the viewport width on mobile devices. ([src/components/sections/Projects.astro](src/components/sections/Projects.astro#L1))
+
+[1.0.1]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.0.1

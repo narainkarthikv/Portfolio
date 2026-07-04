@@ -881,6 +881,15 @@ function capitalize(item: string) {
       transform: none;
     }
 
+    /* Allow case study title on the back to wrap on small screens to prevent overflow */
+    .project-card-back .project-card-title a,
+    .project-card-back .project-card-title span {
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      word-break: break-word;
+    }
+
     .project-card.is-flipped .project-card-front {
       display: none;
     }

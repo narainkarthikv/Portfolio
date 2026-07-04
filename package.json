@@ -1,12 +1,15 @@
 {
   "name": "personal-portfolio",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "lint": "astro check",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
     "astro": "astro",
     "deploy:vercel": "vercel deploy",
     "deploy:cloudflare": "astro build && wrangler pages deploy ./dist"
@@ -35,6 +38,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "daisyui": "^4.12.10",
+    "@playwright/test": "^1.55.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.8",
