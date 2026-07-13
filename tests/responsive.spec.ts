@@ -7,10 +7,15 @@ const viewports = [
   { name: 'mobile', width: 390, height: 844 },
 ];
 
-test('portfolio stays within the viewport across key breakpoints', async ({ page }) => {
+test('portfolio stays within the viewport across key breakpoints', async ({
+  page,
+}) => {
   for (const viewport of viewports) {
     await test.step(viewport.name, async () => {
-      await page.setViewportSize({ width: viewport.width, height: viewport.height });
+      await page.setViewportSize({
+        width: viewport.width,
+        height: viewport.height,
+      });
       await page.goto('/');
 
       const dimensions = await page.evaluate(() => ({
@@ -19,8 +24,12 @@ test('portfolio stays within the viewport across key breakpoints', async ({ page
       }));
 
       expect(dimensions.width).toBeLessThanOrEqual(dimensions.viewportWidth);
-      await expect(page.getByRole('heading', { name: 'Projects' })).toBeVisible();
-      await expect(page.getByRole('heading', { name: 'Experience' })).toBeVisible();
+      await expect(
+        page.getByRole('heading', { name: 'Projects' })
+      ).toBeVisible();
+      await expect(
+        page.getByRole('heading', { name: 'Experience' })
+      ).toBeVisible();
     });
   }
 });
