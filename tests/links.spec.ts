@@ -20,8 +20,7 @@ test('critical external links are present and safe', async ({ page }) => {
     await expect(link).toHaveAttribute('rel', /noopener/);
   }
 
-  await expect(page.getByRole('link', { name: /View all articles/i })).toHaveAttribute(
-    'href',
-    '/blog'
-  );
+  await expect(
+    page.getByRole('link', { name: /View all articles/i })
+  ).toHaveAttribute('href', '/blog');
 });
