@@ -94,7 +94,7 @@ A **dynamic personal portfolio site** showcasing my projects, skills, and digita
 
 **View the live site:**
 
-- 🌍 https://narainkarthikv.space
+- 🌍 https://narainkarthikv.com
 
 **Run locally for development:**
 

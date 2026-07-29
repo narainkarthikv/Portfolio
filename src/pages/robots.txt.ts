@@ -1,6 +1,6 @@
 export function GET() {
   // Prefer Astro SITE env, fallback to production domain
-  const site = import.meta.env.SITE || 'https://narainkarthikv.space';
+  const site = import.meta.env.SITE || 'https://narainkarthikv.com';
 
   // Normalize base URL (remove trailing slash)
   const base = site.replace(/\/+$/, '');

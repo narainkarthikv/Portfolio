@@ -30,5 +30,5 @@ export default defineConfig({
   ],
   output: 'server',
   adapter: vercel(),
-  site: 'https://narainkarthikv.space',
+  site: 'https://narainkarthikv.com',
 });
