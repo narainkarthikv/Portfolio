@@ -5,6 +5,17 @@ All notable changes to this portfolio are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased - 2026-08-10
+
+Bumped version to v1.0.3
+
+### Added
+
+- Added `Claude` and `Github Copilot` icons to Skills
+- Level based Skills separation - `beginner-level` and `intermediate-level` 
+
+---
+
 ## [1.0.2] - 2026-06-22
 
 ### Added
