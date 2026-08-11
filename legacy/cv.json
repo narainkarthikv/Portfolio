@@ -76,12 +76,20 @@
     {
       "name": "JLPT N5",
       "date": "2023-12-01",
-      "issuer": "JLPT"
+      "issuer": "JLPT",
+      "url": null
     },
     {
       "name": "Microsoft Certified: Azure Fundamentals (AZ-900)",
       "date": "2026-01-10",
-      "issuer": "Microsoft"
+      "issuer": "Microsoft",
+      "url": "https://learn.microsoft.com/en-us/users/narainkarthikv/credentials/540978823a46967f?ref=https%3A%2F%2Fwww.linkedin.com%2F"
+    },
+    {
+      "name": "Building with the Claude API",
+      "date": "2026-05-01",
+      "issuer": "Anthropic",
+      "url": "https://verify.skilljar.com/c/jt3ss2eqg9g5"
     }
   ],
   "work": [

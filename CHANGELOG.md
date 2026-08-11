@@ -5,16 +5,30 @@ All notable changes to this portfolio are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased - 2026-08-10
+## Unreleased - 2026-08-11
 
-Bumped version to v1.0.3
+- Preparing next patch release.
+
+---
+
+## [1.0.4] - 2026-08-11
 
 ### Added
 
-- Added `Claude` and `Github Copilot` icons to Skills
-- Level based Skills separation - `beginner-level` and `intermediate-level` 
+- Comprehensive favicons (SVG, PNG, ICO), mask-icon and Apple touch icon for improved browser/device support.
+- Updated site.webmanifest with 192x192 and 512x512 app icons for PWA compatibility.
+- Added msapplication tile metadata for Windows tiles.
+- Certificate: "Building with the Claude API" (Anthropic) added to CV data with verification link.
+- Certificate links: added Azure AZ-900 verification URL and Skilljar verification URL; JLPT N5 set to null (no link).
+- Certifications component updated to make entries clickable when a URL is provided.
+
+### Changed
+
+- Layout and legacy index updated to reference new favicon assets and PWA metadata.
+- Minor SEO/metadata improvements related to favicons and manifest integration.
 
 ---
+
 
 ## [1.0.2] - 2026-06-22
 
