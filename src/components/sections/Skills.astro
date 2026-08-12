@@ -4,16 +4,23 @@ import { skills } from '@cv'
 import { Icon } from 'astro-icon/components'
 
 // Sort skills alphabetically then group by level, with Beginner/Intermediate first
-const orderedLevels = ['Beginner', 'Intermediate']
-const sortedSkills = skills.slice().sort((a, b) => a.name.localeCompare(b.name))
+type Skill = {
+  name: string
+  icon?: string
+  level?: string
+  keywords?: string[]
+}
+
+const orderedLevels: string[] = ['Beginner', 'Intermediate']
+const sortedSkills = skills.slice().sort((a, b) => a.name.localeCompare(b.name)) as Skill[]
 const grouped = sortedSkills.reduce((acc, s) => {
   const lvl = s.level || 'Other'
   if (!acc[lvl]) acc[lvl] = []
   acc[lvl].push(s)
   return acc
-}, {})
-const levels = [
-  ...orderedLevels.filter((l) => grouped[l]),
+}, {} as Record<string, Skill[]>)
+const levels: string[] = [
+  ...orderedLevels.filter((l) => Boolean(grouped[l])),
   ...Object.keys(grouped).filter((l) => !orderedLevels.includes(l))
 ]
 ---
@@ -30,7 +37,7 @@ const levels = [
         </div>
 
         <ul class="inline-flex flex-wrap gap-3 mt-2 print:mt-4 [&>li>svg]:text-skin-hue">
-          {grouped[level].map(({ name, icon, level: lvl }) => (
+          {grouped[level].map(({ name, icon, level: lvl }: Skill) => (
             <li
               class="
                 group relative flex items-center gap-1.5
@@ -110,7 +117,7 @@ const levels = [
               place-items-center
             "
           >
-            {grouped[level].map(({ name, icon, level: lvl, keywords }, index) => (
+            {grouped[level].map(({ name, icon, level: lvl, keywords }: Skill, index: number) => (
               <div class="skill-item group relative flex items-center justify-center">
                 <button
                   class={`
@@ -193,9 +200,9 @@ const levels = [
                       </span>
                     </div>
 
-                    {keywords?.length > 0 && (
+                    {(keywords ?? []).length > 0 && (
                       <div class="flex flex-wrap gap-1.5 pt-1">
-                        {keywords.slice(0, 4).map((keyword) => (
+                        {(keywords ?? []).slice(0, 4).map((keyword: string) => (
                           <span
                             class="
                               rounded-full px-2.5 py-0.5

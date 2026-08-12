@@ -5,9 +5,15 @@ All notable changes to this portfolio are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased - 2026-08-11
+## Unreleased
 
-- Preparing next patch release.
+---
+
+## [1.0.5] - 2026-08-11
+
+### Fixed
+
+- TypeScript: resolved implicit any and indexing errors in src/components/sections/Skills.astro by adding a Skill type, typing grouped collections and map callbacks, and guarding optional keywords. Validated with `npx astro check`.
 
 ---
 
@@ -28,7 +34,6 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Minor SEO/metadata improvements related to favicons and manifest integration.
 
 ---
-
 
 ## [1.0.2] - 2026-06-22
 

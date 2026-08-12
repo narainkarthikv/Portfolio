@@ -146,11 +146,7 @@
       "name": "Azure",
       "icon": "simple-icons:microsoftazure",
       "level": "Beginner",
-      "keywords": [
-        "Cloud Computing",
-        "Backend",
-        "Infrastructure"
-      ]
+      "keywords": ["Cloud Computing", "Backend", "Infrastructure"]
     },
     {
       "name": "Bootstrap",
@@ -178,11 +174,7 @@
       "name": "Confluence",
       "icon": "simple-icons:confluence",
       "level": "Intermediate",
-      "keywords": [
-        "Documentation",
-        "Collaboration",
-        "Knowledge Management"
-      ]
+      "keywords": ["Documentation", "Collaboration", "Knowledge Management"]
     },
     {
       "name": "GitHub Copilot",
@@ -198,198 +190,115 @@
       "name": "CSS3",
       "icon": "ri:css3-fill",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "Responsive Design"
-      ]
+      "keywords": ["Web Development", "Frontend", "Responsive Design"]
     },
     {
       "name": "Docker",
       "icon": "mdi:docker",
       "level": "Beginner",
-      "keywords": [
-        "Virtual Environments",
-        "Containerization",
-        "Backend"
-      ]
+      "keywords": ["Virtual Environments", "Containerization", "Backend"]
     },
     {
       "name": "Express",
       "icon": "simple-icons:express",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Backend",
-        "JavaScript",
-        "Server"
-      ]
+      "keywords": ["Web Development", "Backend", "JavaScript", "Server"]
     },
     {
       "name": "Figma",
       "icon": "simple-icons:figma",
       "level": "Beginner",
-      "keywords": [
-        "Prototyping",
-        "Web Development",
-        "Frontend"
-      ]
+      "keywords": ["Prototyping", "Web Development", "Frontend"]
     },
     {
       "name": "GCP",
       "icon": "simple-icons:googlecloud",
       "level": "Beginner",
-      "keywords": [
-        "Cloud Computing",
-        "Backend",
-        "Infrastructure"
-      ]
+      "keywords": ["Cloud Computing", "Backend", "Infrastructure"]
     },
     {
       "name": "Git",
       "icon": "mdi:git",
       "level": "Intermediate",
-      "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code"
-      ]
+      "keywords": ["Version Control", "Collaboration", "Source Code"]
     },
     {
       "name": "GitHub",
       "icon": "mdi:github",
       "level": "Intermediate",
-      "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code",
-        "Git"
-      ]
+      "keywords": ["Version Control", "Collaboration", "Source Code", "Git"]
     },
     {
       "name": "GitHub Actions",
       "icon": "simple-icons:githubactions",
       "level": "Beginner",
-      "keywords": [
-        "CI/CD",
-        "Automation",
-        "DevOps"
-      ]
+      "keywords": ["CI/CD", "Automation", "DevOps"]
     },
     {
       "name": "HTML5",
       "icon": "simple-icons:html5",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend"
-      ]
+      "keywords": ["Web Development", "Frontend"]
     },
     {
       "name": "JavaScript",
       "icon": "simple-icons:javascript",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "Backend",
-        "Fullstack"
-      ]
+      "keywords": ["Web Development", "Frontend", "Backend", "Fullstack"]
     },
     {
       "name": "Jira",
       "icon": "simple-icons:jira",
       "level": "Intermediate",
-      "keywords": [
-        "Project Management",
-        "Issue Tracking",
-        "Agile"
-      ]
+      "keywords": ["Project Management", "Issue Tracking", "Agile"]
     },
     {
       "name": "Kubernetes",
       "icon": "mdi:kubernetes",
       "level": "Beginner",
-      "keywords": [
-        "Virtual Environments",
-        "Backend",
-        "Container Orchestration"
-      ]
+      "keywords": ["Virtual Environments", "Backend", "Container Orchestration"]
     },
     {
       "name": "Linux",
       "icon": "simple-icons:linux",
       "level": "Intermediate",
-      "keywords": [
-        "OS",
-        "Scripting",
-        "Automation"
-      ]
+      "keywords": ["OS", "Scripting", "Automation"]
     },
     {
       "name": "MongoDB",
       "icon": "simple-icons:mongodb",
       "level": "Intermediate",
-      "keywords": [
-        "Databases",
-        "Data Storage",
-        "Backend"
-      ]
+      "keywords": ["Databases", "Data Storage", "Backend"]
     },
     {
       "name": "MUI",
       "icon": "simple-icons:mui",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "React",
-        "UI Library"
-      ]
+      "keywords": ["Web Development", "Frontend", "React", "UI Library"]
     },
     {
       "name": "NodeJS",
       "icon": "ri:nodejs-line",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Backend",
-        "JavaScript",
-        "Server"
-      ]
+      "keywords": ["Web Development", "Backend", "JavaScript", "Server"]
     },
     {
       "name": "PostgreSQL",
       "icon": "simple-icons:postgresql",
       "level": "Beginner",
-      "keywords": [
-        "Backend",
-        "Databases",
-        "SQL",
-        "Relational Database"
-      ]
+      "keywords": ["Backend", "Databases", "SQL", "Relational Database"]
     },
     {
       "name": "Postman",
       "icon": "simple-icons:postman",
       "level": "Intermediate",
-      "keywords": [
-        "API",
-        "Testing",
-        "Web Development",
-        "Backend"
-      ]
+      "keywords": ["API", "Testing", "Web Development", "Backend"]
     },
     {
       "name": "React",
       "icon": "simple-icons:react",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "JavaScript",
-        "Library"
-      ]
+      "keywords": ["Web Development", "Frontend", "JavaScript", "Library"]
     },
     {
       "name": "Tailwind",
@@ -406,21 +315,13 @@
       "name": "Typescript",
       "icon": "simple-icons:typescript",
       "level": "Beginner",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "Backend"
-      ]
+      "keywords": ["Web Development", "Frontend", "Backend"]
     },
     {
       "name": "Wordpress",
       "icon": "simple-icons:wordpress",
       "level": "Beginner",
-      "keywords": [
-        "CMS",
-        "Web Development",
-        "Content Management"
-      ]
+      "keywords": ["CMS", "Web Development", "Content Management"]
     }
   ],
   "languages": [
@@ -576,9 +477,7 @@
           "🧠 Dual-layer cache with retry logic for resilience.",
           "🔄 SWR pattern for efficient data fetching and revalidation."
         ],
-        "DX": [
-          "🧩 Modular hooks and clear documentation for maintainability."
-        ],
+        "DX": ["🧩 Modular hooks and clear documentation for maintainability."],
         "UX": [
           "⚡ Instant filtering with consistent card layout for easy browsing."
         ]
@@ -616,9 +515,7 @@
         "DX": [
           "🚀 Semantic release and rich CLI scripts for smooth development cycles."
         ],
-        "UX": [
-          "🧭 Guided assembly with responsive UI for better readability."
-        ]
+        "UX": ["🧭 Guided assembly with responsive UI for better readability."]
       },
       "highlights": [
         "🧩 Template-driven UI",
