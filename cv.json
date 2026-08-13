@@ -76,12 +76,20 @@
     {
       "name": "JLPT N5",
       "date": "2023-12-01",
-      "issuer": "JLPT"
+      "issuer": "JLPT",
+      "url": null
     },
     {
       "name": "Microsoft Certified: Azure Fundamentals (AZ-900)",
       "date": "2026-01-10",
-      "issuer": "Microsoft"
+      "issuer": "Microsoft",
+      "url": "https://learn.microsoft.com/en-us/users/narainkarthikv/credentials/540978823a46967f?ref=https%3A%2F%2Fwww.linkedin.com%2F"
+    },
+    {
+      "name": "Building with the Claude API",
+      "date": "2026-05-16",
+      "issuer": "Anthropic",
+      "url": "https://verify.skilljar.com/c/jt3ss2eqg9g5"
     }
   ],
   "work": [
@@ -135,12 +143,6 @@
   ],
   "skills": [
     {
-      "name": "Astro",
-      "icon": "simple-icons:astro",
-      "level": "Beginner",
-      "keywords": ["Web Development", "Frontend", "SSR", "Static Generation"]
-    },
-    {
       "name": "Azure",
       "icon": "simple-icons:microsoftazure",
       "level": "Beginner",
@@ -158,10 +160,31 @@
       ]
     },
     {
+      "name": "Claude",
+      "icon": "simple-icons:claude",
+      "level": "Intermediate",
+      "keywords": [
+        "AI assistant development",
+        "Developer tooling",
+        "Prompt Engineering",
+        "LLMs"
+      ]
+    },
+    {
       "name": "Confluence",
       "icon": "simple-icons:confluence",
-      "level": "Beginner",
+      "level": "Intermediate",
       "keywords": ["Documentation", "Collaboration", "Knowledge Management"]
+    },
+    {
+      "name": "GitHub Copilot",
+      "icon": "simple-icons:githubcopilot",
+      "level": "Intermediate",
+      "keywords": [
+        "AI assistant development",
+        "Developer tooling",
+        "Code completion"
+      ]
     },
     {
       "name": "CSS3",
@@ -206,12 +229,6 @@
       "keywords": ["Version Control", "Collaboration", "Source Code", "Git"]
     },
     {
-      "name": "GitLab",
-      "icon": "simple-icons:gitlab",
-      "level": "Beginner",
-      "keywords": ["Version Control", "Collaboration", "Source Code", "Git"]
-    },
-    {
       "name": "GitHub Actions",
       "icon": "simple-icons:githubactions",
       "level": "Beginner",
@@ -224,16 +241,16 @@
       "keywords": ["Web Development", "Frontend"]
     },
     {
-      "name": "Jira",
-      "icon": "simple-icons:jira",
-      "level": "Intermediate",
-      "keywords": ["Project Management", "Issue Tracking", "Agile"]
-    },
-    {
       "name": "JavaScript",
       "icon": "simple-icons:javascript",
       "level": "Intermediate",
       "keywords": ["Web Development", "Frontend", "Backend", "Fullstack"]
+    },
+    {
+      "name": "Jira",
+      "icon": "simple-icons:jira",
+      "level": "Intermediate",
+      "keywords": ["Project Management", "Issue Tracking", "Agile"]
     },
     {
       "name": "Kubernetes",
@@ -248,16 +265,16 @@
       "keywords": ["OS", "Scripting", "Automation"]
     },
     {
-      "name": "MUI",
-      "icon": "simple-icons:mui",
-      "level": "Intermediate",
-      "keywords": ["Web Development", "Frontend", "React", "UI Library"]
-    },
-    {
       "name": "MongoDB",
       "icon": "simple-icons:mongodb",
       "level": "Intermediate",
       "keywords": ["Databases", "Data Storage", "Backend"]
+    },
+    {
+      "name": "MUI",
+      "icon": "simple-icons:mui",
+      "level": "Intermediate",
+      "keywords": ["Web Development", "Frontend", "React", "UI Library"]
     },
     {
       "name": "NodeJS",
@@ -299,12 +316,6 @@
       "icon": "simple-icons:typescript",
       "level": "Beginner",
       "keywords": ["Web Development", "Frontend", "Backend"]
-    },
-    {
-      "name": "Windows",
-      "icon": "simple-icons:windows",
-      "level": "Intermediate",
-      "keywords": ["OS", "Desktop"]
     },
     {
       "name": "Wordpress",
