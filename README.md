@@ -2,132 +2,114 @@
 [![Deploy static content to Pages](https://github.com/narainkarthikv/Portfolio/actions/workflows/static.yml/badge.svg)](https://github.com/narainkarthikv/Portfolio/actions/workflows/static.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
-<h3 align="center">
-  Join the Community & Let's Build Something Great!
-</h3>
+# Personal Portfolio — Quick, Interactive Guide
 
-<p align="center">
-  <a href="https://ko-fi.com/wisdom-fox" target="_blank"><img src="https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white"></a>
-  <a href="https://www.patreon.com/user?u=72747187" target="_blank"><img src="https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white"></a>
-  <a href="https://discord.gg/cb6tqTfk" target="_blank"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"></a>
-</p>
+Welcome! This repo is a modern, static portfolio built with Astro and optimized for fast, accessible delivery. The sections below make it easy to get the code running locally, build for production, and contribute.
 
-![](https://komarev.com/ghpvc/?username=narainkarthikv&color=brightgreen)
+---
 
-## 👨‍💻 About Me
+## 🚀 Quick Links
+- Live site: https://narainkarthikv.com
+- Portfolio preview (Pages): https://narainkarthikv.github.io/Portfolio
+- CI: .github/workflows/static.yml
 
-I'm a **passionate full-stack creator** bringing ideas to life through **modern web development**, **stunning UI/UX design**, and **engaging content creation**. Balancing technical excellence with creative innovation.
+---
 
-**My Expertise:**
+## 🧰 Prerequisites
+- Node.js >= 18.x
+- npm >= 9.x (or yarn / pnpm)
+- (Optional) Git for cloning
 
-- 🌐 **Web Developer** — Building fast, responsive, and user-friendly applications
-- 🎨 **UI/UX Designer** — Crafting beautiful, intuitive digital experiences
-- 📹 **Content Creator** — Sharing knowledge and inspiration with the community
-- 🛠️ **Electronics Enthusiast** — Tinkering with hardware in my spare time
-- 📚 **Lifelong Learner** — Constant explorer of new technologies and creative mediums
+Check Node: `node -v`  •  Check npm: `npm -v`
 
-**When I'm not coding:** You'll find me reading books, jamming to podcasts & music, enjoying great films, or crushing it in the gaming world! 🎮
+---
 
-## 🎯 What I'm Doing Right Now
-
-🔥 **Currently:** Crafting powerful solutions in **Content Creation**, **Web Development**, and **UI/UX Design**  
-📖 **Learning:** Diving deep into **Linux systems** and **Electronics** – they're absolute game-changers!  
-🤝 **Open to:** Collaborating on creative projects that push boundaries and solve real problems  
-⚡ **Pro Tip:** Linux > Windows (seriously, the productivity boost is real! 😄)
-
-<details>
-  
-<summary>Want the Full Picture? 🔎 Expand Below</summary>
-
-<h3 align="center">
-  🌐 Connect With Me
-</h3>
-
-  <p align="center">
-      <a href="https://www.linkedin.com/in/narainkarthik-vellingiri/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" style="border-radius: 20px"></a>
-      <a href="https://narainkarthikv.github.io/Portfolio" target="_blank"><img src="https://img.shields.io/badge/Portfolio-%23000000.svg?style=for-the-badge&logo=firefox&logoColor=#FF7139" style="border-radius: 20px"></a>
-      <a href="https://www.gitlab.com/narainkarthikv" target="_blank"><img src="https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white" style="border-radius: 20px"></a>
-      <a href="https://leetcode.com/Narainkarthik31/" target="_blank"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black" style="border-radius: 20px"></a>
-      <a href="https://www.codechef.com/users/narainv" target="_blank"> <a href="https://www.geeksforgeeks.org/user/narainkarthik812/" target="_blank"><img src="https://img.shields.io/badge/GeeksforGeeks-298D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white" style="border-radius: 20px"></a>
-      <a href="https://www.codingninjas.com/studio/profile/Narainkarthikv" target="_blank"><img src="https://img.shields.io/badge/Coding%20Ninjas-DD6620?style=for-the-badge&logo=codingninjas&logoColor=white" style="border-radius: 20px"></a>
-      <a href="https://steamcommunity.com/profiles/76561199130656975/" target="_blank"><img src="https://img.shields.io/badge/Steam-000000?style=for-the-badge&logo=steam&logoColor=white" style="border-radius: 20px"></a>
-      <a href="https://open.spotify.com/user/31kjez2sc5umwskdatczxceb3xdi?si=gM0fW9oQRkuFm7W3UuCE8A&nd=1" target="_blank"><img src="https://img.shields.io/badge/Spotify-1ED760?&style=for-the-badge&logo=spotify&logoColor=white" style="border-radius: 20px"></a>
-  </p>
-
-<h3 align="center">
-  ⚡ My Tech Arsenal
-</h3>
-
-<p align="center">
-  <table align="center">
-  <tr>
-    <td><b>🎨 Frontend</b></td>
-    <td><img src="https://skillicons.dev/icons?i=html,css,javascript,astro,react,figma,bootstrap,materialui,tailwind" /></td>
-  </tr>
-  <tr>
-    <td><b>⚡ Backend & Cloud</b></td>
-    <td><img src="https://skillicons.dev/icons?i=nodejs,express,azure,gcp,mongodb,firebase,postgres" /></td>
-  </tr>
-  <tr>
-    <td><b>🛠️ DevOps & Tools</b></td>
-    <td><img src="https://skillicons.dev/icons?i=git,github,gitlab,githubactions,docker,kubernetes,ansible,linux" /></td>
-  </tr>
-</table>
-</p>
-
-<h3 align="center">
-  ✨ Showcase
-</h3>
-
-<p align="center">
-  <a href="https://fitprogressr.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/fitprogressr.jpg" height="75px" width="75px" target="_blank"/></a>
-  <a href="https://ownlyst.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/ownlyst.jpg" height="75px" width="75px" target="_blank"/></a>
-  <a href="https://nmoji.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/nmoji.jpg" height="75px" width="75px" target="_blank"/></a>
-  <a href="https://contribution-cards.netlify.app/"> <img src="https://github.com/narainkarthikv/narainkarthikv/blob/main/assets/images/contribution-cards.jpg" height="75px" width="75px" target="_blank"/></a>
-</p>
-
-## 📦 About This Project
-
-A **dynamic personal portfolio site** showcasing my projects, skills, and digital identity. Automatically deployed to **GitHub Pages** with modern tooling and best practices.
-
-## 🎮 Quick Start
-
-**View the live site:**
-
-- 🌍 https://narainkarthikv.com
-
-**Run locally for development:**
+## 🛠️ Interactive Setup (copy-paste)
+1) Clone and install dependencies:
 
 ```bash
-# Option 1: Python's built-in server
-python -m http.server 8080
-
-# Option 2: Node.js with serve
-npx serve .
-
-# Option 3: If serving from legacy/ directory
-npx serve legacy
+git clone https://github.com/narainkarthikv/Portfolio.git
+cd Portfolio
+npm install
 ```
 
-Then open http://localhost:8080 in your browser and start exploring! 🚀
+2) Start the dev server (hot reload):
 
-## ⚙️ Tech Stack
+```bash
+npm run dev
+# opens at http://localhost:4321
+```
 
-**Architecture:** Clean static HTML/CSS/JavaScript structure  
-**Deployment:** Automated via **GitHub Actions** (`.github/workflows/static.yml`)  
-**Hosting:** **GitHub Pages** with source from `./legacy/` directory  
-**Build Quality:** Production-ready and optimized for performance
+3) Build for production:
 
-## 🤝 Join the Effort
+```bash
+npm run build
+```
 
-Want to contribute? We'd love your input! Check out:
+4) Preview the production build locally:
 
-- 📋 **[CONTRIBUTING.md](CONTRIBUTING.md)** — Guidelines for making an impact
-- 🏛️ **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** — Community standards we uphold
-- 🐛 **[Issue Templates]** — Quick ways to report bugs or suggest features
+```bash
+npm run preview
+# serves the built site (default port printed by the command)
+```
 
-## 📚 What's Changed?
+5) Run the type/astro check (optional but recommended):
 
-For a detailed history of updates, releases, and improvements:
+```bash
+npx astro check
+```
 
-- 🔍 See **[CHANGELOG.md](CHANGELOG.md)** for the complete story
+Notes:
+- If the site is served from the legacy folder for GitHub Pages, you can preview that output with `npx serve legacy` or `python -m http.server` as a fallback.
+
+---
+
+## 🔎 Project Structure (at-a-glance)
+
+- src/ — components, layouts, pages
+  - components/sections — page sections (Hero, About, Projects, etc.)
+  - layouts/ — global layout wrappers
+  - lib/ — small utilities (e.g., contextCursor)
+- public/ — static assets (images, icons)
+- cv.json — primary content used by the site
+- legacy/ — static export used for GitHub Pages (if present)
+- package.json — scripts & dependencies
+- astro.config.mjs — Astro configuration
+
+---
+
+## 🧪 Useful npm Scripts
+- `npm run dev` — local dev server (Astro)
+- `npm run build` — build static output
+- `npm run preview` — preview built output
+- `npm run format` — (if configured) format code
+- `npx astro check` — type and config checks
+
+---
+
+## ✅ Deploying
+This repo uses GitHub Actions to build and deploy static content. The workflow `.github/workflows/static.yml` builds the site and pushes the output to the configured Pages branch or directory.
+
+If using a different host (Vercel, Netlify, Cloudflare Pages) deploy the `dist/` output or connect the repository directly to the platform.
+
+---
+
+## 🛠 Troubleshooting — Quick tips
+- Dev server not starting: confirm Node and npm versions and re-run `npm install`.
+- Broken styles: run a fresh build `npm run build` and `npm run preview` to inspect compiled output.
+- Missing images/assets: ensure files exist in `public/` and paths used in components are correct.
+
+---
+
+## 🤝 Contributing
+Contributions are welcome. Please check [CONTRIBUTING.md](CONTRIBUTING.md) and open an issue or PR. Remember to run `npm run build` before submitting changes that affect the UI.
+
+---
+
+## 📜 License
+MIT — see [LICENSE](LICENSE)
+
+---
+
+Happy hacking — explore the src/ components for small, focused sections and follow the interactive steps above to run and test locally.
+
