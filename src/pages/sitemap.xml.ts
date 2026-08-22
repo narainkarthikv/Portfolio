@@ -1,10 +1,11 @@
 export async function GET() {
-  const site = import.meta.env.SITE ?? '';
+  const site = import.meta.env.SITE || 'https://narainkarthikv.com';
   const base = site.replace(/\/$/, '');
 
   const pages = [
     { url: '/', priority: 1.0 },
     { url: '/blog', priority: 0.6 },
+    { url: '/narainkarthik-cv.pdf', priority: 0.4 },
   ];
 
   const lastmod = new Date().toISOString();

@@ -8,24 +8,27 @@ interface Props {
   image?: string;
   pathname?: string;
   keywords?: string[];
+  noindex?: boolean;
 }
 
-const { name, fullName, alternateName, summary, image, url, profiles } = basics;
+const { name, fullName, alternateName, url, profiles } = basics;
 
-const site = Astro.site ?? import.meta.env.SITE ?? url ?? '';
+const site = String(Astro.site ?? import.meta.env.SITE ?? url ?? 'https://narainkarthikv.com').replace(/\/$/, '');
 
 const props = Astro.props as Props;
-const title = props.title ?? `${fullName ?? name} - Portfolio`;
-const description = props.description ?? summary ?? `${name} – Portfolio`;
-const imagePath = props.image ?? image ?? '/pfp.webp';
-const canonical = `${String(site).replace(/\/$/, '')}${props.pathname ?? '/'}`;
+const title = props.title ?? `${fullName ?? name} — Portfolio`;
+const description = props.description ?? 'Narainkarthik Vellingiri, also known as Narain Karthik Vellingiri, is a Full Stack Developer and Cloud & DevOps Enthusiast building scalable web apps with React, Node.js, Express, Azure and GCP. View selected work, experience, and technical projects.';
+const imagePath = props.image ?? '/og-image.jpg';
+const imageUrl = `${site}${imagePath.startsWith('/') ? imagePath : `/${imagePath}`}`;
+const canonical = `${site}${props.pathname ?? '/'}`;
+const robots = props.noindex ? 'noindex,follow' : 'index,follow';
 
 // build keywords from skills
 const keywords = props.keywords ?? skills?.flatMap((s: any) => s.keywords ?? [s.name]) ?? [];
-const identityKeywords = [name, fullName, ...(alternateName ?? []), 'portfolio', 'full-stack developer', 'frontend developer', 'cloud', 'devops'];
+const identityKeywords = [name, fullName, 'Narainkarthik Vellingiri', ...(alternateName ?? []), 'portfolio', 'full-stack developer', 'frontend developer', 'cloud', 'devops'];
 const combinedKeywords = Array.from(new Set([...identityKeywords, ...keywords])).filter(Boolean);
 
-const twitterProfile = (profiles || []).find(
+const twitterProfile = [...(profiles || []), ...(basics.keyboardProfiles || [])].find(
   (p: any) => p.network.toLowerCase().includes('twitter') || p.network.toLowerCase().includes('x')
 );
 
@@ -35,12 +38,13 @@ const ld = {
   "@graph": [
     {
       "@type": "Person",
-      "name": name,
+      "name": fullName ?? name,
       "alternateName": alternateName ?? fullName ?? undefined,
       "url": site,
-  "image": String(site).replace(/\/$/, '') + imagePath,
+      "image": imageUrl,
       "jobTitle": basics.label ?? undefined,
       "description": description,
+      "knowsAbout": ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Azure', 'GCP', 'Docker'],
       "address": basics.location ? {
         "@type": "PostalAddress",
         "addressLocality": basics.location.city,
@@ -52,7 +56,7 @@ const ld = {
     {
       "@type": "WebSite",
       "url": String(site),
-      "name": name,
+      "name": `${fullName ?? name} Portfolio`,
       "description": description,
     },
     ...(projects || []).slice(0, 10).map((p: any) => ({
@@ -73,14 +77,14 @@ const ldJson = JSON.stringify(ld).replace(/</g, '\u003c');
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#0ea5e9" />
 <meta name="author" content={fullName ?? name} />
-<meta name="robots" content="index,follow" />
+<meta name="robots" content={robots} />
 <meta name="color-scheme" content="light dark" />
 <meta name="application-name" content={fullName ?? name} />
 <meta name="apple-mobile-web-app-title" content={fullName ?? name} />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <meta name="format-detection" content="telephone=no" />
 <link rel="canonical" href={canonical.trim()} />
-<link rel="preload" as="image" href={String(site).replace(/\/$/, '') + imagePath} />
+<link rel="preload" as="image" href={imageUrl} />
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US" />
@@ -89,18 +93,21 @@ const ldJson = JSON.stringify(ld).replace(/</g, '\u003c');
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonical.trim()} />
-<meta property="og:image" content={String(site).replace(/\/$/, '') + imagePath} />
-<meta property="og:image:alt" content={`${fullName ?? name} profile image`} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={`${fullName ?? name} — Full Stack Developer | Cloud & DevOps Enthusiast`} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/jpeg" />
 
 <!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
 {twitterProfile && (
   <>
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content={twitterProfile.url ?? ''} />
-    <meta name="twitter:creator" content={twitterProfile.username ?? ''} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={String(site).replace(/\/$/, '') + imagePath} />
+    <meta name="twitter:site" content={twitterProfile.username ? `@${twitterProfile.username}` : undefined} />
+    <meta name="twitter:creator" content={twitterProfile.username ? `@${twitterProfile.username}` : undefined} />
   </>
 )}
 

@@ -9,6 +9,26 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ---
 
+## [1.1.0] - 2026-08-22
+
+### Added
+
+- Added shared page metadata for descriptive titles, canonical URLs, Open Graph previews, Twitter Cards, and JSON-LD Person/WebSite structured data.
+- Added a branded 1200×630 social preview image for link sharing.
+- Added Vercel-compatible `/robots.txt` and `/sitemap.xml` routes, including the portfolio, blog, and CV.
+- Added a custom noindex `/404` page with links back to the portfolio and blog.
+
+### Changed
+
+- Updated the homepage identity and SEO copy to use “Full Stack Developer | Cloud & DevOps Enthusiast”.
+- Updated the homepage E2E smoke test to match the intentional full-name heading and SEO title.
+
+### Fixed
+
+- Removed project-specific fallback description wording so shared metadata stays relevant to the portfolio as projects change.
+
+[1.1.0]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.1.0
+
 ## [1.0.5] - 2026-08-11
 
 ### Fixed
