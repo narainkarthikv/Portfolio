@@ -10,6 +10,7 @@ const {
   animated_secondary_final_label,
   image,
   location,
+  fullName,
 } = basics
 const { city, region } = location
 ---
@@ -41,11 +42,11 @@ const { city, region } = location
         <div class="flex flex-col items-center">
           <h1
             id="heroName"
-            data-default-value={name}
+            data-default-value={fullName ?? name}
             data-luffy-value="ナラインカルティク"
             class="hover:hover-grad-text font-semibold"
           >
-            {name}
+            {fullName ?? name}
           </h1>
           <div class="overflow-hidden mt-1">
             <div class="font-roboto-condensed font-bold lowercase text-xl lg:text-[1rem] lg:leading-[1rem]">

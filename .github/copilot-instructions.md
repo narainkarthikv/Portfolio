@@ -9,7 +9,7 @@ Follow this document as the single source of truth for understanding the codebas
 
 ## Repository Summary
 
-**Personal Portfolio** is a modern, responsive web application built with Astro, showcasing professional experience, skills, projects, and achievements. It serves as a digital resume and portfolio for Narain Karthik Vellingiri, a Full-Stack Developer.
+**Personal Portfolio** is a modern, responsive web application built with Astro, showcasing professional experience, skills, projects, and achievements. It serves as a digital resume and portfolio for Narainkarthik Vellingiri, a Full-Stack Developer.
 
 Key features:
 

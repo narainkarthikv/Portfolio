@@ -9,6 +9,7 @@ Welcome! This repo is a modern, static portfolio built with Astro and optimized 
 ---
 
 ## 🚀 Quick Links
+
 - Live site: https://narainkarthikv.com
 - Portfolio preview (Pages): https://narainkarthikv.github.io/Portfolio
 - CI: .github/workflows/static.yml
@@ -16,16 +17,18 @@ Welcome! This repo is a modern, static portfolio built with Astro and optimized 
 ---
 
 ## 🧰 Prerequisites
+
 - Node.js >= 18.x
 - npm >= 9.x (or yarn / pnpm)
 - (Optional) Git for cloning
 
-Check Node: `node -v`  •  Check npm: `npm -v`
+Check Node: `node -v` • Check npm: `npm -v`
 
 ---
 
 ## 🛠️ Interactive Setup (copy-paste)
-1) Clone and install dependencies:
+
+1. Clone and install dependencies:
 
 ```bash
 git clone https://github.com/narainkarthikv/Portfolio.git
@@ -33,33 +36,34 @@ cd Portfolio
 npm install
 ```
 
-2) Start the dev server (hot reload):
+2. Start the dev server (hot reload):
 
 ```bash
 npm run dev
 # opens at http://localhost:4321
 ```
 
-3) Build for production:
+3. Build for production:
 
 ```bash
 npm run build
 ```
 
-4) Preview the production build locally:
+4. Preview the production build locally:
 
 ```bash
 npm run preview
 # serves the built site (default port printed by the command)
 ```
 
-5) Run the type/astro check (optional but recommended):
+5. Run the type/astro check (optional but recommended):
 
 ```bash
 npx astro check
 ```
 
 Notes:
+
 - If the site is served from the legacy folder for GitHub Pages, you can preview that output with `npx serve legacy` or `python -m http.server` as a fallback.
 
 ---
@@ -79,6 +83,7 @@ Notes:
 ---
 
 ## 🧪 Useful npm Scripts
+
 - `npm run dev` — local dev server (Astro)
 - `npm run build` — build static output
 - `npm run preview` — preview built output
@@ -88,6 +93,7 @@ Notes:
 ---
 
 ## ✅ Deploying
+
 This repo uses GitHub Actions to build and deploy static content. The workflow `.github/workflows/static.yml` builds the site and pushes the output to the configured Pages branch or directory.
 
 If using a different host (Vercel, Netlify, Cloudflare Pages) deploy the `dist/` output or connect the repository directly to the platform.
@@ -95,6 +101,7 @@ If using a different host (Vercel, Netlify, Cloudflare Pages) deploy the `dist/`
 ---
 
 ## 🛠 Troubleshooting — Quick tips
+
 - Dev server not starting: confirm Node and npm versions and re-run `npm install`.
 - Broken styles: run a fresh build `npm run build` and `npm run preview` to inspect compiled output.
 - Missing images/assets: ensure files exist in `public/` and paths used in components are correct.
@@ -102,14 +109,15 @@ If using a different host (Vercel, Netlify, Cloudflare Pages) deploy the `dist/`
 ---
 
 ## 🤝 Contributing
+
 Contributions are welcome. Please check [CONTRIBUTING.md](CONTRIBUTING.md) and open an issue or PR. Remember to run `npm run build` before submitting changes that affect the UI.
 
 ---
 
 ## 📜 License
+
 MIT — see [LICENSE](LICENSE)
 
 ---
 
 Happy hacking — explore the src/ components for small, focused sections and follow the interactive steps above to run and test locally.
-

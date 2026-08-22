@@ -7,10 +7,13 @@ import SEO from '../components/SEO.astro'
 
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
   pathname?: string;
+  noindex?: boolean;
 }
 
-const { title, pathname } = Astro.props as Props;
+const { title, description, image, pathname, noindex } = Astro.props as Props;
 
 const { theme } = CV.basics;
 ---
@@ -19,7 +22,7 @@ const { theme } = CV.basics;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <SEO title={title} pathname={pathname ?? '/'} />
+    <SEO title={title} description={description} image={image} pathname={pathname ?? '/'} noindex={noindex} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

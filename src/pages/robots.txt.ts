@@ -9,10 +9,8 @@ export function GET() {
   const robots = [
     'User-agent: *',
     'Allow: /',
-    'Disallow: /admin',
     '',
     `Sitemap: ${sitemap}`,
-    `Host: ${base}`,
     '',
   ].join('\n');
 
