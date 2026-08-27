@@ -40,6 +40,7 @@ interface Profiles {
   network: string;
   username: string;
   url: URL;
+  color?: string;
 }
 
 interface Work {
