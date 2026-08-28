@@ -37,7 +37,7 @@ const { className } = Astro.props;
       certificates.map(({ name, date, issuer, url }) => (
         (url ? (
           <a href={url} target="_blank" rel="noopener noreferrer" class="block">
-            <div class="certificate-card group relative overflow-hidden rounded-lg border border-skin-muted bg-skin-card px-4 py-3 transition-all duration-300 hover:border-skin-hue hover:shadow-lg">
+            <div data-ccursor="lift" class="certificate-card group relative overflow-hidden rounded-lg border border-skin-muted bg-skin-card px-4 py-3 transition-all duration-300 hover:border-skin-hue hover:shadow-lg">
               <div class="absolute inset-0 -z-10 bg-gradient-to-r from-skin-hue/10 to-skin-hue/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div class="absolute inset-0 -z-20 overflow-hidden rounded-lg">
                 <div class="absolute inset-0 bg-gradient-to-br from-skin-hue/20 via-transparent to-skin-hue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
@@ -71,7 +71,7 @@ const { className } = Astro.props;
             </div>
           </a>
         ) : (
-          <div class="certificate-card group relative overflow-hidden rounded-lg border border-skin-muted bg-skin-card px-4 py-3 transition-all duration-300 hover:border-skin-hue hover:shadow-lg">
+          <div data-ccursor="lift" class="certificate-card group relative overflow-hidden rounded-lg border border-skin-muted bg-skin-card px-4 py-3 transition-all duration-300 hover:border-skin-hue hover:shadow-lg">
             <div class="absolute inset-0 -z-10 bg-gradient-to-r from-skin-hue/10 to-skin-hue/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             <div class="absolute inset-0 -z-20 overflow-hidden rounded-lg">
               <div class="absolute inset-0 bg-gradient-to-br from-skin-hue/20 via-transparent to-skin-hue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />

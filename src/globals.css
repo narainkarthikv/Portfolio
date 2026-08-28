@@ -237,11 +237,26 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-nvim-bg;
+    background: rgb(var(--color-fill));
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-nvim-gray rounded;
+    border: 2px solid rgb(var(--color-fill));
+    border-radius: 999px;
+    background: rgb(var(--color-button-accent)) !important;
+    background-clip: padding-box;
+    transition: background-color 200ms ease, border-color 200ms ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    border-color: rgb(var(--color-button-accent)) !important;
+    background: rgb(var(--color-button-accent)) !important;
+    background-clip: border-box;
+  }
+
+  html {
+    scrollbar-color: rgb(var(--color-button-accent)) rgb(var(--color-fill));
+    scrollbar-width: thin;
   }
   .modified-cursor-none {
     /* changed to allow default/native cursor (was hiding the cursor) */

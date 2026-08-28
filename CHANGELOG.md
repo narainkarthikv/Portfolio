@@ -9,6 +9,31 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ---
 
+## [1.2.0] - 2026-08-27
+
+### Added
+
+- Added previous and next arrow controls for project case-study tabs, with keyboard-accessible tab navigation.
+- Added contextual cursor interactions across links, cards, education, languages, certifications, project controls, and social links.
+- Added interactive Luffy FAB pointer movement, rubber-like stretching, jelly-style hover bouncing, click feedback, and launch effects.
+
+### Changed
+
+- Restored the custom animated cursor for desktop fine-pointer devices while preserving native cursors on touch and smaller-screen devices.
+- Updated social icons to use their individual brand colors from the profile data.
+- Updated the About summary with clearer portfolio and SEO-oriented wording.
+- Updated the scrollbar to follow the selected theme and use the theme accent color on hover.
+- Restored the compact display name in the hero while retaining `fullName` for SEO metadata.
+- Removed NodeJS from the main Skills section and kept HTML5, CSS3, JavaScript, and MongoDB out of Experience skills.
+
+### Fixed
+
+- Prevented the profile image from shrinking when the hero name wraps.
+- Removed cursor effects from dense Skills and project technology-chip areas where they reduced clarity.
+- Added cursor feedback to certification entries without verification links, including JLPT N5.
+
+[1.2.0]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.2.0
+
 ## [1.1.0] - 2026-08-22
 
 ### Added

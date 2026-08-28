@@ -16,7 +16,7 @@
     "image": "/pfp.webp",
     "email": "narainkarthik812@gmail.com",
     "url": "https://narainkarthikv.com/",
-    "summary": "Full-stack developer and Cloud/DevOps practitioner focused on scalable, high-performance applications.",
+    "summary": "Full-stack developer and Cloud/DevOps practitioner focused on building scalable, high-performance applications that deliver reliable, production-ready, seamless user experiences.",
     "theme": "blue",
     "location": {
       "city": "Coimbatore",
@@ -120,19 +120,18 @@
         "Azure": "simple-icons:microsoftazure",
         "Bootstrap": "simple-icons:bootstrap",
         "Confluence": "simple-icons:confluence",
-        "CSS3": "ri:css3-fill",
         "Docker": "mdi:docker",
         "Express": "simple-icons:express",
         "GCP": "simple-icons:googlecloud",
         "Git": "mdi:git",
         "GitHub": "mdi:github",
+        "GitHub Actions": "simple-icons:githubactions",
         "HTML5": "simple-icons:html5",
         "Jira": "simple-icons:jira",
         "JavaScript": "simple-icons:javascript",
         "Kubernetes": "mdi:kubernetes",
         "MUI": "simple-icons:mui",
         "MongoDB": "simple-icons:mongodb",
-        "NodeJS": "ri:nodejs-line",
         "PostgreSQL": "simple-icons:postgresql",
         "Postman": "simple-icons:postman",
         "React": "simple-icons:react",
@@ -196,7 +195,7 @@
     {
       "name": "Docker",
       "icon": "mdi:docker",
-      "level": "Beginner",
+      "level": "Intermediate",
       "keywords": ["Virtual Environments", "Containerization", "Backend"]
     },
     {
@@ -232,7 +231,7 @@
     {
       "name": "GitHub Actions",
       "icon": "simple-icons:githubactions",
-      "level": "Beginner",
+      "level": "Intermediate",
       "keywords": ["CI/CD", "Automation", "DevOps"]
     },
     {
@@ -278,12 +277,6 @@
       "keywords": ["Web Development", "Frontend", "React", "UI Library"]
     },
     {
-      "name": "NodeJS",
-      "icon": "ri:nodejs-line",
-      "level": "Intermediate",
-      "keywords": ["Web Development", "Backend", "JavaScript", "Server"]
-    },
-    {
       "name": "PostgreSQL",
       "icon": "simple-icons:postgresql",
       "level": "Beginner",
@@ -321,7 +314,7 @@
     {
       "name": "Wordpress",
       "icon": "simple-icons:wordpress",
-      "level": "Beginner",
+      "level": "Intermediate",
       "keywords": ["CMS", "Web Development", "Content Management"]
     }
   ],
