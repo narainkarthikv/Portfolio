@@ -17,7 +17,7 @@ const site = String(Astro.site ?? import.meta.env.SITE ?? url ?? 'https://narain
 
 const props = Astro.props as Props;
 const title = props.title ?? `${fullName ?? name} — Portfolio`;
-const description = props.description ?? 'Narainkarthik Vellingiri, also known as Narain Karthik Vellingiri, is a Full Stack Developer and Cloud & DevOps Enthusiast building scalable web apps with React, Node.js, Express, Azure and GCP. View selected work, experience, and technical projects.';
+const description = props.description ?? 'Narainkarthik Vellingiri, also known as Narain Karthik Vellingiri, is an Associate Software Developer building scalable web apps and cloud solutions with React, Node.js, Express, Azure, and GCP.';
 const imagePath = props.image ?? '/og-image.jpg';
 const imageUrl = `${site}${imagePath.startsWith('/') ? imagePath : `/${imagePath}`}`;
 const canonical = `${site}${props.pathname ?? '/'}`;
@@ -25,7 +25,7 @@ const robots = props.noindex ? 'noindex,follow' : 'index,follow';
 
 // build keywords from skills
 const keywords = props.keywords ?? skills?.flatMap((s: any) => s.keywords ?? [s.name]) ?? [];
-const identityKeywords = [name, fullName, 'Narainkarthik Vellingiri', ...(alternateName ?? []), 'portfolio', 'full-stack developer', 'frontend developer', 'cloud', 'devops'];
+const identityKeywords = [name, fullName, 'Narainkarthik Vellingiri', ...(alternateName ?? []), 'portfolio', 'associate software developer', 'frontend developer', 'cloud', 'devops'];
 const combinedKeywords = Array.from(new Set([...identityKeywords, ...keywords])).filter(Boolean);
 
 const twitterProfile = [...(profiles || []), ...(basics.keyboardProfiles || [])].find(
@@ -94,7 +94,7 @@ const ldJson = JSON.stringify(ld).replace(/</g, '\u003c');
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonical.trim()} />
 <meta property="og:image" content={imageUrl} />
-<meta property="og:image:alt" content={`${fullName ?? name} — Full Stack Developer | Cloud & DevOps Enthusiast`} />
+<meta property="og:image:alt" content={`${fullName ?? name} — Associate Software Developer`} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:type" content="image/jpeg" />

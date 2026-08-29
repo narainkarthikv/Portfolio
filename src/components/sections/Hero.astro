@@ -5,6 +5,7 @@ import { Icon } from 'astro-icon/components'
 
 const {
   name,
+  fullName,
   animated_secondary_initial_label,
   animated_main_label,
   animated_secondary_final_label,
@@ -41,11 +42,11 @@ const { city, region } = location
         <div class="flex flex-col items-center">
           <h1
             id="heroName"
-            data-default-value={name}
+            data-default-value={fullName ?? name}
             data-luffy-value="ナラインカルティク"
             class="hover:hover-grad-text font-semibold"
           >
-            {name}
+            {fullName ?? name}
           </h1>
           <div class="overflow-hidden mt-1">
             <div class="font-roboto-condensed font-bold lowercase text-xl lg:text-[1rem] lg:leading-[1rem]">
@@ -95,10 +96,13 @@ const { city, region } = location
         >
           {
             basics.profiles.map(({network, url, icon, color}) => {
-              return (
+          return (
         <a
           data-ccursor
-          class="flex flex-col sm:basis-1/2 items-center justify-center rounded-md hover:cursor-default"
+          class:list={[
+            'flex flex-col sm:basis-1/2 items-center justify-center rounded-md hover:cursor-default',
+            { 'medium-profile': network === 'Medium' },
+          ]}
           href={url}
                   target="_blank"
                   rel="noreferrer noopener"
@@ -150,6 +154,10 @@ const { city, region } = location
 
   footer {
     @apply flex gap-1;
+  }
+
+  :global(.dark .medium-profile svg) {
+    color: white !important;
   }
   
 

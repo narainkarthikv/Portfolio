@@ -106,14 +106,33 @@ import { Icon } from 'astro-icon/components'
 
   function updateTheme() {
     document.documentElement.classList.toggle('dark', isDark)
+    syncScrollbarTheme()
     localStorage.setItem('theme', isDark ? 'dark' : 'light')
   }
 
   function updateDataTheme(value: string) {
     document.body.setAttribute('data-theme', value)
+    syncScrollbarTheme()
     localStorage.setItem('data-theme', value)
     updateProfileImage(value)
     updateHeroSubtitle(value)
+  }
+
+  function syncScrollbarTheme() {
+    const root = document.documentElement
+    const styles = getComputedStyle(document.body)
+    const accent = styles.getPropertyValue('--color-button-accent').trim()
+    const hover = styles
+      .getPropertyValue('--color-button-accent-hover')
+      .trim()
+    const fill = styles.getPropertyValue('--color-fill').trim()
+
+    if (!accent || !hover || !fill) return
+
+    root.style.setProperty('--scrollbar-thumb', `rgb(${accent})`)
+    root.style.setProperty('--scrollbar-thumb-hover', `rgb(${hover})`)
+    root.style.setProperty('--scrollbar-track', `rgb(${fill})`)
+    root.style.scrollbarColor = `rgb(${accent}) rgb(${fill})`
   }
 
   function updateProfileImage(themeValue: string) {

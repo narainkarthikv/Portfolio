@@ -237,25 +237,30 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: rgb(var(--color-fill));
+    background: var(--scrollbar-track);
   }
 
   ::-webkit-scrollbar-thumb {
-    border: 2px solid rgb(var(--color-fill));
+    border: 2px solid var(--scrollbar-track);
     border-radius: 999px;
-    background: rgb(var(--color-button-accent)) !important;
+    background: var(--scrollbar-thumb);
     background-clip: padding-box;
-    transition: background-color 200ms ease, border-color 200ms ease;
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    border-color: rgb(var(--color-button-accent)) !important;
-    background: rgb(var(--color-button-accent)) !important;
+    border-color: var(--scrollbar-thumb-hover);
+    background: var(--scrollbar-thumb-hover);
     background-clip: border-box;
   }
 
   html {
-    scrollbar-color: rgb(var(--color-button-accent)) rgb(var(--color-fill));
+    --scrollbar-thumb: rgb(var(--color-button-accent));
+    --scrollbar-thumb-hover: rgb(var(--color-button-accent-hover));
+    --scrollbar-track: rgb(var(--color-fill));
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
     scrollbar-width: thin;
   }
   .modified-cursor-none {
