@@ -13,13 +13,12 @@ import Education from "@/components/sections/Education.astro";
 import Certifications from "@/components/sections/Certifications.astro";
 // import Spotify from "@/components/Spotify.astro"; // commented out for professionalism
 
-import CV, { basics } from "@cv";
-const { name, fullName } = basics;
+import CV from "@cv";
 ---
 
 <Layout
-  title={`${fullName ?? name} — Full Stack Developer | Cloud & DevOps Enthusiast`}
-  description="Full Stack Developer and Cloud & DevOps Enthusiast building scalable web apps with React, Node.js, Express, Azure and GCP. Based in Tamil Nadu, working globally. View selected work, experience, and technical projects."
+  title="Narainkarthik Vellingiri | Associate Software Developer"
+  description="Associate Software Developer building scalable web apps and cloud solutions with React, Node.js, Express, Azure, and GCP. Based in Tamil Nadu, working globally."
   pathname="/"
 >
   <main
@@ -86,9 +85,6 @@ const { name, fullName } = basics;
 </style>
 
 <style is:global>
-  * {
-    scrollbar-color: var(--color-button-muted) var(--color-fill);
-  }
   @page {
     size: auto;
     margin: 0;

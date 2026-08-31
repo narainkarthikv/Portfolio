@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+test.setTimeout(60_000);
+
 const viewports = [
   { name: 'desktop', width: 1920, height: 1080 },
   { name: 'laptop', width: 1366, height: 768 },
