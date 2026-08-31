@@ -9,6 +9,15 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ---
 
+## [1.2.2] - 2026-08-31
+
+### Changed
+
+- Updated CV experience and achievement details to document Claude-based MCP connector workflows across Jira, Figma, development, and GitHub Actions delivery.
+- Refreshed the generated CV PDF to match the updated profile data.
+
+[1.2.2]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.2.2
+
 ## [1.2.1] - 2026-08-29
 
 ### Changed

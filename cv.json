@@ -102,7 +102,7 @@
       "url": "https://www.linkedin.com/company/vegas-consulting/",
       "startDate": "2024-09-02",
       "endDate": null,
-      "summary": "Experienced in developing high-complexity, scalable, data-driven front-end projects with a focus on performance, user experience, and system integration.",
+      "summary": "Experienced in developing high-complexity, scalable, data-driven front-end projects and using Claude-based MCP connectors to support end-to-end delivery from Jira requirements and Figma designs through development code and scripted GitHub Actions builds and deployments, with a focus on performance, user experience, and system integration.",
       "responsibilities": [
         "Developed scalable front-end applications using modern JavaScript frameworks, improving page load performance by up to 35%",
         "Designed reusable and responsive UI components, reducing duplicate code and improving development efficiency by 30%",
@@ -111,6 +111,7 @@
         "Collaborated with cross-functional teams to deliver production-ready features within defined timelines"
       ],
       "achievements": [
+        "Integrated Claude-based MCP connectors across Jira requirements, Figma handoff, development code, and scripted GitHub Actions builds and deployments, improving end-to-end delivery efficiency by up to 35% from planning through production release",
         "Implemented CI/CD pipelines to automate build and deployment processes, reducing manual deployment effort by 60%",
         "Managed cloud application deployments on Google Cloud Platform and Microsoft Azure, improving environment stability by 40%",
         "Applied Git repository governance using branch protections and rulesets, reducing production issues caused by improper merges by 50%",
