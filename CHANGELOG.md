@@ -7,6 +7,12 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## Unreleased
 
+# [1.2.3] - 2026-09-01
+
+### Changed
+
+- Updated the cursor script in `Layout.astro` to use custom cursor in portfolio.
+
 ---
 
 ## [1.2.2] - 2026-08-31
