@@ -44,7 +44,7 @@ const profilesInfo = paletteProfiles.map(({ network, url }) => {
 
 <footer id='normal-footer' class='print:hidden flex flex-col gap-2'>
   <div class="text-skin-base">
-    Press <kbd>Cmd</kbd> + <kbd>K</kbd> to open the command palette.
+    Press <kbd id='command-palette-modifier'>Ctrl</kbd> + <kbd>K</kbd> to open the command palette.
   </div>
 </footer>
 <div class='footer-button print:hidden'>
@@ -75,6 +75,11 @@ const profilesInfo = paletteProfiles.map(({ network, url }) => {
   const info = hotkeypad.instance.getAttribute('data-info') ?? '[]'
   const parsedInfo = JSON.parse(info) as Info[]
   const { email } = basics
+
+  const commandPaletteModifier = document.getElementById('command-palette-modifier')
+  if (commandPaletteModifier && /Mac|iPod|iPhone|iPad/.test(navigator.platform)) {
+    commandPaletteModifier.textContent = 'Cmd'
+  }
 
   const data = parsedInfo.map(({ url, hotkey, icon, id, section, title }) => {
     return {
