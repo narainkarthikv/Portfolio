@@ -77,7 +77,7 @@ const profilesInfo = paletteProfiles.map(({ network, url }) => {
   const { email } = basics
 
   const commandPaletteModifier = document.getElementById('command-palette-modifier')
-  if (commandPaletteModifier && /Mac|iPod|iPhone|iPad/.test(navigator.platform)) {
+  if (commandPaletteModifier && /Mac|iPod|iPhone|iPad/.test(navigator.userAgent)) {
     commandPaletteModifier.textContent = 'Cmd'
   }
 

@@ -12,6 +12,13 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 ### Changed
 
 - Updated the cursor script in `Layout.astro` to use custom cursor in portfolio.
+- Improved sitemap response caching and removed inaccurate request-time `lastmod` values.
+- Improved JSON-LD profile linking by including valid public profile URLs.
+- Configured CI Playwright runs to use five workers.
+
+### Fixed
+
+- Replaced deprecated `navigator.platform` usage in the keyboard manager.
 
 ---
 
@@ -23,6 +30,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Refreshed the generated CV PDF to match the updated profile data.
 
 [1.2.2]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.2.2
+
+[1.2.3]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.2.3
 
 ## [1.2.1] - 2026-08-29
 
