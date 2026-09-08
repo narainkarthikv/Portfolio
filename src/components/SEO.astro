@@ -1,13 +1,12 @@
 ---
 import CV from '@cv'
-const { basics, skills, projects } = CV;
+const { basics, projects } = CV;
 
 interface Props {
   title: string;
   description?: string;
   image?: string;
   pathname?: string;
-  keywords?: string[];
   noindex?: boolean;
 }
 
@@ -23,14 +22,12 @@ const imageUrl = `${site}${imagePath.startsWith('/') ? imagePath : `/${imagePath
 const canonical = `${site}${props.pathname ?? '/'}`;
 const robots = props.noindex ? 'noindex,follow' : 'index,follow';
 
-// build keywords from skills
-const keywords = props.keywords ?? skills?.flatMap((s: any) => s.keywords ?? [s.name]) ?? [];
-const identityKeywords = [name, fullName, 'Narainkarthik Vellingiri', ...(alternateName ?? []), 'portfolio', 'associate software developer', 'frontend developer', 'cloud', 'devops'];
-const combinedKeywords = Array.from(new Set([...identityKeywords, ...keywords])).filter(Boolean);
-
 const twitterProfile = [...(profiles || []), ...(basics.keyboardProfiles || [])].find(
   (p: any) => p.network.toLowerCase().includes('twitter') || p.network.toLowerCase().includes('x')
 );
+const sameAs = [...(profiles || []), ...(basics.keyboardProfiles || [])]
+  .map((profile: any) => profile.url)
+  .filter((profileUrl: unknown): profileUrl is string => typeof profileUrl === 'string' && /^https?:\/\//.test(profileUrl));
 
 // JSON-LD structured data
 const ld = {
@@ -51,7 +48,7 @@ const ld = {
         "addressRegion": basics.location.region,
         "addressCountry": basics.location.countryCode
       } : undefined,
-      "sameAs": (profiles || []).map((p: any) => p.url)
+      "sameAs": sameAs
     },
     {
       "@type": "WebSite",
@@ -73,7 +70,6 @@ const ldJson = JSON.stringify(ld).replace(/</g, '\u003c');
 
 <title>{title}</title>
 <meta name="description" content={description} />
-<meta name="keywords" content={combinedKeywords.join(', ')} />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#0ea5e9" />
 <meta name="author" content={fullName ?? name} />

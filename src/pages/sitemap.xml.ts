@@ -8,8 +8,6 @@ export async function GET() {
     { url: '/narainkarthik-cv.pdf', priority: 0.4 },
   ];
 
-  const lastmod = new Date().toISOString();
-
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${pages
@@ -17,7 +15,6 @@ export async function GET() {
         (p) => `
       <url>
         <loc>${base}${p.url}</loc>
-        <lastmod>${lastmod}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>${p.priority}</priority>
       </url>`
@@ -26,6 +23,9 @@ export async function GET() {
   </urlset>`;
 
   return new Response(xml, {
-    headers: { 'Content-Type': 'application/xml' },
+    headers: {
+      'Content-Type': 'application/xml; charset=utf-8',
+      'Cache-Control': 'public, max-age=86400',
+    },
   });
 }
