@@ -7,7 +7,19 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## Unreleased
 
-# [1.2.3] - 2026-09-01
+## [1.2.4] - 2026-09-19
+
+### Changed
+
+- Updated the portfolio experience timeline and CV data to reflect the latest role details and refreshed resume output.
+- Adjusted the experience section duration rendering for more accurate worked-time labels.
+
+### Fixed
+
+- Stabilized the Playwright E2E setup by reducing default parallelism so the Astro dev server starts reliably during CI and local runs.
+- Resolved flaky homepage/theme test timing issues caused by concurrent browser startup and server availability checks.
+
+## [1.2.3] - 2026-09-01
 
 ### Changed
 
@@ -29,17 +41,11 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Updated CV experience and achievement details to document Claude-based MCP connector workflows across Jira, Figma, development, and GitHub Actions delivery.
 - Refreshed the generated CV PDF to match the updated profile data.
 
-[1.2.2]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.2.2
-
-[1.2.3]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.2.3
-
 ## [1.2.1] - 2026-08-29
 
 ### Changed
 
 - Updated SEO metadata to use Associate Software Developer while preserving the software developer and full-stack hero animation.
-
-[1.2.1]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.2.1
 
 ## [1.2.0] - 2026-08-27
 
@@ -64,8 +70,6 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Removed cursor effects from dense Skills and project technology-chip areas where they reduced clarity.
 - Added cursor feedback to certification entries without verification links, including JLPT N5.
 
-[1.2.0]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.2.0
-
 ## [1.1.0] - 2026-08-22
 
 ### Added
@@ -83,8 +87,6 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 ### Fixed
 
 - Removed project-specific fallback description wording so shared metadata stays relevant to the portfolio as projects change.
-
-[1.1.0]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.1.0
 
 ## [1.0.5] - 2026-08-11
 
@@ -126,7 +128,11 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 - Added `lint`, `test:e2e`, and `test:e2e:ui` package scripts for local validation.
 
-[1.0.2]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.0.2
+## [1.0.1] - 2026-06-04
+
+### Fixed
+
+- Prevent horizontal overflow for the Projects card back header on small screens by allowing the case study title to wrap. This fixes an issue where long titles (e.g. "Contribution Cards Case Study") caused the card to exceed the viewport width on mobile devices. ([src/components/sections/Projects.astro](src/components/sections/Projects.astro#L1))
 
 ## [1.0.0] - 2026-03-05
 
@@ -162,11 +168,3 @@ Initial stable release of the personal portfolio, covering the evolution from th
 - This release also restores a dedicated changelog after prior removal and aligns release history with current repository state.
 
 [1.0.0]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.0.0
-
-## [1.0.1] - 2026-06-04
-
-### Fixed
-
-- Prevent horizontal overflow for the Projects card back header on small screens by allowing the case study title to wrap. This fixes an issue where long titles (e.g. "Contribution Cards Case Study") caused the card to exceed the viewport width on mobile devices. ([src/components/sections/Projects.astro](src/components/sections/Projects.astro#L1))
-
-[1.0.1]: https://github.com/narainkarthikv/Portfolio/releases/tag/v1.0.1
