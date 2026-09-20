@@ -16,7 +16,7 @@
     "image": "/pfp.webp",
     "email": "narainkarthik812@gmail.com",
     "url": "https://narainkarthikv.com/",
-    "summary": "Associate Software Developer and Cloud/DevOps practitioner focused on building scalable, high-performance applications that deliver reliable, production-ready, seamless user experiences.",
+    "summary": "AI-augmented Software Engineer focused on building scalable, high-performance applications and using Claude MCP to improve development, testing, and software delivery through reliable, production-ready user experiences.",
     "theme": "blue",
     "location": {
       "city": "Coimbatore",
@@ -95,27 +95,66 @@
   ],
   "work": [
     {
+      "name": "ConnIT Labs",
+      "position": "AI-augmented Software Engineer",
+      "location_type": "Remote",
+      "location": "IN",
+      "url": "https://www.linkedin.com/company/connit-labs/",
+      "startDate": "2025-10-01",
+      "endDate": null,
+      "summary": "AI-augmented Software Engineer focused on using Claude and Claude MCP throughout the product lifecycle, from Jira sprint planning and Figma design through development, testing, and deployment, while improving software delivery efficiency with AI-driven CI/CD pipelines on Azure and Google Cloud Platform.",
+      "responsibilities": [
+        "Used Claude MCP across Jira sprint planning, Figma handoff, development, testing, and deployment workflows",
+        "Built and maintained full-stack product features with AI-assisted development and testing practices",
+        "Developed AI-augmented CI/CD pipelines on Azure and Google Cloud Platform using GitHub Actions",
+        "Improved software delivery efficiency by streamlining repetitive development, release, and deployment workflows",
+        "Collaborated with product and engineering teams to deliver reliable releases across the full product lifecycle"
+      ],
+      "achievements": [
+        "Integrated Claude MCP into the product lifecycle from Jira planning and Figma design through development code, testing, and deployment, improving end-to-end delivery efficiency by 20%",
+        "Built AI-augmented GitHub Actions pipelines on Azure and Google Cloud Platform to streamline releases and improve delivery reliability by 30%"
+      ],
+      "skills": {
+        "Azure": "simple-icons:microsoftazure",
+        "Claude": "simple-icons:claude",
+        "Confluence": "simple-icons:confluence",
+        "Docker": "mdi:docker",
+        "Express": "simple-icons:express",
+        "GCP": "simple-icons:googlecloud",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github",
+        "GitHub Actions": "simple-icons:githubactions",
+        "HTML5": "simple-icons:html5",
+        "Jira": "simple-icons:jira",
+        "Kubernetes": "mdi:kubernetes",
+        "PostgreSQL": "simple-icons:postgresql",
+        "Postman": "simple-icons:postman",
+        "React": "simple-icons:react",
+        "Tailwind": "mdi:tailwind",
+        "Typescript": "simple-icons:typescript"
+      }
+    },
+    {
       "name": "Vegas Consulting",
       "position": "Associate Software Developer",
       "location_type": "Remote",
-      "location": "IN",
+      "location": "AE",
       "url": "https://www.linkedin.com/company/vegas-consulting/",
       "startDate": "2024-09-02",
-      "endDate": null,
-      "summary": "Experienced in developing high-complexity, scalable, data-driven front-end projects and using Claude-based MCP connectors to support end-to-end delivery from Jira requirements and Figma designs through development code and scripted GitHub Actions builds and deployments, with a focus on performance, user experience, and system integration.",
+      "endDate": "2025-09-30",
+      "summary": "Entry-level Cloud and DevOps practitioner with hands-on experience in Azure, Google Cloud Platform, and GitHub Actions, focused on developing reliable applications, managing cloud resources, and improving software delivery through CI/CD automation.",
       "responsibilities": [
-        "Developed scalable front-end applications using modern JavaScript frameworks, improving page load performance by up to 35%",
-        "Designed reusable and responsive UI components, reducing duplicate code and improving development efficiency by 30%",
-        "Optimized front-end performance, accessibility, and SEO, increasing Lighthouse scores by 25%+",
-        "Integrated business logic with data-driven user interfaces, reducing UI-related defects by 20%",
+        "Developed scalable front-end applications using modern JavaScript frameworks, improving page load performance",
+        "Designed reusable and responsive UI components, reducing duplicate code and improving development efficiency",
+        "Optimized front-end performance, accessibility, and SEO, increasing Lighthouse scores",
+        "Integrated business logic with data-driven user interfaces, reducing UI-related defects",
         "Collaborated with cross-functional teams to deliver production-ready features within defined timelines"
       ],
       "achievements": [
-        "Integrated Claude-based MCP connectors across Jira requirements, Figma handoff, development code, and scripted GitHub Actions builds and deployments, improving end-to-end delivery efficiency by up to 35% from planning through production release",
-        "Implemented CI/CD pipelines to automate build and deployment processes, reducing manual deployment effort by 60%",
-        "Managed cloud application deployments on Google Cloud Platform and Microsoft Azure, improving environment stability by 40%",
-        "Applied Git repository governance using branch protections and rulesets, reducing production issues caused by improper merges by 50%",
-        "Improved deployment reliability and release consistency through DevOps automation, decreasing rollback incidents by 30%"
+        "Implemented CI/CD pipelines with GitHub Actions to automate application builds and deployments, reducing release effort by 15%",
+        "Managed cloud application deployments on Google Cloud Platform and Microsoft Azure, improving environment stability by 5%",
+        "Applied Git repository governance using branch protections and rulesets, reducing production issues caused by improper merges by 20%",
+        "Improved deployment reliability and release consistency through DevOps automation, decreasing rollback incidents by 10%"
       ],
       "skills": {
         "Azure": "simple-icons:microsoftazure",
@@ -132,7 +171,6 @@
         "JavaScript": "simple-icons:javascript",
         "Kubernetes": "mdi:kubernetes",
         "MUI": "simple-icons:mui",
-        "MongoDB": "simple-icons:mongodb",
         "PostgreSQL": "simple-icons:postgresql",
         "Postman": "simple-icons:postman",
         "React": "simple-icons:react",

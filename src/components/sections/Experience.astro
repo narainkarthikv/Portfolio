@@ -24,8 +24,9 @@ function getMonthYearDiff(startDate: string, endDate?: string | null) {
 <Section className={Astro.props.className} title="Experience">
   <ul class="flex flex-col">
     {work.map(({ name, startDate, endDate, position, summary, responsibilities, achievements, url, skills, location, location_type }) => {
-      const startYear = new Date(startDate).getFullYear()
-      const endYear = endDate != null ? new Date(endDate).getFullYear() : "Present"
+      const formatMonthYear = (date: string) => new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' }).format(new Date(date))
+      const startMonthYear = formatMonthYear(startDate)
+      const endMonthYear = endDate != null ? formatMonthYear(endDate) : "Present"
       const { years, months } = getMonthYearDiff(startDate, endDate)
       const workedTime = years > 0 ? `${years} yr${years > 1 ? 's' : ''}${months > 0 ? ` ${months} mo${months > 1 ? 's' : ''}` : ''}` : `${months} mo${months > 1 ? 's' : ''}`
       const workedDatetime = `P${years > 0 ? years + 'Y' : ''}${months > 0 ? months + 'M' : ''}`
@@ -33,7 +34,7 @@ function getMonthYearDiff(startDate: string, endDate?: string | null) {
         <li class="relative print:py-2">
           <div data-expanded="false" class="group relative grid pb-1 print:pb-0 transition-all print:grid-cols-1 print:gap-1 sm:grid-cols-12 sm:gap-8 md:gap-6 lg:hover:!opacity-100 expand-container">
             <div class="relative mt-1 text-xs font-semibold sm:col-span-2">
-              <time datetime={startDate} data-title={startDate}>{startYear}</time> - <time datetime={endDate} data-title={endDate}>{endYear}</time>
+              <time datetime={startDate} data-title={startDate}>{startMonthYear}</time> - <time datetime={endDate} data-title={endDate}>{endMonthYear}</time>
               <time
                 datetime={workedDatetime}
                 data-title={workedDatetime}
