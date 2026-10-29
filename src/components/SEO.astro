@@ -16,8 +16,8 @@ const site = String(Astro.site ?? import.meta.env.SITE ?? url ?? 'https://narain
 
 const props = Astro.props as Props;
 const title = props.title ?? `${fullName ?? name} — Portfolio`;
-const description = props.description ?? 'Narainkarthik Vellingiri, also known as Narain Karthik Vellingiri, is an Associate Software Developer building scalable web apps and cloud solutions with React, Node.js, Express, Azure, and GCP.';
-const imagePath = props.image ?? '/og-image.jpg';
+const description = props.description ?? 'Narainkarthik Vellingiri, also known as Narain Karthik Vellingiri, is an AI Augmented Software Engineer building scalable web apps and cloud solutions with React, Node.js, Express, Azure, and GCP.';
+const imagePath = props.image ?? '/og-image.png';
 const imageUrl = `${site}${imagePath.startsWith('/') ? imagePath : `/${imagePath}`}`;
 const canonical = `${site}${props.pathname ?? '/'}`;
 const robots = props.noindex ? 'noindex,follow' : 'index,follow';
@@ -90,7 +90,7 @@ const ldJson = JSON.stringify(ld).replace(/</g, '\u003c');
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonical.trim()} />
 <meta property="og:image" content={imageUrl} />
-<meta property="og:image:alt" content={`${fullName ?? name} — Associate Software Developer`} />
+<meta property="og:image:alt" content={`${fullName ?? name} — AI Augmented Software Engineer`} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:type" content="image/jpeg" />
