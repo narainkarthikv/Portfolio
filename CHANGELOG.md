@@ -7,6 +7,12 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## Unreleased
 
+## [1.2.5] - 2026-10-29
+
+### Changed
+
+- Refreshed portfolio role branding and metadata, and replaced the social preview image with a PNG asset.
+
 ## [1.2.4] - 2026-09-19
 
 ### Changed

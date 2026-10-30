@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 test('homepage renders the core portfolio surface', async ({ page }) => {
   await page.goto('/');
 
-  await expect(page).toHaveTitle(/Associate Software Developer/i);
+  await expect(page).toHaveTitle(/AI Augmented Software Engineer/i);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
     'Narain Karthik'
   );
