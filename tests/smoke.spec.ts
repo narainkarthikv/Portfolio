@@ -7,6 +7,10 @@ test('homepage renders the core portfolio surface', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
     'Narain Karthik'
   );
+  const contextCursor = page.locator('.c-cursor');
+  await expect(contextCursor).toBeAttached();
+  await page.getByRole('button', { name: 'Toggle dark mode' }).hover();
+  await expect(contextCursor).toHaveClass(/c-cursor-lift_active/);
   await expect(
     page.getByRole('img', { name: /Profile of Narain Karthik/i })
   ).toBeVisible();

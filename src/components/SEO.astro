@@ -1,6 +1,6 @@
 ---
 import CV from '@cv'
-const { basics, projects } = CV;
+const { basics } = CV;
 
 interface Props {
   title: string;
@@ -15,12 +15,17 @@ const { name, fullName, alternateName, url, profiles } = basics;
 const site = String(Astro.site ?? import.meta.env.SITE ?? url ?? 'https://narainkarthikv.com').replace(/\/$/, '');
 
 const props = Astro.props as Props;
-const title = props.title ?? `${fullName ?? name} — Portfolio`;
-const description = props.description ?? 'Narainkarthik Vellingiri, also known as Narain Karthik Vellingiri, is an AI Augmented Software Engineer building scalable web apps and cloud solutions with React, Node.js, Express, Azure, and GCP.';
+const title = props.title ?? `Portfolio | ${fullName ?? name}`;
+const description = props.description ?? 'AI-augmented software engineer with 2 years building high-performance web apps and using Claude and MCP to streamline delivery from design to deployment.';
 const imagePath = props.image ?? '/og-image.png';
 const imageUrl = `${site}${imagePath.startsWith('/') ? imagePath : `/${imagePath}`}`;
 const canonical = `${site}${props.pathname ?? '/'}`;
 const robots = props.noindex ? 'noindex,follow' : 'index,follow';
+const imageType = imagePath.toLowerCase().endsWith('.webp')
+  ? 'image/webp'
+  : imagePath.toLowerCase().endsWith('.jpg') || imagePath.toLowerCase().endsWith('.jpeg')
+    ? 'image/jpeg'
+    : 'image/png';
 
 const twitterProfile = [...(profiles || []), ...(basics.keyboardProfiles || [])].find(
   (p: any) => p.network.toLowerCase().includes('twitter') || p.network.toLowerCase().includes('x')
@@ -35,8 +40,9 @@ const ld = {
   "@graph": [
     {
       "@type": "Person",
-      "name": fullName ?? name,
-      "alternateName": alternateName ?? fullName ?? undefined,
+      "@id": `${site}/#person`,
+      "name": alternateName?.[0] ?? fullName ?? name,
+      "alternateName": [name, fullName, ...(alternateName ?? [])].filter((value): value is string => typeof value === 'string'),
       "url": site,
       "image": imageUrl,
       "jobTitle": basics.label ?? undefined,
@@ -52,20 +58,27 @@ const ld = {
     },
     {
       "@type": "WebSite",
+      "@id": `${site}/#website`,
       "url": String(site),
-      "name": `${fullName ?? name} Portfolio`,
+      "name": `${alternateName?.[0] ?? fullName ?? name} Portfolio`,
       "description": description,
+      "inLanguage": "en",
+      "publisher": { "@id": `${site}/#person` },
     },
-    ...(projects || []).slice(0, 10).map((p: any) => ({
-      "@type": "CreativeWork",
-      "name": p.name,
-      "url": p.url,
-      "description": p.description
-    }))
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      "url": canonical,
+      "name": title,
+      "description": description,
+      "inLanguage": "en",
+      "isPartOf": { "@id": `${site}/#website` },
+      "about": { "@id": `${site}/#person` },
+    },
   ]
 }
 
-const ldJson = JSON.stringify(ld).replace(/</g, '\u003c');
+const ldJson = JSON.stringify(ld).replace(/</g, '\\u003c');
 ---
 
 <title>{title}</title>
@@ -80,35 +93,32 @@ const ldJson = JSON.stringify(ld).replace(/</g, '\u003c');
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <meta name="format-detection" content="telephone=no" />
 <link rel="canonical" href={canonical.trim()} />
-<link rel="preload" as="image" href={imageUrl} />
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US" />
-<meta property="og:site_name" content={name} />
+<meta property="og:site_name" content={alternateName?.[0] ?? fullName ?? name} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonical.trim()} />
 <meta property="og:image" content={imageUrl} />
-<meta property="og:image:alt" content={`${fullName ?? name} — AI Augmented Software Engineer`} />
+<meta property="og:image:alt" content={`${fullName ?? name} | AI Augmented Software Engineer`} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:type" content={imageType} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={`${fullName ?? name} profile and portfolio preview`} />
 {twitterProfile && (
   <>
     <meta name="twitter:site" content={twitterProfile.username ? `@${twitterProfile.username}` : undefined} />
     <meta name="twitter:creator" content={twitterProfile.username ? `@${twitterProfile.username}` : undefined} />
   </>
 )}
-
-<!-- Accessible language/hreflang -->
-<link rel="alternate" hreflang="en" href={canonical.trim()} />
 
 <!-- Structured data -->
 <script type="application/ld+json" is:inline set:html={ldJson}></script>

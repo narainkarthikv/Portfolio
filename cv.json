@@ -16,7 +16,7 @@
     "image": "/pfp.webp",
     "email": "narainkarthik812@gmail.com",
     "url": "https://narainkarthikv.com/",
-    "summary": "AI-augmented Software Engineer focused on building scalable, high-performance applications and using Claude MCP to improve development, testing, and software delivery through reliable, production-ready user experiences.",
+    "summary": "I’m an AI-augmented software engineer with 2 years of experience building full-stack web applications. I enjoy solving practical problems and turning ideas into reliable products, using Claude and MCP to improve how I design, build, and ship software.",
     "theme": "blue",
     "location": {
       "city": "Coimbatore",
@@ -102,20 +102,19 @@
       "url": "https://www.linkedin.com/company/connit-labs/",
       "startDate": "2025-10-01",
       "endDate": null,
-      "summary": "AI-augmented Software Engineer focused on using Claude and Claude MCP throughout the product lifecycle, from Jira sprint planning and Figma design through development, testing, and deployment, while improving software delivery efficiency with AI-driven CI/CD pipelines on Azure and Google Cloud Platform.",
+      "summary": "AI-augmented Software Engineer focused on using Claude and Claude MCP throughout the product lifecycle, from Jira sprint planning and Figma design through development, testing, and deployment, while improving software delivery efficiency with AI-driven CI/CD pipelines on Google Cloud Platform.",
       "responsibilities": [
         "Used Claude MCP across Jira sprint planning, Figma handoff, development, testing, and deployment workflows",
         "Built and maintained full-stack product features with AI-assisted development and testing practices",
-        "Developed AI-augmented CI/CD pipelines on Azure and Google Cloud Platform using GitHub Actions",
+        "Developed AI-augmented CI/CD pipelines on Google Cloud Platform using GitHub Actions",
         "Improved software delivery efficiency by streamlining repetitive development, release, and deployment workflows",
         "Collaborated with product and engineering teams to deliver reliable releases across the full product lifecycle"
       ],
       "achievements": [
         "Integrated Claude MCP into the product lifecycle from Jira planning and Figma design through development code, testing, and deployment, improving end-to-end delivery efficiency by 20%",
-        "Built AI-augmented GitHub Actions pipelines on Azure and Google Cloud Platform to streamline releases and improve delivery reliability by 30%"
+        "Built AI-augmented GitHub Actions pipelines on Google Cloud Platform to streamline releases and improve delivery reliability by 30%"
       ],
       "skills": {
-        "Azure": "simple-icons:microsoftazure",
         "Claude": "simple-icons:claude",
         "Confluence": "simple-icons:confluence",
         "Docker": "mdi:docker",
@@ -136,7 +135,7 @@
     },
     {
       "name": "Vegas Consulting",
-      "position": "AI Augmented Software Engineer",
+      "position": "Associate Software Developer",
       "location_type": "Remote",
       "location": "AE",
       "url": "https://www.linkedin.com/company/vegas-consulting/",
@@ -376,195 +375,238 @@
     }
   ],
   "projects": [
-    {
-      "name": "FitProgressr",
-      "isActive": true,
-      "description": "🏋️ Full-stack MERN fitness tracker with responsive dashboards, streak analytics, and custom routine management for performance-focused workout tracking.",
-      "caseStudy": {
-        "usage": "💪 Athletes log workouts, maintain streaks, and view progress insights across devices with fast, responsive analytics.",
-        "tradeoffs": [
-          "⚖️ MERN stack adds setup complexity but ensures scalability and full backend control.",
-          "📦 Redux Toolkit improves state responsiveness at the cost of slightly larger bundle size.",
-          "🎨 Material-UI speeds up consistent UI development with opinionated styling patterns."
-        ],
-        "technicalNeeds": [
-          "🗄️ Indexed Mongo collections for fast workout and analytics queries.",
-          "🔐 Express API with JWT authentication and REST endpoints for secure access.",
-          "🐳 Docker-Compose setup for consistent and reproducible dev environments."
-        ],
-        "DX": [
-          "🧩 Monorepo layout with shared scripts for streamlined development.",
-          "🧹 Linting, commit guidelines, and CI/CD pipelines for maintainable releases."
-        ],
-        "UX": [
-          "🧾 Schema-driven forms reduce input friction and improve consistency.",
-          "📱 Mobile-first charts and summaries encourage habit building and engagement."
-        ]
-      },
-      "highlights": [
-        "🎛️ Material-UI dashboard",
-        "🔥 Streak tracker",
-        "📈 Real-time analytics"
+  {
+    "name": "FitProgressr",
+    "isActive": true,
+    "description": "️ Full-stack MERN fitness tracker with workout logging, weekly streaks, custom goals, XP, and unlockable achievement badges.",
+    "caseStudy": {
+      "usage": "🎯 Log workouts, set weekly day or minute goals, and earn XP and unlock achievement badges as you reach milestones.",
+      "tradeoffs": [
+        "🌐 Account-backed storage enables cross-device history, with added authentication and setup work.",
+        "📊 Streak and goal calculations add query work in exchange for current progress insights."
       ],
-      "stack": {
-        "Docker": "mdi:docker",
-        "Express": "simple-icons:express",
-        "Git": "mdi:git",
-        "GitHub Actions": "simple-icons:githubactions",
-        "MongoDB": "simple-icons:mongodb",
-        "MUI": "simple-icons:mui",
-        "React": "simple-icons:react",
-        "Typescript": "simple-icons:typescript"
-      },
-      "github": "https://github.com/narainkarthikv/fitprogressr",
-      "url": "https://fitprogressr.netlify.app/"
+      "technicalNeeds": [
+        "🗄️ Indexed MongoDB collections support fast workout history and date-range queries.",
+        "🔌 Express REST endpoints handle secure sessions, goals, and XP progression."
+      ],
+      "DX": [
+        "🐳 Docker Compose makes the frontend, API, and database reproducible locally.",
+        "🔐 JWT-protected REST routes and documented environment setup keep account data flows clear."
+      ],
+      "UX": [
+        "📅 Weekly rhythm and 8-week calendars make training consistency easy to scan.",
+        "🏆 Flexible session notes and goals make it clear how to earn XP and unlock achievement badges."
+      ],
+      "overview": [
+        "📝 Log sessions by date and update workout details as plans change.",
+        "📆 Track weekly rhythm, an 8-week streak calendar, and custom day or minute goals.",
+        "🏆 Earn XP and unlock achievement badges as you reach workout milestones."
+      ]
     },
-    {
-      "name": "Ownlyst",
-      "isActive": true,
-      "description": "📝 Privacy-first note-taking app with offline storage, multiple view modes, and zero server dependency for distraction-free productivity.",
-      "caseStudy": {
-        "usage": "⚡ Capture ideas quickly, switch between grid/kanban/table layouts, and export notes locally without cloud dependency.",
-        "tradeoffs": [
-          "⚖️ Offline storage improves privacy but limits sync and collaboration.",
-          "🪶 Lightweight formatting prioritizes speed and simplicity over advanced features."
-        ],
-        "technicalNeeds": [
-          "💾 IndexedDB/localStorage persistence with debounced writes for performance.",
-          "🧲 Drag-and-drop controllers for flexible note organisation."
-        ],
-        "DX": [
-          "📂 Clear folder structure with TypeScript models for maintainability.",
-          "⚙️ Simple build scripts and conventions for faster onboarding."
-        ],
-        "UX": [
-          "⚡ Instant response with low cognitive load.",
-          "🧩 Multiple views support different productivity workflows."
-        ]
-      },
-      "highlights": [
-        "✨ Intuitive interface",
-        "🗂️ Multiple display options",
-        "🔒 Fully local & offline"
-      ],
-      "stack": {
-        "Docker": "mdi:docker",
-        "Git": "mdi:git",
-        "GitHub Actions": "simple-icons:githubactions",
-        "React": "simple-icons:react",
-        "TypeScript": "simple-icons:typescript",
-        "Tailwind": "mdi:tailwind"
-      },
-      "github": "https://github.com/narainkarthikv/ownlyst",
-      "url": "https://ownlyst.netlify.app/"
+    "highlights": [
+      "📅 Weekly streaks and 8-week calendar",
+      "🎯 Custom goals, XP, and unlockable achievements",
+      "📊 At-a-glance training dashboard"
+    ],
+    "stack": {
+      "Docker": "mdi:docker",
+      "Express": "simple-icons:express",
+      "Git": "mdi:git",
+      "GitHub Actions": "simple-icons:githubactions",
+      "MongoDB": "simple-icons:mongodb",
+      "MUI": "simple-icons:mui",
+      "React": "simple-icons:react",
+      "Typescript": "simple-icons:typescript"
     },
-    {
-      "name": "Nmoji",
-      "isActive": true,
-      "description": "😀 Emoji search and picker built with Astro and React, optimized for instant filtering, keyboard-first navigation, and extension-ready performance.",
-      "caseStudy": {
-        "usage": "⌨️ Search thousands of emojis via keyboard and copy instantly for chats, content creation, or quick workflows.",
-        "tradeoffs": [
-          "⚖️ Bundled dataset increases payload but guarantees zero-latency search.",
-          "🧩 Simplified taxonomy keeps UI clean while limiting niche category depth."
-        ],
-        "technicalNeeds": [
-          "📚 Build-time index generation with fuzzy matching for instant results.",
-          "⚡ Astro static pages combined with React components for performance."
-        ],
-        "DX": [
-          "🧱 Astro+React hybrid provides small runtime with familiar workflows.",
-          "♻️ Reusable UI components and clear directory layout."
-        ],
-        "UX": [
-          "⌨️ Keyboard-first flow with immediate feedback for power users."
-        ]
-      },
-      "highlights": [
-        "📱 Responsive UI",
-        "⚡ Fast search",
-        "🧩 Browser extension"
+    "github": "https://github.com/narainkarthikv/fitprogressr",
+    "url": "https://fitprogressr.netlify.app/"
+  },
+  {
+    "name": "Ownlyst",
+    "isActive": true,
+    "description": " Privacy-first, 100% browser-local note-taking app with zero server uploads, customizable multi-view workspaces, and one-click JSON/CSV backups.",
+    "caseStudy": {
+      "usage": "📝 Write in a private browser vault, choose a workspace view, personalize it, and export a backup whenever needed.",
+      "tradeoffs": [
+        "🛡️ A browser-only vault protects privacy, while cross-device moves rely on manual backups.",
+        "⚡ No accounts or cloud sync keeps the app immediate and offline-ready, without collaboration features."
       ],
-      "stack": {
-        "Astro": "simple-icons:astro",
-        "Git": "mdi:git",
-        "GitHub Actions": "simple-icons:githubactions",
-        "React": "simple-icons:react",
-        "TypeScript": "simple-icons:typescript",
-        "Tailwind": "mdi:tailwind"
-      },
-      "github": "https://github.com/narainkarthikv/nmoji",
-      "url": "https://nmoji.netlify.app/"
+      "technicalNeeds": [
+        "💾 IndexedDB and localStorage provide browser-side persistence.",
+        "🧲 Drag-and-drop and layout state support multiple workspace views.",
+        "📤 Client-side JSON and CSV import/export include profile preferences."
+      ],
+      "DX": [
+        "🧱 Typed models separate views, controllers, storage, and backup schemas.",
+        "🧪 Lint, test, and build scripts support a quick local feedback loop.",
+        "🐳 Docker and no backend services keep setup self-contained."
+      ],
+      "UX": [
+        "🔒 No accounts or server uploads; notes stay available offline in the browser.",
+        "🎨 Themes, avatars, and Grid, Kanban, Table, Calendar or Roadmap views adapt the workspace.",
+        "📦 JSON and CSV backups support portable ownership and restore."
+      ],
+      "overview": [
+        "🔒 Write in a browser-local vault with no accounts or tracking.",
+        "🗂️ Switch between Grid, Kanban, Table, and Roadmap views; personalize themes and avatars.",
+        "📦 Export or restore full JSON and CSV backups at any time."
+      ]
     },
-    {
-      "name": "Contribution Cards",
-      "isActive": true,
-      "description": "👥 GitHub contributor directory with smart caching, filtering, and profile surfacing without requiring a backend service.",
-      "caseStudy": {
-        "usage": "🔎 Aggregate contributor data, apply filters, and render profile cards efficiently while respecting API rate limits.",
-        "tradeoffs": [
-          "⚖️ Caching adds complexity but avoids GitHub API rate-limit issues.",
-          "📊 Simplified scoring favors clarity over deep analytics."
-        ],
-        "technicalNeeds": [
-          "🧠 Dual-layer cache with retry logic for resilience.",
-          "🔄 SWR pattern for efficient data fetching and revalidation."
-        ],
-        "DX": ["🧩 Modular hooks and clear documentation for maintainability."],
-        "UX": [
-          "⚡ Instant filtering with consistent card layout for easy browsing."
-        ]
-      },
-      "highlights": [
-        "📱 Responsive UI",
-        "⭐ Active contributor highlights",
-        "🧠 Smart caching"
-      ],
-      "stack": {
-        "Docker": "mdi:docker",
-        "Git": "mdi:git",
-        "GitHub Actions": "simple-icons:githubactions",
-        "React": "simple-icons:react",
-        "TypeScript": "simple-icons:typescript",
-        "Tailwind": "mdi:tailwind"
-      },
-      "github": "https://github.com/narainkarthikv/contribution-cards",
-      "url": "https://contribution-cards.netlify.app/"
+    "highlights": [
+      "🔒 Browser-local and zero tracking",
+      "🎨 Custom themes, views, and avatars",
+      "📦 One-click JSON/CSV backups"
+    ],
+    "stack": {
+      "Docker": "mdi:docker",
+      "Git": "mdi:git",
+      "GitHub Actions": "simple-icons:githubactions",
+      "React": "simple-icons:react",
+      "TypeScript": "simple-icons:typescript",
+      "Tailwind": "mdi:tailwind"
     },
-    {
-      "name": "Markdown Shop",
-      "isActive": true,
-      "description": "📄 Interactive README builder with live Markdown preview, reusable templates, and badge components for faster developer documentation.",
-      "caseStudy": {
-        "usage": "🧩 Compose documentation from templates, preview changes in real time, and copy or embed polished output instantly.",
-        "tradeoffs": [
-          "⚖️ Templates accelerate authoring but limit custom layouts.",
-          "🔄 Live preview requires continuous parsing during editing."
-        ],
-        "technicalNeeds": [
-          "📝 Markdown pipeline with Marked and DOMPurify for safe rendering.",
-          "🧠 Zustand store for lightweight global state management."
-        ],
-        "DX": [
-          "🚀 Semantic release and rich CLI scripts for smooth development cycles."
-        ],
-        "UX": ["🧭 Guided assembly with responsive UI for better readability."]
-      },
-      "highlights": [
-        "🧩 Template-driven UI",
-        "📝 Live Markdown editing",
-        "📋 Copy-ready output"
+    "github": "https://github.com/narainkarthikv/ownlyst",
+    "url": "https://ownlyst.netlify.app/"
+  },
+  {
+    "name": "Nmoji",
+    "isActive": true,
+    "description": " Fast, local-first emoji search and picker built with Astro and React, featuring virtual scrolling, context-aware suggestions, and a clean one-click clipboard flow.",
+    "caseStudy": {
+      "usage": "⌨️ Search emoji by name, category, or tags; explore related picks and copy in one click.",
+      "tradeoffs": [
+        "📦 Shipping the emoji dataset adds client assets, while enabling offline, zero-network search.",
+        "🧮 Client-side suggestions avoid profiling, with less behavioral personalization."
       ],
-      "stack": {
-        "Docker": "mdi:docker",
-        "Git": "mdi:git",
-        "GitHub Actions": "simple-icons:githubactions",
-        "React": "simple-icons:react",
-        "Javascript": "simple-icons:javascript",
-        "MUI": "simple-icons:mui"
-      },
-      "github": "https://github.com/narainkarthikv/markdown-shop",
-      "url": "https://markdownshop.netlify.app/"
-    }
-  ]
+      "technicalNeeds": [
+        "📚 A static, indexed emoji dataset supports local fuzzy search.",
+        "⚡ Virtualized rendering keeps thousands of results responsive.",
+        "📋 Clipboard API and persisted theme state support core interactions."
+      ],
+      "DX": [
+        "🧩 Astro shells and React islands isolate interactive search and details.",
+        "🧪 A separate extension workspace keeps browser integration alongside the web app.",
+        "📦 No external APIs or database make development and testing self-contained."
+      ],
+      "UX": [
+        "🔎 Search and contextual suggestions make emoji discovery quick.",
+        "⚡ Virtual scrolling keeps large emoji collections smooth on desktop and mobile.",
+        "📋 One-click copy, local-first behavior, and theme support fit everyday writing."
+      ],
+      "overview": [
+        "🔎 Search emoji by name, category, or tags.",
+        "✨ Explore related and popular suggestions while viewing emoji details.",
+        "📋 Copy in one click with no tracking or remote lookups."
+      ]
+    },
+    "highlights": [
+      "🔎 Smart search and related picks",
+      "⚡ Smooth virtual scrolling",
+      "🌙 Theme-ready and local-first"
+    ],
+    "stack": {
+      "Astro": "simple-icons:astro",
+      "Git": "mdi:git",
+      "GitHub Actions": "simple-icons:githubactions",
+      "React": "simple-icons:react",
+      "TypeScript": "simple-icons:typescript",
+      "Tailwind": "mdi:tailwind"
+    },
+    "github": "https://github.com/narainkarthikv/nmoji",
+    "url": "https://nmoji.netlify.app/"
+  },
+  {
+    "name": "Contribution Cards",
+    "isActive": true,
+    "description": " Open-source contributor showcase with live Community Pulse metrics, impact ranking, smart GitHub API caching, and share-ready profile cards.",
+    "caseStudy": {
+      "usage": "👥 Browse builders across repositories, check community metrics, filter and rank contributors, then share a curated card.",
+      "tradeoffs": [
+        "🧠 Client-side caching limits rate usage, with added revalidation state to manage.",
+        "⚡ Aggregating repositories enables instant filtering, while coordinating initial fetches."
+      ],
+      "technicalNeeds": [
+        "🐙 GitHub Contributors API integration uses caching and retry handling.",
+        "📈 Client-side aggregation powers cross-repository community metrics.",
+        "🌐 Accessible navigation supports English and Spanish."
+      ],
+      "DX": [
+        "🪝 Modular hooks separate API fetching, cache, aggregation, and sorting.",
+        "☁️ A serverless, database-free design avoids backend operations.",
+        "📚 Repository guidance helps contributors adopt and extend the showcase."
+      ],
+      "UX": [
+        "📊 Community Pulse summarizes builders, contributions, and active repositories.",
+        "🔎 Repo filters and impact ranking make contributor discovery quick.",
+        "♿ Keyboard support and English/Spanish localization broaden access."
+      ],
+      "overview": [
+        "👥 Discover active builders across repositories.",
+        "📊 Monitor Community Pulse, filter by repo, and rank contributors by impact.",
+        "🔗 Share curated contributor cards without a backend database."
+      ]
+    },
+    "highlights": [
+      "📊 Live Community Pulse stats",
+      "🔗 Share-ready cards and impact rank",
+      "🧠 Smart GitHub API caching"
+    ],
+    "stack": {
+      "Docker": "mdi:docker",
+      "Git": "mdi:git",
+      "GitHub Actions": "simple-icons:githubactions",
+      "React": "simple-icons:react",
+      "TypeScript": "simple-icons:typescript",
+      "Tailwind": "mdi:tailwind"
+    },
+    "github": "https://github.com/narainkarthikv/contribution-cards",
+    "url": "https://contribution-cards.netlify.app/"
+  },
+  {
+    "name": "Markdown Shop",
+    "isActive": true,
+    "description": " All-in-one GitHub README toolkit combining a live Markdown workspace, ready-to-use templates, profile visual components, and guided writing prompts.",
+    "caseStudy": {
+      "usage": "📝 Start from a README template, profile component, or writing prompt; edit with live preview and copy the Markdown.",
+      "tradeoffs": [
+        "🔄 Combining modular inserts with freeform text requires careful editor-state synchronization.",
+        "⚡ Live parsing adds per-keystroke work to keep previews current and safe."
+      ],
+      "technicalNeeds": [
+        "🛡️ Marked and DOMPurify render and sanitize Markdown previews.",
+        "🧠 Zustand coordinates editor, templates, profile components, and prompts."
+      ],
+      "DX": [
+        "🧱 Composable editor, templates, generators, and prompt libraries simplify additions.",
+        "🧼 Isolated Markdown parsing and sanitization separate input from preview.",
+        "🚀 CLI scripts, CI, and semantic releases support repeatable delivery."
+      ],
+      "UX": [
+        "👀 Side-by-side editing and preview keep rendered output in view.",
+        "🧩 Templates, profile visuals, and writing prompts reduce blank-page effort.",
+        "📋 A simple choose, edit, and copy flow needs no account or setup."
+      ],
+      "overview": [
+        "🧩 Start with a project or profile template, GitHub visual, or writing prompt.",
+        "✍️ Shape README content in a workspace with side-by-side live preview.",
+        "📋 Copy clean Markdown directly to GitHub."
+      ]
+    },
+    "highlights": [
+      "👀 Live README workspace and preview",
+      "🧩 Templates, badges, and profile stats",
+      "✍️ Guided documentation prompts"
+    ],
+    "stack": {
+      "Docker": "mdi:docker",
+      "Git": "mdi:git",
+      "GitHub Actions": "simple-icons:githubactions",
+      "React": "simple-icons:react",
+      "Javascript": "simple-icons:javascript",
+      "MUI": "simple-icons:mui"
+    },
+    "github": "https://github.com/narainkarthikv/markdown-shop",
+    "url": "https://markdownshop.netlify.app/"
+  }
+]
 }

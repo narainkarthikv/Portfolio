@@ -5,7 +5,22 @@ All notable changes to this portfolio are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## [1.3.0] - 2026-11-10
+
+### Added
+
+- Added responsive project-card coverflow controls, swipe navigation, and expanded case-study tabs with structured project details.
+- Added a compact portfolio return link beside the blog heading.
+
+### Changed
+
+- Refined project-card sizing and presentation for consistent content across case-study tabs and screen sizes.
+- Updated portfolio identity, CV summaries, and project copy, including FitProgressr unlockable achievements.
+- Improved SEO titles, descriptions, canonical metadata, Open Graph/Twitter previews, structured data, and sitemap behavior.
+
+### Fixed
+
+- Improved responsive project navigation and reduced-motion handling.
 
 ## [1.2.5] - 2026-10-29
 

@@ -7,14 +7,16 @@ import { projects } from "@cv";
 const MAX_MOBILE_STACK = 3;
 const MAX_DESKTOP_STACK = 4;
 const DESKTOP_DESCRIPTION_WORD_LIMIT = 22;
-const CASE_STUDY_SECTION_KEYS = ["technicalNeeds", "tradeoffs", "UX", "DX"] as const;
-const DESKTOP_CASE_TABS = [["technicalNeeds", "tradeoffs"], ["UX", "DX"]] as const;
-const MOBILE_CASE_TABS = [["technicalNeeds"], ["tradeoffs"], ["UX"], ["DX"]] as const;
+const CASE_STUDY_SECTION_KEYS = ["overview", "UX", "DX", "technicalNeeds", "tradeoffs", "highlights"] as const;
+const DESKTOP_CASE_TABS = [["overview", "highlights"], ["UX", "DX"], ["technicalNeeds", "tradeoffs"]] as const;
+const MOBILE_CASE_TABS = [["overview", "highlights"], ["UX", "DX"], ["technicalNeeds", "tradeoffs"]] as const;
 const CASE_STUDY_SECTION_TITLES: Record<(typeof CASE_STUDY_SECTION_KEYS)[number], string> = {
-  technicalNeeds: "Technical Needs",
-  tradeoffs: "Trade-offs",
+  overview: "Overview",
   UX: "UX",
   DX: "DX",
+  technicalNeeds: "Technical Needs",
+  tradeoffs: "Trade-offs",
+  highlights: "Highlights",
 };
 
 function getStackSegments(stack: Record<string, string | undefined> | undefined) {
@@ -29,9 +31,6 @@ function shortDescriptionFrom(description: string) {
   return words.length > DESKTOP_DESCRIPTION_WORD_LIMIT ? `${words.slice(0, DESKTOP_DESCRIPTION_WORD_LIMIT).join(" ")}...` : description;
 }
 
-function capitalize(item: string) {
-  return item ? item.charAt(0).toUpperCase() + item.slice(1) : item;
-}
 ---
 
 <Section className={Astro.props.className}>
@@ -40,7 +39,7 @@ function capitalize(item: string) {
       <h3 data-ccursor="lift" class="relative flex w-max items-center gap-3 pb-4 text-3xl print:gap-1 print:pb-0 print:text-xl sm:hover:text-skin-hue">
         Projects
       </h3>
-      <div class="hidden md:inline-flex items-center gap-2 pb-4">
+      <div class="inline-flex items-center gap-2 pb-4">
         <button
           type="button"
           data-projects-prev
@@ -62,7 +61,7 @@ function capitalize(item: string) {
       </div>
     </div>
 
-    <div class="projects-track flex flex-col gap-3 md:relative md:h-[430px] md:items-center md:justify-center md:overflow-hidden" style={`--stack-count: ${projects?.length ?? 0};`}>
+      <div class="projects-track relative flex flex-col gap-3 overflow-hidden md:min-h-[430px] md:items-center md:justify-center" role="region" aria-roledescription="carousel" aria-label="Projects" style={`--stack-count: ${projects?.length ?? 0};`}>
       {
         projects && projects.map(
           ({ url, description, highlights, name, isActive, github, stack, caseStudy }, index) => {
@@ -72,16 +71,18 @@ function capitalize(item: string) {
             const shortDescription = shortDescriptionFrom(description);
             const caseStudySections = caseStudy
               ? {
-                  technicalNeeds: caseStudy.technicalNeeds ?? [],
-                  tradeoffs: caseStudy.tradeoffs ?? [],
+                  overview: caseStudy.overview ?? (caseStudy.usage ? [caseStudy.usage] : []),
                   UX: uxNotes,
                   DX: dxNotes,
+                  technicalNeeds: caseStudy.technicalNeeds ?? [],
+                  tradeoffs: caseStudy.tradeoffs ?? [],
+                  highlights: highlights ?? [],
                 }
               : null;
             return (
               <div
                 role="contentinfo"
-                class="project-card group relative flex flex-col overflow-hidden rounded-xl border border-white/10 bg-skin-fill/95 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.6)] transition-all duration-300 ease-in-out sm:hover:-translate-y-1 sm:hover:shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)] md:min-h-80"
+                class="project-card group relative flex flex-col overflow-hidden rounded-xl border border-white/10 bg-skin-fill/95 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.6)] transition-all duration-300 ease-in-out sm:hover:-translate-y-1 sm:hover:shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)]"
                 style={`--stack-index: ${index};`}
               >
                 <div class="project-card-glow" aria-hidden="true"></div>
@@ -203,7 +204,7 @@ function capitalize(item: string) {
 
   <!-- DESKTOP TABS -->
   <div
-    class="project-case-dots-header project-case-dots-header-desktop hidden md:flex"
+    class="project-case-dots-header project-case-dots-header-desktop hidden lg:flex"
     role="tablist"
     aria-label="Desktop case study tabs"
   >
@@ -223,7 +224,7 @@ function capitalize(item: string) {
 
   <!-- MOBILE TABS -->
   <div
-    class="project-case-dots-header project-case-dots-header-mobile flex md:hidden"
+    class="project-case-dots-header project-case-dots-header-mobile flex lg:hidden"
     role="tablist"
     aria-label="Mobile case study tabs"
   >
@@ -290,7 +291,7 @@ function capitalize(item: string) {
                               <ul>
                                 {caseStudySections && caseStudySections[sectionKey].length > 0 ? (
                                   caseStudySections[sectionKey].map((item) => (
-                                    <li>{sectionKey === "UX" || sectionKey === "DX" ? capitalize(item) : item}</li>
+                                    <li>{item}</li>
                                   ))
                                 ) : (
                                   <li>No {CASE_STUDY_SECTION_TITLES[sectionKey]} notes provided.</li>
@@ -376,6 +377,7 @@ function capitalize(item: string) {
     );
     const prevButton = projectsRoot.querySelector("[data-projects-prev]");
     const nextButton = projectsRoot.querySelector("[data-projects-next]");
+    const track = projectsRoot.querySelector<HTMLElement>(".projects-track");
     let activeIndex = Math.floor(cards.length / 2);
 
     const applyCoverflow = () => {
@@ -383,25 +385,15 @@ function capitalize(item: string) {
       const total = cards.length;
       const half = Math.floor(total / 2);
       cards.forEach((card, index) => {
-        if (!isDesktop) {
-          card.style.transform = "";
-          card.style.opacity = "";
-          card.style.zIndex = "";
-          card.style.filter = "";
-          card.style.pointerEvents = "";
-          card.classList.toggle("is-active", index === activeIndex);
-          return;
-        }
-
         let offset = index - activeIndex;
         if (total > 0) {
           offset = ((offset + total + half) % total) - half;
         }
         const absOffset = Math.abs(offset);
-        const translateX = offset * 220;
-        const scale = 1 - Math.min(absOffset * 0.12, 0.36);
-        const rotateY = offset * -16;
-        const maxVisible = Math.max(2, Math.min(3, half));
+        const translateX = offset * (isDesktop ? 220 : Math.min(250, (track?.clientWidth ?? window.innerWidth) * 0.67));
+        const scale = 1 - Math.min(absOffset * (isDesktop ? 0.12 : 0.08), isDesktop ? 0.36 : 0.24);
+        const rotateY = offset * (isDesktop ? -12 : -8);
+        const maxVisible = isDesktop ? Math.max(2, Math.min(3, half)) : 1;
         const opacity = absOffset > maxVisible ? 0 : 1 - absOffset * 0.15;
 
         card.style.transform = `translate(-50%, -50%) translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg)`;
@@ -411,7 +403,33 @@ function capitalize(item: string) {
         card.style.pointerEvents = absOffset === 0 ? "auto" : "none";
         card.classList.toggle("is-active", absOffset === 0);
       });
+
+      if (track) {
+        if (isDesktop) {
+          const tallestCard = cards.reduce((height, card) => Math.max(height, card.offsetHeight), 0);
+          track.style.height = `${Math.max(430, tallestCard + 32)}px`;
+        } else {
+          const activeCard = cards[activeIndex];
+          track.style.height = activeCard ? `${Math.max(280, activeCard.offsetHeight + 32)}px` : "";
+        }
+      }
     };
+
+    let swipeStart: { x: number; y: number; pointerId: number } | null = null;
+    track?.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse") return;
+      swipeStart = { x: event.clientX, y: event.clientY, pointerId: event.pointerId };
+      if (event.isTrusted) track.setPointerCapture(event.pointerId);
+    });
+    track?.addEventListener("pointerup", (event) => {
+      if (!swipeStart || swipeStart.pointerId !== event.pointerId) return;
+      const deltaX = event.clientX - swipeStart.x;
+      const deltaY = event.clientY - swipeStart.y;
+      swipeStart = null;
+      if (Math.abs(deltaX) < 45 || Math.abs(deltaX) < Math.abs(deltaY) * 1.2) return;
+      setActiveIndex(activeIndex + (deltaX < 0 ? 1 : -1));
+    });
+    track?.addEventListener("pointercancel", () => { swipeStart = null; });
 
     const clampIndex = (index: number) => {
       if (cards.length === 0) return 0;
@@ -438,7 +456,7 @@ function capitalize(item: string) {
     });
 
     const getActiveTabConfig = (container: HTMLElement) => {
-      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+      const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
       const datasetValue = isDesktop ? container.dataset.caseTabsDesktop : container.dataset.caseTabsMobile;
       if (!datasetValue) return [] as string[][];
       try {
@@ -469,7 +487,7 @@ function capitalize(item: string) {
         section.classList.toggle("is-active", isVisible);
       });
 
-      const activeBreakpoint = window.matchMedia("(min-width: 768px)").matches ? "desktop" : "mobile";
+      const activeBreakpoint = window.matchMedia("(min-width: 1024px)").matches ? "desktop" : "mobile";
       const dots = card.querySelectorAll<HTMLButtonElement>(".project-case-dot-header");
       dots.forEach((dot) => {
         const dotBreakpoint = dot.dataset.tabBreakpoint;
@@ -478,6 +496,39 @@ function capitalize(item: string) {
         const isActiveDot = isCurrentBreakpoint && dotIndex === normalizedTab;
         dot.classList.toggle("is-active", isActiveDot);
         dot.setAttribute("aria-selected", String(isActiveDot));
+      });
+    };
+
+    const syncCardHeights = () => {
+      cards.forEach((card) => card.style.removeProperty("--project-card-height"));
+
+      let sharedHeight = 0;
+      cards.forEach((card) => {
+        const container = card.querySelector<HTMLElement>(".project-case-container");
+        if (!container) {
+          sharedHeight = Math.max(sharedHeight, card.offsetHeight);
+          return;
+        }
+
+        const wasFlipped = card.classList.contains("is-flipped");
+        const selectedTab = Number(container.dataset.activeTab ?? "0");
+        const tabCount = getActiveTabConfig(container).length;
+
+        card.classList.remove("is-flipped");
+        sharedHeight = Math.max(sharedHeight, card.offsetHeight);
+        card.classList.add("is-flipped");
+
+        for (let tabIndex = 0; tabIndex < tabCount; tabIndex += 1) {
+          updateCaseStudyView(card, tabIndex);
+          sharedHeight = Math.max(sharedHeight, card.offsetHeight);
+        }
+
+        if (!wasFlipped) card.classList.remove("is-flipped");
+        updateCaseStudyView(card, selectedTab);
+      });
+
+      cards.forEach((card) => {
+        card.style.setProperty("--project-card-height", `${sharedHeight}px`);
       });
     };
 
@@ -491,6 +542,7 @@ function capitalize(item: string) {
         if (!card.classList.contains("is-flipped")) {
           updateCaseStudyView(card, 0);
         }
+        requestAnimationFrame(applyCoverflow);
       });
     });
 
@@ -508,6 +560,7 @@ function capitalize(item: string) {
         const currentTab = Number(caseStudyContainer.dataset.activeTab ?? "0");
         const nextTab = (currentTab + direction + tabCount) % tabCount;
         updateCaseStudyView(card, nextTab);
+        requestAnimationFrame(applyCoverflow);
       };
 
       previousTabButton?.addEventListener("click", (event) => {
@@ -526,6 +579,8 @@ function capitalize(item: string) {
         if (!stackList) return;
         stackList.dataset.expanded = stackList.dataset.expanded === "true" ? "false" : "true";
         updateStackVisibility(card);
+        syncCardHeights();
+        requestAnimationFrame(applyCoverflow);
       });
     });
 
@@ -535,17 +590,24 @@ function capitalize(item: string) {
         const card = (event.target as HTMLElement).closest<HTMLElement>(".project-card");
         if (!card) return;
         updateCaseStudyView(card, Number(dot.dataset.tabIndex ?? "0"));
+        requestAnimationFrame(applyCoverflow);
       });
     });
 
     window.addEventListener("resize", () => {
-      applyCoverflow();
       projectsRoot.querySelectorAll<HTMLElement>(".project-card").forEach((card) => {
         updateCaseStudyView(card);
         updateStackVisibility(card);
       });
+      syncCardHeights();
+      applyCoverflow();
     });
+    syncCardHeights();
     applyCoverflow();
+    document.fonts?.ready.then(() => {
+      syncCardHeights();
+      applyCoverflow();
+    });
     // ensure keyboard is disabled initially
     disableKeyboard();
   }
@@ -586,9 +648,10 @@ function capitalize(item: string) {
   .project-card-shell {
     position: relative;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+    min-height: var(--project-card-height, 0px);
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     will-change: transform;
@@ -600,11 +663,13 @@ function capitalize(item: string) {
   }
 
   .project-card-face {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    grid-area: 1 / 1;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    width: 100%;
+    min-width: 0;
+    height: auto;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -620,6 +685,7 @@ function capitalize(item: string) {
   }
 
   .project-card-back {
+    position: relative;
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     background: rgba(10, 14, 24, 0.45);
@@ -806,7 +872,7 @@ function capitalize(item: string) {
 }
 
 /* Desktop breakpoint */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .project-case-dots-header-mobile {
     display: none;
   }
@@ -921,14 +987,19 @@ function capitalize(item: string) {
 
   @media (max-width: 767px) {
     .projects-track {
-      gap: 24px;
+      min-height: 280px;
       padding-bottom: 0;
+      touch-action: pan-y;
     }
 
     .project-card {
-      position: relative;
-      top: auto;
-      transform: none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: calc(100% - 36px);
+      max-width: 540px;
+      transform-style: preserve-3d;
+      transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
     }
 
     .project-card-shell {
@@ -986,11 +1057,19 @@ function capitalize(item: string) {
       top: 50%;
       width: min(540px, 70vw);
       transform-style: preserve-3d;
-      transition: transform 400ms ease, opacity 300ms ease;
+      transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
     }
+  }
 
+  @media (min-width: 1024px) {
     .project-case-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-card {
+      transition-duration: 0.01ms;
     }
   }
 </style>
